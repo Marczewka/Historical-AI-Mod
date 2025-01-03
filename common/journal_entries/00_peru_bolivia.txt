@@ -21,6 +21,7 @@
 				limit = {
 					c:BOL ?= this
 					government_legitimacy >= 50
+					is_at_war = no
 				}
 				change_global_variable = {
 					name = peru_bolivia_var
@@ -38,15 +39,15 @@
 		OR = {
 			c:SPU ?= {
 				is_subject_of = c:BOL
+				is_subject_type = subject_type_puppet
 			}
 			c:NPU ?= {
 				is_subject_of = c:BOL
-			}
-			c:IQU ?= {
-				is_subject_of = c:BOL
+				is_subject_type = subject_type_puppet
 			}
 			c:PEU ?= {
 				is_subject_of = c:BOL
+				is_subject_type = subject_type_puppet
 			}
 		}
 		custom_tooltip = {
@@ -63,6 +64,7 @@
 				}
 			}
 		}
+		is_at_war = no
 	}
 
 	on_complete = {
@@ -86,15 +88,15 @@
 		OR = {
 			c:SPU ?= {
 				is_subject_of = c:BOL
+				is_subject_type = subject_type_puppet
 			}
 			c:NPU ?= {
 				is_subject_of = c:BOL
-			}
-			c:IQU ?= {
-				is_subject_of = c:BOL
+				is_subject_type = subject_type_puppet
 			}
 			c:PEU ?= {
 				is_subject_of = c:BOL
+				is_subject_type = subject_type_puppet
 			}
 		}
 		NOT = {
@@ -103,6 +105,7 @@
 				has_revolution = yes
 			}
 		}
+		is_at_war = no
 	}
 
 	fail = {
@@ -116,7 +119,9 @@
 						exists = c:SPU
 					}
 					c:SPU ?= {
-						NOT = { is_subject_of = c:BOL }
+						OR = {
+							NOT = { is_subject_of = c:BOL }
+						}
 					}
 				}
 				OR = {
@@ -124,15 +129,9 @@
 						exists = c:NPU
 					}
 					c:NPU ?= {
-						NOT = { is_subject_of = c:BOL }
-					}
-				}
-				OR = {
-					NOT = {
-						exists = c:IQU
-					}
-					c:IQU ?= {
-						NOT = { is_subject_of = c:BOL }
+						OR = {
+							NOT = { is_subject_of = c:BOL }
+						}
 					}
 				}
 				OR = {
@@ -140,12 +139,16 @@
 						exists = c:PEU
 					}
 					c:PEU ?= {
-						NOT = { is_subject_of = c:BOL }
+						OR = {
+							NOT = { is_subject_of = c:BOL }
+						}
 					}
 				}
 			}
-			NOT = {
-				country_has_primary_culture = cu:south_andean
+			c:BOL ?= {
+				NOT = {
+					country_has_primary_culture = cu:south_andean
+				}
 			}
 			c:BOL ?= {
 				is_subject = yes
@@ -361,6 +364,7 @@ je_war_of_the_confederation = {
 	}
 
 	on_complete = {
+		remove_variable = war_of_the_confederation_attacker
 		custom_tooltip = {
 			text = peru_bolivia_complete_tt
 			if = {

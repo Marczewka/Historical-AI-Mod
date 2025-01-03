@@ -1,10 +1,10 @@
 {
   "name" : "Historical AI Mod",
   "id" : "",
-  "version" : "",
-  "supported_game_version" : "",
+  "version" : "1.0",
+  "supported_game_version" : "1.8.6",
   "short_description" : "",
-  "tags" : ["Fixes"],
+  "tags" : ["Fixes", "Balance"],
   "relationships" : [],
   "game_custom_data" : {
     "multiplayer_synchronized" : true
