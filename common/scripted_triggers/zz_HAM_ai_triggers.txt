@@ -286,3 +286,143 @@ has_je_conquest_reason = {
 		}		
 	}
 }
+
+has_je_befriend_reason = {
+	can_reach_target_country = yes
+	country_rank <= $TARGET$.country_rank
+	
+	OR = {
+		AND = {
+			THIS = {
+				has_journal_entry = je_texas_tex
+			}
+			$TARGET$ = { has_journal_entry = je_texas_usa }			
+		}
+
+		AND = {
+			exists = c:RSM
+			THIS = {
+				has_journal_entry = je_risorgimento
+			}
+			has_variable = rsm_friendship
+		}
+		
+		AND = {
+			has_journal_entry = je_oregon
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_WASHINGTON
+						state_region = s:STATE_IDAHO
+						state_region = s:STATE_OREGON
+					}
+				}
+			}
+		}
+
+		AND = {
+			c:GBR ?= this
+			$TARGET$ = { has_journal_entry = je_oregon }			
+		}			
+	
+		AND = {
+			c:GBR ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_GBR
+			}
+		}
+		
+		AND = {
+			c:RUS ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_RUS
+			}
+		}
+		
+		AND = {
+			has_variable = sided_with_korean_gov
+			scope:target_country = {
+				country_has_primary_culture = cu:korean
+				is_revolutionary = no
+			}
+		}
+
+		AND = {
+			has_variable = sided_with_korean_rebels
+			scope:target_country = {
+				country_has_primary_culture = cu:korean
+				is_revolutionary = yes
+			}
+		}			
+	}	
+}
+
+has_je_protect_reason = {
+	can_reach_target_country = yes
+	country_rank > $TARGET$.country_rank
+	
+	OR = {
+		AND = {
+			THIS = {
+				has_journal_entry = je_texas_usa
+			}
+			$TARGET$ = { has_journal_entry = je_texas_tex }			
+		}
+
+		AND = {
+			exists = c:RSM
+			THIS = {
+				has_journal_entry = je_risorgimento
+			}
+			has_variable = rsm_friendship
+		}
+	
+		AND = {
+			c:GBR ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_GBR
+			}
+		}
+		
+		AND = {
+			c:RUS ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_RUS
+			}
+		}
+		
+		AND = {
+			c:GBR ?= this
+			$TARGET$ = {
+				has_modifier = modifier_south_persia_rifles
+			}
+		}
+		
+		AND = {
+			c:RUS ?= this
+			$TARGET$ = {
+				has_modifier = modifier_persian_cossack_brigade
+			}
+		}
+
+		AND = {
+			has_variable = sided_with_korean_gov
+			scope:target_country = {
+				country_has_primary_culture = cu:korean
+				is_revolutionary = no
+			}
+		}
+
+		AND = {
+			has_variable = sided_with_korean_rebels
+			scope:target_country = {
+				country_has_primary_culture = cu:korean
+				is_revolutionary = yes
+			}
+		}			
+	}	
+}

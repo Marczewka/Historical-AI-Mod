@@ -3344,7 +3344,7 @@ ai_strategy_default = {
 	# How much construction output should the AI aim for
 	# Using this value in other strategies will function additively
 	wanted_construction_output = {
-		value = 10 # Accounts for the 10 free construction from base modifiers
+		value = 5 #10 # Accounts for the 10 free construction from base modifiers
 
 		add = {
 			value = investment_pool_income
@@ -3417,7 +3417,7 @@ ai_strategy_default = {
 		}		
 
 		min = 10
-		max = 1000
+		max = 10000
 	}
 	
 	# How many levels of barracks should the AI have
