@@ -67,7 +67,7 @@
 					is_unification_candidate = GER
 				}
 			}
-			add = 10
+			add = 100
 		}
 		else_if = {
 			limit = { 

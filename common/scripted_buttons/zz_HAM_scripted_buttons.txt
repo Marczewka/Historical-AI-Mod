@@ -282,3 +282,50 @@ je_risorgimento_italian_radicals_button = {
 		}
 	}
 }
+
+je_risorgimento_italian_unification_button = {
+	name = "je_risorgimento_italian_unification_button"
+	desc = "je_risorgimento_italian_unification_button_desc"
+
+	visible = { 
+		NOT = {
+			is_subject = yes
+		}
+	}
+
+	possible = {
+		has_variable = risorgimento_unifying_stance
+		any_neighbouring_state = {
+			owner = {
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+				OR = {
+					is_subject = no
+					is_subject_of = ROOT
+				}
+				OR = {
+					this.gdp < root.gdp
+					root = { is_player = yes }
+				}
+				country_rank <= rank_value:minor_power
+				relations:root >= relations_threshold:amicable
+				is_player = no
+				NOT = { has_variable = italian_minor_dont_annex }
+				custom_tooltip = {
+					text = risorgimento_unifying_stance_tt
+					has_variable = risorgimento_unifying_stance
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 100
+	}
+
+	effect = {
+		trigger_event = { id = italian_unification.2 popup = yes }
+	}
+}

@@ -1,16 +1,21 @@
 ﻿COUNTRIES = {
     c:TUR ?= {
-        activate_law = law_type:law_tenant_farmers
-        activate_law = law_type:law_freedom_of_conscience
-        activate_law = law_type:law_racial_segregation
+      set_military_wage_level = medium
+      activate_law = law_type:law_tenant_farmers
+      activate_law = law_type:law_freedom_of_conscience
+      activate_law = law_type:law_racial_segregation
     }
     c:MEX ?= {
-        set_institution_investment_level = {
-			institution = institution_colonial_affairs
-			level = 2
-		}
+      set_institution_investment_level = {
+        institution = institution_colonial_affairs
+        level = 2
+      }
     }
     c:CHL ?= {
-		activate_law = law_type:law_no_colonial_affairs
+		  activate_law = law_type:law_no_colonial_affairs
+    }
+    c:BIC ?= {
+      set_military_wage_level = medium
+      set_government_wage_level = low
     }
 }

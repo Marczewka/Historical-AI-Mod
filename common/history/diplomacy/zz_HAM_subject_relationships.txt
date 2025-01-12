@@ -12,5 +12,12 @@
 			country = c:LUB
 			type = protectorate
 		}
-	}	
+	}
+
+	c:NET ?= {	
+		create_diplomatic_pact = {
+			country = c:DEI
+			type = colony
+		}
+	}
 }

@@ -180,18 +180,6 @@ je_alaska = {
 							is_country_type = decentralized
 						}
 						relations:root >= relations_threshold:poor
-						OR = {
-							custom_tooltip = {
-								text = unfriendly_nation_with_interest_in_alaska_tt
-								any_country = {
-									country_rank >= prev.country_rank
-									NOT = { this = prev }
-									has_interest_marker_in_region = sr:region_pacific_coast
-									relations:prev < relations_threshold:cordial
-								}
-							}
-							scaled_debt > 0
-						}
 					}
 				}
 			}

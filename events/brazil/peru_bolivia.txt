@@ -511,7 +511,7 @@ peru_bolivia_events.4 = {
 		}
 		add_modifier = {
 			name = modifier_against_the_confederation
-			months = short_modifier_time
+			months = normal_modifier_time
 		}
 		hidden_effect = {
 			c:BOL ?= {

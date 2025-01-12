@@ -1,0 +1,26 @@
+﻿# Why do some state entries have quote marks around them, when others don't?
+# It's because of differing methods of editing throughout the production of the game. Quote marks are unnecessary, but harmless if present.
+
+STATES = {
+	s:STATE_WESTERN_NEW_GUINEA = {
+		add_claim = c:DEI
+	}
+	s:STATE_PATAGONIA = { 	
+		remove_claim = c:CHL
+	}
+	s:STATE_ARAUCANIA = {	
+		remove_claim = c:ARG
+	}
+	s:STATE_ALTO_PARAGUAY = {
+		add_claim = c:PRG
+	}
+	s:STATE_CHACO = {
+		add_claim = c:ARG	
+	}
+	s:STATE_SANTA_FE = {
+		add_claim = c:ARG
+	}
+	s:STATE_COLORADO = {
+		add_claim = c:USA
+	}
+}
