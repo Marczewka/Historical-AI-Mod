@@ -1,4 +1,4 @@
-ai_strongly_desires_target_state = {
+﻿ai_strongly_desires_target_state = {
 	OR = {
 		has_secret_goal = { # AI wants to conquer the state owner
 			who = scope:target_state.owner
@@ -66,8 +66,10 @@ has_je_conquest_reason = {
 		}
 
 		AND = {
-			has_variable = war_of_the_confederation_attackera
-			$TARGET$ = has_journal_entry = je_peru_bolivia
+			has_variable = war_of_the_confederation_attacker
+			$TARGET$ = {
+				has_journal_entry = je_peru_bolivia
+			}
 		}
 
 		AND = {
@@ -144,6 +146,7 @@ has_je_conquest_reason = {
 						state_region = s:STATE_TEXAS
 					}
 				}
+				NOT = { has_journal_entry = je_texas_tex }	
 			}
 		}
 
@@ -232,22 +235,17 @@ has_je_conquest_reason = {
 					}
 				}
 			}
-			can_reach_target_country = yes
 		}			
 		
 		AND = {
 			has_journal_entry = je_unify_afghanistan
-			is_afghan_nation = yes
 			$TARGET$ = {
-				OR = {
-					is_afghan_nation = yes
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_KABUL
-							state_region = s:STATE_HERAT
-							state_region = s:STATE_KANDAHAR
-							state_region = s:STATE_CENTRAL_HIGHLANDS
-						}
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_KABUL
+						state_region = s:STATE_HERAT
+						state_region = s:STATE_KANDAHAR
+						state_region = s:STATE_CENTRAL_HIGHLANDS
 					}
 				}
 			}

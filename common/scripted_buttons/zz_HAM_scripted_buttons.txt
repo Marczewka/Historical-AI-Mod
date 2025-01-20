@@ -1,4 +1,4 @@
-je_sell_alaska_button = {
+﻿je_sell_alaska_button = {
 	name = "je_sell_alaska_button"
 	desc = "je_sell_alaska_button_desc"
 
@@ -311,7 +311,6 @@ je_risorgimento_italian_unification_button = {
 				}
 				country_rank <= rank_value:minor_power
 				relations:root >= relations_threshold:amicable
-				is_player = no
 				NOT = { has_variable = italian_minor_dont_annex }
 				custom_tooltip = {
 					text = risorgimento_unifying_stance_tt

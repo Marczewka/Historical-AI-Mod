@@ -20,7 +20,8 @@ STATES = {
 	s:STATE_SANTA_FE = {
 		add_claim = c:ARG
 	}
-	s:STATE_COLORADO = {
-		add_claim = c:USA
+	# Because Great Britain can't help
+	s:STATE_HERAT = {
+		remove_claim = c:PER
 	}
 }

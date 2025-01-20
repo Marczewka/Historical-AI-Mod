@@ -1110,7 +1110,7 @@ ai_strategy_default = {
 					limit = {
 						scope:target_state = { is_homeland_of_country_cultures = root }
 					}
-					multiply = 1.5
+					multiply = 2
 				}				
 			}
 		
@@ -1256,10 +1256,15 @@ ai_strategy_default = {
 				limit = {
 					has_journal_entry = je_unify_afghanistan
 					scope:target_state = {
-						is_homeland_of_country_cultures = root
+						OR = {
+							state_region = s:STATE_KABUL
+							state_region = s:STATE_HERAT
+							state_region = s:STATE_KANDAHAR
+							state_region = s:STATE_CENTRAL_HIGHLANDS
+						}
 					}
 				}
-				add = 75
+				add = 1000
 			}
 
 			if = {
@@ -2366,7 +2371,6 @@ ai_strategy_default = {
 						has_state_in_state_region = STATE_KANSAS
 						has_state_in_state_region = STATE_OKLAHOMA # if they somehow lose it
 					}
-					NOT = { country_has_primary_culture = cu:dixie }
 				}
 			}
 			add = 1
@@ -2383,7 +2387,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 1.0
+			add = 1
 		}		
 		
 		# Schleswig-Holstein question
@@ -2451,7 +2455,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 3
+			add = 1
 		}
 		
 		# Persia
@@ -2464,7 +2468,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 5
+			add = 1
 		}
 
 		#Taiping
@@ -2697,7 +2701,7 @@ ai_strategy_default = {
 							state_region = s:STATE_OKLAHOMA # if they somehow lose it	
 						}
 					}
-					NOT = { country_has_primary_culture = cu:dixie }
+					NOT = { has_journal_entry = je_texas_tex }	
 				}
 			}
 			add = 200
@@ -3279,7 +3283,7 @@ ai_strategy_default = {
 			add = 25
 		}
 
-		# Afghan Consolidation
+		# Afghan Unification
 		if = {
 			limit = {
 				has_journal_entry = je_unify_afghanistan
@@ -3295,7 +3299,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 35
+			add = 100
 		}
 
         # Neutral Switzerland

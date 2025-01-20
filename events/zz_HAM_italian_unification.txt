@@ -37,7 +37,6 @@ italian_unification.2 = {
 				}
 				country_rank <= rank_value:minor_power
 				relations:root >= relations_threshold:amicable
-				is_player = no
 				NOT = { has_variable = italian_minor_dont_annex }
 				has_variable = risorgimento_unifying_stance
 			}
@@ -61,7 +60,6 @@ italian_unification.2 = {
 						root = { is_player = yes }
 					}
 					country_rank <= rank_value:minor_power
-					country_prestige >= root.country_rank
 					relations:root >= relations_threshold:amicable
 					is_player = no
 					NOT = { has_variable = italian_minor_dont_annex }

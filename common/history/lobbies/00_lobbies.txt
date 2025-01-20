@@ -1,4 +1,4 @@
-LOBBIES = {
+﻿LOBBIES = {
 	c:AUS = {
 		create_political_lobby = {  
 			type = lobby_anti_country  
