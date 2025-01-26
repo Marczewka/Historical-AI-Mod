@@ -299,37 +299,45 @@ has_je_befriend_reason = {
 	
 	OR = {
 		AND = {
-			THIS = {
-				has_journal_entry = je_texas_tex
-			}
+			has_journal_entry = je_texas_tex
 			$TARGET$ = { has_journal_entry = je_texas_usa }			
 		}
 
 		AND = {
-			exists = c:RSM
-			THIS = {
-				has_journal_entry = je_risorgimento
-			}
-			has_variable = rsm_friendship
+			has_journal_entry = je_sale_of_alaska
+			$TARGET$ = { 
+				NOT = { is_subject = yes }
+				NOT = { this = root }
+				country_is_in_north_america = yes
+				relations:root > relations_threshold:cold
+				country_rank >= rank_value:great_power
+				any_scope_state = {
+					region = sr:region_pacific_coast
+					is_incorporated = yes
+				} 
+			}			
+		}
+
+		AND = {
+			has_journal_entry = je_alaska
+			$TARGET$ = { c:RUS ?= this }			
+		}
+
+		AND = {
+			has_journal_entry = je_risorgimento
+			has_variable = risorgimento_unifying_stance
+			$TARGET$ = { has_variable = risorgimento_unifying_stance }
 		}
 		
 		AND = {
 			has_journal_entry = je_oregon
-			$TARGET$ = {
-				any_scope_state = {
-					OR = {
-						state_region = s:STATE_WASHINGTON
-						state_region = s:STATE_IDAHO
-						state_region = s:STATE_OREGON
-					}
-				}
-			}
+			$TARGET$ = { c:GBR ?= this }
 		}
 
 		AND = {
 			c:GBR ?= this
 			$TARGET$ = { has_journal_entry = je_oregon }			
-		}			
+		}		
 	
 		AND = {
 			c:GBR ?= this
@@ -371,18 +379,14 @@ has_je_protect_reason = {
 	
 	OR = {
 		AND = {
-			THIS = {
-				has_journal_entry = je_texas_usa
-			}
+			has_journal_entry = je_texas_usa
 			$TARGET$ = { has_journal_entry = je_texas_tex }			
 		}
 
 		AND = {
-			exists = c:RSM
-			THIS = {
-				has_journal_entry = je_risorgimento
-			}
-			has_variable = rsm_friendship
+			has_journal_entry = je_risorgimento
+			has_variable = risorgimento_unifying_stance
+			$TARGET$ = { has_variable = risorgimento_unifying_stance }
 		}
 	
 		AND = {

@@ -29,7 +29,7 @@
                     country_rank >= rank_value:great_power
                     NOT = { has_war_with = ROOT }
                     has_interest_marker_in_region = ROOT.capital.region
-                    relations:ROOT < relations_threshold:neutral
+                    relations:ROOT <= relations_threshold:poor
                 }
             }
         }

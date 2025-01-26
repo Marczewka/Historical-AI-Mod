@@ -9,7 +9,7 @@
 				has_interest_marker_in_region = region_pacific_coast
 				has_technology_researched = nationalism
 				c:GBR = {
-					relations:ROOT >= relations_threshold:neutral
+					relations:ROOT > relations_threshold:poor
 				}
 			}
 			AND = {

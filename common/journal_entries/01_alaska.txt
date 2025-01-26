@@ -48,7 +48,7 @@
 					is_subject = yes
 				}
 				country_is_in_north_america = yes
-				relations:root >= relations_threshold:neutral
+				relations:root > relations_threshold:poor
 				country_rank >= rank_value:great_power
 				any_scope_state = {
 					region = sr:region_pacific_coast
@@ -121,7 +121,6 @@ je_alaska = {
 
 	is_shown_when_inactive = {
 		has_interest_marker_in_region = region_pacific_coast
-		has_technology_researched = nationalism
 	}
 
 	scripted_button = je_buy_alaska_button
@@ -173,7 +172,21 @@ je_alaska = {
 	}
 
 	fail = {
-
+		OR ={
+			scope:alaska_overlord = {
+				relations:root <= relations_threshold:cold
+			}
+			scope:alaska_overlord = {
+				NOT = {
+				OR = {
+						has_state_in_state_region = STATE_ALASKA
+						any_subject_or_below = {
+							has_state_in_state_region = STATE_ALASKA
+					}
+				}
+				}
+			}
+		}
 	}
 
 	on_complete = {

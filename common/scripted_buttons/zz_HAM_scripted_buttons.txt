@@ -63,7 +63,7 @@
 				NOT = { is_subject = yes }
 				NOT = { this = root }
 				country_is_in_north_america = yes
-				relations:root >= relations_threshold:neutral
+				relations:root > relations_threshold:poor
 				country_rank >= rank_value:great_power
 				any_scope_state = {
 					region = sr:region_pacific_coast
@@ -84,7 +84,7 @@
 				NOT = { is_subject = yes }
 				NOT = { this = root }
 				country_is_in_north_america = yes
-				relations:root >= relations_threshold:neutral
+				relations:root > relations_threshold:poor
 				country_rank >= rank_value:great_power
 				any_scope_state = {
 					region = sr:region_pacific_coast
@@ -117,7 +117,7 @@ je_buy_alaska_button = {
 		}
 		is_subject = no
 		scope:alaska_overlord = {
-			relations:root >= relations_threshold:neutral
+			relations:root > relations_threshold:poor
 		}
 		scope:alaska_overlord = {
 			OR = {
@@ -288,7 +288,6 @@ je_risorgimento_italian_unification_button = {
 	}
 
 	possible = {
-		has_variable = risorgimento_unifying_stance
 		any_neighbouring_state = {
 			owner = {
 				OR = {
@@ -299,18 +298,28 @@ je_risorgimento_italian_unification_button = {
 					is_subject = no
 					is_subject_of = ROOT
 				}
-				OR = {
-					this.gdp < root.gdp
-					root = { is_player = yes }
+				hidden_trigger = {
+					OR = {
+						this.gdp < root.gdp
+						root = { is_player = yes }
+					}
 				}
 				country_rank <= rank_value:minor_power
 				relations:root >= relations_threshold:amicable
-				NOT = { has_variable = italian_minor_dont_annex }
+				custom_tooltip = {
+					text = italian_minor_dont_annex_tt
+					NOT = { has_variable = italian_minor_dont_annex }
+
+				}
 				custom_tooltip = {
 					text = risorgimento_unifying_stance_tt
 					has_variable = risorgimento_unifying_stance
 				}
 			}
+		}
+		custom_tooltip = {
+			text = risorgimento_unifying_stance_tt
+			has_variable = risorgimento_unifying_stance
 		}
 	}
 

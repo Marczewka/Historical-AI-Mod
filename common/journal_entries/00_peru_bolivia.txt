@@ -119,7 +119,7 @@
 					}
 					c:SPU ?= {
 						OR = {
-							NOT = { is_subject_of = c:BOL }
+						NOT = { is_subject_of = c:BOL }
 						}
 					}
 				}
@@ -129,8 +129,8 @@
 					}
 					c:NPU ?= {
 						OR = {
-							NOT = { is_subject_of = c:BOL }
-						}
+						NOT = { is_subject_of = c:BOL }
+					}
 					}
 				}
 				OR = {
@@ -139,14 +139,14 @@
 					}
 					c:PEU ?= {
 						OR = {
-							NOT = { is_subject_of = c:BOL }
+						NOT = { is_subject_of = c:BOL }
 						}
 					}
 				}
 			}
 			c:BOL ?= {
-				NOT = {
-					country_has_primary_culture = cu:south_andean
+			NOT = {
+				country_has_primary_culture = cu:south_andean
 				}
 			}
 			c:BOL ?= {

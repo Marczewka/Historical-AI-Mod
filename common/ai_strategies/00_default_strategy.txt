@@ -2533,7 +2533,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 100
+			add = 300
 		}
 		
 		# Opium wars aggressor should be very, very aggressive against target if they're banning opium
@@ -2545,7 +2545,7 @@ ai_strategy_default = {
 					is_banning_goods = g:opium
 				}
 			}
-			add = 100
+			add = 300
 		}
 		
 		# Greek Nationalism
@@ -2575,7 +2575,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 100
+			add = 300
 		}		
 
 		if = { #Carving up China
@@ -2608,7 +2608,7 @@ ai_strategy_default = {
 					THIS = c:EGY
 				}
 			}
-			add = 100
+			add = 300
 		}
 
 		# USA should be extremely aggressive against owners of their Manifest Destiny states
@@ -2632,7 +2632,7 @@ ai_strategy_default = {
 					NOT = { has_journal_entry = je_texas_tex }	
 				}
 			}
-			add = 100
+			add = 300
 		}
 
 		# Extra french aggression for Haiti renouncing debt payments
@@ -2646,7 +2646,7 @@ ai_strategy_default = {
 					}
 				}				
 			}
-			add = 100
+			add = 300
 		}
 
 		# Even more aggression if you have the War of the Confederation JE
@@ -2657,7 +2657,7 @@ ai_strategy_default = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 100
+			add = 300
 		}
 
 		# East India Company vs its neighbors
