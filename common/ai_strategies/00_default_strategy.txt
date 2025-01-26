@@ -281,10 +281,10 @@ ai_strategy_default = {
 					}
 				}
 				OR = {
-					has_strategic_adjacency = scope:country
+					has_strategic_land_adjacency = scope:country
 					AND = {
 						has_port = yes 
-						navy_size >= 10
+						navy_size >= scope:target_country.navy_size
 						scope:country = { has_port = yes }
 					}
 				}
@@ -1470,7 +1470,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				multiply = 0.1
+				multiply = 0.5
 			}
 			
 			if = { #Do Not Take Chinese States In Full, unless another power has already done so
