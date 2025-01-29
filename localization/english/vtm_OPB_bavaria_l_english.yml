@@ -69,7 +69,7 @@
  peoples_springtime.113.a:0 "The old order prevails!"
 
  peoples_springtime.120.t:0 "Whispers of Insurrection"
- peoples_springtime.120_1.d:1 "The citizens of [SCOPE.sState('generic_nationalist_state_scope').GetCityHubName] are conspiring against us! The local [SCOPE.sCulture('discriminated_culture_scope').GetName] fraternities are, or so our governor tells us, organizing an open rebellion."
+ peoples_springtime.120.d:1 "The citizens of [SCOPE.sState('generic_nationalist_state_scope').GetCityHubName] are conspiring against us! The local [SCOPE.sCulture('discriminated_culture_scope').GetName] fraternities are, or so our governor tells us, organizing an open rebellion."
  peoples_springtime.120.f:0 ""Heaven bless our common struggle to become a single people full of the virtues of fathers and brothers, through love and unity eliminating the weaknesses and faults of both.""
  peoples_springtime.120.a:0 "These youngsters couldn't harm a butterfly!"
  peoples_springtime.120.b:0 "They are a serious threat. Arrest their leaders."

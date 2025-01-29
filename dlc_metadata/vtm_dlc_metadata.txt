@@ -1,6 +1,0 @@
-﻿dlc_vtm = {
-	name = "VTM"
-	steam_id = "529340"
-	type = minor
-	priority = 0
-}

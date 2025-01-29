@@ -423,6 +423,7 @@ combat_unit_type_cannon_artillery = {
         combat_unit_type_mobile_artillery
         combat_unit_type_shrapnel_artillery
         combat_unit_type_siege_artillery
+		combat_unit_type_heavy_tank
     }
 }
 
@@ -490,6 +491,7 @@ combat_unit_type_mobile_artillery = {
     upgrades = {
         combat_unit_type_shrapnel_artillery
         combat_unit_type_siege_artillery
+		combat_unit_type_heavy_tank
     }
 }
 
@@ -557,6 +559,7 @@ combat_unit_type_shrapnel_artillery = {
 
     upgrades = {
         combat_unit_type_siege_artillery
+		combat_unit_type_heavy_tank
     }
 }
 
@@ -621,6 +624,10 @@ combat_unit_type_siege_artillery = {
     combat_unit_image = {
         # fallback
         texture = "gfx/unit_illustrations/artillery_eu_siege.dds"
+    }
+
+    upgrades = {
+		combat_unit_type_heavy_tank
     }
 }
 
@@ -727,6 +734,7 @@ combat_unit_type_hussars = {
         combat_unit_type_dragoons
         combat_unit_type_cuirassiers
         combat_unit_type_lancers
+		combat_unit_type_light_tanks
     }
 }
 
@@ -790,6 +798,7 @@ combat_unit_type_dragoons = {
     upgrades = {
         combat_unit_type_cuirassiers
         combat_unit_type_lancers
+		combat_unit_type_light_tanks
     }
 }
 
@@ -852,6 +861,7 @@ combat_unit_type_cuirassiers = {
     upgrades = {
         combat_unit_type_dragoons
         combat_unit_type_lancers
+		combat_unit_type_light_tanks
     }
 }
 
@@ -917,6 +927,7 @@ combat_unit_type_lancers = {
     upgrades = {
         combat_unit_type_dragoons
         combat_unit_type_cuirassiers
+        combat_unit_type_light_tanks
     }
 }
 
@@ -970,7 +981,7 @@ combat_unit_type_frigate = {
     battle_modifier = {
         unit_offense_add = 10
         unit_defense_add = 15
-        unit_morale_loss_add = 20 #was 10
+        unit_morale_loss_add = 10
     }
 
 	unlocking_technologies = { navigation }
@@ -983,6 +994,7 @@ combat_unit_type_frigate = {
 		combat_unit_type_monitor
         combat_unit_type_destroyer
 		combat_unit_type_torpedo_boat
+		combat_unit_type_scout_cruiser
 	}
 }
 
@@ -998,7 +1010,7 @@ combat_unit_type_monitor = {
     battle_modifier = {
         unit_offense_add = 20
         unit_defense_add = 30
-        unit_morale_loss_add = 16 #was 8
+		unit_morale_loss_add = 8
 	    unit_convoy_defense_mult = 0.20
     }
 
@@ -1011,6 +1023,12 @@ combat_unit_type_monitor = {
     combat_unit_image = {
         texture = "gfx/unit_illustrations/capital_ships_monitor.dds"
     }
+
+	upgrades = {
+		combat_unit_type_destroyer
+		combat_unit_type_torpedo_boat
+		combat_unit_type_scout_cruiser
+	}
 }
 
 combat_unit_type_destroyer = {
@@ -1025,7 +1043,7 @@ combat_unit_type_destroyer = {
     battle_modifier = {
         unit_offense_add = 30
         unit_defense_add = 40
-        unit_morale_loss_add = 12 #was 6
+		unit_morale_loss_add = 6
         unit_convoy_defense_mult = 0.35
     }
 
@@ -1040,6 +1058,7 @@ combat_unit_type_destroyer = {
 	
 	upgrades = {
 		combat_unit_type_torpedo_boat
+		combat_unit_type_scout_cruiser
 	}
 }
 
@@ -1054,7 +1073,7 @@ combat_unit_type_torpedo_boat = {
     battle_modifier = {
         unit_offense_add = 40
         unit_defense_add = 30
-        unit_morale_loss_add = 16 #was 8
+		unit_morale_loss_add = 8
         unit_convoy_raiding_mult = 0.25
     }
 
@@ -1070,6 +1089,7 @@ combat_unit_type_torpedo_boat = {
 	
 	upgrades = {
 		combat_unit_type_destroyer
+        combat_unit_type_scout_cruiser
 	}
 }
 
@@ -1086,7 +1106,7 @@ combat_unit_type_scout_cruiser = {
     battle_modifier = {
         unit_offense_add = 50
         unit_defense_add = 50
-        unit_morale_loss_add = 12 #was 6
+        unit_morale_loss_add = 6
 		unit_convoy_defense_mult = 0.5
     }
 
@@ -1113,7 +1133,7 @@ combat_unit_type_man_o_war = {
     battle_modifier = {
         unit_offense_add = 25
         unit_defense_add = 25
-        unit_morale_loss_add = 20 #was 10
+		unit_morale_loss_add = 10
         unit_convoy_raiding_mult = -0.5
     }
 
@@ -1125,6 +1145,8 @@ combat_unit_type_man_o_war = {
 	
 	upgrades = {
 		combat_unit_type_ironclad
+		combat_unit_type_dreadnought
+		combat_unit_type_battleship
 	}
 }
 
@@ -1140,7 +1162,7 @@ combat_unit_type_ironclad = {
     battle_modifier = {
         unit_offense_add = 50
         unit_defense_add = 50
-        unit_morale_loss_add = 16 #was 8
+		unit_morale_loss_add = 8
 		unit_convoy_raiding_mult = -0.5
     }
 
@@ -1153,6 +1175,11 @@ combat_unit_type_ironclad = {
     combat_unit_image = {
         texture = "gfx/unit_illustrations/capital_ships_ironclad.dds"
     }
+
+	upgrades = {
+		combat_unit_type_dreadnought
+		combat_unit_type_battleship
+	}
 }
 
 combat_unit_type_dreadnought = {
@@ -1168,7 +1195,7 @@ combat_unit_type_dreadnought = {
     battle_modifier = {
         unit_offense_add = 80
         unit_defense_add = 80
-        unit_morale_loss_add = 12 #was 6
+		unit_morale_loss_add = 6
 		unit_convoy_raiding_mult = -0.5
     }
 
@@ -1180,6 +1207,10 @@ combat_unit_type_dreadnought = {
 
     combat_unit_image = {
         texture = "gfx/unit_illustrations/capital_ships_dreadnought.dds"
+    }
+
+    upgrades = {
+		combat_unit_type_battleship
     }
 }
 
@@ -1196,7 +1227,7 @@ combat_unit_type_battleship = {
     battle_modifier = {
         unit_offense_add = 100
         unit_defense_add = 100
-        unit_morale_loss_add = 8 #was 4
+        unit_morale_loss_add = 4
 		unit_convoy_raiding_mult = -0.5
     }
 
@@ -1226,7 +1257,7 @@ combat_unit_type_submarine = {
     battle_modifier = {
         unit_offense_add = 60
         unit_defense_add = 20
-        unit_morale_loss_add = 16 #was 8
+        unit_morale_loss_add = 8
         unit_convoy_raiding_mult = 1.0
     }
 
@@ -1254,7 +1285,7 @@ combat_unit_type_carrier = {
     battle_modifier = {
         unit_offense_add = 120
         unit_defense_add = 60
-        unit_morale_loss_add = 12 #was 6
+        unit_morale_loss_add = 6
 		unit_convoy_defense_mult = 0.25
     }
 

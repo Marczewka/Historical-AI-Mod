@@ -58,16 +58,6 @@
 		add_modifier = {
 			name = modifier_haitian_independence_payments_4
 		}
-		if = {
-			limit = {
-				NOT = {
-					has_game_rule = leave_france_alone
-				}
-			}
-			add_modifier = {
-				name = 	fra_secular_legacy #URGENT
-			}
-		}
 
 		set_variable = {
 			name = orleanist_restoration_var

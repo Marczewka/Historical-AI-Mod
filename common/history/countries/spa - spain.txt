@@ -55,8 +55,5 @@
 		}
 
 		add_modifier = liberal_alliance
-		set_variable = is_borbon_spain
-
-		add_journal_entry = { type = vtm_je_first_carlist_war }
 	}
 }

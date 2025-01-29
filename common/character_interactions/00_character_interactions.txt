@@ -335,26 +335,27 @@ abdicate_monarch = {
 	possible = {
 		OR = {
 			interest_group = {
-				ig_approval <= angry
-			}
-			interest_group = {
 				is_marginal = yes
 			}
 			popularity <= -50
 			has_trait = psychological_affliction
 			age >= 75
+			# UHM Notes:
+			# trigger_if/else chains within an any block bugs the tooltip
+			# Moving trigger_if outside of any_political_movement is to fix the tt
 			owner ?= {
-				any_political_movement = {
-					is_insurrectionary = yes
-					exists = most_desired_law		
-					trigger_if = {
-						limit = { 
+				trigger_if = {
+					limit = { 
+						any_political_movement = {
 							is_insurrectionary = yes
 							exists = most_desired_law
+							most_desired_law ?= { save_temporary_scope_as = revolutionary_law }
 						}
-						most_desired_law ?= { save_temporary_scope_as = revolutionary_law }
-						custom_tooltip = {	
-							text = ruler_disapproves_of_revolutionary_law						
+					}
+					any_political_movement = {
+						is_insurrectionary = yes
+						custom_tooltip = {
+							text = ruler_disapproves_of_revolutionary_law
 							root = {
 								OR = {
 									law_enactment_stance = {
@@ -369,10 +370,13 @@ abdicate_monarch = {
 									}
 								}
 							}	
-						}						
+						}
 					}
-					trigger_else = {
-						custom_tooltip = ruler_disapproves_of_revolutionary_law_contextless
+				}
+				trigger_else = {
+					custom_tooltip = {
+						text = ruler_disapproves_of_revolutionary_law_contextless
+						always = no
 					}
 				}
 			}
@@ -476,7 +480,6 @@ exile_character = {
 			has_role = politician
 			has_role = agitator
 		}
-		NOT = { has_trait = regent}
 	}
 
 	show_requirements = yes
