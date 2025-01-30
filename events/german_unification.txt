@@ -572,7 +572,6 @@ german_unification.100 = {
 		ai_chance = {
 			base = 1
 		}
-		set_global_variable = aggressive_austria_var
 		add_modifier = {
 			name = partial_german_unification_influence_prestige
 			months = normal_modifier_time

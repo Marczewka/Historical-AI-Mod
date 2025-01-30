@@ -14,7 +14,6 @@
 
         ai_ally_can_advance_front = yes
         ai_subject_can_advance_front = yes
-        ai_special_can_advance_front = yes
     }
 
     modifier = {
@@ -47,7 +46,6 @@ advance_reckless = {
 
         ai_ally_can_advance_front = yes
         ai_subject_can_advance_front = yes
-        ai_special_can_advance_front = yes
     }
 
     modifier = {
@@ -88,7 +86,6 @@ advance_pillager = {
 
         ai_ally_can_advance_front = yes
         ai_subject_can_advance_front = yes
-        ai_special_can_advance_front = yes
     }
 
     modifier = {
@@ -126,7 +123,6 @@ advance_cautious = {
 
         ai_ally_can_advance_front = yes
         ai_subject_can_advance_front = yes
-        ai_special_can_advance_front = yes
     }
 
     modifier = {
@@ -164,7 +160,6 @@ advance_heavy_barrage = {
         }
         ai_ally_can_advance_front = yes
         ai_subject_can_advance_front = yes
-        ai_special_can_advance_front = yes
         trigger_if = {
             limit = {
                 has_role = general
@@ -273,7 +268,6 @@ advance_cavalry_assualt = {
 
         ai_ally_can_advance_front = yes
         ai_subject_can_advance_front = yes
-        ai_special_can_advance_front = yes
 
     }
 
@@ -321,7 +315,6 @@ advance_tank_assualt = {
 
         ai_ally_can_advance_front = yes
         ai_subject_can_advance_front = yes
-        ai_special_can_advance_front = yes
     }
 
     modifier = {

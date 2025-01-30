@@ -626,7 +626,7 @@ peoples_springtime.120 = {
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	title = peoples_springtime.120.t
-	desc = peoples_springtime.120.1.d
+	desc = peoples_springtime.120.d
 	flavor = peoples_springtime.120.f
 
 	trigger = { 
@@ -896,7 +896,7 @@ peoples_springtime.121 = {
 	}
 	option = {
 		name = peoples_springtime.121.c
-		add_radicals_in_state = {
+		add_radicals = {
 			value = large_radicals
 			culture = scope:mob_victim_culture
 		}
