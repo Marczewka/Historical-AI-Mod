@@ -1,0 +1,5 @@
+﻿INTERESTS = {
+	c:USA ?= {
+		add_declared_interest = region_senegal
+	}		
+}	

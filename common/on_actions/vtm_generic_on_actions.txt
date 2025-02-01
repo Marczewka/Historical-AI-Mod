@@ -1,27 +1,27 @@
-﻿# Root = Country
-on_country_formed = {
-	on_actions = {
-		italian_homelands_on_action
-	}
-}
+﻿# # Root = Country
+# on_country_formed = {
+# 	on_actions = {
+# 		italian_homelands_on_action
+# 	}
+# }
 
-italian_homelands_on_action = {
-	effect = {
-		if = {
-			limit = {
-				c:ITA ?= this
-				NOT = {
-					cu:north_italian = {
-						has_homeland = s:STATE_SAVOY
-					}
-				}
-			}
-			s:STATE_SAVOY = {
-				add_homeland = cu:north_italian
-			}
-		}
-	}
-}
+# italian_homelands_on_action = {
+# 	effect = {
+# 		if = {
+# 			limit = {
+# 				c:ITA ?= this
+# 				NOT = {
+# 					cu:north_italian = {
+# 						has_homeland = s:STATE_SAVOY
+# 					}
+# 				}
+# 			}
+# 			s:STATE_SAVOY = {
+# 				add_homeland = cu:north_italian
+# 			}
+# 		}
+# 	}
+# }
 
 # Root = Country
 # scope:target = Uprising country

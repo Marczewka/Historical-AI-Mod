@@ -716,7 +716,7 @@ italian_unification.8 = {
 				country = scope:rsm_revolted_scope
 				secret_goal = antagonize
 			}
-			set_variable = rsm_friendship
+			# set_variable = rsm_friendship
 		}
 		if = {
 			limit = {
