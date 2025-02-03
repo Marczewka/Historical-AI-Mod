@@ -36,17 +36,23 @@
 	}
 
 	fail = {
-		custom_tooltip = {
-			text = central_america_fail_tt
-			any_scope_state = {
-				OR = {
-					state_region = s:STATE_GUATEMALA
-					state_region = s:STATE_HONDURAS
-					state_region = s:STATE_COSTA_RICA
-					state_region = s:STATE_SAN_SALVADOR
-					state_region = s:STATE_NICARAGUA
+		OR = {
+			any_civil_war = {
+				is_civil_war_type = revolution
+				civil_war_progress >= 0.75
+			}
+			custom_tooltip = {
+				text = central_america_fail_tt
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_GUATEMALA
+						state_region = s:STATE_HONDURAS
+						state_region = s:STATE_COSTA_RICA
+						state_region = s:STATE_SAN_SALVADOR
+						state_region = s:STATE_NICARAGUA
+					}
+					count < 3
 				}
-				count < 3
 			}
 		}
 	}

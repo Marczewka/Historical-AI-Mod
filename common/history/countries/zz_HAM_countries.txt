@@ -15,13 +15,8 @@
       set_tax_level = medium
     }
     c:USA ?= {
+      # have to make tariffs viable
       set_tax_level = medium
       add_journal_entry = { type = je_oregon }
-    }
-    c:KOR ?= {
-      set_tax_level = medium
-    }
-    c:CHI ?= {
-      set_tax_level = medium
     }
 }

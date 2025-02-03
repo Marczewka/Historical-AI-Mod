@@ -472,7 +472,7 @@
 			value = political_movement_identity_support
 			add = scope:clout
 			multiply = 3
-			min = 0.05 # 0.15
+			min = 0.15
 			max = 0.75
 		}
 	}
@@ -492,7 +492,7 @@
 		add = {
 			value = "owner.average_sol"
 			subtract = "owner.average_sol_for_culture(scope:culture)"
-			multiply = 0.2 # 0.05
+			multiply = 0.05
 			max = 0.5
 			min = 0
 			desc = "STANDARD_OF_LIVING_FOR_CULTURE"

@@ -24,6 +24,10 @@
 	CHANGE_LAW_CIVIL_WAR_AVERSION_SUBJECT_MULTIPLIER = 20 #5 # Chance that AI stops enacting a law to avoid a civil war is multiplied by this for subjects
 	CHANGE_LAW_CIVIL_WAR_AVERSION_LAW_DIRECTION_FLEXIBILITY = 10 #2 # Revolution aversion is multiplied by this and added to the max progressiveness/regressiveness the AI is willing to stomach to avoid a revolution
 
+	MONEY_SPENDING_INNOVATION_CRITICAL_THRESHOLD = 0.5 # 0.75 # If innovation production compared to cap is worse than this, AI considers it very important to improve
+	MONEY_SPENDING_INNOVATION_DESIRED_THRESHOLD = 1.0 # If innovation production compared to cap is worse than this, AI considers it important to improve
+	
+
 	# Below data is used to calculate AI's desire for peace
 	AI_PEACE_AGREEMENT_BASE_VALUE = -30 #-10
 	AI_PEACE_AGREEMENT_SELF_WARGOAL_MULT = 1.5 # 3.0 # For each wargoal we have that's being pressed, apply wargoal value * this
