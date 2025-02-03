@@ -542,7 +542,7 @@ central_america.3 = {
 		name = central_america.3.a
 		default_option = yes
 		add_radicals = {
-			value = large_radicals
+			value = medium_radicals
 		}
 		scope:secession_country = {
 			change_relations = {
