@@ -111,19 +111,44 @@ NDiplomacy = {
 	SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER = 0.03 # For each SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_FACTOR population in a country/state, multiply maneuvers cost by this
 	SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_PER_STATE = 2.5 # Maneuvers population multiplier can't be higher than this for each state affected
 	SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL = 5 # Maneuvers population multiplier can't be higher than this, regardless of number of states affected
-	SWAY_OFFER_WARGOAL_MANEUVERS_COST_HOMELAND_FACTOR = -0.25 # Maneuvers cost is adjusted by this if the states taken/puppeted etc are Homelands of the aggressor
-	SWAY_OFFER_WARGOAL_MANEUVERS_COST_UNINCORPORATED_FACTOR = -0.5 # Maneuvers cost is adjusted by this if the states taken/puppeted etc are unincorporated
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_HOMELAND_FACTOR = -0.4 # -0.25 # Maneuvers cost is adjusted by this if the states taken/puppeted etc are Homelands of the aggressor
+	SWAY_OFFER_WARGOAL_MANEUVERS_COST_UNINCORPORATED_FACTOR = - 0.4 # -0.5 # Maneuvers cost is adjusted by this if the states taken/puppeted etc are unincorporated
 
 	MAKE_WARGOAL_PRIMARY_DEMAND_MANEUVERS_COST = 0.25 #0.5 	# Fraction of the wargoal's base maneuver cost that it costs to turn it into a primary demand
 	MAKE_WARGOAL_PRIMARY_DEMAND_INFAMY_AMOUNT = 0.25 #0.5 	# Fraction of the wargoal's base infamy that is accured when you turn it into a primary demand
 
 	ALLY_WARGOAL_MAX_MANEUVERS_COST = 30 #25				# When an ally adds a 'free' wargoal in a play, it cannot have a maneuvers cost higher than this
 
+	WAR_GOAL_REPARATIONS_PACT_TYPE = "war_reparations"
+	WAR_GOAL_REPARATIONS_MONTHS = 60	# [>= 0]
+	WAR_GOAL_COLONIZATION_RIGHTS_PACT_TYPE = "colonization_rights"
+	WAR_GOAL_COLONIZATION_RIGHTS_MONTHS = 60	# [>= 0]
+	WAR_GOAL_FOREIGN_INVESTMENT_PACT_TYPE = "foreign_investment_rights"
+	WAR_GOAL_FOREIGN_INVESTMENT_RIGHTS_MONTHS = 60 # [>= 0]
+	WAR_GOAL_OPEN_MARKET_MONTHS = 60	# [>= 0]
+	WAR_GOAL_BAN_SLAVERY_MONTHS = 60	# [>= 0]
+	WAR_GOAL_HUMILIATION_PACT_TYPE = "humiliation"
+	WAR_GOAL_HUMILIATION_MONTHS = 60	# [>= 0]
+	WAR_GOAL_CONTAIN_THREAT_MONTHS = 60	# [>= 0]
+	WAR_GOAL_MAKE_PROTECTORATE_SUBJECT_TYPE = "subject_type_protectorate"
+	WAR_GOAL_MAKE_TRIBUTARY_SUBJECT_TYPE = "subject_type_tributary"
+	WAR_GOAL_MAKE_DOMINION_SUBJECT_TYPE = "subject_type_dominion"
+	WAR_GOAL_TREATY_PORT_BUILDING_LEVEL = 1
+	WAR_GOAL_LIBERATE_COUNTRY_LIBERATOR_START_RELATIONS = 50
+	WAR_GOAL_LIBERATE_COUNTRY_OPPRESSOR_START_RELATIONS = -50
+	WAR_GOAL_CONTAIN_THREAT_YEARS_SINCE_CONQUEST = 10
+	WAR_GOAL_REGIME_CHANGE_MONTHS = 60 # Government in country with forced regime change is locked in for this number of months [>= 0]
+	WAR_GOAL_REGIME_CHANGE_MAX_IDEOLOGICAL_OPINION = -5 # If ideological opinion is above this, regime change can't be used
+	WAR_GOAL_REGIME_CHANGE_MIN_LAW_PROGRESSIVENESS_DIFFERENCE = 50 # If the difference between the target wargoal holder's laws in a law group are not at least this, don't change it as part of regime change
+	WAR_GOAL_REGIME_CHANGE_NUM_TIMES_TO_LOOP_THROUGH_LAWS = 3	# How many times do we loop through the laws to check what to change? This is done more than once in order to allow laws that are unlocked by other laws to be changed
+	WAR_GOAL_INCREASE_AUTONOMY_MIN_LIBERTY_DESIRE = 75 # A subject must have at least this much LD to use the increase autonomy wargoal
+	WAR_GOAL_INDEPENDENCE_MIN_LIBERTY_DESIRE = 75 # A subject must have at least this much LD to use the independence wargoal
+
 	WAR_GOAL_INFAMY_POPULATION_SCALING_FACTOR = 10000 # The amount of population by which the factor below is multiplied
 	WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER = 0.03 # For each WAR_GOAL_INFAMY_POPULATION_SCALING_FACTOR population in a country/state, multiply infamy by this
 	WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_PER_STATE = 35 #5 # Infamy population multiplier can't be higher than this for each state affected
 	WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL = 250 #50 # Infamy population multiplier can't be higher than this, regardless of number of states affected
-	WAR_GOAL_INFAMY_HOMELAND_FACTOR = -0.5 #-0.25 # Infamy is adjusted by this if the states taken/puppeted etc are Homelands of the aggressor
+	WAR_GOAL_INFAMY_HOMELAND_FACTOR = -0.4 #-0.25 # Infamy is adjusted by this if the states taken/puppeted etc are Homelands of the aggressor
 	WAR_GOAL_INFAMY_UNINCORPORATED_FACTOR = -0.4 # Infamy is adjusted by this if the states taken/puppeted etc are unincorporated
 	WAR_GOAL_INFAMY_REBELLING_SUBJECT_MULT = 0.25 # Infamy is multiplied by this for wargoals targeting a rebellious subject
 	WAR_GOAL_INFAMY_LOW_LIBERTY_DESIRE_SUBJECT_MULT = 0.25 # Infamy is multiplied by this for wargoals targeting a subject whose LD is below WAR_GOAL_INFAMY_LOW_LIBERTY_DESIRE_THRESHOLD

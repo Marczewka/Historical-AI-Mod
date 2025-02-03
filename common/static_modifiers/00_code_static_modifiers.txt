@@ -234,19 +234,31 @@ moved_market_capital_recently = {
 tax_modifier_very_low = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
 	country_legitimacy_base_add = 10
-	state_radicals_from_political_movements_mult = -0.2
-	state_lower_strata_expected_sol_add = -1
-	state_middle_strata_expected_sol_add = -2
-	state_upper_strata_expected_sol_add = -3
+	# state_radicals_from_political_movements_mult = -0.2
+	interest_group_in_government_attraction_mult = 0.2
+	# state_lower_strata_expected_sol_add = -1
+	# state_middle_strata_expected_sol_add = -2
+	# state_upper_strata_expected_sol_add = -3
+	state_aristocrats_investment_pool_contribution_add = 0.05
+	state_capitalists_investment_pool_contribution_add = 0.1
+	state_farmers_investment_pool_contribution_add = 0.05
+	state_clergymen_investment_pool_contribution_add = 0.05
+	state_shopkeepers_investment_pool_contribution_add = 0.05
 }
 
 tax_modifier_low = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
 	country_legitimacy_base_add = 5
-	state_radicals_from_political_movements_mult = -0.1
-	state_lower_strata_expected_sol_add = -0.5
-	state_middle_strata_expected_sol_add = -1
-	state_upper_strata_expected_sol_add = -1.5
+	# state_radicals_from_political_movements_mult = -0.1
+	interest_group_in_government_attraction_mult = 0.1
+	# state_lower_strata_expected_sol_add = -0.5
+	# state_middle_strata_expected_sol_add = -1
+	# state_upper_strata_expected_sol_add = -1.5
+	state_aristocrats_investment_pool_contribution_add = 0.025
+	state_capitalists_investment_pool_contribution_add = 0.05
+	state_farmers_investment_pool_contribution_add = 0.025
+	state_clergymen_investment_pool_contribution_add = 0.025
+	state_shopkeepers_investment_pool_contribution_add = 0.025
 }	
 
 tax_modifier_medium = {
@@ -254,22 +266,32 @@ tax_modifier_medium = {
 
 tax_modifier_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
-	country_legitimacy_base_add = -10
-	state_radicals_from_political_movements_mult = 0.5
+	country_legitimacy_base_add = -5 # -10
+	# state_radicals_from_political_movements_mult = 0.5
 	interest_group_in_government_attraction_mult = -0.1
-	state_lower_strata_expected_sol_add = 1.5
-	state_middle_strata_expected_sol_add = 2.5
-	state_upper_strata_expected_sol_add = 3.5
+	# state_lower_strata_expected_sol_add = 1.5
+	# state_middle_strata_expected_sol_add = 2.5
+	# state_upper_strata_expected_sol_add = 3.5
+	state_aristocrats_investment_pool_contribution_add = -0.025
+	state_capitalists_investment_pool_contribution_add = -0.05
+	state_farmers_investment_pool_contribution_add = -0.025
+	state_clergymen_investment_pool_contribution_add = -0.025
+	state_shopkeepers_investment_pool_contribution_add = -0.025
 }	
 
 tax_modifier_very_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
-	country_legitimacy_base_add = -20
-	state_radicals_from_political_movements_mult = 1.0
+	country_legitimacy_base_add = -10 # -20
+	# state_radicals_from_political_movements_mult = 1.0
 	interest_group_in_government_attraction_mult = -0.2
-	state_lower_strata_expected_sol_add = 3
-	state_middle_strata_expected_sol_add = 5
-	state_upper_strata_expected_sol_add = 7
+	# state_lower_strata_expected_sol_add = 3
+	# state_middle_strata_expected_sol_add = 5
+	# state_upper_strata_expected_sol_add = 7
+	state_aristocrats_investment_pool_contribution_add = -0.05
+	state_capitalists_investment_pool_contribution_add = -0.1
+	state_farmers_investment_pool_contribution_add = -0.05
+	state_clergymen_investment_pool_contribution_add = -0.05
+	state_shopkeepers_investment_pool_contribution_add = -0.05
 }	
 
 government_wages_very_low = {
@@ -277,7 +299,9 @@ government_wages_very_low = {
 	country_government_wages_mult = -0.3
 	interest_group_ig_intelligentsia_approval_add = -2
 	interest_group_ig_petty_bourgeoisie_approval_add = -2
-	country_prestige_mult = -0.2
+	# country_prestige_mult = -0.2
+	building_group_bg_government_throughput_add = -0.2
+
 }
 
 government_wages_low = {
@@ -285,7 +309,8 @@ government_wages_low = {
 	country_government_wages_mult = -0.15
 	interest_group_ig_intelligentsia_approval_add = -1
 	interest_group_ig_petty_bourgeoisie_approval_add = -1
-	country_prestige_mult = -0.1
+	# country_prestige_mult = -0.1
+	building_group_bg_government_throughput_add = -0.1
 }
 
 government_wages_medium = {
@@ -296,7 +321,7 @@ government_wages_high = {
 	country_government_wages_mult = 0.15
 	interest_group_ig_intelligentsia_approval_add = 1	
 	interest_group_ig_petty_bourgeoisie_approval_add = 1
-	country_authority_mult = 0.05
+	building_group_bg_government_throughput_add = 0.1
 }
 
 government_wages_very_high = {
@@ -304,23 +329,27 @@ government_wages_very_high = {
 	country_government_wages_mult = 0.3
 	interest_group_ig_intelligentsia_approval_add = 2
 	interest_group_ig_petty_bourgeoisie_approval_add = 2
-	country_authority_mult = 0.1
+	building_group_bg_government_throughput_add = 0.2
 }
 
 military_wages_very_low = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
 	country_military_wages_mult = -0.3
 	interest_group_ig_armed_forces_approval_add = -2	
-	building_training_rate_mult = -0.75
-	country_prestige_from_army_power_projection_mult = -0.2
+	# building_training_rate_mult = -0.75
+	# country_prestige_from_army_power_projection_mult = -0.2
+	unit_morale_recovery_mult = -0.2
+	unit_experience_gain_mult = -0.2
 }
 
 military_wages_low = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
 	country_military_wages_mult = -0.15
 	interest_group_ig_armed_forces_approval_add = -1
-	building_training_rate_mult = -0.5
-	country_prestige_from_army_power_projection_mult = -0.1
+	# building_training_rate_mult = -0.5
+	# country_prestige_from_army_power_projection_mult = -0.1
+	unit_morale_recovery_mult = -0.1
+	unit_experience_gain_mult = -0.1
 }
 
 military_wages_medium = {
@@ -330,16 +359,18 @@ military_wages_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
 	country_military_wages_mult = 0.15
 	interest_group_ig_armed_forces_approval_add = 1
-	country_prestige_from_army_power_projection_mult = 0.1
+	# country_prestige_from_army_power_projection_mult = 0.1
 	unit_morale_recovery_mult = 0.1
+	unit_experience_gain_mult = 0.1
 }
 
 military_wages_very_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
 	country_military_wages_mult = 0.3
 	interest_group_ig_armed_forces_approval_add = 2	
-	country_prestige_from_army_power_projection_mult = 0.2
+	# country_prestige_from_army_power_projection_mult = 0.2
 	unit_morale_recovery_mult = 0.2
+	unit_experience_gain_mult = 0.2
 }
 
 insurrectionary_ig = {

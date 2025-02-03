@@ -10,6 +10,7 @@ HAM_je_eastern_frontier_tt_3: "#bold Transoxiana#! is owned by [SCOPE.GetRootSco
 italian_minor_dont_annex_tt: "Hasn't rejected to annex in the past #bold five years#!"
 has_formed_ethiopia_tt: "Has formed the nation of #v $ETH$#!"
 
+ je_sick_man_education_goal:1 "Increase the literacy rate of your people to 20%."
  ai_strategy_unify_afghanistan:0 "Unify Afghanistan"
  ai_strategy_unify_afghanistan_desc:0 "[COUNTRY.GetName] wants to unite the Afghan principalities under their banner."
  dp_unify_afghanistan:0 "Unify Afghanistan"
