@@ -171,20 +171,6 @@ law_commercialized_agriculture = {
 		}
 	}
 
-	on_activate = {
-		add_modifier = {
-			name = land_redistribution_modifier
-			months = long_modifier_time
-			is_decaying = yes
-		}
-		add_modifier = {
-			name = land_redistribution_compensation_modifier
-			multiplier = money_amount_multiplier_small
-			months = long_modifier_time
-			is_decaying = yes
-		}
-	}
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 

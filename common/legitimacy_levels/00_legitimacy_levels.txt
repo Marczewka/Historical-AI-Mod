@@ -3,7 +3,6 @@
 
 	modifier = {
 		state_radicals_from_political_movements_mult = 0.5
-		state_turmoil_effects_mult = 0.15
 		country_loan_interest_rate_mult = 0.15
 		interest_group_in_opposition_approval_add = -3
 		country_must_have_movement_to_enact_laws_bool = yes
@@ -28,7 +27,6 @@ legitimacy_level_unacceptable = {
 
 	modifier = {
 		state_radicals_from_political_movements_mult = 0.15
-		state_turmoil_effects_mult = 0.10
 		country_loan_interest_rate_mult = 0.1
 		interest_group_in_opposition_approval_add = -2
 		country_law_enactment_time_mult = 0.25

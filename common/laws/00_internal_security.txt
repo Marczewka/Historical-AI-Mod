@@ -39,7 +39,7 @@ law_national_guard = {
 		country_revolution_progress_mult = -0.1
 		country_secession_progress_mult = -0.1
 		state_conscription_rate_add = 0.005
-		political_movement_radicalism_add = -0.05
+		political_movement_radicalism_add = -0.03
 		state_harvest_condition_flood_impact_mult = -0.05
 		state_harvest_condition_wildfire_impact_mult = -0.05
 		state_harvest_condition_extreme_winds_impact_mult = -0.05
@@ -84,7 +84,8 @@ law_secret_police = {
 		country_revolution_progress_mult = -0.1
 		country_secession_progress_mult = -0.1
 		country_suppression_attraction_mult = -0.05
-		political_movement_radicalism_add = -0.05
+		political_movement_radicalism_add = -0.03
+		state_radicals_from_political_movements_mult = 0.03
 	}
 
 	on_enact = {

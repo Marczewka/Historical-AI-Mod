@@ -40,6 +40,8 @@ law_state_religion = {
 		country_allow_conversion_open_prejudice_bool = yes
 		country_allow_conversion_second_rate_citizen_bool = yes
 		country_allow_conversion_full_acceptance_bool = yes
+
+		state_birth_rate_mult = 0.05
 	}
 
 	can_impose = {
@@ -238,6 +240,8 @@ law_total_separation = {
 		country_allow_conversion_open_prejudice_bool = no
 		country_allow_conversion_second_rate_citizen_bool = no
 		country_allow_conversion_full_acceptance_bool = no
+
+		state_birth_rate_mult = -0.05
 	}
 	
 	can_impose = {
@@ -306,6 +310,8 @@ law_state_atheism = {
 		country_allow_conversion_open_prejudice_bool = yes
 		country_allow_conversion_second_rate_citizen_bool = yes
 		country_allow_conversion_full_acceptance_bool = yes
+
+		state_birth_rate_mult = -0.05
 	}
 	
 	on_enact = {

@@ -49,6 +49,7 @@ law_autocracy = {
 		country_aristocrats_pol_str_mult = 0.5
 		country_officers_pol_str_mult = 0.5
 		country_authority_add = 200
+		country_law_enactment_time_mult = -0.25
 	}
 
 	can_enact = {
@@ -159,6 +160,7 @@ law_technocracy = {
 		country_engineers_pol_str_mult = 0.33
 		country_officers_pol_str_mult = 0.33
 		country_authority_add = 100
+		country_law_enactment_time_mult = -0.25
 	}
 
 	unlocking_technologies = {
@@ -275,6 +277,7 @@ law_oligarchy = {
 		country_aristocrats_pol_str_mult = 0.5
 		country_capitalists_pol_str_mult = 0.25
 		country_authority_add = 100
+		country_law_enactment_time_mult = -0.25
 	}
 
 	can_enact = {
@@ -406,6 +409,7 @@ law_elder_council = {
 		country_officers_pol_str_mult = 0.5
 		country_clergymen_pol_str_mult = 0.5
 		country_authority_add = 200
+		country_law_enactment_time_mult = -0.25
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -747,6 +751,7 @@ law_universal_suffrage = {
 		country_legitimacy_govt_total_clout_add = 25
 		country_voting_power_base_add = 20
 		country_legitimacy_govt_size_add = 1
+		country_law_enactment_time_mult = 0.25
 	}
 	
 	can_enact = {
@@ -844,6 +849,7 @@ law_anarchy = {
 		state_political_strength_from_wealth_mult = -0.75
 		country_authority_mult = -0.5
 		country_legitimacy_govt_size_add = 2
+		country_law_enactment_time_mult = 0.25
 	}
 
 	can_enact = {
@@ -979,6 +985,7 @@ law_single_party_state = {
 		country_authority_add = 250
 		country_voting_power_base_add = 20
 		interest_group_in_government_attraction_mult = 0.20
+		country_law_enactment_time_mult = -0.25
 	}
 
 	on_activate = {
