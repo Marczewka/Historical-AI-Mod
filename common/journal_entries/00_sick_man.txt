@@ -476,13 +476,6 @@ je_dead_man_walking = {
 		}
 	}
 
-	on_monthly_pulse = {
-		random_events = {
-			150 = 0
-			10 = peoples_springtime.120
-		}
-	}
-
 	on_timeout = {
 		trigger_event = {
 			id = dead_man.3

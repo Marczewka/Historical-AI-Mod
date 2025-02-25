@@ -208,17 +208,22 @@
 
 	fail = {
 		any_political_movement = {
-			is_political_movement_type = movement_radical
-			is_insurrectionary = yes
+			OR = {
+				is_political_movement_type = movement_liberal
+				is_political_movement_type = movement_radical
+			}
+			is_revolutionary = yes
 		}
 		OR = {
 			has_journal_entry = je_springtime_of_the_peoples
-			radical_fraction = {
-				value >= 0.25
-			}
 			any_civil_war = {
 				is_civil_war_type = revolution
 				civil_war_progress >= 0.75
+			}
+			AND = {
+				capital = {
+					turmoil >= 0.25
+				}
 			}
 		}
 	}

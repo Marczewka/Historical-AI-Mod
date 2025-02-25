@@ -31,8 +31,12 @@
 			text = peoples_springtime_underway_tt
 			has_global_variable = peoples_springtime_happening
 		}
-		radical_fraction = {
-			value >= 0.05
+		any_political_movement = { 
+			OR = {
+				is_political_movement_type = movement_liberal
+				is_political_movement_type = movement_radical
+			}
+			political_movement_radicalism >= 0.25
 		}
 	}
 

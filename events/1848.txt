@@ -418,6 +418,11 @@
 				create_political_movement = { type = movement_radical }
 			}
 		}
+		je:je_springtime_of_the_peoples = {
+			add_modifier = {
+				name = modifier_springtime_of_the_peoples
+			}
+		}
 		add_modifier = {
 			name = suppressing_radicals
 			months = short_modifier_time
@@ -434,12 +439,7 @@
 			value = large_radicals
 			strata = lower
 		}
-		je:je_springtime_of_the_peoples = {
-			add_modifier = {
-				name = modifier_springtime_of_the_peoples
-			}
-		}
-		ai_chance = {
+				ai_chance = {
 			base = 66
 		}
 	}
@@ -484,13 +484,13 @@
 				create_political_movement = { type = movement_radical }
 			}
 		}
-		add_radicals = {
-			value = medium_radicals
-		}
 		je:je_springtime_of_the_peoples = {
 			add_modifier = {
 				name = modifier_springtime_of_the_peoples
 			}
+		}
+		add_radicals = {
+			value = medium_radicals
 		}
 		ai_chance = {
 			base = 33

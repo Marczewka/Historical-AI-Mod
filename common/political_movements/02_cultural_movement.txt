@@ -875,6 +875,17 @@ movement_cultural_minority = {
 				desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
 			}
 		}	
+
+		if = {
+			limit = { 
+				owner = { has_journal_entry = je_dead_man_walking } 
+				scope:culture = { has_discrimination_trait = european_heritage }
+			}
+			add = {
+				value = 0.25
+				desc = "DEAD_MAN_WALKING_UNDERWAY"
+			}
+		}	
 	
 		add = {
 			value = "owner.average_sol"
