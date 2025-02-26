@@ -161,7 +161,7 @@ je_risorgimento_austrian_radicals_button = {
 		has_technology_researched = nationalism
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_tt
-			has_variable = risorgimento_unifying_stance
+			has_modifier = modifier_risorgimento_support
 		}
 		country_rank >= rank_value:minor_power
 		sr:region_italy = {
@@ -236,7 +236,7 @@ je_risorgimento_austrian_radicals_button = {
 		ROOT = {
 			save_scope_as = saboteur_country
 		}
-		random_country = {
+		every_country = {
 			limit = {
 				NOR = {
 					country_has_primary_culture = cu:south_italian
@@ -315,7 +315,17 @@ je_risorgimento_austrian_radicals_button = {
 					months = short_modifier_time
 				}
 			}
+			THIS = {
+				save_scope_as = victim_country
+			}
 			post_notification = nationalism_decision_agitation_occurred
+			every_country = {
+				limit = {
+					has_interest_marker_in_region = region_italy
+					NOT = { this = prev }
+				}
+				post_notification = nationalism_decision_agitation_stirred
+			}
 		}
 	}
 }
@@ -334,7 +344,7 @@ je_risorgimento_italian_radicals_button = {
 		has_technology_researched = nationalism
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_tt
-			has_variable = risorgimento_unifying_stance
+			has_modifier = modifier_risorgimento_support
 		}
 		country_rank >= rank_value:minor_power
 		any_country = {
@@ -344,7 +354,7 @@ je_risorgimento_italian_radicals_button = {
 			}
 			custom_tooltip = {
 				text = risorgimento_opposing_stance_tt
-				has_variable = risorgimento_anti_unifying_stance
+				has_modifier = modifier_risorgimento_opposition
 			}
 			not = {
 				has_modifier = modifier_risorgimento
@@ -369,7 +379,7 @@ je_risorgimento_italian_radicals_button = {
 						country_has_primary_culture = cu:north_italian
 					}
 					NOT = {
-						has_variable = risorgimento_unifying_stance
+						has_modifier = modifier_risorgimento_support
 					}
 					relations:root >= 20
 				}
@@ -384,7 +394,7 @@ je_risorgimento_italian_radicals_button = {
 						country_has_primary_culture = cu:north_italian
 					}
 					NOT = {
-						has_variable = risorgimento_unifying_stance
+						has_modifier = modifier_risorgimento_support
 					}
 					relations:root <= 20
 				}
@@ -398,10 +408,7 @@ je_risorgimento_italian_radicals_button = {
 		ROOT = {
 			save_scope_as = saboteur_country
 		}
-		THIS = {
-			save_scope_as = victim_country
-		}
-		random_country = {
+		every_country = {
 			limit = {
 				OR = {
 					country_has_primary_culture = cu:south_italian
@@ -409,7 +416,7 @@ je_risorgimento_italian_radicals_button = {
 				}
 				custom_tooltip = {
 					text = risorgimento_opposing_stance_tt
-					has_variable = risorgimento_anti_unifying_stance
+					has_modifier = modifier_risorgimento_opposition
 				}
 				not = {
 					has_modifier = modifier_risorgimento
@@ -442,7 +449,17 @@ je_risorgimento_italian_radicals_button = {
 				name = modifier_risorgimento
 				months = short_modifier_time
 			}
+			THIS = {
+				save_scope_as = victim_country
+			}
 			post_notification = sabotage_decision_agitation_occurred
+			every_country = {
+				limit = {
+					has_interest_marker_in_region = region_italy
+					NOT = { this = prev }
+				}
+				post_notification = sabotage_decision_agitation_stirred
+			}
 		}
 	}
 }
@@ -461,7 +478,7 @@ je_risorgimento_italian_unification_button = {
 		has_technology_researched = nationalism
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_tt
-			has_variable = risorgimento_unifying_stance
+			has_modifier = modifier_risorgimento_support
 		}
 		any_country = {
 			NOT = { this = root }
@@ -483,7 +500,7 @@ je_risorgimento_italian_unification_button = {
 			}
 			custom_tooltip = {
 				text = risorgimento_unifying_stance_tt
-				has_variable = risorgimento_unifying_stance
+				has_modifier = modifier_risorgimento_support
 			}
 		}
 	}

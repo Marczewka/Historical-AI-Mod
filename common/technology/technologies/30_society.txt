@@ -680,7 +680,7 @@ nationalism = {
 					country_has_primary_culture = cu:north_italian
 					country_has_primary_culture = cu:south_italian
 				}
-				has_variable = risorgimento_unifying_stance
+				has_modifier = modifier_risorgimento_support
 			}
 			add = 3
 		}

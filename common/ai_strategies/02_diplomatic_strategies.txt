@@ -3274,7 +3274,7 @@ ai_strategy_unify_italy = {
 		value = 1000	
 		if = {
 			limit = {
-				has_variable = risorgimento_anti_unifying_stance
+				has_modifier = modifier_risorgimento_opposition
 			}
 			multiply = 0.01
 		}

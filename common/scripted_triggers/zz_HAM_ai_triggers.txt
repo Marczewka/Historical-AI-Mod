@@ -293,8 +293,8 @@ has_je_conquest_reason = {
 		
 		AND = {
 			has_journal_entry = je_risorgimento
-			has_variable = risorgimento_unifying_stance
-			$TARGET$ = { has_variable = risorgimento_anti_unifying_stance }
+			has_modifier = modifier_risorgimento_support
+			$TARGET$ = { has_modifier = modifier_risorgimento_opposition }
 		}
 	}
 }
@@ -343,8 +343,8 @@ has_je_befriend_reason = {
 
 		AND = {
 			has_journal_entry = je_risorgimento
-			has_variable = risorgimento_unifying_stance
-			$TARGET$ = { has_variable = risorgimento_unifying_stance }
+			has_modifier = modifier_risorgimento_support
+			$TARGET$ = { has_modifier = modifier_risorgimento_support }
 		}
 		
 		AND = {
@@ -403,8 +403,8 @@ has_je_protect_reason = {
 
 		AND = {
 			has_journal_entry = je_risorgimento
-			has_variable = risorgimento_unifying_stance
-			$TARGET$ = { has_variable = risorgimento_unifying_stance }
+			has_modifier = modifier_risorgimento_support
+			$TARGET$ = { has_modifier = modifier_risorgimento_support }
 		}
 	
 		AND = {

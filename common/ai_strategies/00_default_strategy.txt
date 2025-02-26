@@ -230,7 +230,7 @@ ai_strategy_default = {
 				exists = scope:is_initiator
 				scope:diplomatic_play_type = play_type:dp_secession
 				root = {
-					has_variable = risorgimento_unifying_stance
+					has_modifier = modifier_risorgimento_support
 				}
 				scope:country = {
 					OR = {

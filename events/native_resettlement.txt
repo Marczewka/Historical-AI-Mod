@@ -24,9 +24,6 @@ native_resettlement.1 = {
 	}
 
 	immediate = {
-		ruler = {
-			save_scope_as = indian_removal_president
-		}
 		c:SEQ = {
 			save_scope_as = indian_territory_scope
 		}

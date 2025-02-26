@@ -74,7 +74,7 @@ italian_unification.2 = {
 
 	trigger = {
 		has_technology_researched = nationalism
-		has_variable = risorgimento_unifying_stance
+		has_modifier = modifier_risorgimento_support
 		any_country = {
 			NOT = { this = root }
 			OR = {
@@ -89,7 +89,7 @@ italian_unification.2 = {
 			country_rank <= rank_value:minor_power
 			relations:root >= relations_threshold:amicable
 			NOT = { has_variable = italian_minor_dont_annex }
-			has_variable = risorgimento_unifying_stance
+			has_modifier = modifier_risorgimento_support
 		}
 	}
 
@@ -109,7 +109,7 @@ italian_unification.2 = {
 				country_rank <= rank_value:minor_power
 				relations:root >= relations_threshold:amicable
 				NOT = { has_variable = italian_minor_dont_annex }
-				has_variable = risorgimento_unifying_stance
+				has_modifier = modifier_risorgimento_support
 			}
 			save_scope_as = italian_annex_country
 		}
@@ -244,12 +244,19 @@ italian_unification.4 = {
 	}
 
 	immediate = {
-		set_variable = risorgimento_unifying_stance
 		if = {
 			limit = {
-				has_variable = risorgimento_anti_unifying_stance
+				has_modifier = modifier_risorgimento_opposition
 			}
-			remove_variable = risorgimento_anti_unifying_stance
+			remove_modifier = modifier_risorgimento_opposition
+		}
+		if = {
+			limit = {
+				NOT = { has_modifier = modifier_risorgimento_opposition }
+			}
+			add_modifier = {
+				name = modifier_risorgimento_support
+			}
 		}
 		capital = {
 			save_scope_as = capital_scope
@@ -264,7 +271,7 @@ italian_unification.4 = {
 				NOT = {
 					is_subject = yes
 				}
-				has_variable = risorgimento_unifying_stance
+				has_modifier = modifier_risorgimento_support
 				NOT = {
 					THIS = ROOT
 				}
@@ -287,7 +294,7 @@ italian_unification.4 = {
 					NOT = {
 						is_subject = yes
 					}
-					has_variable = risorgimento_unifying_stance
+					has_modifier = modifier_risorgimento_support
 					NOT = {
 						THIS = ROOT
 					}
@@ -838,7 +845,6 @@ italian_unification.10 = {
 		default_option = yes
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_set_tt
-			set_variable = risorgimento_unifying_stance
 		}
 		every_interest_group = {
 			limit = {
@@ -883,8 +889,6 @@ italian_unification.10 = {
 		}
 		add_modifier = {
 			name = modifier_risorgimento_support
-			months = long_modifier_time
-			is_decaying = yes
 		}
 		every_country = {
 			limit = {
@@ -906,7 +910,7 @@ italian_unification.10 = {
 	option = {
 		name = italian_unification.10.b
 		ai_chance = {
-			base = 15
+			base = 0
 			modifier = {
 				trigger = {
 					has_law = law_type:law_theocracy
@@ -916,6 +920,19 @@ italian_unification.10 = {
 			modifier = {
 				trigger = {
 					has_law = law_type:law_traditionalism
+				}
+				add = 50
+			}
+			modifier = {
+				trigger = {
+					power_bloc ?= {
+						power_bloc_leader = { 
+							NOR = {
+								country_has_primary_culture = cu:north_italian
+								country_has_primary_culture = cu:south_italian
+							}
+						}
+					}
 				}
 				add = 50
 			}
@@ -971,9 +988,15 @@ italian_unification.10 = {
 		}
 		add_modifier = {
 			name = modifier_risorgimento_opposition
-			months = long_modifier_time
-			is_decaying = yes
 		}
-		set_variable = risorgimento_anti_unifying_stance
+		every_country = {
+			limit = {
+				has_interest_marker_in_region = region_italy
+				NOT = {
+					THIS = ROOT
+				}
+			}
+			post_notification = ita_italian_anti_unification_intent
+		}
 	}
 }
