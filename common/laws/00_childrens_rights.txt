@@ -16,7 +16,6 @@ law_child_labor_allowed = {
 		state_peasants_mortality_mult = 0.05
 		
 		state_dependent_wage_mult = 0.30
-		state_birth_rate_mult = 0.05
 	}
 	
 	ai_will_do = {
@@ -95,8 +94,6 @@ law_compulsory_primary_school = {
 	}
 	
 	modifier = {
-		state_birth_rate_mult = -0.05
-
 		country_institution_schools_max_investment_add = 2
 	}
 

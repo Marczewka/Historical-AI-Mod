@@ -215,9 +215,9 @@ NPops = {
 ### Pop Growth Constants
 ## Base Values per month
 @min_birthrate = 0.00055			# Minimum base birthrate per month (at POP_GROWTH_STABLE_SOL)
-@max_birthrate = 0.00450			# Maximum base birthrate per month (at SOL = 0)
+@max_birthrate = 0.00350 # 0.00450			# Maximum base birthrate per month (at SOL = 0)
 @min_mortality = 0.00045			# Minimum base mortality per month (at POP_GROWTH_STABLE_SOL)
-@max_mortality = 0.00600			# Maximum base mortality per month (at SOL = 0)
+@max_mortality = 0.00400 # 0.00600			# Maximum base mortality per month (at SOL = 0)
 
 ## SoL Thresholds
 @pop_growth_equilibrium_sol = 5		# Equilibrium is pops stop starving and where growth first becomes positive
@@ -226,8 +226,8 @@ NPops = {
 @pop_growth_stable_sol = 20 #17 #20 #30			# Stable is where birthrate and mortality stop changing and hit their minimum values
 
 ## Others
-@transition_birthrate_mult = 0.95 #1.0		# If you want the birthrate "lag" to go to a higher or lower value than max_birthrate. (you can also just change it directly below)
-@max_growth_mortality_mult = 0.40 #0.35	# What proportion of birthrate_at_growth_max mortality should be at. Higher means lower growth
+@transition_birthrate_mult = 1.0		# If you want the birthrate "lag" to go to a higher or lower value than max_birthrate. (you can also just change it directly below)
+@max_growth_mortality_mult = 0.35	# What proportion of birthrate_at_growth_max mortality should be at. Higher means lower growth
 
 ### Pop Growth Derived values
 # Generally, for each one of these derived values below we're really just doing one of three operations (or combination of them):

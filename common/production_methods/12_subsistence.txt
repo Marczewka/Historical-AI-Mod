@@ -55,7 +55,7 @@ pm_serfdom_no = {
 	
 	building_modifiers = {					
 		unscaled = {
-			building_subsistence_output_add = 3 # 4
+			building_subsistence_output_add = 3.5 # 4
 		}
 	}
 }
