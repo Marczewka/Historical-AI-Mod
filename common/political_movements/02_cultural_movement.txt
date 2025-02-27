@@ -327,7 +327,7 @@
 		owner ?= {
 			add = {
 				value = country_turmoil
-				multiply = 0.25
+				multiply = 0.5
 				desc = "COUNTRY_TURMOIL"
 			}	
 		}
@@ -878,6 +878,17 @@ movement_cultural_minority = {
 
 		if = {
 			limit = { 
+				owner = { has_journal_entry = je_dual_monarchy } 
+				scope:culture = { has_discrimination_trait = hungarian_culture_group }
+			}
+			add = {
+				value = 0.25
+				desc = "DUAL_MONARCHY_UNDERWAY"
+			}
+		}	
+
+		if = {
+			limit = { 
 				owner = { has_journal_entry = je_dead_man_walking } 
 				scope:culture = { has_discrimination_trait = european_heritage }
 			}
@@ -888,7 +899,7 @@ movement_cultural_minority = {
 		}	
 	
 		add = {
-			value = "owner.average_sol"
+			value = "owner.average_sol_for_primary_cultures"
 			subtract = "owner.average_sol_for_culture(scope:culture)"
 			multiply = 0.1 # 0.05
 			max = 0.5

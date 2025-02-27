@@ -3832,6 +3832,18 @@ movement_radical = {
 					desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
 				}
 			}
+
+			if = {
+				limit = { 
+					has_journal_entry = je_christ_of_nations 
+					is_subject = yes
+				}
+
+				add = {
+					value = 0.25
+					desc = "CHRIST_OF_NATIONS_UNDERWAY"
+				}
+			}
 			
 			if = {
 				limit = { has_institution = institution_schools }

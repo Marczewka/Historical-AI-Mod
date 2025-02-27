@@ -277,7 +277,7 @@
 		owner ?= {
 			add = {
 				value = country_turmoil
-				multiply = 0.25
+				multiply = 0.5
 				desc = "COUNTRY_TURMOIL"
 			}	
 		}

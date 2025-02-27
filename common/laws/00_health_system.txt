@@ -104,6 +104,10 @@ law_public_health_insurance = {
 	unlocking_technologies = {
 		pharmaceuticals
 	}
+
+	disallowing_laws = {
+		law_laissez_faire
+	}
 	
 	modifier = {
 		country_institution_health_system_max_investment_add = 2

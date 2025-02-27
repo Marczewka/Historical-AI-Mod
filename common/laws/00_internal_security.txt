@@ -26,7 +26,7 @@ law_national_guard = {
 	progressiveness = 25
 
 	unlocking_technologies = {
-		law_enforcement
+		tech_bureaucracy
 	}
 
 	modifier = {
@@ -71,7 +71,7 @@ law_secret_police = {
 	progressiveness = 0
 	
 	unlocking_technologies = {
-		central_archives
+		law_enforcement
 	}
 
 	modifier = {
@@ -112,17 +112,12 @@ law_guaranteed_liberties = {
 		law_protected_speech
 	}
 	
-	modifier = {
-		country_institution_cost_institution_schools_mult = -0.4
-		country_institution_home_affairs_max_investment_add = 2
-	}
-	
 	institution = institution_home_affairs
 	institution_modifier = {
-		country_revolution_progress_mult = -0.1
-		country_secession_progress_mult = -0.1
-		state_radicals_from_political_movements_mult = -0.05
-		state_loyalists_from_political_movements_mult = 0.05
+		country_revolution_progress_mult = -0.2
+		country_secession_progress_mult = -0.2
+		state_radicals_from_political_movements_mult = -0.1
+		state_loyalists_from_political_movements_mult = 0.1
 	}
 
 	on_activate = {
