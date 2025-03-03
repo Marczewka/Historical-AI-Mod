@@ -23,7 +23,7 @@
 
 		set_institution_investment_level = {
 			institution = institution_home_affairs
-			level = 2
+			level = 3
 		}
 
 		ig:ig_devout = {

@@ -21,7 +21,7 @@
 		activate_law = law_type:law_cultural_exclusion
 		activate_law = law_type:law_protectionism
 		activate_law = law_type:law_interventionism
-		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_religious_schools # law_public_schools
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_colonial_exploitation
 		activate_law = law_type:law_dedicated_police
@@ -29,7 +29,7 @@
 		activate_law = law_type:law_poor_laws
 		activate_law = law_type:law_censorship # The July Monarchy was already backtracking on promises made in 1830
 		activate_law = law_type:law_national_guard
-		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_homesteading # law_tenant_farmers
 
 			
 		set_institution_investment_level = {

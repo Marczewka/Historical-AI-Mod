@@ -2485,11 +2485,12 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				has_journal_entry = je_risorgimento
+				has_modifier = modifier_risorgimento_support
 				c:FRA = {
 					owes_obligation_to = ROOT
 				}
 			}
-			add = 2
+			add = 10
 		}
 	}
 	
@@ -2664,6 +2665,7 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				has_journal_entry = je_risorgimento
+				has_modifier = modifier_risorgimento_support
 				c:FRA = {
 					owes_obligation_to = ROOT
 				}

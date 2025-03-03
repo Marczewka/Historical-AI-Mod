@@ -164,7 +164,7 @@ law_technocracy = {
 	}
 
 	unlocking_technologies = {
-		central_archives 
+		central_planning 
 	}
 
 	can_enact = {
