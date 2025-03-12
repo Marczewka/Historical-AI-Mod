@@ -1,5 +1,7 @@
 ﻿l_english:
 
+peoples_springtime_underway_tt: "Any #b European#! [concept_country] with high number of radicals is experiencing, or has experienced, a [GetIdeology('ideology_radical').GetName] or [GetIdeology('ideology_liberal').GetName] [concept_revolution]"
+
 # Poland
 rejected_polish_union_pol_var_tt: "Hasn't rejected to annex"
 je_christ_of_nations_unification_button: "Unite with another Polish state"
@@ -53,4 +55,7 @@ HAM_je_eastern_frontier_tt_3: "#bold Transoxiana#! is owned by [SCOPE.GetRootSco
   je_sick_man_education_goal:1 "Increase the literacy rate of your people to 20%."
   protected_speech_tt:0 "Cannot [concept_exile], [concept_bolster] or [concept_suppress]"
   guaranteed_liberties_tt:0 "Cannot use [GetDecreeType('decree_violent_suppression').GetName] ([concept_decree])"
+  corn_low_price_tt:0 "The price of grain has remained below average for a year"
+  steel_low_price_tt:0 "The price of steel has remained below average for a year"
+  paper_low_price_tt:0 "The price of paper has remained below average for a year"
  

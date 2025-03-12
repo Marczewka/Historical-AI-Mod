@@ -31,13 +31,31 @@
 			text = peoples_springtime_underway_tt
 			has_global_variable = peoples_springtime_happening
 		}
-		any_political_movement = { 
-			OR = {
-				is_political_movement_type = movement_liberal
-				is_political_movement_type = movement_radical
-				is_political_movement_type = movement_cultural_minority
+		OR = {
+			AND = {
+				any_political_movement = { 
+					OR = {
+						is_political_movement_type = movement_liberal
+						is_political_movement_type = movement_radical
+					}
+					political_movement_support >= 0.05
+					political_movement_radicalism >= 0.25
+				}
+				OR = {
+					has_law = law_type:law_monarchy
+					NOR = {
+						has_law = law_type:law_census_voting
+						has_law = law_type:law_universal_suffrage
+					}
+				}
 			}
-			political_movement_radicalism >= 0.25
+			AND = {
+				any_political_movement = { 
+					is_political_movement_type = movement_cultural_minority
+					political_movement_support >= 0.05
+					political_movement_radicalism >= 0.25
+				}
+			}
 		}
 	}
 

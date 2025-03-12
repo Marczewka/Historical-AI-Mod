@@ -1233,7 +1233,7 @@ coup.3 = {
 				name = coup_prevented
 				months = long_modifier_time
 				is_decaying = yes
-				multiplier = -3 # -6 approval
+				multiplier = -5 # -10 approval
 			}
 			set_variable = { name = coup_guilty days = 3650 }
 		}
@@ -1252,7 +1252,7 @@ coup.3 = {
 				name = coup_prevented
 				months = long_modifier_time
 				is_decaying = yes
-				multiplier = -2 # -4 approval
+				multiplier = -4 # -8 approval
 			}
 			set_variable = { name = coup_guilty days = 3650 }
 		}

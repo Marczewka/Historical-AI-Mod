@@ -1,0 +1,132 @@
+﻿je_corn_laws = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = corn_laws_abolished }
+		ig:ig_landowners = {
+			is_marginal = no
+		}
+		OR = {
+			has_export_priority_tariffs = g:grain
+			has_law = law_type:law_isolationism
+			has_law = law_type:law_mercantilism
+		}
+	}
+
+	possible = {
+		market_capital.market = {
+			mg:grain = { 
+				market_goods_pricier > 0.25 
+			}
+		}
+		OR = {
+			has_law = law_type:law_isolationism
+			AND = {
+				has_law = law_type:law_mercantilism
+				has_export_priority_tariffs = g:grain
+			}
+		}
+		ig:ig_landowners = {
+			is_powerful = yes
+			is_in_government = yes
+		}
+	}
+
+	immediate = {
+		set_variable = {
+			name = corn_laws_price_var
+			value = 0
+		}
+	}
+
+	complete = {
+		has_law = law_type:law_free_trade
+	}
+
+	on_complete = {
+		set_variable = corn_laws_abolished
+		trigger_event = { id = corn_laws.1 }
+		show_as_tooltip = {
+			if = {
+				limit = {
+					ig:ig_landowners = {
+						is_in_government = yes
+						leader = {
+							NOT = { has_ideology = ideology:ideology_market_liberal }
+						}
+					}
+				}
+				ig:ig_landowners = {
+					add_modifier = {
+						name = repealed_corn_laws
+						months = long_modifier_time
+					}
+				}
+			}
+			add_loyalists = {
+				value = 0.1
+				pop_type = laborers
+			}
+		}
+	}
+
+	invalid = {
+		OR = {
+			ig:ig_landowners = {
+				is_marginal = yes
+			}
+			custom_tooltip = {
+				text = corn_low_price_tt
+				AND = {
+					scope:journal_entry = {
+						is_goal_complete = yes
+					}
+					market_capital.market = {
+						mg:grain = { 
+							market_goods_pricier < 0.0 
+						}
+					}
+				}
+			}
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					market_capital.market = {
+						mg:grain = { 
+							market_goods_pricier < 0.0 
+						}
+					}
+				}
+				change_variable = {
+					name = corn_laws_price_var
+					add = 1
+				}
+			}
+		}
+		random_events = {
+			100 = 0
+			10 = corn_laws.2
+			10 = corn_laws.3
+			10 = corn_laws.4
+		}
+	}
+
+	current_value = {
+		value = var:corn_laws_price_var
+	}
+
+	goal_add_value = {
+		add = 12
+	}
+
+	weight = 100
+	should_be_pinned_by_default = yes
+
+	progressbar = yes
+}

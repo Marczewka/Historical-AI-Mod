@@ -118,7 +118,7 @@
 						has_je_protect_reason = { TARGET = scope:target_country }
 						AND = {
 							has_je_reconcile_reason = { TARGET = scope:target_country }
-							relations:target_country <= relations_threshold:poor
+							scope:target_country.relations:root <= relations_threshold:poor
 						}
 					}
 				}
