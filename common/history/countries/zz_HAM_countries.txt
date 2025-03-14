@@ -1,4 +1,5 @@
 ﻿COUNTRIES = {
+  # Lower max colonial affairs
   every_country = {
     limit = {
       OR = {
@@ -12,25 +13,8 @@
       level = 1
     }
   }
-  c:CHL ?= {
-    activate_law = law_type:law_no_colonial_affairs
-  }
-  c:BIC ?= {
-    set_military_wage_level = medium
-  }
-  c:RUS ?= {
-    set_tax_level = medium
-  }
-  c:JAP ?= {
-    set_tax_level = low
-    set_military_wage_level = high # samurai stipends
-  }
-  c:USA ?= {
-    # lower taxes make sense in the case of higher tariffs
-    set_tax_level = medium
-    add_journal_entry = { type = je_oregon }
-  }
-  
+
+  # Journals from day one
   every_country = {
     limit = {
       OR = {
@@ -41,14 +25,12 @@
     add_journal_entry = { type = je_german_unification_idea }
     add_journal_entry = { type = je_schleswig_holstein_question }
   }
-  
   every_country = {
     limit = {
       can_form_nation = ETH
     }
     add_journal_entry = { type = je_age_of_princes }
   }
-
   every_country = {
     limit = {
       is_country_type = unrecognized
@@ -63,4 +45,18 @@
     add_journal_entry = { type = je_earn_recognition }
   }
 
+  c:CHL ?= {
+    activate_law = law_type:law_no_colonial_affairs # colonizes too quickly
+  }
+  c:RUS ?= {
+    set_tax_level = medium # peasant taxes
+  }
+  c:JAP ?= {
+    set_tax_level = low # better sol for peasants than in Russia
+    set_military_wage_level = high # samurai stipends
+  }
+  c:USA ?= {
+    set_tax_level = medium  # lower taxes make sense when tariffs matter more
+    add_journal_entry = { type = je_oregon }
+  }
 }

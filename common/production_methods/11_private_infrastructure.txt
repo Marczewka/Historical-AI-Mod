@@ -287,6 +287,13 @@ pm_trade_center_principle_external_trade_2 = {
 		principle_external_trade_2
 		principle_external_trade_3
 	}
+
+	# UHM compatibility
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clerks_add = 250
+		}
+	}
 	
 	country_modifiers = {
 		workforce_scaled = {

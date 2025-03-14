@@ -391,14 +391,15 @@ voyage_of_potemkin = {
 	}
 }
 
+# UHM compatibility
 adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 	custom_tooltip = {
 		text = adopt_random_antigovernment_ideology_tt
 		random_list = { 
 			50 = {
 				trigger = {
-					ideology_social_democrat_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_social_democrat_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = socialism
 						NOT = {
 							ruler = {
@@ -410,7 +411,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_council_republic
 							}
 						}
@@ -421,8 +422,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			100 = {
 				trigger = {
-					ideology_communist_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_communist_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = socialism
 						NOT = {
 							ruler = {
@@ -437,7 +438,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_monarchy
 							}
 						}
@@ -445,7 +446,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_autocracy
 							}
 						}
@@ -453,7 +454,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							this.interest_group = {
+							scope:relevant_ig ?= {
 								is_interest_group_type = ig_trade_unions
 							}
 						}
@@ -461,7 +462,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner.ruler = {
+							scope:exiling_country_scope.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_fascist
 									has_ideology = ideology:ideology_integralist
@@ -477,8 +478,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			100 = {
 				trigger = {
-					ideology_vanguardist_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_vanguardist_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = political_agitation
 						NOT = {
 							ruler = {
@@ -493,7 +494,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_monarchy
 							}
 						}
@@ -501,7 +502,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_autocracy
 							}
 						}
@@ -509,7 +510,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							this.interest_group = {
+							scope:relevant_ig ?= {
 								is_interest_group_type = ig_trade_unions
 							}
 						}
@@ -517,7 +518,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner.ruler = {
+							scope:exiling_country_scope.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_fascist
 									has_ideology = ideology:ideology_integralist
@@ -533,8 +534,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			100 = {
 				trigger = {
-					ideology_anarchist_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_anarchist_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = anarchism
 						NOT = {
 							ruler = {
@@ -546,7 +547,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_monarchy
 							}
 						}
@@ -554,7 +555,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_autocracy
 							}
 						}
@@ -562,7 +563,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							this.interest_group = {
+							scope:relevant_ig ?= {
 								OR = {
 									is_interest_group_type = ig_trade_unions
 									is_interest_group_type = ig_rural_folk
@@ -573,7 +574,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner.ruler = {
+							scope:exiling_country_scope.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_fascist
 									has_ideology = ideology:ideology_integralist
@@ -589,8 +590,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			100 = {
 				trigger = {
-					ideology_ethno_nationalist_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_ethno_nationalist_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = political_agitation
 						NOT = {
 							ruler = {
@@ -602,7 +603,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner.ruler = {
+							scope:exiling_country_scope.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_radical
 									has_ideology = ideology:ideology_feminist
@@ -616,7 +617,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner.ruler = {
+							scope:exiling_country_scope.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_communist
 									has_ideology = ideology:ideology_anarchist
@@ -628,7 +629,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner.ruler = {
+							scope:exiling_country_scope.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_fascist
 									has_ideology = ideology:ideology_integralist
@@ -643,7 +644,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_no_migration_controls
 							}
 						}
@@ -651,7 +652,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_multicultural
 							}
 						}
@@ -661,7 +662,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_cultural_exclusion
 							}
 						}
@@ -671,7 +672,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_council_republic
 							}
 						}
@@ -684,8 +685,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			50 = {
 				trigger = {
-					ideology_atheist_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_atheist_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = realism
 						has_law = law_type:law_state_religion
 						NOT = {
@@ -698,7 +699,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_monarchy
 							}
 						}
@@ -706,7 +707,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_state_religion
 							}
 						}
@@ -714,7 +715,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_theocracy
 							}
 						}
@@ -725,8 +726,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			50 = {
 				trigger = {
-					ideology_radical_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_radical_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = egalitarianism
 						NOT = {
 							ruler = {
@@ -738,7 +739,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {	
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_monarchy
 							}
 						}
@@ -746,7 +747,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}	
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_autocracy
 							}
 						}
@@ -754,7 +755,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_oligarchy
 							}
 						}
@@ -762,7 +763,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_landed_voting
 							}
 						}
@@ -773,8 +774,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			100 = {
 				trigger = {
-					ideology_fascist_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_fascist_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = mass_propaganda
 						NOT = {
 							ruler = {
@@ -787,7 +788,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner.ruler = {
+							scope:exiling_country_scope.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_radical
 									has_ideology = ideology:ideology_feminist
@@ -801,7 +802,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner.ruler = {
+							scope:exiling_country_scope.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_communist
 									has_ideology = ideology:ideology_anarchist
@@ -813,7 +814,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner.ruler = {
+							scope:exiling_country_scope.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_fascist
 									has_ideology = ideology:ideology_integralist
@@ -828,7 +829,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_council_republic
 							}
 						}
@@ -841,8 +842,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			50 = {
 				trigger = {
-					ideology_market_liberal_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_market_liberal_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = stock_exchange
 						NOT = {
 							ruler = {
@@ -854,7 +855,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_command_economy
 							}
 						}
@@ -862,7 +863,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_traditionalism
 							}
 						}
@@ -870,7 +871,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_isolationism
 							}
 						}
@@ -878,7 +879,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner.ruler = {
+							scope:exiling_country_scope.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_communist
 									has_ideology = ideology:ideology_anarchist
@@ -893,8 +894,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			50 = {
 				trigger = {
-					ideology_luddite_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_luddite_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = romanticism
 						OR = {
 							has_law = law_type:law_command_economy
@@ -911,7 +912,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								any_scope_state = {
 									any_scope_building = {
 										is_building_group = bg_heavy_industry
@@ -925,7 +926,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								any_scope_building = {
 									is_building_group = bg_heavy_industry
 									level >= 5
@@ -954,7 +955,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_ruling_interest_group = ig_industrialists
 							}
 						}
@@ -964,7 +965,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_ruling_interest_group = ig_rural_folk
 							}
 						}
@@ -977,8 +978,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			50 = {
 				trigger = {
-					ideology_feminist_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_feminist_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = feminism
 						NOT = {
 							ruler = {
@@ -990,7 +991,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_monarchy
 							}
 						}
@@ -1001,8 +1002,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			50 = {
 				trigger = {
-					ideology_humanitarian_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_humanitarian_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = feminism
 						NOT = {
 							ruler = {
@@ -1017,7 +1018,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_monarchy
 							}
 						}
@@ -1029,9 +1030,9 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 
 			50 = {
 				trigger = {
-					ideology_traditionalist_valid_trigger = yes
+					scope:relevant_ig ?= { ideology_traditionalist_valid_trigger = yes }
 					NOT = {	
-						owner.ruler ?= {
+						scope:exiling_country_scope.ruler ?= {
 							has_ideology = ideology:ideology_traditionalist	
 						}
 					}
@@ -1039,7 +1040,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							this.interest_group ?= {
+							scope:relevant_ig ?= {
 								OR = {
 									is_interest_group_type = ig_landowners
 									is_interest_group_type = ig_devout
@@ -1052,7 +1053,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner.ruler ?= {
+							scope:exiling_country_scope.ruler ?= {
 								OR = {
 									has_ideology = ideology:ideology_radical
 									has_ideology = ideology:ideology_feminist
@@ -1066,7 +1067,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner.ruler ?= {
+							scope:exiling_country_scope.ruler ?= {
 								OR = {
 									has_ideology = ideology:ideology_communist
 									has_ideology = ideology:ideology_anarchist
@@ -1078,7 +1079,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner.ruler ?= {
+							scope:exiling_country_scope.ruler ?= {
 								OR = {
 									has_ideology = ideology:ideology_fascist
 									has_ideology = ideology:ideology_integralist
@@ -1093,7 +1094,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							this.interest_group ?= {
+							scope:relevant_ig ?= {
 								OR = {
 									is_interest_group_type = ig_intelligentsia
 									is_interest_group_type = ig_industrialists
@@ -1111,20 +1112,20 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 
 			50 = {
 				trigger = {
-					ideology_republican_leader_valid_trigger = yes
+					scope:relevant_ig ?= { ideology_republican_leader_valid_trigger = yes }
 					NOT = {	
-						owner.ruler ?= {
+						scope:exiling_country_scope.ruler ?= {
 							has_ideology = ideology:ideology_republican_leader	
 						}
 					}
-					owner ?= {
+					scope:exiling_country_scope ?= {
 						has_law = law_type:law_monarchy
 					}
 				}
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_monarchy
 							}
 						}
@@ -1134,7 +1135,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_autocracy
 							}
 						}
@@ -1144,7 +1145,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_oligarchy
 							}
 						}
@@ -1152,7 +1153,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_landed_voting
 							}
 						}
@@ -1160,7 +1161,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							this.interest_group = {
+							scope:relevant_ig ?= {
 								is_interest_group_type = ig_landowners
 							}
 						}
@@ -1174,8 +1175,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 
 			50 = {
 				trigger = {
-					ideology_abolitionist_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_abolitionist_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						NOT = {
 							ruler = {
 								has_ideology = ideology:ideology_abolitionist	
@@ -1192,7 +1193,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_serfdom
 							}
 						}
@@ -1200,7 +1201,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								NOT = {
 									has_law = law_type:law_slavery_banned
 								}
@@ -1210,7 +1211,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_slave_trade
 							}
 						}
@@ -1218,7 +1219,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							this.interest_group = {
+							scope:relevant_ig ?= {
 								is_interest_group_type = ig_landowners
 							}
 						}
@@ -1232,8 +1233,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 
 			50 = {
 				trigger = {
-					ideology_positivist_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_positivist_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						NOR = {
 							ruler = {
 								has_ideology = ideology:ideology_positivist	
@@ -1245,7 +1246,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								country_has_voting_franchise = yes
 							}
 						}
@@ -1253,7 +1254,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_monarchy
 							}
 						}
@@ -1261,7 +1262,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_state_religion
 							}
 						}
@@ -1272,8 +1273,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			50 = {
 				trigger = {
-					ideology_humanitarian_royalist_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_humanitarian_royalist_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = feminism
 						NOT = {
 							ruler = {
@@ -1288,7 +1289,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_monarchy
 							}
 						}
@@ -1299,8 +1300,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			50 = {
 				trigger = {
-					ideology_corporatist_leader_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_corporatist_leader_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = corporatism
 						NOR = {
 							ruler = {
@@ -1315,7 +1316,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_council_republic
 							}
 						}
@@ -1326,8 +1327,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			50 = {
 				trigger = {
-					ideology_liberal_leader_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_liberal_leader_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = democracy
 						NOT = {
 							ruler = {
@@ -1341,7 +1342,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								country_has_voting_franchise = no
 							}
 						}
@@ -1352,8 +1353,8 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			50 = {
 				trigger = {
-					ideology_land_reformer_valid_trigger = yes
-					owner ?= {
+					scope:relevant_ig ?= { ideology_land_reformer_valid_trigger = yes }
+					scope:exiling_country_scope ?= {
 						has_technology_researched = enclosure
 						NOT = {
 							ruler = {
@@ -1367,7 +1368,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_serfdom
 							}
 						}
@@ -1375,7 +1376,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_tenant_farmers
 							}
 						}
@@ -1383,7 +1384,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								has_law = law_type:law_land_based_taxation
 							}
 						}
@@ -1394,11 +1395,11 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 			}
 			50 = {
 				trigger = {
-					ideology_utilitarian_leader_valid_trigger = yes # Give me your organs.
+					scope:relevant_ig ?= { ideology_utilitarian_leader_valid_trigger = yes } # Give me your organs.
 					culture = {
 						has_discrimination_trait = anglophone
 					}
-					owner ?= {
+					scope:exiling_country_scope ?= {
 						has_technology_researched = empiricism
 						any_primary_culture = {
 							has_discrimination_trait = anglophone
@@ -1408,7 +1409,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 				modifier = {
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								NOT = {
 									has_law = law_type:law_compulsory_primary_school
 								}
@@ -1418,7 +1419,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								NOT = {
 									has_law = law_type:law_public_schools
 								}
@@ -1428,7 +1429,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								NOT = {
 									has_law = law_type:law_womens_suffrage
 								}
@@ -1438,7 +1439,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 					}
 					if = {
 						limit = {
-							owner = {
+							scope:exiling_country_scope = {
 								NOR = {
 									has_law = law_type:law_graduated_taxation
 									has_law = law_type:law_proportional_taxation
@@ -4259,8 +4260,8 @@ generate_anti_lobby_diplomatic_pact_opportunity = {
 		20 = {
 			trigger = {
 				OR = {
-					can_create_diplomatic_pact = { target = scope:relevant_country type = foreign_investment_agreement }
-					can_create_diplomatic_pact = { target = scope:relevant_country type = foreign_investment_rights }
+					can_create_diplomatic_pact = { target = scope:third_party_country type = foreign_investment_agreement }
+					can_create_diplomatic_pact = { target = scope:third_party_country type = foreign_investment_rights }
 				}
 				NOR = {
 					has_diplomatic_pact = {

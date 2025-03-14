@@ -356,7 +356,7 @@
 			}
 			
 			add = {
-				value = 0.25
+				value = 0.1
 				desc = "RULER_IS_PRO_SLAVERY"
 			}
 		}	
@@ -1469,7 +1469,7 @@ movement_labor = { # Explicitly non-socialist labour movement
 		}
 		if = { # Communists will support the labour movement if they really, really have to
 			limit = {
-				owner = {
+				owner ?= {
 					any_political_movement = {
 						OR = {
 							is_political_movement_type = movement_anarchist
@@ -2445,9 +2445,15 @@ movement_communist = {
 	
 	pop_support_weight = {	
 		add = {
-			desc = "URBAN_STATE"
-			value = 10
-			multiply = state.state_urbanization_rate
+			# desc = "URBAN_STATE"
+			# value = 10
+			# multiply = state.state_urbanization_rate
+
+			#UHM compatibility
+			desc = "URBAN_STATE" # Increases support in rural states, decreases in urban
+			value = 0.5
+			subtract = state.state_urbanization_rate
+			multiply = 10
 		}	
 	
 		if = {
@@ -5232,7 +5238,7 @@ movement_reactionary = {
 		owner ?= {
 			add = {
 				value = country_turmoil
-				multiply = 0.50
+				multiply = 0.50 # 0.25
 				desc = "COUNTRY_TURMOIL"
 			}	
 		}
