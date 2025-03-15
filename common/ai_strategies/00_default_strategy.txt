@@ -222,7 +222,7 @@ ai_strategy_default = {
 				}
 			}							
 		}	
-		
+
 		### Risorgimento
 
 		if = {
@@ -1074,8 +1074,7 @@ ai_strategy_default = {
 							scope:target_state = { has_claim_by = root } 
 							} 
 						}					
-					add = 50
-					multiply = 2
+					multiply = 2.0
 				}
 
 				if = {
@@ -1113,6 +1112,11 @@ ai_strategy_default = {
 				if = {
 					limit = {
 						scope:target_state = { is_homeland_of_country_cultures = root }
+						NOR = {
+							country_has_primary_culture = cu:platinean
+							country_has_primary_culture = cu:south_andean
+							country_has_primary_culture = cu:north_andean
+						}
 					}
 					multiply = 2
 				}				
@@ -3298,17 +3302,47 @@ ai_strategy_default = {
 			max = 200 # Above a certain point more government income isn't going to lead to more AI government construction
 		}
 
+		if = {
+			limit = {
+				income > 1000000
+			}
+			add = {
+				value = income
+				subtract = 1000000
+				divide = 15000 # 1 construction output per this much income
+			}
+		}
+
 		add = {
 			value = total_population
 			
 			divide = 2000000 # 1 construction output per this much population
 			max = 100
 		}
+
+		if = {
+			limit = {
+				total_population > 200000000
+			}
+			add = {
+				value = total_population
+				subtract = 200000000
+				divide = 6000000 # 1 construction output per this much income
+			}
+		}
+		
+		# # Kickstart private investors If above this population value
+		# if = {
+		# 	limit = {
+		# 		total_population >= 2000000
+		# 	}
+		# 	add = 10
+		# }
 		
 		# Add a baseline for high rank
 		if = {
 			limit = { country_rank >= rank_value:great_power }
-			add = 75
+			add = 30 # 75
 		}		
 		else_if = {
 			limit = { 
@@ -3317,7 +3351,7 @@ ai_strategy_default = {
 					country_rank >= rank_value:unrecognized_major_power
 				}
 			}
-			add = 50
+			add = 15 # 50
 		}
 
 		# If trying to industrialize
@@ -6037,14 +6071,15 @@ ai_strategy_default = {
 		transfer_subject = {
 			if = {
 				limit = {
+					can_reach_target_country = yes
 					has_diplomatic_pact = {
 						who = scope:target_country.top_overlord
 						type = rivalry
 					}							
 				}
-				add = 50 # 25
+				add = 25
 			}
-			
+
 			if = {
 				limit = {
 					has_secret_goal = {
@@ -6054,7 +6089,7 @@ ai_strategy_default = {
 				}
 			
 				add = scope:target_country.ai_subject_value:root
-			}					
+			}		
 		
 			if = {
 				limit = { 
@@ -6256,16 +6291,6 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					has_variable = war_of_the_confederation_attacker
-					scope:target_country = {
-						c:BOL ?= this
-					}
-				}
-				add = 50
-			}	
-
-			if = {
-				limit = {
 					has_journal_entry = je_peru_bolivia
 					scope:target_country = {
 						has_variable = war_of_the_confederation_attacker
@@ -6308,12 +6333,15 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_rank >= rank_value:major_power					
+					"ai_ideological_opinion(scope:target_country)" <= -35 # -25	
 					OR = {
+						scope:target_country = {
+							is_adjacent_to_country = root
+						}
 						has_diplomatic_pact = {
 							who = scope:target_country.top_overlord
 							type = rivalry
 						}	
-						"ai_ideological_opinion(scope:target_country)" <= -25	
 					}
 				}
 				add = 10
@@ -6505,7 +6533,7 @@ ai_strategy_default = {
 
 				add = {
 					value = scope:target_country.gdp
-					divide = 100000
+					divide = 1000000 # 100000
 					max = 25						
 				}
 
@@ -6695,15 +6723,28 @@ ai_strategy_default = {
 							type = rivalry
 						}							
 					}
-					add = 50 # 25
+					add = 25
 				}
 
 				if = {
 					limit = {
 						scope:target_country.top_overlord.infamy >= infamy_threshold:pariah
 					}
-					add = 50 # 25
+					add = 25
 				}
+			}
+			
+			if = {
+				limit = {
+					has_diplomatic_pact = {
+						who = scope:target_country.top_overlord
+						type = rivalry
+					}
+					scope:target_country = {
+						is_adjacent_to_country = root
+					}
+				}
+				add = 25
 			}
 
 			if = {
@@ -6772,14 +6813,14 @@ ai_strategy_default = {
 							type = rivalry
 						}			
 					}
-					add = 50 # 25
+					add = 25
 				}
 
 				if = {
 					limit = {
 						scope:target_country.infamy >= infamy_threshold:pariah
 					}
-					add = 50 # 25
+					add = 25
 				}				
 			}
 			

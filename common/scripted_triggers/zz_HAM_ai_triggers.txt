@@ -410,6 +410,13 @@ has_je_befriend_reason = {
 				is_revolutionary = yes
 			}
 		}			
+
+		AND = {
+			has_journal_entry = je_unite_the_principalities
+			$TARGET$ = { 
+				country_has_primary_culture = cu:romanian
+			}			
+		}
 	}	
 }
 
@@ -419,12 +426,24 @@ has_je_protect_reason = {
 	
 	OR = {
 		AND = {
-			has_journal_entry = wants_to_solve_schleswig_holstein
+			wants_to_solve_schleswig_holstein = yes
 			$TARGET$ = { 
 				overlord = {
 					is_oppressor_of_schleswig_holstein = yes
 				} 
 			}			
+		}
+		
+		AND = {
+			has_journal_entry = vtm_je_treaty_of_turin
+			$TARGET$ = { 
+				has_journal_entry = je_risorgimento
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_SAVOY
+					}
+				}
+			}
 		}
 
 		AND = {
@@ -482,7 +501,14 @@ has_je_protect_reason = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = yes
 			}
-		}			
+		}	
+		
+		AND = {
+			has_journal_entry = je_unite_the_principalities
+			$TARGET$ = { 
+				country_has_primary_culture = cu:romanian
+			}			
+		}
 	}	
 }
 

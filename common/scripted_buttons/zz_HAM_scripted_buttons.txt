@@ -525,3 +525,136 @@ je_risorgimento_italian_unification_button = {
 		trigger_event = { id = italian_unification.2 popup = yes }
 	}
 }
+
+je_unite_the_principalities_button = {
+	name = "je_unite_the_principalities_button"
+	desc = "je_unite_the_principalities_button_desc"
+
+	visible = { always = yes }
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+        custom_tooltip = {
+            text = je_unite_the_principalities_friend_with_all_great_powers_tt
+			NOT = {
+		        any_country = {
+		            country_rank >= rank_value:great_power
+		            NOT = { has_war_with = ROOT }
+		            has_interest_marker_in_region = ROOT.capital.region
+		            relations:root < relations_threshold:neutral
+		        }
+	        }
+        }
+        custom_tooltip = {
+            text = je_unite_the_principalities_amicable_or_better_relations_tt
+            NOR = { 
+            	has_variable = romania_unification_in_motion 
+            	has_variable = ROM_united_principality
+            }
+	        any_country = {
+	        	NOT = { this = ROOT }
+	        	country_has_primary_culture = cu:romanian
+	            relations:root >= relations_threshold:amicable
+	            OR = {
+	            	AND = {
+	            		exists = top_overlord
+						top_overlord = {
+							THIS = root.top_overlord
+						}
+					}
+					is_subject = no
+	            }
+	        }
+        }
+	}
+
+	effect = {
+		if = {
+			limit = {
+				is_subject = yes
+				exists = top_overlord
+			}
+			set_variable = romania_subject
+        	top_overlord = {
+        		trigger_event = { 
+	        		id = romania.1 
+	        	}
+	        }
+	    }
+	    trigger_event = { id = romania.2 }
+	}
+}
+
+je_south_bessarabian_retrocession = {
+	name = "je_south_bessarabian_retrocession_button"
+	desc = "je_south_bessarabian_retrocession_button_desc"
+
+	visible = { 
+		NOT = { has_variable = south_bessarabia_cession_in_progress }
+		NOR = {
+			any_scope_state = {
+				state_region = s:STATE_BESSARABIA
+			}
+			any_subject_or_below = {
+				any_scope_state = {
+					state_region = s:STATE_BESSARABIA
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+        custom_tooltip = {
+        	text = je_south_bessarabian_retrocession_button_tt2
+
+			OR = {
+				any_neighbouring_state = {
+					state_region = s:STATE_BESSARABIA
+					owner = {
+						NOT = { ROOT = this }
+						relations:root > relations_threshold:cold
+						NOT = { has_war_with = ROOT }
+					}
+					is_split_state = no
+					is_capital = no
+				}
+				any_subject_or_below = {
+					any_neighbouring_state = {
+						state_region = s:STATE_BESSARABIA
+						owner = {
+							NOT = { ROOT = this }
+							relations:root > relations_threshold:cold
+							NOT = { has_war_with = ROOT }
+						}
+						is_split_state = no
+						is_capital = no
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		set_variable = {
+			name = south_bessarabia_cession_in_progress
+		}
+		random_country = {
+			limit = {
+				NOT = { ROOT = this }
+				relations:root > relations_threshold:cold
+				NOT = { has_war_with = ROOT }
+				any_scope_state = {
+					state_region = s:STATE_BESSARABIA
+				}
+			}
+	   		trigger_event = { id = romania.4 }
+		}
+	}
+}

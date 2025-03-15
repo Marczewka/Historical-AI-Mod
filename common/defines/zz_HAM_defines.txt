@@ -307,6 +307,11 @@ NPops = {
 
 
 NWar = {
+	DEVASTATION_MAX = 100.0
+	DEVASTATION_INCREASE_RATE = 0 # 0.1 # Per day, scales with level of occupation
+	DEVASTATION_DECAY_RATE = -0.03 # -0.1 # Per day, when there are no occupations
+	DEVASTATION_FROM_BATTLES = 1 # 0.1 # For each battle
+
 	OCCUPATION_STATE_DEFENSIVE_BATTLE_VICTORY_SCORE = 50 # How many occupation "points" each country receives after winning a defensive battle
 	OCCUPATION_STATE_CLEAR_OCCUPATION_FRACTION = 0.5 # Fraction of occupation score dedicated to clear occupation from your own States (if any).
 	WAR_EXHAUSTION_TURMOIL_FACTOR = 0.5 #2.0 # At 100% turmoil
