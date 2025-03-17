@@ -2630,7 +2630,6 @@ ai_strategy_unify_germany = {
 					}
 				}
 				add = 200
-
 			}
 			if = {
 				limit = {

@@ -5,9 +5,6 @@
 	s:STATE_PATAGONIA = { 	
 		remove_claim = c:CHL
 	}
-	s:STATE_ARAUCANIA = {	
-		remove_claim = c:ARG
-	}
 	s:STATE_ALTO_PARAGUAY = {
 		add_claim = c:PRG
 		add_claim = c:BOL
@@ -27,5 +24,8 @@
 	}
 	s:STATE_MOLDAVIA = {
 		add_claim = c:MOL
+	}
+	s:STATE_ARAUCANIA = {
+		add_homeland = cu:south_andean
 	}
 }

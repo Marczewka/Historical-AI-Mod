@@ -37,6 +37,20 @@ vtm_denmark.1 = { #startup event that informs player about the Danish desire to 
 
 	option = {
 		name = vtm_denmark.1.a
+		c:HOL ?= {
+			limit = {
+				is_subject_of = root
+			}
+			add_liberty_desire = 30
+			change_relations = {
+				country = root
+				value = -30
+			}
+			set_secret_goal = {
+					country = c:DEN
+					secret_goal = antagonize 
+			}
+		}
 	}
 }
 #JE_schleswig_holstein_question_denmark failure
@@ -186,7 +200,13 @@ vtm_denmark.4 = {
 				months = normal_modifier_time
 			}
 		}
-		every_country = {
+		c:SCH ?= {
+			change_relations = {
+				country = root
+				value = -10
+			}
+		}
+		c:HOL ?= {
 			limit = {
 				is_subject_of = root
 			}
@@ -198,11 +218,11 @@ vtm_denmark.4 = {
 		every_country = {
 			limit = {
 				has_journal_entry = je_schleswig_holstein_question
-				country_rank > rank_value:minor_power
+				country_rank >= rank_value:great_power
 			}
 			change_relations = {
 				country = root
-				value = -10
+				value = -20
 			}
 		}
 		default_option = yes
@@ -223,19 +243,25 @@ vtm_denmark.4 = {
 				months = normal_modifier_time
 			}
 		}
-		every_country = {
-			limit = {
-				is_subject_of = root
-			}
+		c:SCH ?= {
 			change_relations = {
 				country = root
 				value = 20
 			}
 		}
+		c:HOL ?= {
+			limit = {
+				is_subject_of = root
+			}
+			change_relations = {
+				country = root
+				value = 10
+			}
+		}
 		every_country = {
 			limit = {
 				has_journal_entry = je_schleswig_holstein_question
-				country_rank > rank_value:minor_power
+				country_rank >= rank_value:great_power
 			}
 			change_relations = {
 				country = root
@@ -289,14 +315,29 @@ vtm_denmark.5 = {
 				months = normal_modifier_time
 			}
 		}
-		every_country = {
-			limit = {
-				has_journal_entry = je_schleswig_holstein_question
-				country_rank > rank_value:minor_power
-			}
+		c:SCH ?= {
 			change_relations = {
 				country = root
 				value = -10
+			}
+		}
+		c:HOL ?= {
+			limit = {
+				is_subject_of = root
+			}
+			change_relations = {
+				country = root
+				value = -20
+			}
+		}
+		every_country = {
+			limit = {
+				has_journal_entry = je_schleswig_holstein_question
+				country_rank >= rank_value:great_power
+			}
+			change_relations = {
+				country = root
+				value = -20
 			}
 		}
 		hidden_effect = {
@@ -322,10 +363,25 @@ vtm_denmark.5 = {
 				months = normal_modifier_time
 			}
 		}
+		c:SCH ?= {
+			change_relations = {
+				country = root
+				value = 20
+			}
+		}
+		c:HOL ?= {
+			limit = {
+				is_subject_of = root
+			}
+			change_relations = {
+				country = root
+				value = 10
+			}
+		}
 		every_country = {
 			limit = {
 				has_journal_entry = je_schleswig_holstein_question
-				country_rank > rank_value:minor_power
+				country_rank >= rank_value:great_power
 			}
 			change_relations = {
 				country = root
@@ -367,14 +423,29 @@ vtm_denmark.6 = {
 
 	option = {
 		name = vtm_denmark.6.a
-		every_country = {
+		c:SCH ?= {
+			change_relations = {
+				country = root
+				value = -10
+			}
+		}
+		c:HOL ?= {
 			limit = {
-				has_journal_entry = je_schleswig_holstein_question
-				country_rank > rank_value:minor_power
+				is_subject_of = root
 			}
 			change_relations = {
 				country = root
-				value = -30
+				value = -20
+			}
+		}
+		every_country = {
+			limit = {
+				has_journal_entry = je_schleswig_holstein_question
+				country_rank >= rank_value:great_power
+			}
+			change_relations = {
+				country = root
+				value = -20
 			}
 		}
 		default_option = yes
@@ -383,14 +454,29 @@ vtm_denmark.6 = {
 
 	option = {
 		name = vtm_denmark.6.b
-		every_country = {
+		c:SCH ?= {
+			change_relations = {
+				country = root
+				value = 20
+			}
+		}
+		c:HOL ?= {
 			limit = {
-				has_journal_entry = je_schleswig_holstein_question
-				country_rank > rank_value:minor_power
+				is_subject_of = root
 			}
 			change_relations = {
 				country = root
-				value = 30
+				value = 10
+			}
+		}
+		every_country = {
+			limit = {
+				has_journal_entry = je_schleswig_holstein_question
+				country_rank >= rank_value:great_power
+			}
+			change_relations = {
+				country = root
+				value = 10
 			}
 		}
 		create_bidirectional_truce = {

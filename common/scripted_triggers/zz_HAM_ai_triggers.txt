@@ -106,15 +106,6 @@ has_je_conquest_reason = {
 		}
 
 		AND = {
-			has_journal_entry = je_schleswig_holstein_question_denmark
-			$TARGET$ = {
-				any_scope_state = {
-					state_region = s:STATE_SCHLESWIG_HOLSTEIN
-				}
-			}
-		}
-
-		AND = {
 			has_journal_entry = je_consolidate_colonial_rule
 			$TARGET$ = {
 				is_country_type = unrecognized
@@ -207,9 +198,6 @@ has_je_conquest_reason = {
 			$TARGET$ = {
 				OR = {
 					is_oppressor_of_schleswig_holstein = yes
-					overlord = {
-						is_oppressor_of_schleswig_holstein = yes
-					}
 				}
 			}
 		}
@@ -291,7 +279,7 @@ has_je_conquest_reason = {
 
 		AND = {
 			has_variable = sided_with_korean_gov
-			scope:target_country = {
+			$TARGET$ = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = yes
 			}
@@ -299,7 +287,7 @@ has_je_conquest_reason = {
 
 		AND = {
 			has_variable = sided_with_korean_rebels
-			scope:target_country = {
+			$TARGET$ = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = no
 			}
@@ -397,7 +385,7 @@ has_je_befriend_reason = {
 		
 		AND = {
 			has_variable = sided_with_korean_gov
-			scope:target_country = {
+			$TARGET$ = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = no
 			}
@@ -405,7 +393,7 @@ has_je_befriend_reason = {
 
 		AND = {
 			has_variable = sided_with_korean_rebels
-			scope:target_country = {
+			$TARGET$ = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = yes
 			}
@@ -489,7 +477,7 @@ has_je_protect_reason = {
 
 		AND = {
 			has_variable = sided_with_korean_gov
-			scope:target_country = {
+			$TARGET$ = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = no
 			}
@@ -497,7 +485,7 @@ has_je_protect_reason = {
 
 		AND = {
 			has_variable = sided_with_korean_rebels
-			scope:target_country = {
+			$TARGET$ = {
 				country_has_primary_culture = cu:korean
 				is_revolutionary = yes
 			}

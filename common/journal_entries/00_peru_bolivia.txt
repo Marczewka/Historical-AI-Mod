@@ -38,15 +38,12 @@
 		OR = {
 			c:SPU ?= {
 				is_subject_of = c:BOL
-				is_subject_type = subject_type_puppet
 			}
 			c:NPU ?= {
 				is_subject_of = c:BOL
-				is_subject_type = subject_type_puppet
 			}
 			c:PEU ?= {
 				is_subject_of = c:BOL
-				is_subject_type = subject_type_puppet
 			}
 		}
 		custom_tooltip = {
@@ -63,7 +60,6 @@
 				}
 			}
 		}
-		is_at_war = no
 	}
 
 	on_complete = {
@@ -87,15 +83,12 @@
 		OR = {
 			c:SPU ?= {
 				is_subject_of = c:BOL
-				is_subject_type = subject_type_puppet
 			}
 			c:NPU ?= {
 				is_subject_of = c:BOL
-				is_subject_type = subject_type_puppet
 			}
 			c:PEU ?= {
 				is_subject_of = c:BOL
-				is_subject_type = subject_type_puppet
 			}
 		}
 		NOT = {
@@ -118,9 +111,7 @@
 						exists = c:SPU
 					}
 					c:SPU ?= {
-						OR = {
 						NOT = { is_subject_of = c:BOL }
-						}
 					}
 				}
 				OR = {
@@ -128,9 +119,7 @@
 						exists = c:NPU
 					}
 					c:NPU ?= {
-						OR = {
 						NOT = { is_subject_of = c:BOL }
-					}
 					}
 				}
 				OR = {
@@ -138,9 +127,7 @@
 						exists = c:PEU
 					}
 					c:PEU ?= {
-						OR = {
 						NOT = { is_subject_of = c:BOL }
-						}
 					}
 				}
 			}

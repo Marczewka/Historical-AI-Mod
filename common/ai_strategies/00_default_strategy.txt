@@ -2477,7 +2477,7 @@ ai_strategy_default = {
 					country_has_primary_culture = cu:south_andean
 					country_has_primary_culture = cu:chilean
 				}
-				has_variable = war_of_the_confederation_attacker
+				has_modifier = modifier_against_the_confederation
 				scope:target_country = {
 					has_journal_entry = je_peru_bolivia
 				}
@@ -2578,22 +2578,6 @@ ai_strategy_default = {
 				}
 			}
 			add = 100
-		}	
-		
-		# Schleswig-Holstein question
-		if = {
-			limit = { 
-				wants_to_solve_schleswig_holstein = yes	
-				scope:target_country = {
-					OR = {
-						is_oppressor_of_schleswig_holstein = yes
-						overlord = {
-							is_oppressor_of_schleswig_holstein = yes
-						}
-					}
-				}
-			}
-			add = 300
 		}		
 
 		if = { #Carving up China
@@ -2670,7 +2654,7 @@ ai_strategy_default = {
 		# Even more aggression if you have the War of the Confederation JE
 		if = {
 			limit = {
-				has_variable = war_of_the_confederation_attacker
+				has_modifier = modifier_against_the_confederation
 				scope:target_country = {
 					has_journal_entry = je_peru_bolivia
 				}
@@ -2805,7 +2789,7 @@ ai_strategy_default = {
 				}
 				can_reach_target_country = yes
 			}
-			add = 10
+			add = 25 # 10
 		}
 
 		if = { #Russian Central Asia
@@ -2824,7 +2808,7 @@ ai_strategy_default = {
 				}
 				can_reach_target_country = yes
 			}
-			add = 15
+			add = 25 # 15
 		}
 		
 		if = { #Russian Central Asia
@@ -2871,7 +2855,7 @@ ai_strategy_default = {
 					country_has_primary_culture = cu:korean
 				}
 			}
-			add = 5
+			add = 25 # 5
 		}
 
 		if = { # Britain consolidating South Africa
@@ -4715,7 +4699,14 @@ ai_strategy_default = {
 			}			
 		}
 		reconcile = {
-			value = 0					
+			value = 0		
+			
+			if = {
+				limit = {
+					has_je_reconcile_reason = { TARGET = scope:target_country }
+				}
+				add = 10000
+			}	
 
 			if = {
 				limit = {
@@ -4772,7 +4763,7 @@ ai_strategy_default = {
 					scope:target_country = {
 						has_journal_entry = je_peru_bolivia
 					}
-					has_variable = war_of_the_confederation_attacker
+					has_modifier = modifier_against_the_confederation
 				}
 				add = -50
 			}
@@ -5463,7 +5454,7 @@ ai_strategy_default = {
 				limit = {
 					scope:target_country = {
 						any_scope_state = {
-							root = { has_claim = prev }
+							has_claim_by = ROOT
 						}
 					}
 				}
@@ -5758,12 +5749,28 @@ ai_strategy_default = {
 			
 			if = {
 				limit = {
-					can_reach_target_country = yes
 					country_rank > scope:target_country.country_rank
 					scope:target_country.country_rank < rank_value:major_power
 					scope:target_country = { NOT = { is_subject_of = root }	}
+					if = {
+						limit = {
+							scope:target_country = {
+								is_adjacent_to_country = root
+							} 
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							any_subject_or_below = {
+								scope:target_country = {
+									is_adjacent_to_country = prev
+								}
+							}
+						}
+						add = 10
+					}
 				}
-				add = 25
 			}
 			
 			multiply = {
@@ -6071,17 +6078,6 @@ ai_strategy_default = {
 		transfer_subject = {
 			if = {
 				limit = {
-					can_reach_target_country = yes
-					has_diplomatic_pact = {
-						who = scope:target_country.top_overlord
-						type = rivalry
-					}							
-				}
-				add = 25
-			}
-
-			if = {
-				limit = {
 					has_secret_goal = {
 						who = scope:target_country
 						secret_goal = dominate
@@ -6279,7 +6275,7 @@ ai_strategy_default = {
 				limit = {
 					has_journal_entry = je_peru_bolivia
 					scope:target_country = {
-						has_variable = war_of_the_confederation_attacker
+						has_modifier = modifier_against_the_confederation
 					}
 				}
 				add = 50
@@ -6287,7 +6283,7 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					has_variable = war_of_the_confederation_attacker
+					has_modifier = modifier_against_the_confederation
 					scope:target_country = { c:BOL ?= this }
 				}
 				add = 50
@@ -6298,7 +6294,7 @@ ai_strategy_default = {
 		}	
 
 		humiliation = {
-			value = 10 # 25
+			value = 5 # 25
 		}	
 		
 		join_power_bloc = {
@@ -6328,12 +6324,13 @@ ai_strategy_default = {
 				limit = {
 					country_rank >= rank_value:major_power					
 					"ai_ideological_opinion(scope:target_country)" <= -35 # -25	
+					scope:target_country = { is_subject = no }
 					OR = {
 						scope:target_country = {
 							is_adjacent_to_country = root
 						}
 						has_diplomatic_pact = {
-							who = scope:target_country.top_overlord
+							who = scope:target_country
 							type = rivalry
 						}	
 					}
@@ -6584,7 +6581,7 @@ ai_strategy_default = {
 					scope:target_state = { owner = root }
 				}
 				
-				add = 10
+				add = 25 # 10
 				
 				add = {
 					value = scope:target_state.state_population
@@ -6727,18 +6724,32 @@ ai_strategy_default = {
 					add = 25
 				}
 			}
-			
+
 			if = {
 				limit = {
 					has_diplomatic_pact = {
 						who = scope:target_country.top_overlord
 						type = rivalry
 					}
-					scope:target_country = {
-						is_adjacent_to_country = root
+					if = {
+						limit = {
+							scope:target_country = {
+								is_adjacent_to_country = root
+							} 
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							any_subject_or_below = {
+								scope:target_country = {
+									is_adjacent_to_country = prev
+								}
+							}
+						}
+						add = 10
 					}
 				}
-				add = 25
 			}
 
 			if = {
@@ -6747,7 +6758,7 @@ ai_strategy_default = {
 						has_journal_entry = je_peru_bolivia
 						country_has_primary_culture = cu:south_andean
 					}
-					has_variable = war_of_the_confederation_attacker						
+					has_modifier = modifier_against_the_confederation						
 				}
 				add = 100
 			}

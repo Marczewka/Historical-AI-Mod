@@ -49,3 +49,8 @@ ig_refused_desired_imports = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
 	interest_group_approval_add = -5
 }
+
+schleswig_holstein_question_solver = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_prestige_mult = 0.2
+}

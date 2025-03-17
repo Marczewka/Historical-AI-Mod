@@ -505,7 +505,6 @@ peru_bolivia_events.4 = {
 		ai_chance = {
 			base = 25
 		}
-		set_variable = war_of_the_confederation_attacker
 		add_journal_entry = {
 			type = je_war_of_the_confederation
 		}

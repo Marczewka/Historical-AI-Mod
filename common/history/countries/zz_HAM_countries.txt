@@ -48,6 +48,12 @@
   c:CHL ?= {
     activate_law = law_type:law_no_colonial_affairs # colonizes too quickly
   }
+  c:HAI ?= {
+    set_tax_level = very_high
+    set_government_wage_level = very_low
+    set_military_wage_level = low
+    add_taxed_goods = g:tobacco
+  }
   c:RUS ?= {
     set_tax_level = medium # peasant taxes
   }
