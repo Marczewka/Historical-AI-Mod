@@ -883,7 +883,7 @@ ai_strategy_maintain_mandate_of_heaven = {
 	}
 	
 	max_regressiveness = {
-		value = 2
+		value = 25 # 2 doesn't seem right to be 2
 	}
 	
 	change_law_chance = { 
