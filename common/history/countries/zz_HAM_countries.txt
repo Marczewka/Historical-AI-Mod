@@ -65,4 +65,7 @@
     set_tax_level = medium  # lower taxes make sense when tariffs matter more
     add_journal_entry = { type = je_oregon }
   }
+  c:DEI ?= {
+    activate_law = law_type:law_colonial_resettlement
+  }
 }

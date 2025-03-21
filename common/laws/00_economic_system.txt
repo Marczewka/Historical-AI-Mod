@@ -431,6 +431,7 @@ law_laissez_faire = {
 	}
 	
 	modifier = {
+		interest_group_ig_industrialists_pol_str_mult = 0.5
 		country_loan_interest_rate_mult = -0.25
 		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
 		state_capitalists_investment_pool_efficiency_mult = 0.25

@@ -1,0 +1,9 @@
+﻿AI = {
+	c:KAB ?= {
+		set_strategy = ai_strategy_unify_afghanistan
+	}	
+}	
+
+
+
+

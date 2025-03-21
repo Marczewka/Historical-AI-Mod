@@ -956,6 +956,21 @@ italian_unification.10 = {
 			}
 			modifier = {
 				trigger = {
+					NOR = {
+						has_law = law_type:law_theocracy
+						has_law = law_type:law_monarchy
+					}
+				}
+				add = -50
+			}
+			modifier = {
+				trigger = {
+					NOT = { has_law = law_type:law_autocracy }
+				}
+				add = -50
+			}
+			modifier = {
+				trigger = {
 					ig:ig_intelligentsia = {
 						is_in_government = yes
 					}

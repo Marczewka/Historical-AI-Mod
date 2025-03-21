@@ -74,7 +74,7 @@
 			is_decaying = yes
 		}	
 		c:AUS ?= {
-			change_relations = { country = c:PRU value = -20 }
+			change_relations = { country = c:PRU value = -50 }
 		}
 		hidden_effect = { set_global_variable = schleswig_holstein_question_solved }		
 	}

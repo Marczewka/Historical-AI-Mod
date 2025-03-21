@@ -264,10 +264,6 @@ law_homesteading = {
 			is_decaying = yes
 			multiplier = money_amount_multiplier_medium
 		}
-		# ig:ig_rural_folk ?= {
-		# 	remove_ideology = ideology_isolationist
-		# 	add_ideology = ideology_isolationist_expansionism
-		# }
 	}
 
 	ai_enact_weight_modifier = { #Petitions

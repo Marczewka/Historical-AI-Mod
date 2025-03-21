@@ -281,16 +281,10 @@ ai_strategy_default = {
 					has_modifier = modifier_risorgimento_support
 				}
 				scope:country = {
-					OR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
+					has_modifier = modifier_risorgimento_support
 				}
 				scope:enemy_country = {
-					NOR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
+					NOT = { has_modifier = modifier_risorgimento_support }
 				}
 			}
 			add = {
@@ -2770,7 +2764,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 50
+			add = 20
 		}
 
 		# Britain consolidating South Asia
