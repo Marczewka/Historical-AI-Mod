@@ -12,7 +12,7 @@
 		has_journal_entry = je_earn_recognition
 	}
 
-	possible = {
+	potential = {
 		scope:target_country = {
 			country_rank >= rank_value:great_power
 		}
@@ -72,7 +72,7 @@
 		has_junior_participant = yes
 
 		relations_progress_per_day = 0.5  # At 100, +1 relations
-		relations_improvement_max = 50
+		relations_improvement_max = 25
 
 		can_be_used_in_sway_offers = yes
 		sway_maneuvers_cost = 10
@@ -494,6 +494,14 @@
 			value = 10
 		}
 
+		propose_break_score = {
+			value = 10
+		}
+
+		use_obligation_chance = {
+			value = 25
+		}
+
 		will_propose = {
 			always = yes
 		}
@@ -513,10 +521,19 @@ offer_recognition = {
 		country_rank >= rank_value:great_power
 	}
 
-	possible = {
+	potential = {
 		scope:target_country = {
 			has_journal_entry = je_earn_recognition
 		}
+
+		NOT = {
+			has_diplomats_expelled = root			
+		}
+
+		NOT = { has_war_with = scope:target_country }
+
+		has_diplomatic_relevance = scope:target_country
+
 		custom_tooltip = {
 			text = DIPLO_ACTION_RELATIONS_POOR_OR_LESS_NOT
 			scope:target_country.relations:root > relations_threshold:poor
