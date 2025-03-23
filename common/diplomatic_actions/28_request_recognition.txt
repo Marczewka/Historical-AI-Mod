@@ -13,6 +13,7 @@
 	}
 
 	potential = {
+		has_journal_entry = je_earn_recognition
 		scope:target_country = {
 			country_rank >= rank_value:great_power
 		}
@@ -518,6 +519,8 @@ offer_recognition = {
 	can_use_obligations = yes
 
 	selectable = {
+		NOT = { is_country_type = decentralized }
+		is_revolutionary = no
 		country_rank >= rank_value:great_power
 	}
 
