@@ -1236,15 +1236,15 @@ ai_strategy_default = {
 				add = 50
 			}
 
-			if = {
-				limit = {
-					has_journal_entry = je_unify_afghanistan
-					scope:target_state = {
-						is_homeland_of_country_cultures = root
-					}
-				}
-				add = 75
-			}
+			# if = {
+			# 	limit = {
+			# 		has_journal_entry = je_unify_afghanistan
+			# 		scope:target_state = {
+			# 			is_homeland_of_country_cultures = root
+			# 		}
+			# 	}
+			# 	add = 75
+			# }
 
 			if = {
 				limit = {
@@ -2560,7 +2560,7 @@ ai_strategy_default = {
                     }
                 }
             }
-            add = 2
+            add = 5
         }	
 
 		# Even more recklessness for Chille in the War of the Confederation JE
@@ -2595,6 +2595,18 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	aggression = {
 		value = 0.5
+
+		# Revanchism
+		if = {
+			limit = {
+				scope:target_country = {
+					any_scope_state = {
+						has_claim_by = ROOT
+					}
+				}
+			}
+			add = 5
+		}
 		
 		# More fighting between unrecognized powers
 		if = {
@@ -2747,7 +2759,7 @@ ai_strategy_default = {
 					NOT = { is_subject_of = ROOT }	
 				}
 			}
-			add = 100
+			add = 300
 		}
 
 		# Extra french aggression for Haiti renouncing debt payments
@@ -3198,7 +3210,7 @@ ai_strategy_default = {
 					}
                 }
             }
-            add = 25
+            add = 300
         }
 		
 		# Acre claimant wants Acre
@@ -3335,24 +3347,24 @@ ai_strategy_default = {
 			add = 25
 		}
 
-		# Afghan Consolidation
-		if = {
-			limit = {
-				has_journal_entry = je_unify_afghanistan
-				scope:target_country = {
-					OR = {
-						has_journal_entry = je_unify_afghanistan
-						OR = {
-							has_state_in_state_region = STATE_KABUL
-							has_state_in_state_region = STATE_HERAT
-							has_state_in_state_region = STATE_KANDAHAR
-							has_state_in_state_region = STATE_CENTRAL_HIGHLANDS
-						}
-					}
-				}
-			}
-			add = 10 # 35
-		}
+		# # Afghan Consolidation
+		# if = {
+		# 	limit = {
+		# 		has_journal_entry = je_unify_afghanistan
+		# 		scope:target_country = {
+		# 			OR = {
+		# 				has_journal_entry = je_unify_afghanistan
+		# 				OR = {
+		# 					has_state_in_state_region = STATE_KABUL
+		# 					has_state_in_state_region = STATE_HERAT
+		# 					has_state_in_state_region = STATE_KANDAHAR
+		# 					has_state_in_state_region = STATE_CENTRAL_HIGHLANDS
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	add = 35
+		# }
 
         # Neutral Switzerland
         if = {
@@ -6663,7 +6675,7 @@ ai_strategy_default = {
 				add = {
 					value = scope:target_country.gdp
 					divide = 1000000 # 100000
-					max = 25						
+					max = 10 # 25
 				}
 
 				

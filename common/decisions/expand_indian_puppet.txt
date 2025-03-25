@@ -5,8 +5,8 @@
 		c:BIC = {
 			is_direct_subject_of = ROOT
 			OR = {
-				is_subject_type = subject_type_colony
 				is_subject_type = subject_type_chartered_company
+				is_subject_type = subject_type_colony
 				is_subject_type = subject_type_dominion
 			}
 		}
@@ -32,6 +32,7 @@
 				state_region = s:STATE_PASHTUNISTAN
 				state_region = s:STATE_QUETTA
 			}
+			NOT = { state_region = s:STATE_CEYLON }
 		}
 	}
 	when_taken = {
@@ -58,6 +59,7 @@
 						state_region = s:STATE_PASHTUNISTAN
 						state_region = s:STATE_QUETTA
 					}
+					NOT = { state_region = s:STATE_CEYLON }
 				}
 			}
 			every_scope_state = {
@@ -77,6 +79,7 @@
 						state_region = s:STATE_PASHTUNISTAN
 						state_region = s:STATE_QUETTA
 					}
+					NOT = { state_region = s:STATE_CEYLON }
 				}
 				set_state_owner = c:BIC
 				set_state_type = unincorporated

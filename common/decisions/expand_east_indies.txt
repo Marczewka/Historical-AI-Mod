@@ -5,6 +5,7 @@
 		c:DEI = {
 			is_direct_subject_of = ROOT
 			OR = {
+				is_subject_type = subject_type_chartered_company
 				is_subject_type = subject_type_dominion
 				is_subject_type = subject_type_colony
 			}

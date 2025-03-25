@@ -3141,7 +3141,7 @@ ai_strategy_unify_afghanistan = {
 	}			
 		
 	recklessness = {
-		value = 0.5
+		value = 0.25
 	}	
 	
 	aggression = {
