@@ -868,15 +868,12 @@ sepoy_mutiny_bengal_effect_high = {
 					c:MUG ?= this
 				}
 			}
-			# Hill Punjab State
+			# Annex Punjab
 			if = {
-				limit = {
-					exists = s:STATE_HILL_PUNJAB.region_state:PAN 
-				}
 				add_war_goal = {
 					holder = c:BIC
-					type = conquer_state
-					target_state = s:STATE_HILL_PUNJAB.region_state:PAN
+					target_country = c:PAN
+					type = annex_country
 				}
 			}
 			# Punjab State
@@ -931,15 +928,12 @@ sepoy_mutiny_bengal_effect_high = {
 					c:MUG ?= this
 				}
 			}
-			# East Bengal State
+			# Annex Bengal
 			if = {
-				limit = {
-					exists = s:STATE_EAST_BENGAL.region_state:BGL 
-				}
 				add_war_goal = {
 					holder = c:BIC
-					type = conquer_state
-					target_state = s:STATE_EAST_BENGAL.region_state:BGL
+					target_country = c:BGL
+					type = annex_country
 				}
 			}
 			# Bihar State
@@ -1183,26 +1177,12 @@ sepoy_mutiny_bengal_effect_critical = {
 					target_state = s:STATE_PASHTUNISTAN.region_state:BIC
 				}
 			}
-			# Hill Punjab State
+			# Annex Punjab
 			if = {
-				limit = {
-					exists = s:STATE_HILL_PUNJAB.region_state:PAN 
-				}
 				add_war_goal = {
 					holder = c:BIC
-					type = conquer_state
-					target_state = s:STATE_HILL_PUNJAB.region_state:PAN
-				}
-			}
-			# Punjab State
-			if = {
-				limit = {
-					exists = s:STATE_PUNJAB.region_state:PAN 
-				}
-				add_war_goal = {
-					holder = c:BIC
-					type = conquer_state
-					target_state = s:STATE_PUNJAB.region_state:PAN
+					target_country = c:PAN
+					type = annex_country
 				}
 			}
 		}
@@ -1284,26 +1264,12 @@ sepoy_mutiny_bengal_effect_critical = {
 					target_state = s:STATE_ORISSA.region_state:BIC
 				}
 			}
-			# East Bengal State
+			# Annex Bengal
 			if = {
-				limit = {
-					exists = s:STATE_EAST_BENGAL.region_state:BGL 
-				}
 				add_war_goal = {
 					holder = c:BIC
-					type = conquer_state
-					target_state = s:STATE_EAST_BENGAL.region_state:BGL
-				}
-			}
-			# Bihar State
-			if = {
-				limit = {
-					exists = s:STATE_BIHAR.region_state:BGL 
-				}
-				add_war_goal = {
-					holder = c:BIC
-					type = conquer_state
-					target_state = s:STATE_BIHAR.region_state:BGL
+					target_country = c:BGL
+					type = annex_country
 				}
 			}
 		}
@@ -1622,15 +1588,12 @@ sepoy_mutiny_bombay_effect_high = {
 		}
 		add_target_backers = { c:SIN }
 		# Add wargoals
-		# Sindh State
+		# Annex Sindh
 		if = {
-			limit = {
-				exists = s:STATE_SINDH.region_state:SIN 
-			}
 			add_war_goal = {
 				holder = c:BIC
-				type = conquer_state
-				target_state = s:STATE_SINDH.region_state:SIN
+				target_country = c:SIN
+				type = annex_country
 			}
 		}
 	}
@@ -1773,15 +1736,12 @@ sepoy_mutiny_bombay_effect_critical = {
 				}
 			}
 			add_target_backers = { c:SIN }
-			# Sindh State
+			# Annex Sindh
 			if = {
-				limit = {
-					exists = s:STATE_SINDH.region_state:SIN 
-				}
 				add_war_goal = {
 					holder = c:BIC
-					type = conquer_state
-					target_state = s:STATE_SINDH.region_state:SIN
+					target_country = c:SIN
+					type = annex_country
 				}
 			}
 		}
@@ -1817,14 +1777,12 @@ sepoy_mutiny_bombay_effect_critical = {
 					target_state = s:STATE_GUJARAT.region_state:BIC
 				}
 			}
+			# Annex Gujarat
 			if = {
-				limit = {
-					exists = s:STATE_GUJARAT.region_state:GUJ 
-				}
 				add_war_goal = {
 					holder = c:BIC
-					type = conquer_state
-					target_state = s:STATE_GUJARAT.region_state:GUJ
+					target_country = c:GUJ
+					type = annex_country
 				}
 			}
 		}

@@ -1,0 +1,5 @@
+﻿DIPLOMACY = {
+	c:HER ?= {
+		set_relations = { country = c:GBR value = 30 }
+	}
+}

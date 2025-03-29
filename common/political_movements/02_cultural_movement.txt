@@ -435,7 +435,14 @@ movement_cultural_minority = {
 					is_primary_culture_of = root
 				}
 				root = {
-					NOT = { any_scope_state = { state_region = { is_homeland = scope:political_movement.culture } } }
+					NOT = { 
+						any_scope_state = { 
+							state_region = { 
+								is_homeland = scope:political_movement.culture 
+							} 
+							is_treaty_port = no
+						} 
+					}
 					culture_percent_country = {
 						target = scope:political_movement.culture
 						value <= 0.04
@@ -449,7 +456,12 @@ movement_cultural_minority = {
 		NOT = { is_primary_culture_of = scope:country }
 		scope:country = {
 			OR = {
-				any_scope_state = { state_region = { is_homeland = root } }
+				any_scope_state = { 
+					state_region = { 
+						is_homeland = root 
+					} 
+					is_treaty_port = no
+				}
 				culture_percent_country = {
 					target = root
 					value >= 0.05

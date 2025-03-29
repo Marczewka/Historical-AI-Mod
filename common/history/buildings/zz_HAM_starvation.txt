@@ -1,0 +1,36 @@
+﻿BUILDINGS = {
+	s:STATE_PUNJAB= {
+		region_state:PAN= {
+			create_building = {
+				building = "building_wheat_farm"
+				add_ownership = {
+					building = {
+						type = "building_manor_house"
+						country = "c:PAN"
+						levels = 10 # 2
+						region = "STATE_PUNJAB"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_simple_farming" "pm_citrus_orchards" "pm_tools_disabled" }
+			}
+		}
+	}
+	s:STATE_ANTIOQUIA={
+		region_state:CLM={
+			create_building={
+				building="building_maize_farm"
+				add_ownership={
+					building={
+						type="building_maize_farm"
+						country="c:CLM"
+						levels=2
+						region="STATE_CAUCA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled"  }
+			}
+		}
+	}
+}

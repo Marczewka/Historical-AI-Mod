@@ -39,7 +39,7 @@
 					}
 				}
 			}
-			percent >= 0.80
+			percent >= 0.70 # 0.80
 		}
 		scope:journal_entry = {
 			is_goal_complete = yes

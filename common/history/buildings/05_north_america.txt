@@ -3154,7 +3154,7 @@
 					building={
 						type="building_manor_house"
 						country="c:MEX"
-						levels=1
+						levels=2 # 1
 						region="STATE_BAJIO"
 					}
 				}
@@ -3305,7 +3305,7 @@
 					building={
 						type="building_manor_house"
 						country="c:MEX"
-						levels=1
+						levels=3 # 1
 						region="STATE_MEXICO"
 					}
 				}
@@ -3636,7 +3636,7 @@
 					building={
 						type="building_maize_farm"
 						country="c:MEX"
-						levels=1
+						levels=3 # 1
 						region="STATE_JALISCO"
 					}
 				}

@@ -333,6 +333,19 @@ has_je_befriend_reason = {
 	
 	OR = {
 		AND = {
+			NOT = { c:AFG ?= this }
+			any_scope_state = {
+				state_region = s:STATE_HERAT
+			}
+			c:PER ?= {
+				is_adjacent_to_country = ROOT
+			}
+			$TARGET$ = { 
+				c:GBR = this
+			}
+		}
+
+		AND = {
 			NOT = { has_variable = ionian_islands_var }
 			country_has_primary_culture = cu:greek
 			is_subject = no
@@ -358,9 +371,7 @@ has_je_befriend_reason = {
 			$TARGET$ = { 
 				has_journal_entry = je_risorgimento
 				any_scope_state = {
-					OR = {
-						state_region = s:STATE_SAVOY
-					}
+					state_region = s:STATE_SAVOY
 				}
 			}
 		}
@@ -368,9 +379,7 @@ has_je_befriend_reason = {
 		AND = {
 			has_journal_entry = je_risorgimento
 			any_scope_state = {
-				OR = {
-					state_region = s:STATE_SAVOY
-				}
+				state_region = s:STATE_SAVOY
 			}
 			$TARGET$ = { 
 				has_journal_entry = vtm_je_treaty_of_turin

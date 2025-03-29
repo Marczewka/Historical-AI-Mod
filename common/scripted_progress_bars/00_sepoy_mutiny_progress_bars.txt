@@ -151,7 +151,7 @@
 			}
 			add = {
 				desc = "presidencies_progress_from_indian_igs_in_government_tt"
-				value = 1
+				value = 0.5 # 1
 			}
 		}
 		add = {
@@ -510,7 +510,7 @@ sepoy_mutiny_progress_bar_bombay = {
 			}
 			add = {
 				desc = "presidencies_progress_from_indian_igs_in_government_tt"
-				value = 1
+				value = 0.5 # 1
 			}
 		}
 		add = {
@@ -871,7 +871,7 @@ sepoy_mutiny_progress_bar_madras = {
 			}
 			add = {
 				desc = "presidencies_progress_from_indian_igs_in_government_tt"
-				value = 1
+				value = 0.5 # 1
 			}
 		}
 		add = {

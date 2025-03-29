@@ -3183,7 +3183,10 @@ ai_strategy_unify_afghanistan = {
 		if = {
 			limit = {
 				scope:target_state = {
-					is_homeland_of_country_cultures = root
+					state_region = {
+						is_homeland = cu:pashtun
+						is_homeland = cu:tajik
+					}
 				}
 				can_reach_target_state = yes
 			}
@@ -3262,7 +3265,7 @@ ai_strategy_unify_afghanistan = {
 		
 		add = {
 			value = army_size
-			multiply = 3
+			multiply = 2.5
 		}
 		
 		if = {

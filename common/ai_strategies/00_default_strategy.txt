@@ -139,7 +139,7 @@ ai_strategy_default = {
 					is_oppressor_of_schleswig_holstein = yes
 				}
 				scope:country = {
-					any_state = {
+					any_scope_state = {
 						state_region = s:STATE_SCHLESWIG_HOLSTEIN
 					}
 				}
@@ -190,16 +190,45 @@ ai_strategy_default = {
 		### Protect Herat
 		if = {
 			limit = { 
-				c:GBR = this
+				OR = {
+					c:GBR = this
+					has_journal_entry = je_unify_afghanistan
+				}
 				scope:enemy_country = {
 					c:PER = this
-					play_participant_has_war_goal_of_type_against = {
-						type = return_state
-						target = scope:country
+					OR = {
+						play_participant_has_war_goal_of_type_against = {
+							type = return_state
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = conquer_state
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = make_protectorate
+							target = scope:country
+						}								
+						play_participant_has_war_goal_of_type_against = {
+							type = liberate_country
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = liberate_subject
+							target = scope:country
+						}		
+						play_participant_has_war_goal_of_type_against = {
+							type = transfer_subject
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = take_treaty_port
+							target = scope:country
+						}
 					}
 				}
 				scope:country = {
-					any_state = {
+					any_scope_state = {
 						state_region = s:STATE_HERAT
 					}
 				}
@@ -208,6 +237,62 @@ ai_strategy_default = {
 			add = {
 				value = 100
 				desc = "protect_herat"
+			}
+		}
+
+		### Monroe Doctrine
+		if = {
+			limit = { 
+				c:USA = this
+				scope:enemy_country = {
+					NOR = {
+						country_is_in_north_america = yes
+						country_is_in_central_america = yes
+						country_is_in_south_america = yes
+					}
+					OR = {
+						play_participant_has_war_goal_of_type_against = {
+							type = return_state
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = conquer_state
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = make_protectorate
+							target = scope:country
+						}								
+						play_participant_has_war_goal_of_type_against = {
+							type = liberate_country
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = liberate_subject
+							target = scope:country
+						}		
+						play_participant_has_war_goal_of_type_against = {
+							type = transfer_subject
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = take_treaty_port
+							target = scope:country
+						}		
+					}
+				}
+				scope:country = {
+					OR = {
+						country_is_in_north_america = yes
+						country_is_in_central_america = yes
+						country_is_in_south_america = yes
+					}
+				}
+			}
+
+			add = {
+				value = 100
+				desc = "monroe_doctrine"
 			}
 		}
 
@@ -657,6 +742,39 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	diplomatic_play_boldness = {
 		value = 50
+
+		# ### Protect Herat
+		# if = {
+		# 	limit = { 
+		# 		OR = {
+		# 			c:GBR = this
+		# 			has_journal_entry = je_unify_afghanistan
+		# 		}
+		# 		scope:target_country = {
+		# 			is_diplomatic_play_enemy_of = c:PER
+		# 			any_scope_state = {
+		# 				state_region = s:STATE_HERAT
+		# 			}
+		# 		}
+		# 	}
+
+		# 	add = 100
+		# }
+
+		# ### Monroe Doctrine
+		# if = {
+		# 	limit = { 
+		# 		c:USA = this
+		# 		scope:target_country = {
+		# 			OR = {
+		# 				country_is_in_north_america = yes
+		# 				country_is_in_central_america = yes
+		# 				country_is_in_south_america = yes
+		# 			}
+		# 		}
+		# 	}
+		# 	add = 100
+		# }
 		
 		# Great Powers with the appropriate flags should get involved in Egypt vs Ottomans
 		if = {
@@ -772,6 +890,8 @@ ai_strategy_default = {
 			}
 			add = 50
 		}
+
+		
 	} 
 		
 	# How many maneuvers are we OK with using up in the initial phase to add more wargoals
@@ -1318,7 +1438,7 @@ ai_strategy_default = {
 						}
 						c:AFG ?= this
 					}
-					scope:target_state = {
+					scope:target_state.state_region = {
 						is_homeland = cu:pashtun
 						is_homeland = cu:tajik
 					}
@@ -2493,7 +2613,7 @@ ai_strategy_default = {
 				has_journal_entry = je_greek_nationalism
 				scope:target_country = {
 					NOT = { country_has_primary_culture = cu:greek }
-					any_state = {
+					any_scope_state = {
 						state_region = { is_homeland = cu:greek }
 						has_claim_by = root
 					}
@@ -2768,7 +2888,7 @@ ai_strategy_default = {
 					is_banning_goods = g:opium
 				}
 			}
-			add = 300
+			add = 100
 		}
 		
 		# Greek Nationalism
@@ -2777,7 +2897,7 @@ ai_strategy_default = {
 				has_journal_entry = je_greek_nationalism
 				scope:target_country = {
 					NOT = { country_has_primary_culture = cu:greek }
-					any_state = {
+					any_scope_state = {
 						state_region = { is_homeland = cu:greek }
 						has_claim_by = root
 					}
@@ -2791,7 +2911,7 @@ ai_strategy_default = {
 			limit = {
 				has_journal_entry = je_schleswig_holstein_question_denmark
 				scope:target_country = {
-					any_state = {
+					any_scope_state = {
 						state_region = s:STATE_SCHLESWIG_HOLSTEIN
 					}
 				}
@@ -2825,7 +2945,7 @@ ai_strategy_default = {
 					gdp >= 5000000
 				} 			
 			}
-			add = 50
+			add = 25
 		}
 
 		# Ottomans should be very aggressive against owners of Syria and Egypt when they have the relevant JE's
@@ -2899,7 +3019,7 @@ ai_strategy_default = {
 				has_variable = haiti_stops_paying_france_aggressor				
 				scope:target_country = {
 					has_variable = haiti_stops_paying_france_target
-					any_state = {
+					any_scope_state = {
 						has_claim_by = root
 					}
 				}				
@@ -5998,12 +6118,12 @@ ai_strategy_default = {
 					}					
 				}
 			
-				if = {
-					limit = {
-						power_bloc ?= { has_principle_group = principle_group:principle_group_colonial_offices }
-					}
-					add = 5 # 50
-				}
+				# if = {
+				# 	limit = {
+				# 		power_bloc ?= { has_principle_group = principle_group:principle_group_colonial_offices }
+				# 	}
+				# 	add = 50
+				# }
 
 				if = {
 					limit = {
@@ -6625,6 +6745,36 @@ ai_strategy_default = {
 				add = 50
 			}	
 
+			# ### Protect Herat
+			# if = {
+			# 	limit = { 
+			# 		OR = {
+			# 			c:GBR = this
+			# 			has_journal_entry = je_unify_afghanistan
+			# 		}
+			# 		scope:target_country = {
+			# 			c:PER = this
+			# 		}
+			# 	}
+
+			# 	add = 100
+			# }
+
+			# ### Monroe Doctrine
+			# if = {
+			# 	limit = { 
+			# 		c:USA = this
+			# 		scope:target_country = {
+			# 			NOR = {
+			# 				country_is_in_north_america = yes
+			# 				country_is_in_central_america = yes
+			# 				country_is_in_south_america = yes
+			# 			}
+			# 		}
+			# 	}
+			# 	add = 100
+			# }
+
 			min = 0
 			max = 100			
 		}	
@@ -6786,7 +6936,19 @@ ai_strategy_default = {
 					
 				}
 				add = 50
-			}					
+			}				
+			
+			# AI should open up Japan
+			if = {
+				limit = {
+					has_strategy = ai_strategy_economic_imperialism
+					scope:target_country = { 
+						has_law = law_type:law_isolationism
+						gdp >= 5000000
+					} 			
+				}
+				add = 200
+			}
 			
 			# Not worth doing against very small markets
 			if = {
