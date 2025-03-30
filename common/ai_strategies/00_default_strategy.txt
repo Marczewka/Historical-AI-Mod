@@ -146,7 +146,7 @@ ai_strategy_default = {
 			}
 
 			add = {
-				value = 50
+				value = 100
 				desc = "schleswig_holstein"
 			}
 		}
@@ -176,13 +176,13 @@ ai_strategy_default = {
 		### Dismantle Peru-Bolivia
 		if = {
 			limit = {
-				has_modifier = modifier_against_the_confederation
+				c:BOL = this
 				scope:enemy_country = {
-					c:BOL = this
+					has_modifier = modifier_against_the_confederation
 				}
 			}
 			add = {
-				value = 50
+				value = -50
 				desc = "against_the_confederation"
 			}
 		}
@@ -1373,18 +1373,26 @@ ai_strategy_default = {
 							region = sr:region_bombay
 							region = sr:region_bengal
 							region = sr:region_central_india
+							AND = {
+								region = sr:region_punjab
+								NOT = { state_region = s:STATE_HILL_PUNJAB }
+								NOT = { state_region = s:STATE_PUNJAB }
+							}
 							state_region = s:STATE_MANDALAY
 							state_region = s:STATE_KACHIN
 							state_region = s:STATE_SHAN_STATES
-							state_region = s:STATE_PASHTUNISTAN
+							state_region = s:STATE_PEGU
 							state_region = s:STATE_QUETTA
 							AND = {
 								OR = {
+									state_region = s:STATE_HILL_PUNJAB
+									state_region = s:STATE_PUNJAB
+									state_region = s:STATE_PASHTUNISTAN
 									state_region = s:STATE_KASHMIR
 									state_region = s:STATE_EASTERN_HIMALAYAS
 									state_region = s:STATE_HIMALAYAS
 								}
-								root.top_overlord = { has_journal_entry = je_opium_wars }
+								root.top_overlord = { NOT = { has_journal_entry = je_opium_wars } }
 							}
 						}
 					}
@@ -3086,20 +3094,26 @@ ai_strategy_default = {
 							region = sr:region_bombay
 							region = sr:region_bengal
 							region = sr:region_central_india
-							region = sr:region_punjab
+							AND = {
+								region = sr:region_punjab
+								NOT = { state_region = s:STATE_HILL_PUNJAB }
+								NOT = { state_region = s:STATE_PUNJAB }
+							}
 							state_region = s:STATE_MANDALAY
 							state_region = s:STATE_KACHIN
 							state_region = s:STATE_SHAN_STATES
 							state_region = s:STATE_PEGU
-							state_region = s:STATE_PASHTUNISTAN
 							state_region = s:STATE_QUETTA
 							AND = {
 								OR = {
+									state_region = s:STATE_HILL_PUNJAB
+									state_region = s:STATE_PUNJAB
+									state_region = s:STATE_PASHTUNISTAN
 									state_region = s:STATE_KASHMIR
 									state_region = s:STATE_EASTERN_HIMALAYAS
 									state_region = s:STATE_HIMALAYAS
 								}
-								root.top_overlord = { has_journal_entry = je_opium_wars }
+								root.top_overlord = { NOT = { has_journal_entry = je_opium_wars } }
 							}
 						}
 					}
@@ -3630,18 +3644,6 @@ ai_strategy_default = {
 				}
 			}
 			add = 35
-		}
-
-		# Denmark wants Schleswig
-		if = {
-			limit = {
-				has_journal_entry = je_schleswig_holstein_question_denmark
-				exists = c:SCH
-				scope:target_country = {
-					THIS = c:SCH
-				}
-			}
-			add = 100
 		}
 
         # Neutral Switzerland
@@ -6597,20 +6599,26 @@ ai_strategy_default = {
 								region = sr:region_bombay
 								region = sr:region_bengal
 								region = sr:region_central_india
-								region = sr:region_punjab
+								AND = {
+									region = sr:region_punjab
+									NOT = { state_region = s:STATE_HILL_PUNJAB }
+									NOT = { state_region = s:STATE_PUNJAB }
+								}
 								state_region = s:STATE_MANDALAY
 								state_region = s:STATE_KACHIN
 								state_region = s:STATE_SHAN_STATES
 								state_region = s:STATE_PEGU
-								state_region = s:STATE_PASHTUNISTAN
-								state_region = s:STATE_QUETTA	
+								state_region = s:STATE_QUETTA
 								AND = {
 									OR = {
+										state_region = s:STATE_HILL_PUNJAB
+										state_region = s:STATE_PUNJAB
+										state_region = s:STATE_PASHTUNISTAN
 										state_region = s:STATE_KASHMIR
 										state_region = s:STATE_EASTERN_HIMALAYAS
 										state_region = s:STATE_HIMALAYAS
 									}
-									root.top_overlord = { has_journal_entry = je_opium_wars }
+									root.top_overlord = { NOT = { has_journal_entry = je_opium_wars } }
 								}
 							}
 						}

@@ -82,7 +82,7 @@ combat_unit_type_line_infantry = {
     }
 
     battle_modifier = {
-        unit_offense_add = 23
+        unit_offense_add = 25 # 20
         unit_defense_add = 25
         unit_morale_loss_add = 20 #was 10
     }

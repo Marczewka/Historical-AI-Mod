@@ -1,4 +1,21 @@
 ﻿BUILDINGS = {
+	s:STATE_LA_PAZ={
+        region_state:BOL={
+			create_building={
+				building="building_rice_farm"
+				add_ownership={
+					building={
+						type="building_rice_farm"
+						country="c:BOL"
+						levels=4
+						region="STATE_LA_PAZ"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_no_secondary" "pm_tools_disabled"  }
+			}
+        }
+    }
 	s:STATE_PUNJAB= {
 		region_state:PAN= {
 			create_building = {
@@ -7,12 +24,29 @@
 					building = {
 						type = "building_manor_house"
 						country = "c:PAN"
-						levels = 10 # 2
+						levels = 14 # 2
 						region = "STATE_PUNJAB"
 					}
 				}
 				reserves = 1
-				activate_production_methods = { "pm_simple_farming" "pm_citrus_orchards" "pm_tools_disabled" }
+				activate_production_methods = { "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" }
+			}
+		}
+	}
+	s:STATE_KASHMIR= {
+		region_state:KAS= {
+			create_building = {
+				building = "building_rice_farm"
+				add_ownership = {
+					building = {
+						type = "building_manor_house"
+						country = "c:KAS"
+						levels = 2
+						region = "STATE_KASHMIR"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_simple_farming_building_rice_farm" "pm_no_secondary" "pm_tools_disabled" }
 			}
 		}
 	}
@@ -25,11 +59,120 @@
 						type="building_maize_farm"
 						country="c:CLM"
 						levels=2
-						region="STATE_CAUCA"
+						region="STATE_ANTIOQUIA"
 					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled"  }
+			}
+		}
+	}
+	s:STATE_IRAKAJEMI={
+		region_state:PER={
+			create_building={
+				building="building_wheat_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:PER"
+						levels=8 # 3
+						region="STATE_IRAKAJEMI"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled"  }
+			}
+		}
+	}
+	s:STATE_SINDH= {
+		region_state:SIN= {
+			create_building = {
+				building = "building_wheat_farm"
+				add_ownership = {
+					building = {
+						type = "building_manor_house"
+						country = "c:SIN"
+						levels = 4 # 1
+						region = "STATE_SINDH"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" }
+			}
+		}
+	}
+	s:STATE_ABU_DHABI={
+		region_state:OMA={
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:OMA"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+		}
+	}
+	s:STATE_CEYLON={
+		region_state:GBR={
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:GBR"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+		}
+	}
+	s:STATE_PEGU={
+		region_state:BIC={
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:BIC"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+		}
+	}
+	s:STATE_MALAYA={
+		region_state:BIC={
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:BIC"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+		}
+	}
+	s:STATE_WEST_BORNEO	={
+		region_state:SMB={
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:SMB"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
 			}
 		}
 	}

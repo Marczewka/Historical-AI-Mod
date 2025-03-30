@@ -21,7 +21,7 @@ austria_italian_radicals = {
 }
 
 modifier_risorgimento = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_fit_negative.dds
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	political_movement_radicalism_add = 0.25
 	state_radicals_from_political_movements_mult = 0.5
 }
@@ -53,4 +53,10 @@ ig_refused_desired_imports = {
 schleswig_holstein_question_solver = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	country_prestige_mult = 0.2
+}
+
+cizye_tax = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	tax_heathen_add = 0.10
+	state_conscription_rate_mult = -0.4
 }

@@ -45,6 +45,9 @@
     add_journal_entry = { type = je_earn_recognition }
   }
 
+  c:ALK ?= {
+    activate_law = law_type:law_racial_segregation
+  }
   c:CHL ?= {
     activate_law = law_type:law_no_colonial_affairs # colonizes too quickly
   }
