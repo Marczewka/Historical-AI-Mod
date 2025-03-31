@@ -32,26 +32,26 @@
 	
 	on_complete = { #reward Denmark with prestige, make pan-scandi easier
 		trigger_event = { id = vtm_denmark.3 }		
-		hidden_effect = {
-			c:PRU = {
-				set_secret_goal = {
-					country = c:DEN
-					secret_goal = conquer 
-				}
-			}
-		}
+		# hidden_effect = {
+		# 	c:PRU = {
+		# 		set_secret_goal = {
+		# 			country = c:DEN
+		# 			secret_goal = conquer 
+		# 		}
+		# 	}
+		# }
 	}
 
-	on_monthly_pulse = {
-		random_events = {
-			100 = 0
-			5 = vtm_denmark.4 # Agitator causes Diplomatic Kerfuffle
-			5 = vtm_denmark.5 # Danes in Schleswig stir agitation / DENMARK TO THE EIDER!
-			5 = vtm_denmark.6 # Plans to fully integrate Schleswig are being prepped (puppet Schleswig) opinions
-			#5 = vtm_denmark.7 # German Confederation Appeal (counter event vtm_denmark.10)
-			#5 = vtm_denmark.8 # Germans in Schleswig-Holstein protest (always)
-		}
-	}
+	# on_monthly_pulse = {
+	# 	random_events = {
+	# 		100 = 0
+	# 		5 = vtm_denmark.4 # Agitator causes Diplomatic Kerfuffle
+	# 		5 = vtm_denmark.5 # Danes in Schleswig stir agitation / DENMARK TO THE EIDER!
+	# 		5 = vtm_denmark.6 # Plans to fully integrate Schleswig are being prepped (puppet Schleswig) opinions
+	# 		#5 = vtm_denmark.7 # German Confederation Appeal (counter event vtm_denmark.10)
+	# 		#5 = vtm_denmark.8 # Germans in Schleswig-Holstein protest (always)
+	# 	}
+	# }
 	
 	status_desc = {
 		first_valid = {

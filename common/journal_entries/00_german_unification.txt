@@ -46,28 +46,6 @@
 						}
 					}
 				}
-				s:STATE_SCHLESWIG_HOLSTEIN = {
-					any_scope_state = {
-						count = all
-						owner = {
-							OR = {
-								AND = {
-									is_subject = no
-									OR = {
-										country_has_primary_culture = cu:north_german
-										country_has_primary_culture = cu:south_german
-									}
-								}
-								top_overlord = {
-									OR = {
-										country_has_primary_culture = cu:north_german
-										country_has_primary_culture = cu:south_german
-									}
-								}
-							}
-						}
-					}
-				}
 			}
 		}
 		trigger_if = {
@@ -75,6 +53,28 @@
 				c:LUB ?= this
 			}
 			country_or_subject_owns_entire_state_region = STATE_SCHLESWIG_HOLSTEIN
+		}
+		s:STATE_SCHLESWIG_HOLSTEIN = {
+			any_scope_state = {
+				count = all
+				owner = {
+					OR = {
+						AND = {
+							is_subject = no
+							OR = {
+								country_has_primary_culture = cu:north_german
+								country_has_primary_culture = cu:south_german
+							}
+						}
+						top_overlord = {
+							OR = {
+								country_has_primary_culture = cu:north_german
+								country_has_primary_culture = cu:south_german
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	

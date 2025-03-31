@@ -10,17 +10,6 @@
 	}
 }
 
-can_befriend_target_country = {
-	has_diplomatic_relevance = scope:target_country
-	OR = {
-		has_strategic_land_adjacency = scope:target_country
-		AND = {
-			has_port = yes
-			scope:target_country = { has_port = yes }
-		}
-	}
-}
-
 can_be_reached_by_target_country = {
 	has_diplomatic_relevance = scope:target_country
 	OR = {
@@ -57,4 +46,25 @@ meiji_completion_trigger = {
 		has_insurrectionary_interest_groups = no
 		is_at_war = no	
 	}	
+}
+
+wants_to_solve_schleswig_holstein = {
+	AND = {
+		NOT = { has_journal_entry = je_german_unification_idea }
+		has_journal_entry = je_schleswig_holstein_question 
+	}
+	country_rank >= rank_value:great_power
+}
+
+is_oppressor_of_schleswig_holstein = {
+	NOR = {
+		country_has_primary_culture = cu:north_german
+		country_has_primary_culture = cu:south_german
+	}
+	OR = {
+		any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
+		any_subject_or_below = {
+			any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
+		}
+	}
 }

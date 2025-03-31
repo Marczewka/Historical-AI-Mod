@@ -13,6 +13,7 @@
 	scripted_button = je_risorgimento_austrian_radicals_button
 	scripted_button = je_risorgimento_italian_radicals_button
 	scripted_button = je_risorgimento_italian_unification_button
+	scripted_button = je_risorgimento_change_stance_button
 	scripted_button = vtm_je_italian_unification_button
 
 	immediate = {

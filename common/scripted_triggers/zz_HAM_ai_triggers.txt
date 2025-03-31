@@ -50,6 +50,12 @@ has_je_conquest_reason = {
 
 	OR = {	
 		AND = {
+			has_journal_entry = je_acw_war
+			$TARGET$ = {
+				c:CSA ?= this
+			}
+		}
+		AND = {
 			c:MEX ?= this
 			$TARGET$ = {
 				any_scope_state = {
@@ -327,8 +333,60 @@ has_je_conquest_reason = {
 	}
 }
 
+has_je_subjugation_reason = {
+	can_reach_target_country = yes
+
+	OR = {	
+		AND = {
+			OR = {
+				has_journal_entry = je_sick_man_syria
+				has_journal_entry = je_veiled_protectorate
+			}
+			exists = c:EGY
+			$TARGET$ = c:EGY		
+		}
+		AND = { # Open up Japan	
+			has_strategy = ai_strategy_economic_imperialism
+			has_technology_researched = nationalism # Just to make sure it doesn't happen immediately in 1836
+			country_rank = rank_value:great_power
+			navy_size >= 25
+			scope:target_country = { 
+				exists = c:JAP
+				this = c:JAP		
+				has_law = law_type:law_isolationism
+				gdp >= 5000000
+			} 		
+		}
+		AND = {
+			c:GBR ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_RUS
+			}
+		}
+		AND = {
+			c:RUS ?= this
+			has_variable = committed_to_afghanistan_assistance
+			$TARGET$ = {
+				has_variable = AFG_appealed_to_GBR
+			}
+		}
+		AND = {
+			has_journal_entry = je_maintain_afghan_protectorate
+			$TARGET$ = {
+				capital = {
+					region = sr:region_persia
+				}
+				OR = {
+					country_has_primary_culture = cu:pashtun
+					country_has_primary_culture = cu:tajik
+				}
+			}
+		}
+	}	
+}
+
 has_je_befriend_reason = {
-	can_befriend_target_country = yes
 	country_rank <= $TARGET$.country_rank
 	
 	OR = {
@@ -439,7 +497,6 @@ has_je_befriend_reason = {
 }
 
 has_je_protect_reason = {
-	can_befriend_target_country = yes
 	country_rank > $TARGET$.country_rank
 	
 	OR = {
@@ -463,15 +520,6 @@ has_je_protect_reason = {
 			}
 		}
 
-		AND = {
-			wants_to_solve_schleswig_holstein = yes
-			$TARGET$ = { 
-				overlord = {
-					is_oppressor_of_schleswig_holstein = yes
-				} 
-			}			
-		}
-		
 		AND = {
 			has_journal_entry = vtm_je_treaty_of_turin
 			$TARGET$ = { 
@@ -551,7 +599,6 @@ has_je_protect_reason = {
 }
 
 has_je_reconcile_reason = {
-	can_befriend_target_country = yes
 
 	AND = {
 		has_journal_entry = je_sale_of_alaska
@@ -569,7 +616,10 @@ has_je_reconcile_reason = {
 	}
 
 	AND = {
-		has_journal_entry = je_alaska
+		OR = {
+			has_journal_entry = je_alaska
+			has_journal_entry = je_oregon
+		}
 		$TARGET$ = { c:RUS ?= this }			
 	}
 

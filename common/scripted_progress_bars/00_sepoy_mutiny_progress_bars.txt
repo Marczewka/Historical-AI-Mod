@@ -30,7 +30,7 @@
 							}
 							turmoil >= 0.15 # 0.10
 						}
-						subtract = this.turmoil
+						subtract = 0.1
 					}
 				}
 			}
@@ -60,7 +60,7 @@
 							}
 							loyalty >= 0.15 # 0.10
 						}
-						subtract = this.loyalty
+						subtract = 0.1
 					}
 				}
 			}
@@ -94,8 +94,7 @@
 							}
 							liberty_desire >= 75
 						}
-						subtract = this.liberty_desire
-						divide = 100
+						subtract = 0.1
 					}
 				}
 			}
@@ -129,13 +128,7 @@
 							}
 							liberty_desire <= 25
 						}
-						add = {
-							value = 0.25
-							subtract = {
-								value = liberty_desire
-								multiply = 0.01
-							}
-						}
+						add = 0.1
 					}
 				}
 			}
@@ -151,7 +144,7 @@
 			}
 			add = {
 				desc = "presidencies_progress_from_indian_igs_in_government_tt"
-				value = 0.5 # 1
+				value = 1
 			}
 		}
 		add = {
@@ -164,7 +157,7 @@
 						}
 					}
 				}
-				value = -1 # -2
+				value = -2
 			}
 			else_if = {
 				limit = {
@@ -174,7 +167,7 @@
 						}
 					}
 				}
-				value = -0.5 # -1
+				value = -1
 			}
 			else_if = {
 				limit = {
@@ -184,7 +177,7 @@
 						}
 					}
 				}
-				value = 0.5 # 1
+				value = 1
 			}
 			else_if = {
 				limit = {
@@ -194,7 +187,7 @@
 						}
 					}
 				}
-				value = 1 # 2
+				value = 2
 			}
 		}
 		if = {
@@ -341,7 +334,7 @@
 			}
 			add = {
 				desc = "presidencies_utilitarian_leaders_tt"
-				subtract = 0.5 # 1
+				subtract = 1
 			}
 		}
 		# Religious laws
@@ -355,7 +348,7 @@
 			}
 			add = {
 				desc = "presidencies_religious_laws_tt"
-				subtract = 1 # 2
+				subtract = 2
 			}
 		}
 		# Military laws
@@ -369,7 +362,7 @@
 			}
 			add = {
 				desc = "presidencies_military_laws_tt"
-				subtract = 0.5 # 1
+				subtract = 1
 			}
 		}
 		# Famine
@@ -413,7 +406,7 @@ sepoy_mutiny_progress_bar_bombay = {
 							region = sr:region_bombay						
 							turmoil >= 0.15 # 0.10
 						}
-						subtract = this.turmoil
+						subtract = 0.1
 					}
 				}
 			}
@@ -435,7 +428,7 @@ sepoy_mutiny_progress_bar_bombay = {
 							region = sr:region_bombay						
 							loyalty >= 0.15 # 0.10
 						}
-						subtract = this.loyalty
+						subtract = 0.1
 					}
 				}
 			}
@@ -461,8 +454,7 @@ sepoy_mutiny_progress_bar_bombay = {
 							}
 							liberty_desire >= 75
 						}
-						subtract = this.liberty_desire
-						divide = 100
+						subtract = 0.1
 					}
 				}
 			}
@@ -488,13 +480,7 @@ sepoy_mutiny_progress_bar_bombay = {
 							}
 							liberty_desire <= 25				
 						}
-						add = {
-							value = 0.25
-							subtract = {
-								value = liberty_desire
-								multiply = 0.01
-							}
-						}
+						add = 0.1
 					}
 				}
 			}
@@ -510,7 +496,7 @@ sepoy_mutiny_progress_bar_bombay = {
 			}
 			add = {
 				desc = "presidencies_progress_from_indian_igs_in_government_tt"
-				value = 0.5 # 1
+				value = 1
 			}
 		}
 		add = {
@@ -523,7 +509,7 @@ sepoy_mutiny_progress_bar_bombay = {
 						}
 					}
 				}
-				value = -1 # -2
+				value = -2
 			}
 			else_if = {
 				limit = {
@@ -533,7 +519,7 @@ sepoy_mutiny_progress_bar_bombay = {
 						}
 					}
 				}
-				value = -0.5 # -1
+				value = -1
 			}
 			else_if = {
 				limit = {
@@ -543,7 +529,7 @@ sepoy_mutiny_progress_bar_bombay = {
 						}
 					}
 				}
-				value = 0.5 # 1
+				value = 1
 			}
 			else_if = {
 				limit = {
@@ -553,7 +539,7 @@ sepoy_mutiny_progress_bar_bombay = {
 						}
 					}
 				}
-				value = 1 # 2
+				value = 2
 			}
 		}
 		if = {
@@ -700,7 +686,7 @@ sepoy_mutiny_progress_bar_bombay = {
 			}
 			add = {
 				desc = "presidencies_utilitarian_leaders_tt"
-				subtract = 0.5 # 1
+				subtract = 1
 			}
 		}
 		# Religious laws
@@ -714,7 +700,7 @@ sepoy_mutiny_progress_bar_bombay = {
 			}
 			add = {
 				desc = "presidencies_religious_laws_tt"
-				subtract = 1 # 2
+				subtract = 2
 			}
 		}
 		# Military laws
@@ -728,7 +714,7 @@ sepoy_mutiny_progress_bar_bombay = {
 			}
 			add = {
 				desc = "presidencies_military_laws_tt"
-				subtract = 0.5 # 1
+				subtract = 1
 			}
 		}
 		# Famine
@@ -774,7 +760,7 @@ sepoy_mutiny_progress_bar_madras = {
 							region = sr:region_madras						
 							turmoil >= 0.15 # 0.10
 						}
-						subtract = this.turmoil
+						subtract = 0.1
 					}
 				}
 			}
@@ -796,7 +782,7 @@ sepoy_mutiny_progress_bar_madras = {
 							region = sr:region_madras						
 							loyalty >= 0.15 # 0.10
 						}
-						subtract = this.loyalty
+						subtract = 0.1
 					}
 				}
 			}
@@ -822,8 +808,7 @@ sepoy_mutiny_progress_bar_madras = {
 							}
 							liberty_desire >= 75
 						}
-						subtract = this.liberty_desire
-						divide = 100
+						subtract = 0.1
 					}
 				}
 			}
@@ -849,13 +834,7 @@ sepoy_mutiny_progress_bar_madras = {
 							}
 							liberty_desire <= 25
 						}
-						add = {
-							value = 0.25
-							subtract = {
-								value = liberty_desire
-								multiply = 0.01
-							}
-						}
+						add = 0.1
 					}
 				}
 			}
@@ -871,7 +850,7 @@ sepoy_mutiny_progress_bar_madras = {
 			}
 			add = {
 				desc = "presidencies_progress_from_indian_igs_in_government_tt"
-				value = 0.5 # 1
+				value = 1
 			}
 		}
 		add = {
@@ -884,7 +863,7 @@ sepoy_mutiny_progress_bar_madras = {
 						}
 					}
 				}
-				value = -1 # -2
+				value = -2
 			}
 			else_if = {
 				limit = {
@@ -894,7 +873,7 @@ sepoy_mutiny_progress_bar_madras = {
 						}
 					}
 				}
-				value = -0.5 # -1
+				value = -1
 			}
 			else_if = {
 				limit = {
@@ -904,7 +883,7 @@ sepoy_mutiny_progress_bar_madras = {
 						}
 					}
 				}
-				value = 0.5 # 1
+				value = 1
 			}
 			else_if = {
 				limit = {
@@ -914,7 +893,7 @@ sepoy_mutiny_progress_bar_madras = {
 						}
 					}
 				}
-				value = 1 # 2
+				value = 2
 			}
 		}
 		if = {
@@ -1061,7 +1040,7 @@ sepoy_mutiny_progress_bar_madras = {
 			}
 			add = {
 				desc = "presidencies_utilitarian_leaders_tt"
-				subtract = 0.5 # 1
+				subtract = 1
 			}
 		}
 		# Religious laws
@@ -1075,7 +1054,7 @@ sepoy_mutiny_progress_bar_madras = {
 			}
 			add = {
 				desc = "presidencies_religious_laws_tt"
-				subtract = 1 # 2
+				subtract = 2
 			}
 		}
 		# Military laws
@@ -1089,7 +1068,7 @@ sepoy_mutiny_progress_bar_madras = {
 			}
 			add = {
 				desc = "presidencies_military_laws_tt"
-				subtract = 0.5 # 1
+				subtract = 1
 			}
 		}
 		# Famine

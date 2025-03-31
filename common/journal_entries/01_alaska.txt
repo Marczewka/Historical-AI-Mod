@@ -129,9 +129,7 @@ je_alaska = {
 	possible = {
 		is_subject = no
 		any_scope_state = {
-			is_incorporated = yes
 			region = sr:region_pacific_coast
-			is_homeland_of_country_cultures = ROOT
 		}
 		NOT = {
 			owns_entire_state_region = STATE_ALASKA
@@ -178,13 +176,11 @@ je_alaska = {
 				relations:root <= relations_threshold:cold
 			}
 			scope:alaska_overlord = {
-				NOT = {
-				OR = {
+				NOR = {
 						has_state_in_state_region = STATE_ALASKA
 						any_subject_or_below = {
 							has_state_in_state_region = STATE_ALASKA
 					}
-				}
 				}
 			}
 		}

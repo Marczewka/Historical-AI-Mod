@@ -18,12 +18,9 @@
 	s:STATE_PASTAZA = {
 		add_claim = c:NPU
 	}
-	# # Because Great Britain can't help
-	# s:STATE_HERAT = {
-	# 	remove_claim = c:PER
-	# }
-	s:STATE_MOLDAVIA = {
-		add_claim = c:MOL
+	# Because Great Britain can't help
+	s:STATE_HERAT = {
+		remove_claim = c:PER
 	}
 	s:STATE_ARAUCANIA = {
 		add_homeland = cu:south_andean

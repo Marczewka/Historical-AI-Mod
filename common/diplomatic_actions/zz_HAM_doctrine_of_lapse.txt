@@ -38,7 +38,7 @@
 		set_variable = { name = doctrine_of_lapse_cooldown years = 2 }
 		create_incident = {
 			country = scope:target_country
-			value = 5 # 20
+			value = 20
 		}
 		custom_tooltip = {
 			text = upset_every_princely_state_relations_tt
@@ -78,7 +78,7 @@
 			
 			if = {
 				limit = { NOT = { has_variable = doctrine_of_lapse_cooldown } }
-				add = 0.25				
+				add = 0.05 # 0.25				
 			}
 		}
 		

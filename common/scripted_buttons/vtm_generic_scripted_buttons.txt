@@ -60,7 +60,7 @@ vtm_je_italian_unification_button = {
 	}
 
 	ai_chance = {
-		base = 0
+		base = -100 # 0
 		modifier = {
 			trigger = {
 				OR = {
@@ -74,7 +74,7 @@ vtm_je_italian_unification_button = {
 					}
 				}
 			}
-			add = 2
+			add = 50 # 2
 		}
 		modifier = {
 			trigger = {
@@ -82,7 +82,7 @@ vtm_je_italian_unification_button = {
 					relations:root >= relations_threshold:cordial
 				}
 			}
-			add = 1
+			add = 25 # 1
 		}
 		modifier = {
 			trigger = {
@@ -90,27 +90,43 @@ vtm_je_italian_unification_button = {
 					relations:root >= relations_threshold:amicable
 				}
 			}
-			add = 1
+			add = 25 # 1
 		}
-		modifier = {
-			trigger = {
-				country_rank >= rank_value:major_power
-			}
-			add = 1
-		}
+		# modifier = {
+		# 	trigger = {
+		# 		country_rank >= rank_value:major_power
+		# 	}
+		# 	add = 1
+		# }
 		modifier = {
 			trigger = {
 				NOT = {
 					has_strategy = ai_strategy_unify_italy
 				}
 			}
-			add = -5
+			add = -100
 		}
 		modifier = {
 			trigger = {
-				has_truce_with = c:AUS
+				sr:region_italy = {
+					any_scope_country = {
+						NOR = {
+							country_has_primary_culture = cu:south_italian
+							country_has_primary_culture = cu:north_italian
+						}
+						any_scope_state = {
+							state_region = {
+								OR = {
+									is_homeland = cu:south_italian
+									is_homeland = cu:north_italian
+								}
+							}
+						}
+						NOT = { has_truce_with = ROOT }
+					}
+				}
 			}
-			add = -5
+			add = 100
 		}
 	}
 }

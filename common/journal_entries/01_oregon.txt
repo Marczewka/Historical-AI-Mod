@@ -7,12 +7,15 @@
 		c:GBR = {
 			relations:ROOT > relations_threshold:poor
 		}
-		OR = {
-			owns_entire_state_region = STATE_MONTANA
-			owns_entire_state_region = STATE_WYOMING
-			owns_entire_state_region = STATE_UTAH
-			owns_entire_state_region = STATE_NEVADA
-			owns_entire_state_region = STATE_CALIFORNIA
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_MONTANA
+				state_region = s:STATE_WYOMING
+				state_region = s:STATE_UTAH
+				state_region = s:STATE_NEVADA
+				state_region = s:STATE_CALIFORNIA
+			}
+			state_population > 100000
 		}
 	}
 

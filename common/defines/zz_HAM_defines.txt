@@ -312,9 +312,24 @@ NWar = {
 	DEVASTATION_DECAY_RATE = -0.03 # -0.1 # Per day, when there are no occupations
 	DEVASTATION_FROM_BATTLES = 1 # 0.1 # For each battle
 
+	AUTO_CAPITULATE_WAR_SUPPORT = -100 # When war support is this low, the country will auto capitulate
+	DAYS_BETWEEN_WAR_EXHAUSTION = 7 # Every this many days war support will be reduced by the war exhaustion formula
+	WAR_EXHAUSTION_BASE = 0.2
+	WAR_EXHAUSTION_KIA_FACTOR = 4.0 # Scaled by casualties compared to total manpower
+	WAR_EXHAUSTION_KIA_BASE_MULTIPLIER = 0.25	# War Exhaustion from casualties is always multiplied by at least this
+	WAR_EXHAUSTION_KIA_BATTLES_LOST_MULTIPLIER = 0.75 	# At 100% of battles lost by our side, War Exhaustion from casualties is further multiplied by this
+	WAR_EXHAUSTION_TURMOIL_FACTOR = 1.5 # At 100% turmoil
+	WAR_EXHAUSTION_CONTESTED_ENEMY_WARGOALS = 3.0 # 1.0
+	WAR_EXHAUSTION_ANTI_WAR_LOBBY_CLOUT_FACTOR = 1.0 # At 100% lobby clout opposed to the war
+	WAR_EXHAUSTION_PRO_WAR_LOBBY_CLOUT_FACTOR = -1.0 # At 100% lobby clout supporting to the war
+	WAR_EXHAUSTION_MAX = 100 # War Exhaustion can never exceed this
+	OCCUPATION_STATE_BASE_WEIGHT = 1
+	OCCUPATION_STATE_POP_WEIGHT = 1
+	OCCUPATION_STATE_INCORPORATED_WEIGHT = 10
 	OCCUPATION_STATE_DEFENSIVE_BATTLE_VICTORY_SCORE = 50 # How many occupation "points" each country receives after winning a defensive battle
 	OCCUPATION_STATE_CLEAR_OCCUPATION_FRACTION = 0.5 # Fraction of occupation score dedicated to clear occupation from your own States (if any).
-	WAR_EXHAUSTION_TURMOIL_FACTOR = 0.5 #2.0 # At 100% turmoil
+	NAVAL_INVASION_MAX_LAND_BATTLE_DEFEATS_AT_ZERO_OCCUPATION = 3 # At this number of land defeats with zero occupation you fail the naval invasion.
+	NAVAL_INVASION_MIN_POWER_PROJECTION_RATIO_TO_BLOCK_LANDING = 0.25 	# How powerful a fleet must be to be considered as "blocking" a naval invading flee
 
 	STATE_CONQUEST_HOMELAND_AND_CLAIM_RADICALIZATION = 0.01 # 0.1
 	STATE_CONQUEST_HOMELAND_AND_CLAIM_DEMILITARIZATION = 0.99 # 0.25

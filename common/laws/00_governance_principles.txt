@@ -20,6 +20,7 @@ law_chiefdom = {
 	modifier = {
 		country_legitimacy_headofstate_add = 20
 		country_authority_add = 100
+		building_gold_fields_throughput_add = -100
 	}
 
 	ai_enact_weight_modifier = { #Petitions

@@ -828,6 +828,9 @@ italian_unification.10 = {
 		root = {
 			save_scope_as = italian_unifier_candidate
 		}
+		set_variable = { 
+			name = stance_cooldown_var 
+			months = normal_modifier_time }
 	}
 
 	option = {
@@ -845,7 +848,10 @@ italian_unification.10 = {
 			}
 			modifier = {
 				trigger = {
-					NOT = { has_law = law_type:law_autocracy }
+					NOR = { 
+						has_law = law_type:law_autocracy 
+						has_law = law_type:law_oligarchy
+					}
 				}
 				add = 50
 			}
@@ -988,7 +994,10 @@ italian_unification.10 = {
 			}
 			modifier = {
 				trigger = {
-					NOT = { has_law = law_type:law_autocracy }
+					NOR = { 
+						has_law = law_type:law_autocracy 
+						has_law = law_type:law_oligarchy
+					}
 				}
 				add = -50
 			}
