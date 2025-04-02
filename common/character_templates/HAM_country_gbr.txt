@@ -1,0 +1,38 @@
+﻿GBR_andrew_scott_waugh = {
+    first_name = Andrew_Scott
+    last_name = Waugh
+    is_general = yes
+    interest_group = ig_armed_forces
+    culture = cu:british
+    ig_leader = no
+    historical = yes
+    noble = no
+    birth_date = 1810.2.3
+    traits = {
+        surveyor
+        cautious
+        meticulous
+    }
+    on_created = {
+        # set_global_variable = andrew_scott_waugh_is_real_and_my_friend
+    }
+}
+
+GBR_charles_granville_bruce = {
+    first_name = Charles_Granville
+    last_name = Bruce
+    is_general = yes
+    interest_group = ig_industrialists # Coal-mining family, son of the 1st Baron Aberdare
+    culture = cu:welsh
+    ig_leader = no
+    historical = yes
+    birth_date = 1866.4.7
+    traits = {
+        surveyor
+        brave
+        imposing
+    }
+    on_created = {
+        # set_global_variable = charles_granville_bruce_is_real_and_my_friend
+    }
+}

@@ -1,0 +1,385 @@
+﻿assign_taiping_states = {
+	c:TPG = {
+		create_military_formation = {
+			type = army
+			hq_region = scope:heavenly_kingdom_spawn.region #Because the Heavenly Kingdom is not always in South China.
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = scope:heavenly_kingdom_spawn.state_region
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = scope:heavenly_kingdom_spawn.state_region
+				count = 10
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				has_variable = cult_center
+			}
+		}
+		every_scope_state = {
+			limit = {
+				has_variable = cult_center
+			}
+			save_scope_as = tpg_defector_state
+			custom_tooltip = {
+				text = taiping_state_defection
+				set_state_owner = c:TPG
+				set_state_type = incorporated
+				add_culture_standard_of_living_modifier = {
+					culture = cu:manchu
+					months = long_modifier_time
+					multiplier = -5
+				}
+			}
+		}
+		every_scope_state = {
+			limit = {
+				is_capital = no
+				NOT = { 
+					has_variable = cult_center 
+					state_region = { 
+						is_homeland = cu:manchu
+					}
+				}
+				any_neighbouring_state = {
+					has_variable = cult_center
+				}
+				turmoil >= 0.1
+			}
+			if = {
+				limit = {
+					this = {
+						state_region = { 
+							OR = {
+								is_homeland = cu:han 
+								is_homeland = cu:hakka 
+							}
+						}
+					}
+				}
+				save_scope_as = tpg_defector_state
+				custom_tooltip = {
+					text = taiping_state_defection
+					set_state_owner = c:TPG
+					set_state_type = incorporated
+					add_culture_standard_of_living_modifier = {
+						culture = cu:manchu
+						months = long_modifier_time
+						multiplier = -5
+					}
+					c:TPG = {
+						create_military_formation = {
+							type = army
+							hq_region = scope:tpg_defector_state.region
+				
+							combat_unit = {
+								type = unit_type:combat_unit_type_irregular_infantry
+								state_region = scope:tpg_defector_state.state_region
+								count = 10
+							}
+						}
+					}
+				}
+				
+			}
+			else_if = {
+				random_list = {
+					50 = {
+						save_scope_as = tpg_defector_state
+						custom_tooltip = {
+							text = taiping_state_defection
+							set_state_owner = c:TPG
+							set_state_type = incorporated
+							add_culture_standard_of_living_modifier = {
+								culture = cu:manchu
+								months = long_modifier_time
+								multiplier = -5
+							}
+							c:TPG = {
+								create_military_formation = {
+									type = army
+									hq_region = scope:tpg_defector_state.region
+						
+									combat_unit = {
+										type = unit_type:combat_unit_type_irregular_infantry
+										state_region = scope:tpg_defector_state.state_region
+										count = 10
+									}
+								}
+							}
+						}
+					}
+					50 = {
+						add_radicals_in_state = {
+							value = very_large_radicals
+							religion = rel:protestant
+						}
+						this.state_region = {
+							add_claim = c:TPG
+						}
+					}
+				}
+			}
+		}
+	}
+	hidden_effect = {
+		every_state = {
+			limit = {
+				owner = c:TPG
+			}
+			this.state_region = {
+				add_claim = c:CHI
+			}
+		}	
+	}
+	hidden_effect = {
+		every_state = {
+			limit = {
+				owner = c:TPG
+			}
+			add_modifier = {
+				name = modifier_taiping_hiring_bonus
+				months = 6
+			}
+		}
+	}
+}
+
+# Vicky and the Expedition Machine
+ai_expedition_simulator_start = {
+	# random_scope_character = {
+	# 	limit = {
+	# 		is_ruler = no
+	# 		OR = {
+	# 			has_role = general
+	# 			has_role = admiral
+	# 		}
+	# 	}
+	# 	set_variable = expedition_leader_var
+	# 	set_character_busy_and_immortal = yes
+	# }
+	# set_variable = on_expedition
+	# add_modifier = {
+	# 	name = modifier_large_expedition_cost
+	# 	multiplier = money_amount_multiplier_medium
+	# 	days = 365
+	# }
+	# trigger_event = { id = ai_expedition_simulator.1 days = 365 }
+}
+
+ai_expedition_simulator_end = {
+# 	remove_variable = on_expedition
+# 	remove_modifier = modifier_large_expedition_cost
+# 	remove_modifier = expedition_extra_expenses_modifier
+# 	remove_variable = AI_EXPEDITION_ANTARCTICA
+# 	remove_variable = AI_EXPEDITION_NILE
+# 	remove_variable = AI_EXPEDITION_CONGO
+# 	remove_variable = AI_EXPEDITION_NIGER
+# 	remove_variable = AI_EXPEDITION_WAMERICA
+# 	remove_expedition_events_effect = yes
+# 	random_scope_character = {
+# 		limit = {
+# 			has_variable = expedition_leader_var
+# 		}
+# 		remove_variable = expedition_leader_var
+# 	}
+}
+
+do_risorgimento_math = {
+# 	set_variable = { name = italian_states_pop_total value = 0 }
+# 	set_variable = { name = italian_states_radicals_total value = 0 }
+# 	every_scope_state = {
+# 		limit = {
+# 			state_region = {
+# 				OR = {
+# 					is_homeland = cu:north_italian
+# 					is_homeland = cu:south_italian
+# 				}
+# 			}
+# 		}
+# 		set_variable = { name = italian_state_pop_radicals value = this.turmoil }
+# 		change_variable = { name = italian_state_pop_radicals multiply = this.state_population }
+# 		ROOT = {
+# 			change_variable = { name = italian_states_pop_total add = prev.state_population }
+# 			change_variable = { name = italian_states_radicals_total add = prev.var:italian_state_pop_radicals }
+# 		}
+# 	}
+# 	set_variable = { name = italian_states_radicals_total_bar value = var:italian_states_radicals_total }
+# 	change_variable = { name = italian_states_radicals_total_bar divide = var:italian_states_pop_total }
+# 	change_variable = { name = italian_states_radicals_total_bar multiply = 100 }
+}
+
+### Communism
+
+calculate_communism_progress = {
+	#From Poverty
+	set_variable = { name = communism_progress_from_poverty value = 0 }
+	every_scope_state = {
+		limit = {
+			is_incorporated = yes
+		}
+		set_variable = { name = temp_sol value = this.population_below_expected_sol } 
+		change_variable = { name = temp_sol multiply = this.state_population }
+		change_variable = { name = temp_sol divide = root.total_population }
+		change_variable = { name = temp_sol multiply = 10 } # This variable equals the percentage of pops in incorporated states below expected SoL times ten. If 25% of your pops in incorporated states are below expected SoL, this will equal 2.5.
+		ROOT = {
+			change_variable = { name = communism_progress_from_poverty add = prev.var:temp_sol }
+		}
+	}
+	
+	# From Laws
+	set_variable = { name = communism_progress_from_laws value = 0 }
+	# Cops
+	set_variable = { name = temp_policing_var_contribution value = institution:institution_police.investment }
+	if = {
+		limit = {
+			has_law = law_type:law_no_police
+		}
+		change_variable = { name = temp_policing_var_contribution add = 0.0 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_local_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.1 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_dedicated_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.1 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_militarized_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.1 }
+	}
+	
+	# Internal Affairs
+	set_variable = { name = temp_ha_var_contribution value = institution:institution_home_affairs.investment }
+	if = {
+		limit = {
+			has_law = law_type:law_no_home_affairs
+		}
+		change_variable = { name = temp_ha_var_contribution add = 0.0 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_guaranteed_liberties
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = 0.0 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_national_guard
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = -0.1 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_secret_police
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = -0.1 }
+	}
+	if = {
+		limit = {
+			has_variable = temp_policing_var_contribution
+		}
+		change_variable = { name = communism_progress_from_laws add = var:temp_policing_var_contribution }
+		remove_variable = temp_policing_var_contribution
+	}
+	if = {
+		limit = {
+			has_variable = temp_ha_var_contribution
+		}
+		change_variable = { name = communism_progress_from_laws add = var:temp_ha_var_contribution }
+		remove_variable = temp_ha_var_contribution
+	}
+}
+
+set_communism_vars = {
+	set_variable = { name = communism_progress_from_poverty value = 0 }
+	set_variable = { name = communism_progress_from_laws value = 0 }
+	set_variable = { name = communism_progress_var_add value = 0 }
+}
+
+clear_communism_vars = {
+	remove_variable = communism_progress_from_poverty
+	remove_variable = communism_progress_from_laws
+	remove_variable = communism_progress_var_add
+}
+
+peru_bolivia_remove_puppet_effect = {
+	if = {
+		limit = {
+			this = {
+				has_diplomatic_pact = {
+					who = c:BOL
+					type = tributary
+				}
+			}
+		}
+		this = {
+			remove_diplomatic_pact = {
+				country = c:BOL
+				type = tributary
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = {
+				has_diplomatic_pact = {
+					who = c:BOL
+					type = vassal
+				}
+			}
+		}
+		this = {
+			remove_diplomatic_pact = {
+				country = c:BOL
+				type = vassal
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = {
+				has_diplomatic_pact = {
+					who = c:BOL
+					type = protectorate
+				}
+			}
+		}
+		this = {
+			remove_diplomatic_pact = {
+				country = c:BOL
+				type = protectorate
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = {
+				has_diplomatic_pact = {
+					who = c:BOL
+					type = puppet
+				}
+			}
+		}
+		this = {
+			remove_diplomatic_pact = {
+				country = c:BOL
+				type = puppet
+			}
+		}
+	}
+}

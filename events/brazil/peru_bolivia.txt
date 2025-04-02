@@ -266,6 +266,7 @@ peru_bolivia_events.3 = {
 	option = {
 		name = peru_bolivia_events.3.a
 		default_option = yes
+		peru_bolivia_remove_puppet_effect = yes
 		if = {
 			limit = {
 				c:SPU ?= this
@@ -379,6 +380,7 @@ peru_bolivia_events.3 = {
 				c:PEU ?= this
 			}
 		}
+		peru_bolivia_remove_puppet_effect = yes
 		restore_peruvian_constitution = yes
 		if = {
 			limit = {

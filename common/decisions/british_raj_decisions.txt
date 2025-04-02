@@ -5,6 +5,7 @@
 		c:GBR = ROOT
 		c:BIC = {
 			is_subject_of = ROOT
+			# is_player = no
 		}
 		NOT = { has_variable = british_raj_var }
 	}
