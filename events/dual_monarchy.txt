@@ -98,19 +98,49 @@ dual_monarchy.1 = {
 			has_variable = dual_monarchy_fail
 		}
 		add_radicals = {
-			value = very_large_radicals
+			value = large_radicals # very_large_radicals
 			culture = cu:hungarian
 		}
-		# add radicals from discrimination
-		every_scope_state = {
+		# # add radicals from discrimination
+		# every_scope_state = {
+		# 	limit = {
+		# 		state_region = {
+		# 			is_homeland = cu:hungarian
+		# 		}
+		# 	}
+		# 	add_modifier = {
+		# 		name = dual_monarchy_compromise_rejected
+		# 		months = long_modifier_time
+		# 	}
+		# }
+		if = {
 			limit = {
-				state_region = {
-					is_homeland = cu:hungarian
+				NOT = {
+					any_political_movement = {
+						is_political_movement_type = movement_cultural_minority
+						OR = {
+							culture = cu:hungarian
+						}
+					}
 				}
 			}
+			create_political_movement = { 
+				type = movement_cultural_minority 
+				culture = cu:hungarian
+			}
+		}
+		every_political_movement = {
+			limit = {
+				is_political_movement_type = movement_cultural_minority
+				OR = {
+					culture = cu:hungarian
+				}
+				NOT = { has_modifier = hungarian_radicals }
+			}
 			add_modifier = {
-				name = dual_monarchy_compromise_rejected
-				months = long_modifier_time
+				name = hungarian_radicals
+				months = normal_modifier_time
+				is_decaying = yes
 			}
 		}
 		ai_chance = {

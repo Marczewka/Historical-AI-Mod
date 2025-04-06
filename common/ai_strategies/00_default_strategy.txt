@@ -1784,11 +1784,6 @@ ai_strategy_default = {
 				else_if = { # Secondarily take our homelands
 					limit = {
 						scope:target_state = { is_homeland_of_country_cultures = root }
-						NOR = {
-							country_has_primary_culture = cu:south_andean
-							country_has_primary_culture = cu:north_andean
-							country_has_primary_culture = cu:platinean
-						}
 					}
 					multiply = 2
 				}
@@ -1806,15 +1801,15 @@ ai_strategy_default = {
 						has_strategic_land_adjacency = scope:target_country
 						NOT = { has_strategic_land_adjacency = scope:target_state }
 					}
-					multiply = 0.5
+					multiply = 0.75 # 0.5
 				}
-				else_if = { # We directly border the country but not the state
+				if = { # We directly border the country but not the state
 					limit = {
 						is_adjacent_to_country = scope:target_country
 						NOT = { is_adjacent_to_state = scope:target_state }
 					}
 					multiply = 0.75
-				}		
+				}	
 
 				# More reluctant to get involved in plays for states that AI doesn't strongly desire
 				if = {
@@ -2928,30 +2923,36 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				NOT = { is_diplomatic_play_enemy_of = scope:target_country }
-				has_modifier = modifier_risorgimento_support
-				OR = {
-					c:FRA = {
+				has_strategy = ai_strategy_unify_italy
+				any_country = {
+					country_rank >= rank_value:great_power
+					OR = {
 						owes_obligation_to = ROOT
-					}
-					has_diplomatic_pact = {
-						who = c:FRA
-						type = defensive_pact
-					}	
-					has_diplomatic_pact = {
-						who = c:FRA
-						type = alliance
+						has_diplomatic_pact = {
+							who = ROOT
+							type = defensive_pact
+						}	
+						has_diplomatic_pact = {
+							who = ROOT
+							type = alliance
+						}
 					}
 				}
 				scope:target_country = {
-					NOR = {
-						country_has_primary_culture = cu:south_italian
-						country_has_primary_culture = cu:north_italian
-					}
-					any_scope_state = {
-						state_region = {
-							OR = {
-								is_homeland = cu:south_italian
-								is_homeland = cu:north_italian
+					OR = {
+						is_unification_candidate = ITA
+						AND = {
+							NOR = {
+								country_has_primary_culture = cu:south_italian
+								country_has_primary_culture = cu:north_italian
+							}
+							any_scope_state = {
+								state_region = {
+									OR = {
+										is_homeland = cu:south_italian
+										is_homeland = cu:north_italian
+									}
+								}
 							}
 						}
 					}
@@ -3261,19 +3262,38 @@ ai_strategy_default = {
 		# Sardinia confident after treaty of Turin
 		if = {
 			limit = {
-				has_journal_entry = je_risorgimento
-				has_modifier = modifier_risorgimento_support
-				OR = {
-					c:FRA = {
+				has_strategy = ai_strategy_unify_italy
+				any_country = {
+					country_rank >= rank_value:great_power
+					OR = {
 						owes_obligation_to = ROOT
+						has_diplomatic_pact = {
+							who = ROOT
+							type = defensive_pact
+						}	
+						has_diplomatic_pact = {
+							who = ROOT
+							type = alliance
+						}
 					}
-					has_diplomatic_pact = {
-						who = c:FRA
-						type = defensive_pact
-					}	
-					has_diplomatic_pact = {
-						who = c:FRA
-						type = alliance
+				}
+				scope:target_country = {
+					OR = {
+						is_unification_candidate = ITA
+						AND = {
+							NOR = {
+								country_has_primary_culture = cu:south_italian
+								country_has_primary_culture = cu:north_italian
+							}
+							any_scope_state = {
+								state_region = {
+									OR = {
+										is_homeland = cu:south_italian
+										is_homeland = cu:north_italian
+									}
+								}
+							}
+						}
 					}
 				}
 			}
@@ -6281,7 +6301,7 @@ ai_strategy_default = {
 			}		
 		}		
 		dominate = {
-			value = -50 # 0
+			value = -40 # 0
 			
 			if = {
 				limit = {
@@ -6427,6 +6447,15 @@ ai_strategy_default = {
 						scope:target_country = {
 							is_adjacent_to_country = root
 						} 
+					}
+					add = 10
+				}
+				else_if = {
+					limit = {
+						any_country = {
+							is_adjacent_to_country = scope:target_country
+							is_subject_of = root
+						}
 					}
 					add = 10
 				}
@@ -7344,28 +7373,8 @@ ai_strategy_default = {
 					limit = {
 						scope:target_state = { is_incorporated = no }
 					}
-					multiply = 0.75 # 0.5
-				}			
-				
-				# Prevent bordergore
-				if = {
-					limit = {
-						scope:target_country = { 
-							has_strategic_land_adjacency = root
-							has_strategic_land_adjacency = scope:target_state
-						}
-					}
-					multiply = 0.25
-				}
-				else_if = {
-					limit = {
-						scope:target_country = { 
-							has_strategic_adjacency = root
-							has_strategic_adjacency = scope:target_state
-						}
-					}
 					multiply = 0.5
-				}
+				}			
 			}
 
 			# Relations with target
@@ -7391,7 +7400,7 @@ ai_strategy_default = {
 		}	
 
 		contain_threat = {
-			value = 1000
+			value = 100 # 1000
 		}	
 
 		annex_country = {
@@ -7505,7 +7514,7 @@ ai_strategy_default = {
 				limit = {
 					NOT = { has_strategic_land_adjacency = scope:target_country }
 				}
-				add = -25
+				multiply = 0.5
 			}
 
 			if = {

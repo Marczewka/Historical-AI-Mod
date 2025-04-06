@@ -2,6 +2,8 @@
 
 peoples_springtime_underway_tt: "Any #b European#! [concept_country] with high number of radicals is experiencing, or has experienced, a [GetIdeology('ideology_radical').GetName] or [GetIdeology('ideology_liberal').GetName] [concept_revolution]"
 
+hungarian_radicals: "Dual Monarchy compromise rejected"
+
 # Poland
 rejected_polish_union_pol_var_tt: "Hasn't rejected to annex"
 je_christ_of_nations_unification_button: "Unite with another Polish state"

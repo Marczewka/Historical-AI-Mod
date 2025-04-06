@@ -162,6 +162,70 @@ italian_unification.2 = {
 				}				
 			}
 		}
+		every_country = {
+			limit = {
+				country_rank >= rank_value:great_power
+				NOT = {
+					any_scope_state = {
+						state_region = {
+							OR = {
+								is_homeland = cu:south_italian
+								is_homeland = cu:north_italian
+							}
+						}
+					}
+				}
+				OR = {
+					owes_obligation_to = scope:italian_annex_country
+					has_diplomatic_pact = {
+						who = scope:italian_annex_country
+						type = defensive_pact
+					}	
+					has_diplomatic_pact = {
+						who = scope:italian_annex_country
+						type = alliance
+					}
+				}
+			}
+			if = {
+				limit = {
+					owes_obligation_to = scope:italian_annex_country
+				}
+				set_owes_obligation_to = {
+					country = ROOT
+					setting = yes
+				}
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = {
+						who = scope:italian_annex_country
+						type = defensive_pact
+					}
+				}
+				create_diplomatic_pact = {
+					country = ROOT
+					type = defensive_pact
+				}
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = {
+						who = scope:italian_annex_country
+						type = alliance
+					}
+				}
+				create_diplomatic_pact = {
+					country = ROOT
+					type = alliance
+				}
+			}
+			change_relations = { country = ROOT value = 50 }
+			create_diplomatic_catalyst = {  
+				type = catalyst_event_positive
+				target = root
+			}
+		}
 		annex_with_incorporation = scope:italian_annex_country
 		ai_chance = {
 			base = 1
@@ -490,7 +554,71 @@ italian_unification.5 = {
 					culture = cu:south_italian
 				}				
 			}
-		}		
+		}	
+		every_country = {
+			limit = {
+				country_rank >= rank_value:great_power
+				NOT = {
+					any_scope_state = {
+						state_region = {
+							OR = {
+								is_homeland = cu:south_italian
+								is_homeland = cu:north_italian
+							}
+						}
+					}
+				}
+				OR = {
+					owes_obligation_to = scope:italian_pannational_country
+					has_diplomatic_pact = {
+						who = scope:italian_pannational_country
+						type = defensive_pact
+					}	
+					has_diplomatic_pact = {
+						who = scope:italian_pannational_country
+						type = alliance
+					}
+				}
+			}
+			if = {
+				limit = {
+					owes_obligation_to = scope:italian_pannational_country
+				}
+				set_owes_obligation_to = {
+					country = ROOT
+					setting = yes
+				}
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = {
+						who = scope:italian_pannational_country
+						type = defensive_pact
+					}
+				}
+				create_diplomatic_pact = {
+					country = ROOT
+					type = defensive_pact
+				}
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = {
+						who = scope:italian_pannational_country
+						type = alliance
+					}
+				}
+				create_diplomatic_pact = {
+					country = ROOT
+					type = alliance
+				}
+			}
+			change_relations = { country = ROOT value = 50 }
+			create_diplomatic_catalyst = {  
+				type = catalyst_event_positive
+				target = root
+			}
+		}
 		annex_with_incorporation = scope:italian_pannational_country
 	}
 	option = {
@@ -961,9 +1089,15 @@ italian_unification.10 = {
 				}
 			}
 			change_relations = { country = ROOT value = -50 }
+			ROOT = {
+				create_diplomatic_catalyst = {  
+					type = catalyst_journal_entry
+					target = PREV
+				}
+			}
 			create_diplomatic_catalyst = {  
-				type = catalyst_event_negative
-				target = root
+				type = catalyst_journal_entry
+				target = ROOT
 			}
 		}
 		every_country = {
@@ -974,9 +1108,15 @@ italian_unification.10 = {
 				}
 			}
 			change_relations = { country = ROOT value = 25 }
+			ROOT = {
+				create_diplomatic_catalyst = {  
+					type = catalyst_journal_entry
+					target = PREV
+				}
+			}
 			create_diplomatic_catalyst = {  
 				type = catalyst_journal_entry
-				target = root
+				target = ROOT
 			}
 		}
 		if = {
@@ -990,7 +1130,7 @@ italian_unification.10 = {
 	option = {
 		name = italian_unification.10.b
 		ai_chance = {
-			base = 15
+			base = 0 # 15
 			modifier = {
 				trigger = {
 					has_law = law_type:law_theocracy

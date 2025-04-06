@@ -815,7 +815,7 @@ movement_cultural_minority = {
 						value >= 0.05
 					}					
 				}
-				add = 5 #10
+				add = 1
 
 				if = {
 					limit = {
@@ -824,7 +824,7 @@ movement_cultural_minority = {
 							value >= 0.75
 						}
 					}
-					add = 500 # 1000
+					add = 1000
 				}
 				else_if = {
 					limit = {
@@ -833,7 +833,7 @@ movement_cultural_minority = {
 							value >= 0.5
 						}
 					}
-					add = 200 # 500
+					add = 500
 				}
 				else_if = {
 					limit = {
@@ -842,7 +842,7 @@ movement_cultural_minority = {
 							value >= 0.25
 						}
 					}
-					add = 50 # 100
+					add = 2
 				}
 				else_if = {
 					limit = {
@@ -851,15 +851,15 @@ movement_cultural_minority = {
 							value >= 0.1
 						}
 					}
-					add = 10 # 50
+					add = 1
 				}
 			}				
 		}
 
 		target_fraction_of_states = {
 			value = political_movement_identity_support
-			add = scope:clout
-			multiply = 3
+			# add = scope:clout
+			multiply = 0.4
 			min = 0.15
 			max = 0.75
 		}
@@ -887,7 +887,7 @@ movement_cultural_minority = {
 		if = {
 			limit = { 
 				owner = { has_journal_entry = je_dual_monarchy } 
-				scope:culture = { has_discrimination_trait = hungarian_culture_group }
+				scope:culture = cu:hungarian
 			}
 			add = {
 				value = 0.25
@@ -907,15 +907,16 @@ movement_cultural_minority = {
 				desc = "FAILED_TANZIMAT_REFORMS"
 			}
 		}
-	
+
 		add = {
-			value = "owner.average_sol_for_primary_cultures"
+			value = "owner.average_sol"
 			subtract = "owner.average_sol_for_culture(scope:culture)"
-			multiply = 0.05
+			multiply = 0.1 # 0.05
 			max = 0.5
 			min = 0
 			desc = "STANDARD_OF_LIVING_FOR_CULTURE"
 		}
+
 		
 		if = {
 			limit = {

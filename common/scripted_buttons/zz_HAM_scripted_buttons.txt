@@ -727,9 +727,15 @@ je_risorgimento_change_stance_button = {
 				}
 			}
 			change_relations = { country = ROOT value = -50 }
+			ROOT = {
+				create_diplomatic_catalyst = {  
+					type = catalyst_journal_entry
+					target = PREV
+				}
+			}
 			create_diplomatic_catalyst = {  
-				type = catalyst_event_negative
-				target = root
+				type = catalyst_journal_entry
+				target = ROOT
 			}
 		}
 		every_country = {
@@ -740,9 +746,15 @@ je_risorgimento_change_stance_button = {
 				}
 			}
 			change_relations = { country = ROOT value = 25 }
+			ROOT = {
+				create_diplomatic_catalyst = {  
+					type = catalyst_journal_entry
+					target = PREV
+				}
+			}
 			create_diplomatic_catalyst = {  
 				type = catalyst_journal_entry
-				target = root
+				target = ROOT
 			}
 		}
 		if = {

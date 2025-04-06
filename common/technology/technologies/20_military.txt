@@ -138,7 +138,7 @@ napoleonic_warfare = {
 		
 		if = {
 			limit = { has_journal_entry = je_sick_man_army }
-			add = 5
+			add = 5 # 100
 		}
 	}
 }
@@ -261,6 +261,13 @@ logistics = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_unify_germany
+			}
+			add = 8
+		}		
 	}
 }
 
@@ -276,6 +283,13 @@ triage = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_unify_germany
+			}
+			add = 8
+		}		
 	}
 }
 
@@ -322,6 +336,13 @@ rifling = {
 	
 	ai_weight = {
 		value = 2 # Important tech in general
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_unify_germany
+			}
+			add = 8
+		}		
 	}
 }
 
@@ -446,7 +467,7 @@ enlistment_offices = {
 			limit = {
 				has_strategy = ai_strategy_unify_germany
 			}
-			add = 3
+			add = 3 # 8
 		}
 	}
 }
@@ -466,6 +487,13 @@ electric_telegraph = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_unify_germany
+			}
+			add = 3 # 8
+		}
 	}
 }
 
@@ -525,7 +553,7 @@ breech_loading_artillery = {
 			limit = {
 				has_strategy = ai_strategy_unify_germany
 			}
-			add = 1
+			add = 3 # 8
 		}
 	}
 }

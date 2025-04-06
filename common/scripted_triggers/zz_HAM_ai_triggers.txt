@@ -194,11 +194,14 @@ has_je_conquest_reason = {
 		AND = {
 			has_journal_entry = je_conquer_oregon
 			$TARGET$ = {
-				any_scope_state = {
-					OR = {
-						state_region = s:STATE_WASHINGTON
-						state_region = s:STATE_IDAHO
-						state_region = s:STATE_OREGON
+				OR = {
+					c:GBR ?= this
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_WASHINGTON
+							state_region = s:STATE_IDAHO
+							state_region = s:STATE_OREGON
+						}
 					}
 				}
 			}
@@ -326,25 +329,28 @@ has_je_conquest_reason = {
 				is_unification_candidate = GER
 			}
 		}
+
+		AND = {
+			is_unification_candidate = ITA
+			has_strategy = ai_strategy_unify_italy
+			$TARGET$ = {
+				is_unification_candidate = ITA
+			}
+		}
 		
 		AND = {
 			has_journal_entry = je_risorgimento
 			has_modifier = modifier_risorgimento_support
 			$TARGET$ = { 
-				OR = {
-					has_modifier = modifier_risorgimento_opposition 
-					any_scope_country = {
-						NOR = {
-							country_has_primary_culture = cu:south_italian
-							country_has_primary_culture = cu:north_italian
-						}
-						any_scope_state = {
-							state_region = {
-								OR = {
-									is_homeland = cu:south_italian
-									is_homeland = cu:north_italian
-								}
-							}
+				NOR = {
+					country_has_primary_culture = cu:south_italian
+					country_has_primary_culture = cu:north_italian
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:south_italian
+							is_homeland = cu:north_italian
 						}
 					}
 				}
@@ -354,7 +360,7 @@ has_je_conquest_reason = {
 }
 
 has_je_subjugation_reason = {
-	# can_reach_target_country = yes
+	can_reach_target_country = yes
 
 	OR = {	
 		AND = {
@@ -414,6 +420,31 @@ has_je_subjugation_reason = {
 					country_has_primary_culture = cu:pashtun
 					country_has_primary_culture = cu:tajik
 				}
+			}
+		}
+		AND = {
+			has_journal_entry = je_risorgimento
+			has_modifier = modifier_risorgimento_support
+			$TARGET$ = { 
+				has_modifier = modifier_risorgimento_opposition 
+			}
+		}
+		AND = {
+			NOR = {
+				country_has_primary_culture = cu:south_italian
+				country_has_primary_culture = cu:north_italian
+			}
+			any_scope_state = {
+				state_region = {
+					OR = {
+						is_homeland = cu:south_italian
+						is_homeland = cu:north_italian
+					}
+				}
+			}
+			$TARGET$ = { 
+				has_journal_entry = je_risorgimento
+				has_modifier = modifier_risorgimento_support
 			}
 		}
 	}	
