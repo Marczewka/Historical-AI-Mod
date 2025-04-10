@@ -4,6 +4,7 @@
 	type = diplomatic
 	
 	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_alaska }
 		NOT = { has_journal_entry = je_oregon }
 		global_country_ranking = 1
 	}
@@ -165,6 +166,7 @@ ai_strategy_territorial_expansion = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_alaska }
 		NOT = { has_journal_entry = je_oregon }
 		OR = {
 			global_country_ranking <= 3
@@ -354,6 +356,7 @@ ai_strategy_colonial_expansion = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_alaska }
 		NOT = { has_journal_entry = je_oregon }
 		OR = {
 			global_country_ranking <= 3
@@ -847,6 +850,7 @@ ai_strategy_economic_imperialism = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
+		NOT = { has_journal_entry = je_alaska }
 		NOT = { has_journal_entry = je_oregon }
 		OR = {
 			global_country_ranking <= 3

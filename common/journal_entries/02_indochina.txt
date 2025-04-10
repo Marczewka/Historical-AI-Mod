@@ -24,7 +24,7 @@
 					top_overlord = { religion = { has_discrimination_trait = christian } } 
 				}
 			}
-			percent >= 0.80
+			percent >= 1
 		}
 	}
 

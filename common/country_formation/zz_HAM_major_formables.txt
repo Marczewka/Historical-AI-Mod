@@ -1,12 +1,43 @@
 ﻿GER = {
-	use_culture_states = yes
+	# use_culture_states = yes
+
+	states = {
+		STATE_ALSACE_LORRAINE
+		STATE_AUSTRIA
+		STATE_BOHEMIA
+		STATE_MORAVIA
+		STATE_STYRIA
+		STATE_TYROL
+		STATE_POMERANIA
+		STATE_NORTH_RHINE
+		STATE_BRANDENBURG
+		STATE_RUHR
+		STATE_SILESIA
+		STATE_WEST_PRUSSIA
+		STATE_EAST_PRUSSIA
+		STATE_POSEN
+		STATE_BAVARIA
+		STATE_FRANCONIA
+		STATE_BADEN
+		STATE_ELBE
+		STATE_WESTPHALIA
+		STATE_ANHALT
+		STATE_RHINELAND
+		STATE_SCHLESWIG_HOLSTEIN
+		STATE_WURTTEMBERG
+		STATE_HANNOVER
+		STATE_BRUNSWICK
+		STATE_SAXONY
+		STATE_HESSE
+		STATE_MECKLENBURG
+	}
 	
 	is_major_formation = yes
 	
 	unification_play = dp_unify_germany
 	leadership_play = dp_leadership_germany
 
-	required_states_fraction = 0.72 # 0.75
+	required_states_fraction = 0.8 # 0.75
 	
 	ai_will_do = { has_technology_researched = nationalism }
 
@@ -55,7 +86,7 @@ ITA = {
 		STATE_LAZIO
 		STATE_ABRUZZO
 		STATE_CAMPANIA
-		STATE_AQUILA
+		STATE_APULIA
 		STATE_CALABRIA
 		STATE_SICILY
 		STATE_SARDINIA

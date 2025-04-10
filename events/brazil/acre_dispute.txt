@@ -37,10 +37,6 @@ acre_dispute.1 = {
 			}
 		}
 		save_scope_as = acre_claimant
-		create_diplomatic_catalyst = {  
-			type = catalyst_event_negative
-			target = scope:acre_owner
-		}
 	}
 
 	option = {
@@ -59,6 +55,10 @@ acre_dispute.1 = {
 			trigger_event = { id = acre_dispute.2 popup = yes }
 		}
 		add_journal_entry = { type = je_acre_dispute }
+		create_diplomatic_catalyst = {  
+			type = catalyst_journal_entry
+			target = scope:acre_owner
+		}
 	}
 }
 

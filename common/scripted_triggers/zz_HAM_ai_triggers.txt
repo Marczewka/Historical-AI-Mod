@@ -123,8 +123,16 @@ has_je_conquest_reason = {
 			has_journal_entry = je_scramble_for_africa
 			$TARGET$ = {
 				country_is_in_africa = yes
-				is_country_type = unrecognized
 				is_subject = no
+				OR = {
+					any_scope_building = {
+						OR = {
+							is_building_type = building_gold_mine
+							is_building_type = building_gold_fields
+						}
+					}
+					is_country_type = unrecognized
+				}
 			}
 		}
 
@@ -247,6 +255,15 @@ has_je_conquest_reason = {
 		}
 
 		AND = {
+			has_journal_entry = je_acre_dispute
+			$TARGET$ = {
+				any_scope_state = {
+					state_region = s:STATE_ACRE
+				}
+			}
+		}
+
+		AND = {
 			has_journal_entry = je_conquest_of_algeria
 			$TARGET$ = {
 				any_scope_state = {
@@ -281,11 +298,14 @@ has_je_conquest_reason = {
 			$TARGET$ = {
 				any_scope_state = {
 					OR = {
+						state_region = s:STATE_SYRDARYA
 						state_region = s:STATE_UZBEKIA
 						state_region = s:STATE_KIRGHIZIA
-						state_region = s:STATE_KHIVA
+						state_region = s:STATE_KHIVA # Chorasmia
 						state_region = s:STATE_TURKMENIA
 						state_region = s:STATE_TAJIKISTAN
+						state_region = s:STATE_FERGANA
+						state_region = s:STATE_MERZ # Merv
 					}
 				}
 			}
@@ -352,6 +372,7 @@ has_je_conquest_reason = {
 			has_strategy = ai_strategy_unify_italy
 			$TARGET$ = {
 				is_unification_candidate = ITA
+				country_rank >= rank_value:major_power
 			}
 		}
 		
@@ -380,6 +401,14 @@ has_je_subjugation_reason = {
 	can_reach_target_country = yes
 
 	OR = {	
+		AND = {
+			c:DEI ?= this
+			$TARGET$ = {
+				capital.region = sr:region_indonesia
+				NOT = { capital.state_region = s:STATE_NORTH_BORNEO }
+				is_country_type = unrecognized
+			}	
+		}
 		AND = {
 			OR = {
 				has_journal_entry = je_sick_man_syria

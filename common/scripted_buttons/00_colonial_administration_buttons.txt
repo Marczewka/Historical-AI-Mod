@@ -18,6 +18,7 @@
 		any_scope_state = {
 			region = sr:region_senegal
 			is_largest_state_in_region = yes
+			is_under_colonization = no
 			count >= 2
 		}
 
@@ -38,29 +39,14 @@
 	ai_chance = {
 		base = 0
 		modifier = {
-			any_scope_state = {
-				region = sr:region_senegal
-				is_largest_state_in_region = yes
-				count >= 3
-			}
-			add = 1
-		}
-		modifier = {
-			any_scope_state = {
-				region = sr:region_senegal
-				is_largest_state_in_region = yes
-				count >= 4
-			}
-			add = 10
-		}	
-		modifier = {
-			any_scope_state = {
-				region = sr:region_senegal
-				is_largest_state_in_region = yes
-				count >= 4
+			NOT = {
+				any_scope_state = {
+					region = sr:region_senegal
+					is_under_colonization = yes
+				}
 			}
 			add = 100
-		}	
+		}
 	}
 
 	effect = {
@@ -69,12 +55,14 @@
 				any_scope_state = {
 					region = sr:region_senegal
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 			}
 			random_scope_state = {
 				limit = {
 					region = sr:region_senegal
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -83,6 +71,7 @@
 			random_scope_state = {
 				limit = {
 					region = sr:region_senegal
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -90,6 +79,7 @@
 		every_scope_state = {
 			limit = {
 				region = sr:region_senegal
+				is_under_colonization = no
 			}
 			set_variable = state_to_cede
 		}
@@ -146,6 +136,7 @@ je_colonial_administration_button_niger = {
 		any_scope_state = {
 			region = sr:region_niger
 			is_largest_state_in_region = yes
+				is_under_colonization = no
 			count >= 2
 		}
 
@@ -166,29 +157,14 @@ je_colonial_administration_button_niger = {
 	ai_chance = {
 		base = 0
 		modifier = {
-			any_scope_state = {
-				region = sr:region_niger
-				is_largest_state_in_region = yes
-				count >= 3
-			}
-			add = 1
-		}
-		modifier = {
-			any_scope_state = {
-				region = sr:region_niger
-				is_largest_state_in_region = yes
-				count >= 4
-			}
-			add = 10
-		}	
-		modifier = {
-			any_scope_state = {
-				region = sr:region_niger
-				is_largest_state_in_region = yes
-				count >= 4
+			NOT = {
+				any_scope_state = {
+					region = sr:region_niger
+					is_under_colonization = yes
+				}
 			}
 			add = 100
-		}	
+		}
 	}
 
 	effect = {
@@ -197,12 +173,14 @@ je_colonial_administration_button_niger = {
 				any_scope_state = {
 					region = sr:region_niger
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 			}
 			random_scope_state = {
 				limit = {
 					region = sr:region_niger
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -211,6 +189,7 @@ je_colonial_administration_button_niger = {
 			random_scope_state = {
 				limit = {
 					region = sr:region_niger
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -218,6 +197,7 @@ je_colonial_administration_button_niger = {
 		every_scope_state = {
 			limit = {
 				region = sr:region_niger
+				is_under_colonization = no
 			}
 			set_variable = state_to_cede
 		}
@@ -274,6 +254,7 @@ je_colonial_administration_button_ethiopia = {
 		any_scope_state = {
 			region = sr:region_ethiopia
 			is_largest_state_in_region = yes
+				is_under_colonization = no
 			count >= 2
 		}
 
@@ -294,29 +275,14 @@ je_colonial_administration_button_ethiopia = {
 	ai_chance = {
 		base = 0
 		modifier = {
-			any_scope_state = {
-				region = sr:region_ethiopia
-				is_largest_state_in_region = yes
-				count >= 3
-			}
-			add = 1
-		}
-		modifier = {
-			any_scope_state = {
-				region = sr:region_ethiopia
-				is_largest_state_in_region = yes
-				count >= 4
-			}
-			add = 10
-		}	
-		modifier = {
-			any_scope_state = {
-				region = sr:region_ethiopia
-				is_largest_state_in_region = yes
-				count >= 4
+			NOT = {
+				any_scope_state = {
+					region = sr:region_ethiopia
+					is_under_colonization = yes
+				}
 			}
 			add = 100
-		}	
+		}
 	}
 
 	effect = {
@@ -325,12 +291,14 @@ je_colonial_administration_button_ethiopia = {
 				any_scope_state = {
 					region = sr:region_ethiopia
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 			}
 			random_scope_state = {
 				limit = {
 					region = sr:region_ethiopia
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -339,6 +307,7 @@ je_colonial_administration_button_ethiopia = {
 			random_scope_state = {
 				limit = {
 					region = sr:region_ethiopia
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -346,6 +315,7 @@ je_colonial_administration_button_ethiopia = {
 		every_scope_state = {
 			limit = {
 				region = sr:region_ethiopia
+				is_under_colonization = no
 			}
 			set_variable = state_to_cede
 		}
@@ -402,6 +372,7 @@ je_colonial_administration_button_zanj = {
 		any_scope_state = {
 			region = sr:region_zanj
 			is_largest_state_in_region = yes
+				is_under_colonization = no
 			count >= 2
 		}
 
@@ -422,29 +393,14 @@ je_colonial_administration_button_zanj = {
 	ai_chance = {
 		base = 0
 		modifier = {
-			any_scope_state = {
-				region = sr:region_zanj
-				is_largest_state_in_region = yes
-				count >= 3
-			}
-			add = 1
-		}
-		modifier = {
-			any_scope_state = {
-				region = sr:region_zanj
-				is_largest_state_in_region = yes
-				count >= 4
-			}
-			add = 10
-		}	
-		modifier = {
-			any_scope_state = {
-				region = sr:region_zanj
-				is_largest_state_in_region = yes
-				count >= 4
+			NOT = {
+				any_scope_state = {
+					region = sr:region_zanj
+					is_under_colonization = yes
+				}
 			}
 			add = 100
-		}	
+		}
 	}
 
 	effect = {
@@ -453,12 +409,14 @@ je_colonial_administration_button_zanj = {
 				any_scope_state = {
 					region = sr:region_zanj
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 			}
 			random_scope_state = {
 				limit = {
 					region = sr:region_zanj
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -467,6 +425,7 @@ je_colonial_administration_button_zanj = {
 			random_scope_state = {
 				limit = {
 					region = sr:region_zanj
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -474,6 +433,7 @@ je_colonial_administration_button_zanj = {
 		every_scope_state = {
 			limit = {
 				region = sr:region_zanj
+				is_under_colonization = no
 			}
 			set_variable = state_to_cede
 		}
@@ -530,6 +490,7 @@ je_colonial_administration_button_southern_africa = {
 		any_scope_state = {
 			region = sr:region_southern_africa
 			is_largest_state_in_region = yes
+				is_under_colonization = no
 			count >= 2
 		}
 
@@ -550,29 +511,14 @@ je_colonial_administration_button_southern_africa = {
 	ai_chance = {
 		base = 0
 		modifier = {
-			any_scope_state = {
-				region = sr:region_southern_africa
-				is_largest_state_in_region = yes
-				count >= 3
-			}
-			add = 1
-		}
-		modifier = {
-			any_scope_state = {
-				region = sr:region_southern_africa
-				is_largest_state_in_region = yes
-				count >= 4
-			}
-			add = 10
-		}	
-		modifier = {
-			any_scope_state = {
-				region = sr:region_southern_africa
-				is_largest_state_in_region = yes
-				count >= 4
+			NOT = {
+				any_scope_state = {
+					region = sr:region_southern_africa
+					is_under_colonization = yes
+				}
 			}
 			add = 100
-		}	
+		}
 	}
 
 	effect = {
@@ -581,12 +527,14 @@ je_colonial_administration_button_southern_africa = {
 				any_scope_state = {
 					region = sr:region_southern_africa
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 			}
 			random_scope_state = {
 				limit = {
 					region = sr:region_southern_africa
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -595,6 +543,7 @@ je_colonial_administration_button_southern_africa = {
 			random_scope_state = {
 				limit = {
 					region = sr:region_southern_africa
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -602,6 +551,7 @@ je_colonial_administration_button_southern_africa = {
 		every_scope_state = {
 			limit = {
 				region = sr:region_southern_africa
+				is_under_colonization = no
 			}
 			set_variable = state_to_cede
 		}
@@ -658,6 +608,7 @@ je_colonial_administration_button_congo = {
 		any_scope_state = {
 			region = sr:region_congo
 			is_largest_state_in_region = yes
+				is_under_colonization = no
 			count >= 2
 		}
 
@@ -678,29 +629,14 @@ je_colonial_administration_button_congo = {
 	ai_chance = {
 		base = 0
 		modifier = {
-			any_scope_state = {
-				region = sr:region_congo
-				is_largest_state_in_region = yes
-				count >= 3
-			}
-			add = 1
-		}
-		modifier = {
-			any_scope_state = {
-				region = sr:region_congo
-				is_largest_state_in_region = yes
-				count >= 4
-			}
-			add = 10
-		}	
-		modifier = {
-			any_scope_state = {
-				region = sr:region_congo
-				is_largest_state_in_region = yes
-				count >= 4
+			NOT = {
+				any_scope_state = {
+					region = sr:region_congo
+					is_under_colonization = yes
+				}
 			}
 			add = 100
-		}	
+		}
 	}
 
 	effect = {
@@ -709,12 +645,14 @@ je_colonial_administration_button_congo = {
 				any_scope_state = {
 					region = sr:region_congo
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 			}
 			random_scope_state = {
 				limit = {
 					region = sr:region_congo
 					has_decree = decree_greener_grass_campaign
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -723,6 +661,7 @@ je_colonial_administration_button_congo = {
 			random_scope_state = {
 				limit = {
 					region = sr:region_congo
+					is_under_colonization = no
 				}
 				save_scope_as = newly_formed_colonial_nation_capital_scope
 			}
@@ -730,6 +669,7 @@ je_colonial_administration_button_congo = {
 		every_scope_state = {
 			limit = {
 				region = sr:region_congo
+				is_under_colonization = no
 			}
 			set_variable = state_to_cede
 		}

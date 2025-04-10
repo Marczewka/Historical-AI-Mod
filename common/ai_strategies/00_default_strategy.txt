@@ -1534,6 +1534,7 @@ ai_strategy_default = {
 									root.top_overlord = { NOT = { has_journal_entry = je_opium_wars } }
 								}
 							}
+							NOT = { has_claim_by = ROOT }
 						}
 					}
 					add = 15
@@ -1702,11 +1703,11 @@ ai_strategy_default = {
 						has_journal_entry = je_the_eastern_border
 						scope:target_state = {
 							OR = {
+								state_region = s:STATE_AMUR
 								state_region = s:STATE_OUTER_MANCHURIA
 								state_region = s:STATE_JETISY
-								state_region = s:STATE_TOMSK
+								state_region = s:STATE_ALTAI
 								state_region = s:STATE_KIRGHIZIA
-								state_region = s:STATE_AMUR
 							}
 						}
 					}
@@ -1887,7 +1888,7 @@ ai_strategy_default = {
 									any_scope_state = { 
 										owner = ROOT 
 										is_treaty_port = no
-										is_incorporated = yes
+										state_population > 100000
 									}
 								}
 							}
@@ -2954,15 +2955,15 @@ ai_strategy_default = {
 			limit = {
 				army_size > 10
 				NOT = { is_diplomatic_play_enemy_of = scope:target_country }
-				any_diplomatic_play = {
-					is_diplomatic_play_type = dp_secession
-					target_is = scope:target_country					
-				}		
 				scope:target_country = {
 					has_variable = failed_tanzimat
 					any_scope_state = {
 						is_homeland_of_country_cultures = root
 						has_claim_by = root
+					}
+					any_diplomatic_play = {
+						is_diplomatic_play_type = dp_secession
+						target_is = scope:target_country					
 					}
 				}
 			}
@@ -3618,11 +3619,11 @@ ai_strategy_default = {
 				scope:target_country = {
 					any_scope_state = {
 						OR = {
+							state_region = s:STATE_AMUR
 							state_region = s:STATE_OUTER_MANCHURIA
 							state_region = s:STATE_JETISY
-							state_region = s:STATE_TOMSK
+							state_region = s:STATE_ALTAI
 							state_region = s:STATE_KIRGHIZIA
-							state_region = s:STATE_AMUR
 						}
 					}
 				}
@@ -7231,6 +7232,11 @@ ai_strategy_default = {
 								root.top_overlord = { NOT = { has_journal_entry = je_opium_wars } }
 							}
 						}
+						NOT = {
+							any_scope_state = {
+								has_claim_by = ROOT
+							}
+						}
 					}
 				}
 				add = 25
@@ -7854,6 +7860,18 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
+					any_subject_or_below = {
+						is_country_type = colonial
+					}
+					scope:target_country = {
+						is_country_type = colonial
+					}
+				}
+				multiply = 0
+			}
+
+			if = {
+				limit = {
 					scope:target_country = {
 						has_journal_entry = je_peru_bolivia
 						country_has_primary_culture = cu:south_andean
@@ -7905,6 +7923,9 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					scope:target_country.infamy >= infamy_threshold:notorious
+					scope:target_country = {
+						country_rank < rank_value:great_power
+					}
 				}
 				add = 25
 				
