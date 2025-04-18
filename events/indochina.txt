@@ -294,9 +294,7 @@ indochina.2 = {
 				limit = {
 					any_scope_state = {
 						NOT = {
-							owner = { 
-								top_overlord = { religion = { has_discrimination_trait = christian } } 
-							}
+							owner.top_overlord.religion = { has_discrimination_trait = christian }
 						}
 					}
 				}
@@ -308,9 +306,7 @@ indochina.2 = {
 				limit = {
 					any_scope_state = {
 						NOT = {
-							owner = { 
-								top_overlord = { religion = { has_discrimination_trait = christian } } 
-							}
+							owner.top_overlord.religion = { has_discrimination_trait = christian }
 						}
 					}
 				}
@@ -322,9 +318,7 @@ indochina.2 = {
 				limit = {
 					any_scope_state = {
 						NOT = {
-							owner = { 
-								top_overlord = { religion = { has_discrimination_trait = christian } } 
-							}
+							owner.top_overlord.religion = { has_discrimination_trait = christian }
 						}
 					}
 				}
@@ -336,9 +330,7 @@ indochina.2 = {
 				limit = {
 					any_scope_state = {
 						NOT = {
-							owner = { 
-								top_overlord = { religion = { has_discrimination_trait = christian } } 
-							}
+							owner.top_overlord.religion = { has_discrimination_trait = christian }
 						}
 					}
 				}
@@ -350,9 +342,7 @@ indochina.2 = {
 				limit = {
 					any_scope_state = {
 						NOT = {
-							owner = { 
-								top_overlord = { religion = { has_discrimination_trait = christian } } 
-							}
+							owner.top_overlord.religion = { has_discrimination_trait = christian }
 						}
 					}
 				}
@@ -488,9 +478,7 @@ indochina.3 = {
 				limit = {
 					any_scope_state = {
 						NOT = {
-							owner = { 
-								top_overlord = { religion = { has_discrimination_trait = christian } } 
-							}
+							owner.top_overlord.religion = { has_discrimination_trait = christian }
 						}
 					}
 				}
@@ -502,9 +490,7 @@ indochina.3 = {
 				limit = {
 					any_scope_state = {
 						NOT = {
-							owner = { 
-								top_overlord = { religion = { has_discrimination_trait = christian } } 
-							}
+							owner.top_overlord.religion = { has_discrimination_trait = christian }
 						}
 					}
 				}
@@ -516,9 +502,7 @@ indochina.3 = {
 				limit = {
 					any_scope_state = {
 						NOT = {
-							owner = { 
-								top_overlord = { religion = { has_discrimination_trait = christian } } 
-							}
+							owner.top_overlord.religion = { has_discrimination_trait = christian }
 						}
 					}
 				}
@@ -530,9 +514,7 @@ indochina.3 = {
 				limit = {
 					any_scope_state = {
 						NOT = {
-							owner = { 
-								top_overlord = { religion = { has_discrimination_trait = christian } } 
-							}
+							owner.top_overlord.religion = { has_discrimination_trait = christian }
 						}
 					}
 				}
@@ -544,9 +526,7 @@ indochina.3 = {
 				limit = {
 					any_scope_state = {
 						NOT = {
-							owner = { 
-								top_overlord = { religion = { has_discrimination_trait = christian } } 
-							}
+							owner.top_overlord.religion = { has_discrimination_trait = christian }
 						}
 					}
 				}

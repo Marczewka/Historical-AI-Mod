@@ -3612,6 +3612,29 @@ on_secession_start = {
 				trigger_event = { id = italian_unification.7 days = 3 }
 			}
 		}
+		if = {
+			limit = {
+				NOT = {
+					exists = c:DOM
+				}
+				scope:target ?= {
+					OR = {
+						country_has_primary_culture = cu:caribeno
+						country_has_primary_culture = cu:afro_caribeno
+					}
+					capital.state_region = s:STATE_SANTO_DOMINGO
+				}
+				ROOT = {
+					NOR = {
+						country_has_primary_culture = cu:caribeno
+						country_has_primary_culture = cu:afro_caribeno
+					}
+				}
+			}
+			scope:target = {
+				change_tag = DOM
+			}
+		}
 		# if = {
 		# 	limit = {
 		# 		NOR = {

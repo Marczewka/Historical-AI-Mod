@@ -1,6 +1,7 @@
 ﻿STATES = {
 	s:STATE_WESTERN_NEW_GUINEA = {
 		add_claim = c:DEI
+		add_claim = c:NET
 	}
 	s:STATE_PATAGONIA = { 	
 		remove_claim = c:CHL
@@ -24,5 +25,6 @@
 	}
 	s:STATE_ARAUCANIA = {
 		add_homeland = cu:south_andean
+		remove_claim = c:ARG
 	}
 }

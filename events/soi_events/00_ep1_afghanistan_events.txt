@@ -81,6 +81,7 @@ gg_afghanistan.1 = { #Afghanistan Borders proposal
 			set_variable = { name = afghanistan_delimitation_treaty_approved days = 365 }
 		}
 		custom_tooltip = afghanistan_abandon_claims_tt
+		custom_tooltip = bic_abandon_claims_tt
 		show_as_tooltip = { # Displays party B's demands
 			if = {
 				limit = {

@@ -93,7 +93,7 @@ lathe = {
 					 has_strategy = ai_strategy_resource_expansion
 				}
 			}
-			add = 1
+			add = 1.5 # 1
 		}		
 	}
 }
@@ -126,7 +126,7 @@ steelworking = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 		
 		if = {
 			limit = { 
@@ -185,7 +185,7 @@ intensive_agriculture = {
 	}
 	
 	ai_weight = {
-		value = 2 # Important tech for everyone
+		value = 1.5 # 2 # Important tech for everyone
 		
 		if = {
 			limit = {
@@ -227,6 +227,13 @@ canneries = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = { 
+				has_strategy = ai_strategy_industrial_expansion
+			}
+			add = 1
+		}
 	}
 }
 
@@ -243,6 +250,16 @@ watertube_boiler = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
 	}
 }
 
@@ -354,6 +371,16 @@ nitroglycerin = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
 	}
 }
 
@@ -371,12 +398,12 @@ bessemer_process = {
 	ai_weight = {
 		value = 1
 		
-		if = {
-			limit = { 
-				 has_strategy = ai_strategy_industrial_expansion
-			}
-			add = 1
-		}		
+		# if = {
+		# 	limit = { 
+		# 		 has_strategy = ai_strategy_industrial_expansion
+		# 	}
+		# 	add = 1
+		# }		
 	}
 }
 
@@ -435,7 +462,14 @@ mechanical_tools = {
 	}
 	
 	ai_weight = {
-		value = 1		
+		value = 1	
+
+		if = {
+			limit = { 
+				has_strategy = ai_strategy_industrial_expansion
+			}
+			add = 1
+		}
 	}
 }
 
@@ -478,7 +512,7 @@ steam_donkey = {
 					 has_strategy = ai_strategy_resource_expansion
 				}
 			}
-			add = 2
+			add = 1 # 2
 		}	
 	}	
 }
@@ -502,6 +536,16 @@ dynamite = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}	
 	}
 }
 
@@ -562,6 +606,16 @@ reinforced_concrete = {
 	
 	ai_weight = {
 		value = 1
+		
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}	
 	}
 }
 
@@ -922,6 +976,16 @@ pneumatic_tools = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}	
 	}
 }
 
@@ -968,6 +1032,16 @@ steam_turbine = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}	
 	}
 }
 
@@ -1028,7 +1102,7 @@ radio = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -1048,7 +1122,7 @@ telephone = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -1097,6 +1171,16 @@ oil_turbine = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}	
 	}
 }
 
@@ -1114,6 +1198,16 @@ arc_welding = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}	
 	}
 }
 
@@ -1130,5 +1224,15 @@ compression_ignition = {
 	
 	ai_weight = {
 		value = 1
+
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}	
 	}
 }

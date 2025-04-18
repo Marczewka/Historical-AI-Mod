@@ -55,6 +55,4 @@ offer_recognition_proposal_third_party_declined_name: "$offer_recognition_action
 offer_recognition_proposal_third_party_declined_desc: "[TARGET_COUNTRY.GetName] declined an offer to set up an embassy by [INITIATOR_COUNTRY.GetName]:\n$STATES_DESC$"
 offer_recognition_proposal_notification_effects_desc: "If we accept, the #bold Progress Bar#! of the $je_earn_recognition$ [concept_journal_entry] will advance by a value of #bold 20#!"
 
-
-
-
+bic_abandon_claims_tt: "#v $BIC$#! will abandon all claims on #v $AFG$#!"

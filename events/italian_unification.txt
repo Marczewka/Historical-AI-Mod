@@ -354,11 +354,9 @@ italian_unification.4 = {
 		}
 		if = {
 			limit = {
-				NOT = { has_modifier = modifier_risorgimento_opposition }
+				NOT = { has_modifier = modifier_risorgimento_support }
 			}
-			add_modifier = {
-				name = modifier_risorgimento_support
-			}
+			add_modifier = modifier_risorgimento_support
 		}
 		capital = {
 			save_scope_as = capital_scope
@@ -1078,9 +1076,7 @@ italian_unification.10 = {
 				months = normal_modifier_time
 			}
 		}
-		add_modifier = {
-			name = modifier_risorgimento_support
-		}
+		add_modifier = modifier_risorgimento_support
 		every_country = {
 			limit = {
 				has_interest_marker_in_region = region_italy
@@ -1116,7 +1112,7 @@ italian_unification.10 = {
 				}
 			}
 			create_diplomatic_catalyst = {  
-				type = catalyst_journal_entry
+				type = catalyst_event_negative
 				target = ROOT
 			}
 		}
@@ -1244,9 +1240,7 @@ italian_unification.10 = {
 				months = normal_modifier_time
 			}
 		}
-		add_modifier = {
-			name = modifier_risorgimento_opposition
-		}
+		add_modifier = modifier_risorgimento_opposition
 		every_country = {
 			limit = {
 				has_interest_marker_in_region = region_italy

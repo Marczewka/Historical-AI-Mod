@@ -7,15 +7,12 @@
 		c:GBR = {
 			relations:ROOT > relations_threshold:poor
 		}
+        has_technology_researched = nationalism
 		any_scope_state = {
 			OR = {
 				state_region = s:STATE_MONTANA
 				state_region = s:STATE_WYOMING
-				state_region = s:STATE_UTAH
-				state_region = s:STATE_NEVADA
-				state_region = s:STATE_CALIFORNIA
 			}
-			state_population > 100000
 		}
 	}
 
@@ -25,10 +22,7 @@
 
 	fail = {
 		c:GBR = {
-			has_diplomatic_pact = {
-				who = root
-				type = rivalry
-			}	
+			relations:ROOT <= relations_threshold:cold
 		}
 	}
 

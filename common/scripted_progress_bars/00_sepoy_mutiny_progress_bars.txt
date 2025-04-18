@@ -270,64 +270,64 @@
 				value = c:BIC.var:bengal_progress_from_events_var_add_6
 			}
 		}
-		# Military Wages
-		if = {
-			limit = { c:BIC ?= { military_wage_level = very_low } }
-			add = {
-				desc = "presidencies_very_low_military_wages_tt"
-				subtract = 1
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { military_wage_level = low } }
-			add = {
-				desc = "presidencies_low_military_wages_tt"
-				subtract = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { military_wage_level = high } }
-			add = {
-				desc = "presidencies_high_military_wages_tt"
-				add = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { military_wage_level = very_high } }
-			add = {
-				desc = "presidencies_very_high_military_wages_tt"
-				add = 1
-			}
-		}
-		# Taxation
-		if = {
-			limit = { c:BIC ?= { tax_level = very_low } }
-			add = {
-				desc = "presidencies_very_low_taxation_tt"
-				add = 1
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { tax_level = low } }
-			add = {
-				desc = "presidencies_low_taxation_tt"
-				add = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { tax_level = high } }
-			add = {
-				desc = "presidencies_high_taxation_tt"
-				subtract = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { tax_level = very_high } }
-			add = {
-				desc = "presidencies_very_high_taxation_tt"
-				subtract = 1
-			}
-		}
+		# # Military Wages
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = very_low } }
+		# 	add = {
+		# 		desc = "presidencies_very_low_military_wages_tt"
+		# 		subtract = 1
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = low } }
+		# 	add = {
+		# 		desc = "presidencies_low_military_wages_tt"
+		# 		subtract = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = high } }
+		# 	add = {
+		# 		desc = "presidencies_high_military_wages_tt"
+		# 		add = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = very_high } }
+		# 	add = {
+		# 		desc = "presidencies_very_high_military_wages_tt"
+		# 		add = 1
+		# 	}
+		# }
+		# # Taxation
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = very_low } }
+		# 	add = {
+		# 		desc = "presidencies_very_low_taxation_tt"
+		# 		add = 1
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = low } }
+		# 	add = {
+		# 		desc = "presidencies_low_taxation_tt"
+		# 		add = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = high } }
+		# 	add = {
+		# 		desc = "presidencies_high_taxation_tt"
+		# 		subtract = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = very_high } }
+		# 	add = {
+		# 		desc = "presidencies_very_high_taxation_tt"
+		# 		subtract = 1
+		# 	}
+		# }
 		# Utilitarian Leaders in government
 		if = {
 			limit = { 
@@ -630,64 +630,64 @@ sepoy_mutiny_progress_bar_bombay = {
 				value = c:BIC.var:bombay_progress_from_events_var_add_6
 			}
 		}
-		# Military Wages
-		if = {
-			limit = { c:BIC ?= { military_wage_level = very_low } }
-			add = {
-				desc = "presidencies_very_low_military_wages_tt"
-				subtract = 1
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { military_wage_level = low } }
-			add = {
-				desc = "presidencies_low_military_wages_tt"
-				subtract = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { military_wage_level = high } }
-			add = {
-				desc = "presidencies_high_military_wages_tt"
-				add = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { military_wage_level = very_high } }
-			add = {
-				desc = "presidencies_very_high_military_wages_tt"
-				add = 1
-			}
-		}
-		# Taxation
-		if = {
-			limit = { c:BIC ?= { tax_level = very_low } }
-			add = {
-				desc = "presidencies_very_low_taxation_tt"
-				add = 1
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { tax_level = low } }
-			add = {
-				desc = "presidencies_low_taxation_tt"
-				add = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { tax_level = high } }
-			add = {
-				desc = "presidencies_high_taxation_tt"
-				subtract = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { tax_level = very_high } }
-			add = {
-				desc = "presidencies_very_high_taxation_tt"
-				subtract = 1
-			}
-		}
+		# # Military Wages
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = very_low } }
+		# 	add = {
+		# 		desc = "presidencies_very_low_military_wages_tt"
+		# 		subtract = 1
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = low } }
+		# 	add = {
+		# 		desc = "presidencies_low_military_wages_tt"
+		# 		subtract = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = high } }
+		# 	add = {
+		# 		desc = "presidencies_high_military_wages_tt"
+		# 		add = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = very_high } }
+		# 	add = {
+		# 		desc = "presidencies_very_high_military_wages_tt"
+		# 		add = 1
+		# 	}
+		# }
+		# # Taxation
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = very_low } }
+		# 	add = {
+		# 		desc = "presidencies_very_low_taxation_tt"
+		# 		add = 1
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = low } }
+		# 	add = {
+		# 		desc = "presidencies_low_taxation_tt"
+		# 		add = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = high } }
+		# 	add = {
+		# 		desc = "presidencies_high_taxation_tt"
+		# 		subtract = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = very_high } }
+		# 	add = {
+		# 		desc = "presidencies_very_high_taxation_tt"
+		# 		subtract = 1
+		# 	}
+		# }
 		# Utilitarian Leaders in government
 		if = {
 			limit = { 
@@ -992,64 +992,64 @@ sepoy_mutiny_progress_bar_madras = {
 				value = c:BIC.var:madras_progress_from_events_var_add_6
 			}
 		}
-		# Military Wages
-		if = {
-			limit = { c:BIC ?= { military_wage_level = very_low } }
-			add = {
-				desc = "presidencies_very_low_military_wages_tt"
-				subtract = 1
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { military_wage_level = low } }
-			add = {
-				desc = "presidencies_low_military_wages_tt"
-				subtract = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { military_wage_level = high } }
-			add = {
-				desc = "presidencies_high_military_wages_tt"
-				add = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { military_wage_level = very_high } }
-			add = {
-				desc = "presidencies_very_high_military_wages_tt"
-				add = 1
-			}
-		}
-		# Taxation
-		if = {
-			limit = { c:BIC ?= { tax_level = very_low } }
-			add = {
-				desc = "presidencies_very_low_taxation_tt"
-				add = 1
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { tax_level = low } }
-			add = {
-				desc = "presidencies_low_taxation_tt"
-				add = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { tax_level = high } }
-			add = {
-				desc = "presidencies_high_taxation_tt"
-				subtract = 0.5
-			}
-		}
-		if = {
-			limit = { c:BIC ?= { tax_level = very_high } }
-			add = {
-				desc = "presidencies_very_high_taxation_tt"
-				subtract = 1
-			}
-		}
+		# # Military Wages
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = very_low } }
+		# 	add = {
+		# 		desc = "presidencies_very_low_military_wages_tt"
+		# 		subtract = 1
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = low } }
+		# 	add = {
+		# 		desc = "presidencies_low_military_wages_tt"
+		# 		subtract = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = high } }
+		# 	add = {
+		# 		desc = "presidencies_high_military_wages_tt"
+		# 		add = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { military_wage_level = very_high } }
+		# 	add = {
+		# 		desc = "presidencies_very_high_military_wages_tt"
+		# 		add = 1
+		# 	}
+		# }
+		# # Taxation
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = very_low } }
+		# 	add = {
+		# 		desc = "presidencies_very_low_taxation_tt"
+		# 		add = 1
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = low } }
+		# 	add = {
+		# 		desc = "presidencies_low_taxation_tt"
+		# 		add = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = high } }
+		# 	add = {
+		# 		desc = "presidencies_high_taxation_tt"
+		# 		subtract = 0.5
+		# 	}
+		# }
+		# if = {
+		# 	limit = { c:BIC ?= { tax_level = very_high } }
+		# 	add = {
+		# 		desc = "presidencies_very_high_taxation_tt"
+		# 		subtract = 1
+		# 	}
+		# }
 		# Utilitarian Leaders in government
 		if = {
 			limit = { 

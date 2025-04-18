@@ -1308,7 +1308,10 @@ ai_strategy_economic_imperialism = {
 		if = {
 			limit = {
 				exists = c:JAP
-				has_strategic_adjacency = c:JAP
+				OR = {
+					has_strategic_adjacency = c:JAP
+					this ?= c:USA
+				}
 				c:JAP = { has_law = law_type:law_isolationism }
 			}
 			multiply = 10 # 2.0
@@ -1518,7 +1521,10 @@ ai_strategy_unify_germany = {
 						NOR = { 
 							is_supporting_unification_candidate = { who = root country_formation = GER }
 							is_subject_of = root
-							is_in_customs_union_with = root
+							AND = {
+								ROOT = { is_unification_candidate = GER }
+								is_in_customs_union_with = root
+							}
 						}	
 					}
 				}
@@ -1542,12 +1548,6 @@ ai_strategy_unify_germany = {
 		is_subject = no
 		OR = {
 			AND = {
-				has_technology_researched = nationalism
-				has_journal_entry = je_schleswig_holstein_question
-				country_rank = rank_value:great_power
-				NOT =  { country_tier = empire	}
-			}
-			AND = {
 				is_unification_candidate = GER	
 				NOT = { country_tier = empire }
 			}
@@ -1555,6 +1555,11 @@ ai_strategy_unify_germany = {
 				has_technology_researched = pan-nationalism
 				exists = c:NGF
 				THIS = c:NGF
+			}
+			AND = {
+				has_technology_researched = pan-nationalism
+				exists = c:PRU
+				THIS = c:PRU
 			}
 		}
 	}
@@ -1661,12 +1666,22 @@ ai_strategy_unify_italy = {
 		if = {
 			limit = {
 				scope:target_state = {
-					state_region = {
-						OR = {
-							is_homeland = cu:north_italian
-							is_homeland = cu:south_italian
-						}
-					}						
+					OR = {
+						state_region = s:STATE_PIEDMONT
+						state_region = s:STATE_LOMBARDY
+						state_region = s:STATE_VENETIA
+						state_region = s:STATE_EMILIA
+						state_region = s:STATE_TUSCANY
+						state_region = s:STATE_ROMAGNA
+						state_region = s:STATE_UMBRIA
+						state_region = s:STATE_LAZIO
+						state_region = s:STATE_ABRUZZO
+						state_region = s:STATE_CAMPANIA
+						state_region = s:STATE_APULIA
+						state_region = s:STATE_CALABRIA
+						state_region = s:STATE_SICILY
+						state_region = s:STATE_SARDINIA	
+					}
 				}	
 				can_reach_target_state = yes
 			}
@@ -1704,7 +1719,17 @@ ai_strategy_unify_italy = {
 				add = 1000
 			}		
 		}		
-		dominate = {		
+		conquer = {				
+			if = {
+				limit = {
+					scope:target_country = {				
+						is_unification_candidate = ITA
+						country_rank >= rank_value:major_power
+					}
+				}
+				add = 1000
+			}	
+			
 			if = {
 				limit = {
 					scope:target_country = {
@@ -1722,17 +1747,7 @@ ai_strategy_unify_italy = {
 					}
 				}
 				add = 1000
-			}		
-		}		
-		conquer = {				
-			if = {
-				limit = {
-					scope:target_country = {				
-						is_unification_candidate = ITA
-					}
-				}
-				add = 1000
-			}			
+			}	
 		}		
 	}
 		

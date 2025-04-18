@@ -32,14 +32,6 @@
 			level = 3
 		}
 
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-		}
-
 		if = {
 			limit = {
 				has_dlc_feature = ep1_content

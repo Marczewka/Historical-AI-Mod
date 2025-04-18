@@ -114,7 +114,7 @@ ITA = {
 				}
 			}
 			has_technology_researched = nationalism	
-			percent >= 0.5 # 1
+			percent >= 0.25 # 1
 		}
 	}
 }

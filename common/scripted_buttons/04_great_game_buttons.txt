@@ -1584,6 +1584,7 @@ je_consolidate_afghanistan_approve_of_treaty = {
 			}
 		}
 		custom_tooltip = afghanistan_abandon_claims_tt
+		custom_tooltip = bic_abandon_claims_tt
 		show_as_tooltip = {
 			if = {
 				limit = {

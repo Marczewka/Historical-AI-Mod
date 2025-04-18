@@ -346,7 +346,7 @@
 		limit = {
 			# Critical Stability
 			je:je_uneasy_raj = { 
-				"scripted_bar_progress(sepoy_mutiny_progress_bar_bombay)" <= uneasy_raj_stability_critical_upper_bound # 25
+				"scripted_bar_progress(sepoy_mutiny_progress_bar_bombay)" <= 25
 			}
 			# Give Madras to Carnatic
 			NOT = { exists = c:CAR }
@@ -2338,7 +2338,14 @@ sepoy_mutiny_madras_effect_critical = {
 				c:KNO ?= this
 			}
 		}
-		add_target_backers = { c:CAR }
+		# Annex Carnatic
+		if = {
+			add_war_goal = {
+				holder = c:BIC
+				target_country = c:CAR
+				type = annex_country
+			}
+		}
 		# Madras State
 		if = {
 			limit = {

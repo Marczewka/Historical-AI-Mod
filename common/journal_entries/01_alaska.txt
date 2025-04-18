@@ -177,10 +177,7 @@ je_alaska = {
 	fail = {
 		OR ={
 			scope:alaska_overlord = {
-				has_diplomatic_pact = {
-					who = root
-					type = rivalry
-				}	
+				relations:ROOT <= relations_threshold:cold
 			}
 			scope:alaska_overlord = {
 				NOR = {

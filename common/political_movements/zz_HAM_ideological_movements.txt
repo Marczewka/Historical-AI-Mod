@@ -251,6 +251,11 @@
 					multiply = 0.1
 				}
 			}
+
+			if = {
+				limit = { is_treaty_port = yes }
+				multiply = 0.0
+			}
 		}
 	}
 
@@ -333,7 +338,12 @@
 				}
 				
 				multiply = 10.0
-			}			
+			}	
+			
+			if = {
+				limit = { is_treaty_port = yes }
+				multiply = 0.0
+			}
 		}		
 	}	
 	
@@ -558,7 +568,12 @@ movement_pro_slavery = {
 				else = {
 					multiply = 0.1
 				}
-			}		
+			}	
+			
+			if = {
+				limit = { is_treaty_port = yes }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -659,6 +674,11 @@ movement_pro_slavery = {
 					multiply = 10.0
 				}	
 			}	
+
+			if = {
+				limit = { is_treaty_port = yes }
+				multiply = 0.0
+			}
 		}	
 	}
 	
@@ -1015,7 +1035,12 @@ movement_royalist_absolutist = {
 				else = {
 					multiply = 0.1
 				}
-			}			
+			}	
+			
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -1043,7 +1068,12 @@ movement_royalist_absolutist = {
 				else = {
 					multiply = 0.1
 				}
-			}			
+			}		
+			
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}	
 		
 		forced_tags = {
@@ -1319,7 +1349,12 @@ movement_royalist_constitutional = {
 				else = {
 					multiply = 0.1
 				}
-			}			
+			}	
+			
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -1350,7 +1385,12 @@ movement_royalist_constitutional = {
 				else = {
 					multiply = 0.1
 				}
-			}			
+			}	
+			
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}		
 		
 		forced_tags = {
@@ -1680,6 +1720,11 @@ movement_labor = { # Explicitly non-socialist labour movement
 	
 		state_weight = {
 			value = state_urbanization_rate
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -1695,6 +1740,11 @@ movement_labor = { # Explicitly non-socialist labour movement
 
 		state_weight = {
 			value = state_urbanization_rate
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}		
 	}	
 	
@@ -2017,6 +2067,11 @@ movement_socialist = {
 					multiply = 0.1
 				}
 			}			
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -2042,7 +2097,12 @@ movement_socialist = {
 				else = {
 					multiply = 0.1
 				}
-			}			
+			}		
+			
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}		
 	}	
 	
@@ -2940,6 +3000,11 @@ movement_fascist = {
 	
 		state_weight = {
 			value = 1		
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -3170,6 +3235,11 @@ movement_corporatist = {
 	
 		state_weight = {
 			value = 1		
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -3494,6 +3564,11 @@ movement_liberal = {
 	
 		state_weight = {
 			value = state_urbanization_rate	
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -3509,6 +3584,11 @@ movement_liberal = {
 
 		state_weight = {
 			value = state_urbanization_rate	
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}		
 	}	
 	
@@ -3525,7 +3605,7 @@ movement_liberal = {
 				limit = { has_journal_entry = je_springtime_of_the_peoples }
 
 				add = {
-					value = 0.10 # 0.25
+					value = 0.25
 					desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
 				}
 			}
@@ -3841,6 +3921,11 @@ movement_radical = {
 	
 		state_weight = {
 			value = state_urbanization_rate
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -3856,6 +3941,11 @@ movement_radical = {
 
 		state_weight = {
 			value = state_urbanization_rate
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}		
 	}	
 	
@@ -4114,6 +4204,11 @@ movement_nihilist = {
 	
 		state_weight = {
 			value = state_urbanization_rate
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -4129,6 +4224,11 @@ movement_nihilist = {
 
 		state_weight = {
 			value = state_urbanization_rate
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}		
 	}	
 
@@ -4447,6 +4547,11 @@ movement_positivist = {
 	
 		state_weight = {
 			value = 1		
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -4676,6 +4781,11 @@ movement_land_reform = {
 	
 		state_weight = {
 			value = 1		
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -4909,6 +5019,11 @@ movement_feminist = {
 	
 		state_weight = {
 			value = 1		
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -5220,6 +5335,11 @@ movement_reactionary = {
 	
 		state_weight = {
 			value = 1		
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -5532,6 +5652,11 @@ movement_modernizer = {
 	
 		state_weight = {
 			value = 1		
+
+			if = {
+				limit = { is_incorporated = no }
+				multiply = 0.0
+			}
 		}
 	}
 	

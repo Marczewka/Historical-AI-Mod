@@ -354,17 +354,17 @@ raj.4 = {
 			text = sepoy_mutiny_progress_from_events_tt
 			set_variable = { 
 				name = bengal_progress_from_events_var_add_5 
-				value = -0.5 # -1
+				value = -1
 				months = normal_modifier_time
 			}
 			set_variable = { 
 				name = bombay_progress_from_events_var_add_5
-				value = -0.5 # -1
+				value = -1
 				months = normal_modifier_time
 			}
 			set_variable = { 
 				name = madras_progress_from_events_var_add_5
-				value = -0.5 # -1
+				value = -1
 				months = normal_modifier_time
 			}
 		}
@@ -564,17 +564,17 @@ raj.5 = {
 				text = sepoy_mutiny_progress_from_events_tt
 				set_variable = { 
 					name = bengal_progress_from_events_var_add_6
-					value = -0.5 # -1
+					value = -1
 					months = normal_modifier_time
 				}
 				set_variable = { 
 					name = bombay_progress_from_events_var_add_6
-					value = -0.5 # -1
+					value = -1
 					months = normal_modifier_time
 				}
 				set_variable = { 
 					name = madras_progress_from_events_var_add_6
-					value = -0.5 # -1
+					value = -1
 					months = normal_modifier_time
 				}
 			}

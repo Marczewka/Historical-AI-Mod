@@ -221,7 +221,7 @@ sick_man.3 = {
 				make_independent = yes
 			}
 		}
-		set_country_type = unrecognized
+		# set_country_type = unrecognized
 		ruler = {
 			kill_character = yes
 		}

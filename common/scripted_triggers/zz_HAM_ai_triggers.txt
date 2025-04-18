@@ -51,6 +51,7 @@ ai_desires_target_state = {
 		AND = { # Colonialist AI wants colonies
 			OR = {
 				has_strategy = ai_strategy_colonial_expansion
+				has_strategy = ai_strategy_economic_imperialism
 			}
 			scope:target_state.owner = { is_country_type = unrecognized }				
 			can_reach_target_state = yes
@@ -65,9 +66,70 @@ ai_desires_target_state = {
 has_je_conquest_reason = {
 	OR = {	
 		AND = {
+			c:ITA ?= this
+			$TARGET$ = {
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+				any_scope_state = {
+					has_claim_by = ROOT
+				}
+			}
+		}
+		AND = {
+			OR = {
+				c:GER ?= this
+				c:NGF ?= this
+				c:SGF ?= this
+			}
+			$TARGET$ = {
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+				}
+				any_scope_state = {
+					has_claim_by = ROOT
+				}
+			}
+		}
+		AND = {
 			has_journal_entry = je_acw_war
 			$TARGET$ = {
 				c:CSA ?= this
+			}
+		}
+		AND = {
+			has_journal_entry = je_indochina
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						state_region = s:STATE_TONKIN
+						state_region = s:STATE_ANNAM
+						state_region = s:STATE_MEKONG
+						state_region = s:STATE_LAOS
+						state_region = s:STATE_CAMBODIA				
+					}
+				}
+				NOT = { 
+					top_overlord = { 
+						religion = { has_discrimination_trait = christian }
+					}
+				}
+			}
+		}
+		AND = {
+			has_journal_entry = je_eastern_frontier
+			$TARGET$ = {
+				any_scope_state = {
+					OR = {
+						region = sr:region_persia
+						region = sr:region_central_asia
+						region = sr:region_bombay
+						region = sr:region_punjab
+					}
+					has_claim_by = ROOT
+				}
 			}
 		}
 		AND = {
@@ -365,6 +427,7 @@ has_je_conquest_reason = {
 		AND = {
 			is_unification_candidate = ITA
 			has_strategy = ai_strategy_unify_italy
+			country_rank >= rank_value:major_power
 			$TARGET$ = {
 				is_unification_candidate = ITA
 				country_rank >= rank_value:major_power
@@ -389,11 +452,29 @@ has_je_conquest_reason = {
 				}
 			}
 		}
+
+		AND = {
+			has_journal_entry = je_risorgimento
+			has_modifier = modifier_risorgimento_support
+			$TARGET$ = { 
+				has_modifier = modifier_risorgimento_opposition 
+			}
+		}
 	}
 }
 
 has_je_subjugation_reason = {
 	OR = {	
+		AND = {
+			OR = {
+				has_strategy = ai_strategy_colonial_expansion
+				has_strategy = ai_strategy_economic_imperialism
+			}
+			has_technology_researched = civilizing_mission
+			$TARGET$ = {
+				country_rank < rank_value:unrecognized_major_power
+			}
+		}
 		AND = {
 			wants_to_solve_schleswig_holstein = yes
 			$TARGET$ = {
@@ -451,31 +532,6 @@ has_je_subjugation_reason = {
 				}
 			}
 		}
-		AND = {
-			has_journal_entry = je_risorgimento
-			has_modifier = modifier_risorgimento_support
-			$TARGET$ = { 
-				has_modifier = modifier_risorgimento_opposition 
-			}
-		}
-		AND = {
-			NOR = {
-				country_has_primary_culture = cu:south_italian
-				country_has_primary_culture = cu:north_italian
-			}
-			any_scope_state = {
-				state_region = {
-					OR = {
-						is_homeland = cu:south_italian
-						is_homeland = cu:north_italian
-					}
-				}
-			}
-			$TARGET$ = { 
-				has_journal_entry = je_risorgimento
-				has_modifier = modifier_risorgimento_support
-			}
-		}
 	}	
 }
 
@@ -530,19 +586,17 @@ has_je_befriend_reason = {
 		}
 
 		AND = {
-			has_journal_entry = je_risorgimento
 			has_modifier = modifier_risorgimento_support
-			is_unification_candidate = ITA
+			country_rank >= rank_value:major_power
 			$TARGET$ = { 
 				has_modifier = modifier_risorgimento_support 
-				NOT = { is_unification_candidate = ITA }
+				country_rank < rank_value:major_power
 			}
 		}
 
 		AND = {
-			has_journal_entry = je_risorgimento
 			has_modifier = modifier_risorgimento_support
-			NOT = { is_unification_candidate = ITA }
+			country_rank < rank_value:major_power
 			$TARGET$ = { 
 				has_modifier = modifier_risorgimento_support 
 			}
@@ -610,11 +664,14 @@ has_je_protect_reason = {
 					country_has_primary_culture = cu:north_german
 					country_has_primary_culture = cu:south_german
 				}
-				NOT = { is_unification_candidate = GER }
-				OR = { 
-					is_supporting_unification_candidate = { who = root country_formation = GER }
-					is_subject_of = root
-					is_in_customs_union_with = root
+				NOR = { 
+					is_unification_candidate = GER 
+					any_scope_state = {
+						has_claim_by = ROOT
+					}
+					any_overlord_or_above = {
+						is_oppressor_of_schleswig_holstein = yes
+					}
 				}
 			}
 		}		
@@ -772,6 +829,7 @@ should_carve_up_china = {
 				region = sr:region_north_china
 				region = sr:region_south_china
 			}
+			is_treaty_port = yes
 		}
 	}
 	OR = {
@@ -779,8 +837,8 @@ should_carve_up_china = {
 			any_scope_state = {
 				is_treaty_port = yes
 				owner = {
-					NOT = { this = root }
-					NOT = { is_country_type = unrecognized }
+					# NOT = { this = root }
+					# NOT = { is_country_type = unrecognized }
 					country_rank >= rank_value:great_power
 				}
 			}
@@ -789,8 +847,8 @@ should_carve_up_china = {
 			any_scope_state = {
 				is_treaty_port = yes
 				owner = {
-					NOT = { this = root }
-					NOT = { is_country_type = unrecognized }
+					# NOT = { this = root }
+					# NOT = { is_country_type = unrecognized }
 					country_rank >= rank_value:great_power
 				}
 			}
@@ -799,8 +857,8 @@ should_carve_up_china = {
 			any_scope_state = {
 				is_treaty_port = yes
 				owner = {
-					NOT = { this = root }
-					NOT = { is_country_type = unrecognized }
+					# NOT = { this = root }
+					# NOT = { is_country_type = unrecognized }
 					country_rank >= rank_value:great_power
 				}
 			}

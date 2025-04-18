@@ -81,6 +81,20 @@ german_unification.1 = {
 				trigger_event = { id = german_unification.2 days = 0 popup = yes }
 			}
 		}
+		every_country = {
+			limit = {
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+				}
+			}
+			ROOT = {
+				create_diplomatic_catalyst = {  
+					type = catalyst_journal_entry
+					target = PREV
+				}
+			}
+		}
 	}
 
 	option = {

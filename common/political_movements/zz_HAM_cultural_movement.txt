@@ -271,6 +271,10 @@
 					add = 50
 				}
 			}
+			if = {
+				limit = { is_treaty_port = yes }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -320,6 +324,10 @@
 					add = 50
 				}
 			}
+			if = {
+				limit = { is_treaty_port = yes }
+				multiply = 0.0
+			}
 		}
 	}
 	
@@ -357,7 +365,7 @@
 
 movement_cultural_minority = {
 	category = movement_category_cultural
-		
+
 	ideology = ideology_pluralist_movement_1
 	character_ideologies = {
 		ideology_reformer
@@ -853,7 +861,11 @@ movement_cultural_minority = {
 					}
 					add = 1
 				}
-			}				
+			}		
+			if = {
+				limit = { is_treaty_port = yes }
+				multiply = 0.0
+			}		
 		}
 
 		target_fraction_of_states = {
@@ -879,7 +891,7 @@ movement_cultural_minority = {
 				scope:culture = { has_discrimination_trait = european_heritage }
 			}
 			add = {
-				value = 0.50
+				value = 0.25
 				desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
 			}
 		}	
@@ -903,7 +915,7 @@ movement_cultural_minority = {
 				scope:culture = { has_discrimination_trait = european_heritage }
 			}
 			add = {
-				value = 0.5
+				value = 0.50
 				desc = "FAILED_TANZIMAT_REFORMS"
 			}
 		}
@@ -952,7 +964,7 @@ movement_cultural_minority = {
 			}
 			
 			add = {
-				value = 0.2
+				value = 0.25 # 0.2
 				desc = "DISCRIMINATION_LEVEL_cultural_erasure"
 			}			
 		}
@@ -962,9 +974,19 @@ movement_cultural_minority = {
 			}
 			
 			add = {
-				value = 0.1
+				value = 0.2 # 0.1
 				desc = "DISCRIMINATION_LEVEL_open_prejudice"
 			}
 		}	
+		else_if = {
+			limit = {
+				owner = { cultural_acceptance_base = { target = scope:culture value <= acceptance_status_4 } }
+			}
+			
+			add = {
+				value = 0.15 # 0.1
+				desc = "DISCRIMINATION_LEVEL_second_rate_citizen"
+			}
+		}
 	}
 }

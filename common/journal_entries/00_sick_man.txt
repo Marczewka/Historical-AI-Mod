@@ -34,7 +34,7 @@
 			text = je_sick_man_main_failure_movements_tt
 			set_variable = {
 				name = failed_tanzimat
-				years = 20
+				years = 30 # 20
 			}
 		}
 
@@ -45,7 +45,7 @@
 	}
 
 	goal_add_value = {
-		add = 5
+		add = 6 # 5
 	}
 
 	progressbar = yes
@@ -80,18 +80,6 @@ je_sick_man_syria = {
 			add = 1
 		}
 		set_variable = completed_syria_je
-		s:STATE_SINAI = {
-			add_claim = ROOT
-		}
-		s:STATE_UPPER_EGYPT = {
-			add_claim = ROOT
-		}
-		s:STATE_MIDDLE_EGYPT = {
-			add_claim = ROOT
-		}
-		s:STATE_LOWER_EGYPT = {
-			add_claim = ROOT
-		}
 		if = {
 			limit = {
 				OR = {
@@ -118,6 +106,54 @@ je_sick_man_syria = {
 		else = {
 			add_journal_entry = {
 				type = je_sick_man_egypt
+			}
+			s:STATE_SINAI = {
+				if = {
+					limit = {
+						any_scope_state = {
+							NOT = {
+								owner.top_overlord = this
+							}
+						}
+					}
+					add_claim = ROOT 
+				}
+			}
+			s:STATE_UPPER_EGYPT = {
+				if = {
+					limit = {
+						any_scope_state = {
+							NOT = {
+								owner.top_overlord = this
+							}
+						}
+					}
+					add_claim = ROOT 
+				}
+			}
+			s:STATE_MIDDLE_EGYPT = {
+				if = {
+					limit = {
+						any_scope_state = {
+							NOT = {
+								owner.top_overlord = this
+							}
+						}
+					}
+					add_claim = ROOT 
+				}
+			}
+			s:STATE_LOWER_EGYPT = {
+				if = {
+					limit = {
+						any_scope_state = {
+							NOT = {
+								owner.top_overlord = this
+							}
+						}
+					}
+					add_claim = ROOT 
+				}
 			}
 		}
 		custom_tooltip = sickman_syria_egypt
@@ -197,7 +233,7 @@ je_sick_man_economy = {
 		any_scope_state = {
 			is_incorporated = yes
 			has_building = building_urban_center
-			percent >= 0.75
+			percent >= 0.5 # 0.75
 		}
 	}
 
@@ -254,7 +290,7 @@ je_sick_man_education = {
 	}
 
 	goal_add_value = {
-		add = 0.2
+		add = 0.3 # 0.2
 	}
 
 	invalid = {

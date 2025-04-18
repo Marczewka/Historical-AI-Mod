@@ -64,6 +64,14 @@ can_aus.1 = {
 				}
 			}
 		}
+		if = {
+			limit = {
+				scope:canada_annex_scope = {
+					has_law = law_type:law_frontier_colonization
+				}
+			}
+			activate_law = law_type:law_frontier_colonization
+		}
 		annex_with_incorporation = scope:canada_annex_scope
 	}
 }
@@ -136,6 +144,16 @@ can_aus.2 = {
 					}
 				}
 			}
+			if = {
+				limit = {
+					scope:canada_scope_2 = {
+						has_law = law_type:law_frontier_colonization
+					}
+				}
+				scope:canada_scope_1 = {
+					activate_law = law_type:law_frontier_colonization
+				}
+			}
 			scope:canada_scope_1 = {
 				annex_with_incorporation = scope:canada_scope_2
 			}
@@ -150,6 +168,16 @@ can_aus.2 = {
 						remove_claim = scope:canada_scope_1
 						add_claim = scope:canada_scope_2
 					}
+				}
+			}
+			if = {
+				limit = {
+					scope:canada_scope_1 = {
+						has_law = law_type:law_frontier_colonization
+					}
+				}
+				scope:canada_scope_2 = {
+					activate_law = law_type:law_frontier_colonization
 				}
 			}
 			scope:canada_scope_2 = {

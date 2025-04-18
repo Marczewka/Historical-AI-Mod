@@ -514,9 +514,35 @@
 				every_state = {
 					limit = {
 						has_claim_by = c:AFG
+						OR = {
+							has_claim_by = c:RUS
+							has_claim_by = c:GBR
+							has_claim_by = c:BIC
+							owner = c:RUS
+							owner = c:GBR
+							owner = c:BIC
+						}
 					}
 					state_region = {
 						remove_claim = c:AFG
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists ?= c:BIC
+				}
+				custom_tooltip = {
+					text = bic_abandon_claims_tt
+					c:AFG = {
+						every_scope_state = {
+							limit = {
+								has_claim_by = c:BIC
+							}
+							state_region = {
+								remove_claim = c:BIC
+							}
+						}
 					}
 				}
 			}

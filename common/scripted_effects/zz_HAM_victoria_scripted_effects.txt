@@ -7,13 +7,13 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = scope:heavenly_kingdom_spawn.state_region
-				count = 20
+				count = 50 # 10
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = scope:heavenly_kingdom_spawn.state_region
-				count = 10
+				count = 10 # 5
 			}
 		}
 	}

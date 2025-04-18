@@ -179,7 +179,7 @@
 			}
 			
 			if = {
-				limit = { scope:actor.scaled_debt >= 0.05 }
+				limit = { scope:actor.scaled_debt >= 0 } # 0.05
 				
 				add = {
 					desc = "DIPLOMATIC_ACCEPTANCE_DEBT"
@@ -245,7 +245,7 @@
 			}
 			
 			if = {
-				limit = { scope:actor.scaled_debt >= 0.05 }
+				limit = { scope:actor.scaled_debt >= 0 } # 0.05
 				
 				subtract = {
 					desc = "DIPLOMATIC_ACCEPTANCE_DEBT"

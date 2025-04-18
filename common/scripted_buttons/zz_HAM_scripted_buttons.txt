@@ -734,7 +734,7 @@ je_risorgimento_change_stance_button = {
 				}
 			}
 			create_diplomatic_catalyst = {  
-				type = catalyst_journal_entry
+				type = catalyst_event_negative
 				target = ROOT
 			}
 		}

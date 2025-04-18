@@ -54,18 +54,23 @@
   # }
   c:HAI ?= {
     set_tax_level = very_high
-    set_government_wage_level = very_low
-    set_military_wage_level = low
     add_taxed_goods = g:tobacco
+  }
+  c:CHI ?= {
+    set_government_wage_level = medium
+  }
+  c:TUR ?= {
+    set_government_wage_level = medium
+    set_military_wage_level = medium
   }
   c:RUS ?= {
     set_tax_level = medium # peasant taxes
   }
   c:JAP ?= {
     set_tax_level = low # better sol for peasants than in Russia
-    set_military_wage_level = high # samurai stipends
   }
   c:USA ?= {
+    activate_law = law_type:law_freedom_of_conscience
     add_journal_entry = { type = je_oregon }
     set_tariffs_export_priority = g:iron	
     set_tariffs_export_priority = g:steel	
@@ -76,7 +81,11 @@
     set_tariffs_export_priority = g:furniture
     set_tariffs_export_priority = g:luxury_furniture
   }
+  c:BIC ?= {
+    set_military_wage_level = medium
+  }
   c:DEI ?= {
+    activate_law = law_type:law_freedom_of_conscience
     activate_law = law_type:law_colonial_resettlement # already extraction economy
   }
 }

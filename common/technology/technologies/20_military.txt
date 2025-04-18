@@ -43,7 +43,12 @@ drydocks = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+
+		if = {
+			limit = { has_port = yes }
+			add = 0.5
+		}	
 		
 		# Important for anyone with a navy
 		if = {
@@ -158,7 +163,12 @@ admiralty = {
 	}	
 	
 	ai_weight = {
-		value = 3 # Very important in general
+		value = 1 # 3 # Very important in general
+		
+		if = {
+			limit = { has_port = yes }
+			add = 0.5
+		}	
 	}
 }
 
@@ -176,7 +186,7 @@ army_reserves = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -211,7 +221,12 @@ paddle_steamer = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 		
 		# Important for naval powers
 		if = {
@@ -240,7 +255,7 @@ field_works = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -260,13 +275,13 @@ logistics = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 
 		if = {
 			limit = {
 				has_strategy = ai_strategy_unify_germany
 			}
-			add = 8
+			add = 3 # 8
 		}		
 	}
 }
@@ -282,13 +297,13 @@ triage = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 
 		if = {
 			limit = {
 				has_strategy = ai_strategy_unify_germany
 			}
-			add = 8
+			add = 3 # 8
 		}		
 	}
 }
@@ -321,6 +336,12 @@ percussion_cap = {
 	
 	ai_weight = {
 		value = 2 # Important tech in general
+		if = {
+			limit = {
+				has_strategy = ai_strategy_unify_germany
+			}
+			add = 3 # 8
+		}	
 	}
 }
 
@@ -335,14 +356,14 @@ rifling = {
 	}
 	
 	ai_weight = {
-		value = 2 # Important tech in general
+		value = 1 # 2 # Important tech in general
 
-		if = {
-			limit = {
-				has_strategy = ai_strategy_unify_germany
-			}
-			add = 8
-		}		
+		# if = {
+		# 	limit = {
+		# 		has_strategy = ai_strategy_unify_germany
+		# 	}
+		# 	add = 3 # 8
+		# }		
 	}
 }
 
@@ -381,7 +402,12 @@ screw_frigate = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 		
 		# Important for naval powers
 		if = {
@@ -406,7 +432,12 @@ power_of_the_purse = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 	}
 }
 
@@ -425,7 +456,12 @@ hydraulic_cranes = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { has_port = yes }
+			add = 0.5
+		}	
 		
 		# Important for anyone with a navy
 		if = {
@@ -448,7 +484,7 @@ modern_nursing = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -466,7 +502,7 @@ enlistment_offices = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 		
 		if = {
 			limit = {
@@ -491,7 +527,7 @@ electric_telegraph = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 
 		if = {
 			limit = {
@@ -518,7 +554,7 @@ military_statistics = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -534,7 +570,7 @@ repeaters = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # Important tech in general
+		value = 1 # 1.5 # Important tech in general
 	}
 }
 
@@ -579,7 +615,7 @@ handcranked_machine_gun = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -595,7 +631,12 @@ self_propelled_torpedoes = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 	}
 }
 
@@ -614,7 +655,12 @@ monitor_tech = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 		
 		# Important for naval powers
 		if = {
@@ -637,7 +683,12 @@ ironclad_tech = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 		
 		# Very Important for naval powers
 		if = {
@@ -662,7 +713,12 @@ jeune_ecole = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 	}
 }
 
@@ -682,7 +738,12 @@ floating_harbor = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { has_port = yes }
+			add = 0.5
+		}	
 		
 		# Important for anyone with a navy
 		if = {
@@ -708,7 +769,12 @@ gantry_cranes = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { has_port = yes }
+			add = 0.5
+		}	
 		
 		# Important for anyone with a navy
 		if = {
@@ -773,7 +839,7 @@ wargaming = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 2 # 1
 	}
 }
 
@@ -795,7 +861,7 @@ defense_in_depth = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -811,7 +877,7 @@ bolt_action_rifles = {
 	}
 	
 	ai_weight = {
-		value = 2 # important for everyone
+		value = 1 # 2 # important for everyone
 	}
 }
 
@@ -847,7 +913,12 @@ submarine = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 	}
 }
 
@@ -862,7 +933,12 @@ destroyer = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 	}
 }
 
@@ -885,7 +961,12 @@ dreadnought = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 		
 		# Important for naval powers
 		if = {
@@ -910,7 +991,12 @@ sea_lane_strategies = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 	}
 }
 
@@ -930,6 +1016,11 @@ landing_craft = {
 	
 	ai_weight = {
 		value = 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 		
 		# Important for naval powers
 		if = {
@@ -955,7 +1046,12 @@ concrete_dockyards = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { has_port = yes }
+			add = 0.5
+		}	
 		
 		# Important for anyone with a navy
 		if = {
@@ -1016,7 +1112,7 @@ stormtroopers = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 2 # 1
 	}
 }
 
@@ -1037,7 +1133,7 @@ concrete_fortifications = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -1110,7 +1206,12 @@ carrier_tech = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 		
 		# Important for naval powers
 		if = {
@@ -1131,7 +1232,12 @@ battleship_tech = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 		
 		# Important for naval powers
 		if = {
@@ -1157,6 +1263,11 @@ battlefleet_tactics = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 0.5 # 1
+		
+		if = {
+			limit = { navy_size > 0 }
+			add = 0.5
+		}	
 	}
 }

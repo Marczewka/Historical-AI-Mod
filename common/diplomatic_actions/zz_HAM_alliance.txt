@@ -308,7 +308,7 @@
 			add = {
 				desc = "DIPLOMATIC_ACCEPTANCE_ARMY_STRENGTH"
 				value = "scope:actor.ai_army_comparison(root)"
-				multiply = 4
+				multiply = 8 # 4
 				min = -100 # -50
 				max = 100 # 50
 			}	
@@ -629,6 +629,18 @@
 					value = 50
 				}
 			}
+
+			if = {
+				limit = {
+					has_strategy = ai_strategy_unify_italy
+					scope:target_country = {
+						country_rank >= rank_value:great_power
+					}
+				}
+				add = {
+					value = 100
+				}
+			}
 			
 			add = {
 				value = scope:target_country.country_rank
@@ -670,6 +682,18 @@
 					value = 50
 				}
 			}
+
+			if = {
+				limit = {
+					has_strategy = ai_strategy_unify_italy
+					scope:target_country = {
+						country_rank >= rank_value:great_power
+					}
+				}
+				add = {
+					value = 100
+				}
+			}
 		}
 		
 		owe_obligation_chance = {
@@ -701,7 +725,19 @@
 				add = {
 					value = 25
 				}
-			}		
+			}	
+			
+			if = {
+				limit = {
+					has_strategy = ai_strategy_unify_italy
+					scope:target_country = {
+						country_rank >= rank_value:great_power
+					}
+				}
+				add = {
+					value = 100
+				}
+			}
 		}	
 	}
 }

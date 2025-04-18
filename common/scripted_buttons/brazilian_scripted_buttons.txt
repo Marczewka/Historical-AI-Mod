@@ -346,6 +346,10 @@ je_brazilian_nation_building_integrate_amazonic = {
 			}
 		}
 	}
+
+	ai_chance = {
+		base = 100
+	}
 }
 
 je_south_american_national_identity_integrate_a_state = {

@@ -1,4 +1,36 @@
 ﻿NAI = {
+	DEFAULT_STRATEGY_STRING = "ai_strategy_default"
+
+	STRATEGY_RANDOM_FACTOR = 10.0 # 20.0 # The higher this is, the more random AI strategy selection will be
+
+	TICKS_FOR_FULL_SPENDING_VARIABLES_UPDATE = 75 # 100 # The higher this is, the less often AIs will fully refresh their spending variables
+	NUM_FAILED_MONEY_SPENDING_ATTEMPTS_FOR_UPDATE = 25 # 50 # After this many failed attempts to change money spending/construct government buildings, force an update of money spending priorities
+	NUM_FAILED_AUTHORITY_SPENDING_ATTEMPTS_FOR_UPDATE = 20 # After this many failed attempts to change authority spending, force an update of authority spending priorities
+	
+	# When a potential AI building spending has its state calculcated, add a randomly set number of ticks between these two values for when to update it again
+	# Before this amount of ticks has passed, unless there is a specific reason to update the state, we only update the score and keep the state the same
+	MIN_TICKS_TO_UPDATE_BUILDING_SPENDING_STATE = 100
+	MAX_TICKS_TO_UPDATE_BUILDING_SPENDING_STATE = 200
+
+	MIN_SUBJECT_TYPE_VALUE = 1 # ai_value for a subject type is never below this
+
+	GOVERNMENT_MONEY_SPENDING_ENABLED = yes  	 # If this is set to no, the AI for government money spending will be disabled
+	GOVERNMENT_AUTHORITY_SPENDING_ENABLED = yes  # If this is set to no, the AI for authority spending will be disabled
+	TAX_LEVEL_CHANGES_ENABLED = yes	 			 # If this is set to no, the AI will not change its tax levels (but might still use consumption taxes if GOVERNMENT_AUTHORITY_SPENDING_ENABLED = yes)
+	PRODUCTION_BUILDING_CONSTRUCTION_ENABLED = yes	 # If this is set to no, the country-level AI will not construct any production buildings
+	AUTONOMOUS_INVESTMENT_CONSTRUCTION_ENABLED = yes # If this is set to no, the autonomous investment AI won't construct anything even if the game rule for it is enabled
+
+	CHANGE_STRATEGY_THRESHOLD = 100	# At this threshold of 'change points', the AI will roll a new strategy
+	CHANGE_STRATEGY_INCREASE_WEEKLY_CHANCE = 20 # Chance per week of AI gaining a 'change point' towards rolling a new strategy (1 = 1%)
+
+	CHANGE_STRATEGY_POLITICAL_NEW_RULER = 100 # How many 'change points' are added to each strategy when a country gets a new ruler
+	CHANGE_STRATEGY_POLITICAL_REGIME_CHANGE = 100 # How many 'change points' are added to each strategy when a country is the target of a regime change
+	CHANGE_STRATEGY_POLITICAL_LAW_ENACTED = 100 # 25 # How many 'change points' are added to politics strategy when a law is enacted
+
+	CHANGE_STRATEGY_DIPLOMATIC_STATE_GAINED_OR_LOST = 10 # How many 'change points' are added to diplomatic strategy when a state is acquired or lost
+	CHANGE_STRATEGY_DIPLOMATIC_UNIFICATION_CANDIDATE = 100 # How many 'change points' are added to diplomatic strategy when we become or stop being a unification candidate
+	CHANGE_STRATEGY_DIPLOMATIC_LIBERTY_DESIRE_CHANGE = 2 # How many 'change points' are added to diplomatic strategy when liberty desire changes (multiplied by size of the change)
+
 	DIPLO_PLAY_SWAY_THRESHOLD = 1.5 # 2.0 # If AI has this much military strength compared to enemy, don't bother trying to sway anyone
 
 	DIPLO_PLAY_NEUTRALITY_IN_SUBJECT_CONFLICT = -75 #-50 # If either side in the play is a subject, subtract this amount of neutrality score
@@ -71,17 +103,56 @@
 	DIPLO_PLAY_CONFIDENCE_FROM_OWN_CONFLICTS = -25 # If we are in another conflict where military strength compared to our enemies is equal to or above DIPLO_PLAY_FORCE_BALANCE_SCALE, subtract this amount of confidence
 	DIPLO_PLAY_CONFIDENCE_FROM_ENEMY_TURMOIL = 10 		 # At 100% turmoil across the enemy country (weighted by state population), add this amount of confidence
 	DIPLO_PLAY_CONFIDENCE_FROM_ENEMY_DEVASTATION = 10	 # At 100% devastation for enemy, add this amount of confidence
-	DIPLO_PLAY_CONFIDENCE_FROM_ENEMY_DEBT_LEVEL = 10	 # At 100% debt level for enemy, add this amount of confidence
-	DIPLO_PLAY_CONFIDENCE_FROM_ENEMY_BANKRUPTCY = 10	 # If enemy is bankrupt, add this amount of confidence
+	DIPLO_PLAY_CONFIDENCE_FROM_ENEMY_DEBT_LEVEL = 50 # 10	 # At 100% debt level for enemy, add this amount of confidence
+	DIPLO_PLAY_CONFIDENCE_FROM_ENEMY_BANKRUPTCY = 50 # 10	 # If enemy is bankrupt, add this amount of confidence
 	DIPLO_PLAY_CONFIDENCE_FROM_ENEMY_CONFLICTS = 25 # If the other side is in another conflict where military strength compared to their enemies is equal to or above DIPLO_PLAY_FORCE_BALANCE_SCALE, add this amount of confidence
 	DIPLO_PLAY_CONFIDENCE_VERY_LOW_THRESHOLD = -50 		# If confidence is this or below, show it as very low
 	DIPLO_PLAY_CONFIDENCE_LOW_THRESHOLD = -25 		# If confidence is this or below, show it as low
 	DIPLO_PLAY_CONFIDENCE_HIGH_THRESHOLD = 25 		# If confidence is this or above, show it as high
 	DIPLO_PLAY_CONFIDENCE_VERY_HIGH_THRESHOLD = 50 		# If confidence is this or above, show it as very high
 
+	# Below data is used to calculate AI's desire for peace
+	AI_PEACE_AGREEMENT_BASE_VALUE = -30 # -10
+	AI_PEACE_AGREEMENT_WHITE_PEACE_BASE = 10 # If no wargoals are being enforced on either side
+	AI_PEACE_AGREEMENT_WHITE_PEACE_WAR_DURATION = 1 # For each month the war goes on add this to the acceptance for a white peace
+	AI_PEACE_AGREEMENT_WAR_SUPPORT_FACTOR = -1	# Each point of war support affects peace acceptance by this amoun
+	AI_PEACE_AGREEMENT_UNACCEPTABLE_WARGOAL_VALUE = -1000 # Fixed wargoal value that will be added to peace acceptance if an unacceptable wargoal (such as cut down to size) is being enforced on us
+	AI_PEACE_AGREEMENT_WARGOAL_VALUE_BASE = 10	# How much does the AI value each wargoal (base)
+	AI_PEACE_AGREEMENT_WARGOAL_VALUE_MIN = -1000 # Wargoal value cannot be lower than this
+	AI_PEACE_AGREEMENT_WARGOAL_VALUE_MAX = 1000	# Wargoal value cannot be higher than this
+	AI_PEACE_AGREEMENT_WARGOAL_VALUE_SCALED = 0.5	# How much does the AI value each wargoal (scaled with maneuver cost)
+	AI_PEACE_AGREEMENT_ALLY_WARGOAL_MULT = 1 # For each wargoal that our allies are pressing, apply wargoal value * this
+	AI_PEACE_AGREEMENT_SELF_WARGOAL_MULT = 1.5 # 3 # For each wargoal we have that's being pressed, apply wargoal value * this
+	AI_PEACE_AGREEMENT_ENEMY_WARGOAL_SELF_MULT = -10 # -8 # For each wargoal that the enemy is pressing against us, apply wargoal value * this
+	AI_PEACE_AGREEMENT_ENEMY_WARGOAL_ALLY_MULT = -1 # For each wargoal that's being pressed against our allies, apply wargoal value * this
+	AI_PEACE_AGREEMENT_NON_CONTESTED_ENEMY_WARGOAL_MULT = 5 # Value of wargoals held by enemy that aren't being contested is multiplied by this
+	AI_PEACE_AGREEMENT_ACHIEVABLE_ALLY_WARGOAL = -1.5 # For each wargoal our side holds that isn't being pressed where the target will run out of war support before the holder does (multiplies self/ally wargoal value)
+	AI_PEACE_AGREEMENT_ACHIEVABLE_ENEMY_WARGOAL = -0.9 # For each wargoal the enemy side holds (pressed or not) where the target will run out of war support before the holder does (multiplies self/ally enemy wargoal value)
+	AI_PEACE_AGREEMENT_WAR_SUPPORT_TO_HOLD_ON_TO_ACHIEVABLE_WARGOALS = 0 # Below this war support an AI will be much more open to ceding achievable wargoals to the enemy in a peace deal
+	AI_PEACE_AGREEMENT_PEACE_DESIRE_FACTOR = 1.0 # Peace desire is multiplied by this when added to peace agreement acceptance score
+
+	AI_CAPITULATE_COMPLETELY_DEFEATED = 1000 # If entire allied side is 100% occupied
+	AI_CAPITULATE_BASE_VALUE = -25
+	AI_CAPITULATE_WAR_LEADER_FACTOR = -25 # If warleader
+	AI_CAPITULATE_WAR_SUPPORT_FACTOR = -1
+	AI_CAPITULATE_SELF_WARGOAL_FACTOR = -10 # For each wargoal we hold in the war
+	AI_CAPITULATE_ENEMY_WARGOAL_FACTOR = -30 # For each wargoal targeting us in the war
+	AI_CAPITULATE_PEACE_DESIRE_FACTOR = 0.5 # Peace desire is multiplied by this when added to capitulation score
+
+	AI_MONTHS_OF_REDUCED_PEACE_DESIRE = 48 # 10 # Before this amount of months, reduce AI peace desire
+	AI_PEACE_DESIRE_FROM_SHORT_WAR = -5 # -10 # Subtract this amount of peace desire for the above number of months (multiplied by AI_MONTHS_OF_REDUCED_PEACE_DESIRE - months of war duration)
+	AI_PEACE_DESIRE_FROM_TURMOIL = 100 # 25 # Add this amount of peace desire at 100% radicals
+	AI_PEACE_DESIRE_FROM_DEVASTATION = 50 # Add this amount of peace desire at 100% devastation
+	AI_PEACE_DESIRE_FROM_LOYALISTS = -25 # Subtract this amount of peace desire at 100% loyalists
+	AI_PEACE_DESIRE_FROM_DEBT_LEVEL = 200 # 100 # Add this amount of peace desire at 100% debt level
+	AI_PEACE_DESIRE_FROM_BANKRUPTCY = 200 # 100 # Add this amount of peace desire when bankrupt
+	AI_PEACE_DESIRE_FROM_GOLD_RESERVES = -25 # Subtract this amount of peace desire at 100% gold reserves
+	AI_PEACE_DESIRE_FROM_FORCE_BALANCE = 100 # 50 # Up to this amount is added or subtracted from war support based on DIPLO_PLAY_FORCE_BALANCE_SCALE of the two sides
+	AI_PEACE_DESIRE_FACTOR_FROM_ANNEXATION = 0.5 # If peace will cause the country to be annexed then all positive peace desire factors will be multiplied by this value
+
 
 	# Below data is used to determine which wargoals the AI will pick
-	WAR_GOAL_RANDOM_FACTOR = 2.0 					# The higher this is, the more random AI wargoal selection will be
+	WAR_GOAL_RANDOM_FACTOR = 1.0 # 2.0 					# The higher this is, the more random AI wargoal selection will be
 	WAR_GOAL_UNDESIRABLE_INFAMY_FACTOR = 0.5 		# Wargoal value is multiplied by this if it would bring the country above undesirable infamy levels
 	WAR_GOAL_UNACCEPTABLE_INFAMY_FACTOR = 0			# Wargoal value is multiplied by this if it would bring the country above unacceptable infamy levels
 	WAR_GOAL_NOT_PRIMARY_DEMAND_FACTOR = 0.5		# Wargoal value for sway offers is multiplied by this if it would not be added as a primary demand
@@ -108,7 +179,7 @@
 	CONSTRUCTION_MAX_NUM_GOVERNMENT_BUILDING_CONSTRUCTIONS_BASE = 1 # If country has this number of government building constructions queued, don't add anymore (base)
 	CONSTRUCTION_MAX_NUM_GOVERNMENT_BUILDING_CONSTRUCTIONS_SCALED = 0.05 # If country has this number of government building constructions queued, don't add anymore (scaled by construction production)
 	CONSTRUCTION_MAX_NUM_GOVERNMENT_BUILDING_CONSTRUCTIONS_SCALED_MAX = 99 # CONSTRUCTION_MAX_NUM_GOVERNMENT_CONSTRUCTIONS_SCALED can't be higher than this
-	CONSTRUCTION_RESERVES_NEW_CONSTRUCTIONS = 0.1 # If gold reserves are less than this after adding the cost of a new construction, don't queue it
+	CONSTRUCTION_RESERVES_NEW_CONSTRUCTIONS = 0.05 # 0.1 # If gold reserves are less than this after adding the cost of a new construction, don't queue it
 	CONSTRUCTION_DEBT_RESUME = 0 # 0.2 # If constructions are paused, resume once debt is this low relative to ceiling
 	CONSTRUCTION_DEBT_PAUSE = 0.01 # 0.4 # If in this much relative debt to debt ceiling, pause all non-critical constructions
 	CONSTRUCTION_DEBT_RESUME_CRITICAL_CONSTRUCTION = 0.95 # If critical constructions are paused, resume once debt is this low relative to ceiling
@@ -116,9 +187,6 @@
 
 	REFORM_GOVERNMENT_MONTHS_BETWEEN_CHANGES = 12 # 30 		# If the AI doesn't have elections, it won't consider changing government composition more often than this to avoid lots of radicals
 
-	# Below data is used for General Orders:
-	HQ_DEFENSE_MIN_THEATER_SCORE = 20 # 100			# Theater of local HQ must have at least this importance score to have a minimum garrison
-	
 	# Below data is used to calculate how much weight the AI places on enacting/revoking a law
 	CHANGE_LAW_RANDOM_FACTOR = 0.25 # 1.0 # The higher this is, the more random AI law enactment will be
 	CHANGE_LAW_PRO_IG_IDEOLOGIES_FACTOR = 100 # For enacting laws, per ideology match for IGs we approve of
@@ -134,13 +202,6 @@
 
 	MONEY_SPENDING_INNOVATION_CRITICAL_THRESHOLD = 0.75 # If innovation production compared to cap is worse than this, AI considers it very important to improve
 	MONEY_SPENDING_INNOVATION_DESIRED_THRESHOLD = 1.0 # If innovation production compared to cap is worse than this, AI considers it important to improve
-	
-
-	# Below data is used to calculate AI's desire for peace
-	AI_PEACE_AGREEMENT_BASE_VALUE = -30 #-10
-	AI_PEACE_AGREEMENT_SELF_WARGOAL_MULT = 1.5 # 3.0 # For each wargoal we have that's being pressed, apply wargoal value * this
-	AI_PEACE_AGREEMENT_ENEMY_WARGOAL_SELF_MULT = -10 # -8 # For each wargoal that the enemy is pressing against us, apply wargoal value * this
-
 
 	# At what fraction of combat strength and morale/org will the AI attack
 	FRONT_MIN_OVERALL_STRENGTH_FACTOR_TO_ATTACK = 0.95 # 0.8			# Must have at least this multiplier of overall power projection on the front compared to the enemy's to want to attack

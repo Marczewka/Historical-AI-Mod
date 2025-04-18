@@ -33,6 +33,8 @@
 	weight = 200
 
 	transferable = no
+
+	should_be_pinned_by_default = yes
 }
 
 je_set_up_grain_import = {

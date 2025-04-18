@@ -308,17 +308,6 @@ damage_relations = {
 			}	
 
 			if = {
-				limit = {
-					OR = {
-						has_je_conquest_reason = { TARGET = scope:target_country }
-						has_je_subjugation_reason = { TARGET = scope:target_country }
-					}
-					scope:target_country.relations:root > relations_threshold:neutral
-				}
-				add = 50
-			}
-
-			if = {
 				limit = {	
 					OR = {
 						is_subject_of = scope:target_country
@@ -359,13 +348,6 @@ damage_relations = {
 		will_propose = { 
 			OR = {
 				AND = {
-					OR = {
-						has_je_conquest_reason = { TARGET = scope:target_country }
-						has_je_subjugation_reason = { TARGET = scope:target_country }
-					}
-					scope:target_country.relations:root > relations_threshold:neutral
-				}
-				AND = {
 					has_attitude = {
 						who = scope:target_country
 						attitude = antagonistic
@@ -391,8 +373,6 @@ damage_relations = {
 		will_break = { 
 			OR = {
 				NOR = {
-					has_je_conquest_reason = { TARGET = scope:target_country }
-					has_je_subjugation_reason = { TARGET = scope:target_country }
 					has_attitude = {
 						who = scope:target_country
 						attitude = belligerent

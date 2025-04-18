@@ -199,7 +199,7 @@ corporate_charters = {
 	}
 	
 	ai_weight = {
-		value = 3 # very important tech
+		value = 1 # 3 # very important tech
 	}
 }
 
@@ -313,7 +313,7 @@ stock_exchange = {
 	}
 	
 	ai_weight = {
-		value = 2.5 #1
+		value = 2 # 1
 	}
 }
 
@@ -350,7 +350,7 @@ mass_communication = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # Important in general
+		value = 1 # 1.5 # Important in general
 	}
 }
 
@@ -361,7 +361,7 @@ empiricism = {
 	category = society
 	
 	modifier = {
-		country_influence_mult = 0.1
+		country_influence_mult = 0.2 # 0.1
 		country_diplomatic_play_maneuvers_add = 10
 		country_institution_schools_max_investment_add = 1
 		state_education_access_wealth_add = 0.005
@@ -389,6 +389,7 @@ egalitarianism = {
 	
 	modifier = {
 		state_expected_sol_from_literacy = 1
+		state_lower_strata_expected_sol_add = 0.5
 		country_institution_social_security_max_investment_add = 1	
 	}
 	
@@ -531,6 +532,16 @@ central_archives = {
 	
 	ai_weight = {
 		value = 1.5 # Important in general
+		if = {
+			limit = {
+				OR = {
+					has_journal_entry = je_warlord_china
+					has_journal_entry = je_meiji_restoration
+					has_journal_entry = je_meiji_main
+				}
+			}
+			add = 4
+		}
 	}
 }
 
@@ -560,7 +571,7 @@ joint_stock_companies = {
 	
 	modifier = {
 		country_max_companies_add = 1
-		state_urbanization_per_level_mult = -0.1
+		state_urbanization_per_level_mult = -0.5 # -0.1
 	}	
 	
 	unlocking_technologies = {
@@ -569,7 +580,7 @@ joint_stock_companies = {
 	}
 	
 	ai_weight = {
-		value = 2 # important tech
+		value = 1 # 2 # important tech
 	}
 }
 
@@ -599,7 +610,7 @@ psychiatry = {
 	category = society
 	
 	modifier = {
-		country_influence_mult = 0.1
+		country_influence_mult = 0.2 # 0.1
 		country_diplomatic_play_maneuvers_add = 10
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
@@ -609,7 +620,7 @@ psychiatry = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -660,7 +671,7 @@ nationalism = {
 		}
 	}
 	ai_weight = {
-		value = 2 # Important in general
+		value = 1.5 # 2 # Important in general
 		
 		# Extra-important for major unifications
 		if = {
@@ -716,6 +727,7 @@ labor_movement = {
 	
 	modifier = {
 		state_expected_sol_from_literacy = 1
+		state_lower_strata_expected_sol_add = 0.5
 		country_institution_workplace_safety_max_investment_add = 1
 		country_agitator_slots_add = 1
 	}
@@ -958,7 +970,7 @@ civilizing_mission = {
 	modifier = {
 		country_institution_colonial_affairs_max_investment_add = 1
 		country_max_declared_interests_add = 1
-		country_infamy_generation_against_unrecognized_mult = -0.25
+		country_infamy_generation_against_unrecognized_mult = -0.1 # -0.25
 	}
 	
 	unlocking_technologies = {
@@ -1029,6 +1041,7 @@ socialism = {
 	
 	modifier = {
 		state_expected_sol_from_literacy = 1
+		state_lower_strata_expected_sol_add = 0.5
 		country_institution_workplace_safety_max_investment_add = 1
 		country_institution_social_security_max_investment_add = 1
 	}
@@ -1135,7 +1148,7 @@ pan-nationalism = {
 	}
 	
 	ai_weight = {
-		value = 2 # Important in general
+		value = 1 # 2 # Important in general
 		
 		# Extra-important for major unifications
 		if = {
@@ -1177,7 +1190,7 @@ investment_banks = {
 	
 	modifier = {
 		country_max_companies_add = 1
-		state_urbanization_per_level_mult = -0.15
+		state_urbanization_per_level_mult = -0.1 # -0.15
 	}	
 	
 	unlocking_technologies = {
@@ -1186,7 +1199,7 @@ investment_banks = {
 	}
 	
 	ai_weight = {
-		value = 2 # important tech
+		value = 1 # 2 # important tech
 	}
 }
 
@@ -1215,7 +1228,7 @@ philosophical_pragmatism = {
 	category = society
 	
 	modifier = {
-		country_influence_mult = 0.1
+		country_influence_mult = 0.2 # 0.1
 		country_diplomatic_play_maneuvers_add = 10
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
@@ -1247,6 +1260,16 @@ identification_documents = {
 	
 	ai_weight = {
 		value = 1
+		if = {
+			limit = {
+				OR = {
+					has_journal_entry = je_warlord_china
+					has_journal_entry = je_meiji_restoration
+					has_journal_entry = je_meiji_main
+				}
+			}
+			add = 2
+		}
 	}
 }
 
@@ -1288,7 +1311,7 @@ zeppelins = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # 1
+		value = 1
 	}
 }
 
@@ -1367,6 +1390,7 @@ political_agitation = {
 	
 	modifier = {
 		state_expected_sol_from_literacy = 1
+		state_lower_strata_expected_sol_add = 0.5
 		country_authority_mult = 0.1
 		country_agitator_slots_add = 1
 	}
@@ -1425,7 +1449,7 @@ corporate_management = {
 	
 	modifier = {
 		country_max_companies_add = 1
-		state_urbanization_per_level_mult = -0.25
+		state_urbanization_per_level_mult = -0.15 # -0.25
 	}	
 	
 	unlocking_technologies = {
@@ -1433,7 +1457,7 @@ corporate_management = {
 	}
 	
 	ai_weight = {
-		value = 2 # important tech
+		value = 1 # 2 # important tech
 	}
 }
 
@@ -1444,7 +1468,7 @@ psychoanalysis = {
 	category = society
 	
 	modifier = {
-		country_influence_mult = 0.1
+		country_influence_mult = 0.2 # 0.1
 		country_diplomatic_play_maneuvers_add = 10
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
@@ -1454,7 +1478,7 @@ psychoanalysis = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -1492,7 +1516,7 @@ multilateral_alliances = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 		
 		if = {
 			limit = { country_rank >= rank_value:great_power }
@@ -1552,6 +1576,7 @@ mass_propaganda = {
 	modifier = {
 		country_authority_mult = 0.1
 		state_expected_sol_from_literacy = 1
+		state_lower_strata_expected_sol_add = 0.5
 		country_agitator_slots_add = 1
 	}
 	
@@ -1591,6 +1616,7 @@ macroeconomics = {
 	modifier = {
 		country_max_companies_add = 1
 		#state_market_access_price_impact = 0.05
+		state_urbanization_per_level_mult = -0.2
 	}
 	
 	unlocking_technologies = {
@@ -1599,7 +1625,7 @@ macroeconomics = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # 2 
+		value = 1 # 2 
 	}
 }
 
@@ -1609,7 +1635,7 @@ behaviorism = {
 	category = society
 	
 	modifier = {
-		country_influence_mult = 0.1
+		country_influence_mult = 0.2 # 0.1
 		country_diplomatic_play_maneuvers_add = 10
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
@@ -1619,7 +1645,7 @@ behaviorism = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 

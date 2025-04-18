@@ -285,19 +285,31 @@ ai_strategy_reactionary_agenda = {
 		if = {
 			limit = {
 				exists = ig:ig_landowners
-				ig:ig_landowners = { is_powerful = yes }
+				ig:ig_landowners = { is_in_government = yes }
 			}
 			
-			add = 10
+			add = 5 # 10
+			if = {
+				limit = {
+					ig:ig_landowners = { is_powerful = yes }
+				}
+				add = 5 # 10
+			}
 		}		
 		
 		if = {
 			limit = {
 				exists = ig:ig_devout
-				ig:ig_devout = { is_powerful = yes }
+				ig:ig_devout = { is_in_government = yes }
 			}
 			
-			add = 10
+			add = 5 # 10
+			if = {
+				limit = {
+					ig:ig_devout = { is_powerful = yes }
+				}
+				add = 5 # 10
+			}
 		}
 
 		if = {
@@ -480,19 +492,31 @@ ai_strategy_progressive_agenda = {
 		if = {
 			limit = {
 				exists = ig:ig_intelligentsia
-				ig:ig_intelligentsia = { is_powerful = yes }
+				ig:ig_intelligentsia = { is_in_government = yes }
 			}
 			
-			add = 10
+			add = 5 # 10
+			if = {
+				limit = {
+					ig:ig_intelligentsia = { is_powerful = yes }
+				}
+				add = 10
+			}
 		}
 		
 		if = {
 			limit = {
 				exists = ig:ig_industrialists
-				ig:ig_industrialists = { is_powerful = yes }
+				ig:ig_industrialists = { is_in_government = yes }
 			}
 			
-			add = 10
+			add = 5 # 10
+			if = {
+				limit = {
+					ig:ig_industrialists = { is_powerful = yes }
+				}
+				add = 10
+			}
 		}	
 		
 		if = {
@@ -659,10 +683,16 @@ ai_strategy_egalitarian_agenda = {
 		if = {
 			limit = {
 				exists = ig:ig_trade_unions
-				ig:ig_trade_unions = { is_powerful = yes }
+				ig:ig_trade_unions = { is_in_government = yes }
 			}
 			
 			add = 10
+			if = {
+				limit = {
+					ig:ig_trade_unions = { is_powerful = yes }
+				}
+				add = 10
+			}
 		}	
 
 		if = {
@@ -830,19 +860,31 @@ ai_strategy_nationalist_agenda = {
 		if = {
 			limit = {
 				exists = ig:ig_armed_forces
-				ig:ig_armed_forces = { is_powerful = yes }
+				ig:ig_armed_forces = { is_in_government = yes }
 			}
 			
-			add = 10
+			add = 5 # 10
+			if = {
+				limit = {
+					ig:ig_armed_forces = { is_powerful = yes }
+				}
+				add = 10
+			}
 		}	
 		
 		if = {
 			limit = {
 				exists = ig:ig_petty_bourgeoisie
-				ig:ig_petty_bourgeoisie = { is_powerful = yes }
+				ig:ig_petty_bourgeoisie = { is_in_government = yes }
 			}
 			
-			add = 10
+			add = 5 # 10
+			if = {
+				limit = {
+					ig:ig_petty_bourgeoisie = { is_powerful = yes }
+				}
+				add = 10
+			}
 		}	
 
 		if = {
@@ -1156,7 +1198,7 @@ ai_strategy_meiji_restoration = {
 			value = 1000
 		}		
 		institution_police = {	
-			value = 150			
+			value = 75 # 150			
 		}		
 		institution_health_system = {	
 			value = 50			

@@ -21,8 +21,8 @@ drought = {
 
 	duration = {
 		fixed_range = {
-			min = 6 # 36
-			max = 30 # 104
+			min = 12 # 36
+			max = 96 # 104
 		}
 	}
 
@@ -46,7 +46,7 @@ drought = {
 	intensity = {
 		fixed_range = {
 			min = 2
-			max = 8 # 6
+			max = 10 # 6
 		}
 	}
 
@@ -93,7 +93,7 @@ flood = {
 	duration = {
 		fixed_range = {
 			min = 6 # 36
-			max = 15 # 104
+			max = 16 # 104
 		}
 	}
 
@@ -119,7 +119,7 @@ flood = {
 	intensity = {
 		fixed_range = {
 			min = 3
-			max = 8 # 6
+			max = 10 # 6
 		}
 	}
 
@@ -178,8 +178,8 @@ frost = {
 
 	duration = {
 		fixed_range = {
-			min = 4 # 24
-			max = 15 # 96
+			min = 6 # 24
+			max = 16 # 96
 		}
 	}
 
@@ -239,8 +239,8 @@ wildfire = {
 
 	duration = {
 		fixed_range = {
-			min = 4 # 24
-			max = 15 # 94
+			min = 6 # 24
+			max = 20 # 94
 		}
 	}
 
@@ -321,8 +321,8 @@ hailstorm = {
 
 	duration = {
 		fixed_range = {
-			min = 4 # 24
-			max = 8 # 96
+			min = 6 # 24
+			max = 16 # 96
 		}
 	}
 
@@ -339,7 +339,7 @@ hailstorm = {
 	intensity = {
 		fixed_range = {
 			min = 2
-			max = 4
+			max = 6 # 4
 		}
 	}
 
@@ -385,7 +385,7 @@ locust_swarm = {
 	duration = {
 		fixed_range = {
 			min = 6 # 36
-			max = 30 # 96
+			max = 96
 		}
 	}
 
@@ -404,7 +404,7 @@ locust_swarm = {
 	intensity = {
 		fixed_range = {
 			min = 3
-			max = 8 # 5
+			max = 10 # 5
 		}
 	}
 
@@ -440,7 +440,7 @@ heatwave = {
 	duration = {
 		fixed_range = {
 			min = 6 # 36
-			max = 30 # 104
+			max = 16 # 104
 		}
 	}
 
@@ -458,7 +458,7 @@ heatwave = {
 	intensity = {
 		fixed_range = {
 			min = 2
-			max = 4
+			max = 8 # 4
 		}
 	}
 
@@ -495,8 +495,8 @@ disease_outbreak = {
 
 	duration = {
 		fixed_range = {
-			min = 6 # 36
-			max = 30 # 96
+			min = 12 # 36
+			max = 96
 		}
 	}
 
@@ -547,7 +547,7 @@ extreme_winds = {
 	duration = {
 		fixed_range = {
 			min = 6 # 36
-			max = 15 # 96
+			max = 16 # 96
 		}
 	}
 
@@ -598,7 +598,7 @@ torrential_rains = {
 	duration = {
 		fixed_range = {
 			min = 6 # 36
-			max = 30 # 104
+			max = 16 # 104
 		}
 	}
 
@@ -670,7 +670,7 @@ pollinator_surge = {
 	duration = {
 		fixed_range = {
 			min = 6 # 36
-			max = 15 # 96
+			max = 16 # 96
 		}
 	}
 
@@ -722,7 +722,7 @@ optimal_sunlight = {
 	duration = {
 		fixed_range = {
 			min = 6 # 36
-			max = 15 # 104
+			max = 16 # 104
 		}
 	}
 
@@ -776,7 +776,7 @@ moderate_rainfall = {
 	duration = {
 		fixed_range = {
 			min = 6 # 36
-			max = 15 # 104
+			max = 16 # 104
 		}
 	}
 

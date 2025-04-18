@@ -1,4 +1,15 @@
-﻿NPolitics = {
+﻿NGame = {
+	MAX_NUMBER_OF_AUTOSAVES = 20 # 5 	# The game will only keep the MAX_NUMBER_OF_AUTOSAVES latest autosaves.
+}
+
+NPolitics = {
+	POWERFUL_IG_THRESHOLD = 0.20		# Interest groups with more Clout than this are considered to be influential
+	POWERFUL_IG_CUTOFF = 0.18			# Powerful interest groups with less Clout than this will stop being influential
+	POWERFUL_IG_TRAIT_BONUS = 1			# The effects of all trait modifiers from influential IGs are increased by this, 1 = +100%
+	IG_TRAIT_STICKINESS = 2				# If an IG trait is already active, this is the amount of Approval difference required to deactivate it
+	MARGINAL_IG_THRESHOLD = 0.02 # 0.05		# Interest Groups with Clout above this value are considered relevant while those below are marginal (if not also In Government)
+	MARGINAL_IG_CUTOFF = 0.01 # 0.04			# Interest Groups who are already relevant will only become marginal again if they drop below this value.
+
 	# The three defines below should add up to 1.0
 	MOVEMENT_SUPPORT_POPULAR_SUPPORT_FRACTION = 0.5 # 0.34 # This fraction a political movement's total support comes from its popular support
 	MOVEMENT_SUPPORT_MILITARY_SUPPORT_FRACTION = 0.25 # 0.33 # This fraction a political movement's total support comes from its military support
@@ -99,6 +110,19 @@ NMilitary = {
 }	
 
 NDiplomacy = {
+	DEFAULT_DIPLOMATIC_PLAY = "dp_war_reparations" 
+
+	DEFAULT_TRUCE_MONTHS = 12 # 60
+	PEACE_DEAL_DURATION_IN_DAYS = 30
+	PEACE_DEAL_COOLDOWN_IN_DAYS = 60 # 120
+	PACT_REQUIRES_APPROVAL_MIN_FORCED_MONTHS = 12 		# Diplomatic pacts that require approval always have at least this cooldown period before they can be broken
+	OBLIGATION_FORCED_PACT_MONTHS = 60 # 120
+	SWAY_FORCED_PACT_MONTHS = 60 # 120
+	EXPEL_DIPLOMATS_MONTHS = 60
+	OBLIGATION_MONTHS = 120
+	RECENTLY_CONQUERED_DURATION_MONTHS = 60 # 120
+	RECENTLY_LIBERATED_DURATION_MONTHS = 60 # 120
+
 	DIPLOMATIC_CATALYST_TYPE_OVERTAKEN_IN_PRESTIGE_RANK = ""
 
 	SWAY_OFFER_TIMEOUT_DAYS = 14
@@ -210,8 +234,6 @@ NDiplomacy = {
 	COLONY_PROVINCE_ADJACENCY_SCORE = 25 # 20 # How much will colonies prioritize adjacency to existing provinces when growing the colony
 	COLONY_PROVINCE_NO_ADJACENCY_MULT = 0.1 # Multiply by this if no adjacencies at all
 	COLONY_PROVINCE_RANDOM_FACTOR = 1.25 # 1.5 # The higher this is, the more random colonization province picking will be
-
-	DEFAULT_TRUCE_MONTHS = 12 # 60
 }
 
 NPops = {
@@ -220,10 +242,10 @@ NPops = {
 	MIN_BASE_COLONIAL_GROWTH = 0.001 # 0.005					# Country base colonial growth from population cannot be lower than this
 	MAX_BASE_COLONIAL_GROWTH = 0.1						# Country base colonial growth from population cannot be higher than this
 	MAX_COLONIAL_GROWTH = 0.02							# Colonies can grow by this much at most per day
-	COLONY_SPEED_PROVINCE_SIZE_STANDARD = 50			# Sets a baseline for how large (in provinces) a colonizable state region is
-	COLONY_SPEED_PER_PROVINCE_DIFF_FROM_STANDARD = 0.02	# For every province the state region has above or below COLONY_SPEED_PROVINCE_SIZE_STANDARD, increase or decrease colonization speed by this rate (as a percentage)
+	COLONY_SPEED_PROVINCE_SIZE_STANDARD = 100 # 50			# Sets a baseline for how large (in provinces) a colonizable state region is
+	COLONY_SPEED_PER_PROVINCE_DIFF_FROM_STANDARD = 0.005 # 0.02	# For every province the state region has above or below COLONY_SPEED_PROVINCE_SIZE_STANDARD, increase or decrease colonization speed by this rate (as a percentage)
 	COLONY_SPEED_POPULATION_INCREMENT = 200000			# Determines the number of people across both colonizing and colonized states that should start slowing down the rate of colonization; set to 0 to disable
-	COLONY_SPEED_MALUS_PER_POPULATION_INCREMENT = 0.25	# Starting at COLONY_SPEED_THRESHOLD_FROM_POPULATION inhabitants, increase the number of days to complete by this amount proportional to population in the colony + state of province being colonized above 200K (e.g. at COLONY_SPEED_THRESHOLD_FROM_POPULATION = 200K, this set to 0.5, and at 300K total inhabitants, multiply growth by 1/1.25 = 0.8; at 600K inhabitants, multiply by 0.25)
+	COLONY_SPEED_MALUS_PER_POPULATION_INCREMENT = 0.05 # 0.25	# Starting at COLONY_SPEED_THRESHOLD_FROM_POPULATION inhabitants, increase the number of days to complete by this amount proportional to population in the colony + state of province being colonized above 200K (e.g. at COLONY_SPEED_THRESHOLD_FROM_POPULATION = 200K, this set to 0.5, and at 300K total inhabitants, multiply growth by 1/1.25 = 0.8; at 600K inhabitants, multiply by 0.25)
 
 ### Pop Growth Constants
 ## Base Values per month

@@ -49,7 +49,7 @@ meiji_completion_trigger = {
 }
 
 wants_to_solve_schleswig_holstein = {
-	is_unification_candidate = GER
+	has_strategy = ai_strategy_unify_germany 
 	has_journal_entry = je_schleswig_holstein_question 
 }
 
