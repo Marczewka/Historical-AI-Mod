@@ -1738,7 +1738,7 @@ ai_strategy_unify_italy = {
 							country_has_primary_culture = cu:south_italian
 						}					
 						NOR = { 
-							is_unification_candidate = ITA
+							# is_unification_candidate = ITA
 							has_modifier = modifier_risorgimento_support
 							is_supporting_unification_candidate = { who = root country_formation =ITA }
 							is_subject_of = root

@@ -871,7 +871,7 @@ movement_cultural_minority = {
 		target_fraction_of_states = {
 			value = political_movement_identity_support
 			# add = scope:clout
-			multiply = 0.4
+			multiply = 0.4 # 3
 			min = 0.15
 			max = 0.75
 		}

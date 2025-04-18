@@ -472,6 +472,7 @@ has_je_subjugation_reason = {
 			}
 			has_technology_researched = civilizing_mission
 			$TARGET$ = {
+				is_country_type = unrecognized
 				country_rank < rank_value:unrecognized_major_power
 			}
 		}
@@ -714,9 +715,20 @@ has_je_protect_reason = {
 		}
 
 		AND = {
-			has_journal_entry = je_risorgimento
 			has_modifier = modifier_risorgimento_support
-			$TARGET$ = { has_modifier = modifier_risorgimento_support }
+			country_rank >= rank_value:major_power
+			$TARGET$ = { 
+				has_modifier = modifier_risorgimento_support 
+				country_rank < rank_value:major_power
+			}
+		}
+
+		AND = {
+			has_modifier = modifier_risorgimento_support
+			country_rank < rank_value:major_power
+			$TARGET$ = { 
+				has_modifier = modifier_risorgimento_support 
+			}
 		}
 	
 		AND = {
@@ -837,8 +849,8 @@ should_carve_up_china = {
 			any_scope_state = {
 				is_treaty_port = yes
 				owner = {
-					# NOT = { this = root }
-					# NOT = { is_country_type = unrecognized }
+					NOT = { this = root }
+					NOT = { is_country_type = unrecognized }
 					country_rank >= rank_value:great_power
 				}
 			}
@@ -847,8 +859,8 @@ should_carve_up_china = {
 			any_scope_state = {
 				is_treaty_port = yes
 				owner = {
-					# NOT = { this = root }
-					# NOT = { is_country_type = unrecognized }
+					NOT = { this = root }
+					NOT = { is_country_type = unrecognized }
 					country_rank >= rank_value:great_power
 				}
 			}
@@ -857,8 +869,8 @@ should_carve_up_china = {
 			any_scope_state = {
 				is_treaty_port = yes
 				owner = {
-					# NOT = { this = root }
-					# NOT = { is_country_type = unrecognized }
+					NOT = { this = root }
+					NOT = { is_country_type = unrecognized }
 					country_rank >= rank_value:great_power
 				}
 			}

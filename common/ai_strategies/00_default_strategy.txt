@@ -3317,21 +3317,23 @@ ai_strategy_default = {
 					"ai_ideological_opinion(scope:target_country)" > -50
 				}
 				scope:target_country = {
-					OR = {
-						state_region = s:STATE_PIEDMONT
-						state_region = s:STATE_LOMBARDY
-						state_region = s:STATE_VENETIA
-						state_region = s:STATE_EMILIA
-						state_region = s:STATE_TUSCANY
-						state_region = s:STATE_ROMAGNA
-						state_region = s:STATE_UMBRIA
-						state_region = s:STATE_LAZIO
-						state_region = s:STATE_ABRUZZO
-						state_region = s:STATE_CAMPANIA
-						state_region = s:STATE_APULIA
-						state_region = s:STATE_CALABRIA
-						state_region = s:STATE_SICILY
-						state_region = s:STATE_SARDINIA	
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_PIEDMONT
+							state_region = s:STATE_LOMBARDY
+							state_region = s:STATE_VENETIA
+							state_region = s:STATE_EMILIA
+							state_region = s:STATE_TUSCANY
+							state_region = s:STATE_ROMAGNA
+							state_region = s:STATE_UMBRIA
+							state_region = s:STATE_LAZIO
+							state_region = s:STATE_ABRUZZO
+							state_region = s:STATE_CAMPANIA
+							state_region = s:STATE_APULIA
+							state_region = s:STATE_CALABRIA
+							state_region = s:STATE_SICILY
+							state_region = s:STATE_SARDINIA	
+						}
 					}
 				}
 			}
@@ -3353,13 +3355,15 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				has_journal_entry = je_the_eastern_border
-				scope:target_state = {
-					OR = {
-						state_region = s:STATE_AMUR
-						state_region = s:STATE_OUTER_MANCHURIA
-						state_region = s:STATE_JETISY
-						state_region = s:STATE_ALTAI
-						state_region = s:STATE_KIRGHIZIA
+				scope:target_country = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_AMUR
+							state_region = s:STATE_OUTER_MANCHURIA
+							state_region = s:STATE_JETISY
+							state_region = s:STATE_ALTAI
+							state_region = s:STATE_KIRGHIZIA
+						}
 					}
 				}
 			}
@@ -7055,7 +7059,10 @@ ai_strategy_default = {
 				if = {
 					limit = {
 						scope:target_country = {
-							is_adjacent_to_country = root
+							any_neighbouring_state = {
+								owner = root 
+								is_incorporated = yes
+							}
 						} 
 					}
 					add = 25

@@ -1,8 +1,4 @@
-﻿NGame = {
-	MAX_NUMBER_OF_AUTOSAVES = 20 # 5 	# The game will only keep the MAX_NUMBER_OF_AUTOSAVES latest autosaves.
-}
-
-NPolitics = {
+﻿NPolitics = {
 	POWERFUL_IG_THRESHOLD = 0.20		# Interest groups with more Clout than this are considered to be influential
 	POWERFUL_IG_CUTOFF = 0.18			# Powerful interest groups with less Clout than this will stop being influential
 	POWERFUL_IG_TRAIT_BONUS = 1			# The effects of all trait modifiers from influential IGs are increased by this, 1 = +100%

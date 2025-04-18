@@ -257,6 +257,11 @@
 				multiply = 0.0
 			}
 		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}
 
 	secession = {
@@ -345,6 +350,11 @@
 				multiply = 0.0
 			}
 		}		
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}	
 	
 	additional_radicalism_factors = {
@@ -575,6 +585,11 @@ movement_pro_slavery = {
 				multiply = 0.0
 			}
 		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}
 	
 	secession = {
@@ -680,6 +695,11 @@ movement_pro_slavery = {
 				multiply = 0.0
 			}
 		}	
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}
 	
 	additional_radicalism_factors = {
@@ -1042,6 +1062,11 @@ movement_royalist_absolutist = {
 				multiply = 0.0
 			}
 		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}
 	
 	secession = {
@@ -1075,6 +1100,11 @@ movement_royalist_absolutist = {
 				multiply = 0.0
 			}
 		}	
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 		
 		forced_tags = {
 			BHT = {
@@ -1356,6 +1386,11 @@ movement_royalist_constitutional = {
 				multiply = 0.0
 			}
 		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}
 	
 	secession = {
@@ -1392,6 +1427,11 @@ movement_royalist_constitutional = {
 				multiply = 0.0
 			}
 		}		
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 		
 		forced_tags = {
 			BHT = {
@@ -1726,6 +1766,11 @@ movement_labor = { # Explicitly non-socialist labour movement
 				multiply = 0.0
 			}
 		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}
 	
 	secession = {
@@ -1746,6 +1791,11 @@ movement_labor = { # Explicitly non-socialist labour movement
 				multiply = 0.0
 			}
 		}		
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}	
 	
 	additional_radicalism_factors = {
@@ -2073,6 +2123,11 @@ movement_socialist = {
 				multiply = 0.0
 			}
 		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}
 	
 	secession = {
@@ -2104,6 +2159,11 @@ movement_socialist = {
 				multiply = 0.0
 			}
 		}		
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}	
 	
 	additional_radicalism_factors = {
@@ -3006,6 +3066,11 @@ movement_fascist = {
 				multiply = 0.0
 			}
 		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}
 	
 	secession = {
@@ -3240,6 +3305,11 @@ movement_corporatist = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
 			}
+		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
 		}
 	}
 	
@@ -3569,13 +3639,39 @@ movement_liberal = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
 			}
+
+			if = {
+				limit = { is_capital = yes }
+				if = {
+					limit = { 
+						owner ?= { 
+							NOR = {
+								has_law = law_type:law_monarchy
+								has_law = law_type:law_theocracy
+							}
+						} 
+					}
+					multiply = 10.0
+				}
+				else = {
+					multiply = 0.1
+				}
+			}
+		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
 		}
 	}
 	
 	secession = {
 		possible = {
 			political_movement_support >= 0.05
-			scope:clout <= 0
+			OR = {
+				owner ?= { has_journal_entry = je_risorgimento }
+				scope:clout <= 0
+			}
 		}
 		
 		weight = {
@@ -3589,7 +3685,30 @@ movement_liberal = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
 			}
+
+			if = {
+				limit = { is_capital = yes }
+				if = {
+					limit = { 
+						owner ?= { 
+							NOR = {
+								has_law = law_type:law_monarchy
+								has_law = law_type:law_theocracy
+							}
+						} 
+					}
+					multiply = 10.0
+				}
+				else = {
+					multiply = 0.1
+				}
+			}
 		}		
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}	
 	
 	additional_radicalism_factors = {
@@ -3926,13 +4045,39 @@ movement_radical = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
 			}
+
+			if = {
+				limit = { is_capital = yes }
+				if = {
+					limit = { 
+						owner ?= { 
+							NOR = {
+								has_law = law_type:law_monarchy
+								has_law = law_type:law_theocracy
+							}
+						} 
+					}
+					multiply = 10.0
+				}
+				else = {
+					multiply = 0.1
+				}
+			}
+		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
 		}
 	}
 	
 	secession = {
 		possible = {
 			political_movement_support >= 0.05
-			scope:clout <= 0
+			OR = {
+				owner ?= { has_journal_entry = je_risorgimento }
+				scope:clout <= 0
+			}
 		}
 		
 		weight = {
@@ -3946,7 +4091,30 @@ movement_radical = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
 			}
+
+			if = {
+				limit = { is_capital = yes }
+				if = {
+					limit = { 
+						owner ?= { 
+							NOR = {
+								has_law = law_type:law_monarchy
+								has_law = law_type:law_theocracy
+							}
+						} 
+					}
+					multiply = 10.0
+				}
+				else = {
+					multiply = 0.1
+				}
+			}	
 		}		
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}	
 	
 	additional_radicalism_factors = {
@@ -4210,6 +4378,11 @@ movement_nihilist = {
 				multiply = 0.0
 			}
 		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}
 	
 	secession = {
@@ -4230,6 +4403,11 @@ movement_nihilist = {
 				multiply = 0.0
 			}
 		}		
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}	
 
 	additional_radicalism_factors = {
@@ -4553,6 +4731,11 @@ movement_positivist = {
 				multiply = 0.0
 			}
 		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}
 	
 	secession = {
@@ -4786,6 +4969,11 @@ movement_land_reform = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
 			}
+		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
 		}
 	}
 	
@@ -5024,6 +5212,11 @@ movement_feminist = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
 			}
+		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
 		}
 	}
 	
@@ -5341,6 +5534,11 @@ movement_reactionary = {
 				multiply = 0.0
 			}
 		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
+		}
 	}
 	
 	secession = {
@@ -5657,6 +5855,11 @@ movement_modernizer = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
 			}
+		}
+
+		target_fraction_of_states = {
+			value = political_movement_support
+			min = scope:clout
 		}
 	}
 	
