@@ -80,9 +80,14 @@ italian_unification.2 = {
 
 	duration = 1
 
+	cooldown = { days = 1 }
+
 	trigger = {
 		has_technology_researched = nationalism
-		has_modifier = modifier_risorgimento_support
+		OR = {
+			c:ITA ?= this
+			has_modifier = modifier_risorgimento_support
+		}
 		NOR = {
 			is_revolutionary = yes
 			is_secessionist = yes
@@ -103,6 +108,7 @@ italian_unification.2 = {
 			}
 			OR = {
 				this.gdp < root.gdp
+				root = { c:ITA = this }
 				root = { is_player = yes }
 			}
 			country_rank <= rank_value:minor_power
@@ -131,6 +137,7 @@ italian_unification.2 = {
 				}
 				OR = {
 					this.gdp < root.gdp
+					root = { c:ITA = this }
 					root = { is_player = yes }
 				}
 				country_rank <= rank_value:minor_power
@@ -733,21 +740,25 @@ italian_unification.7 = {
 
 	immediate = {
 		save_scope_as = rsm_revolted_scope
-		random_country = {
-			limit = {	
-				is_secessionist = yes
-				OR = {
-					country_has_primary_culture = cu:north_italian
-					country_has_primary_culture = cu:south_italian
-				}
-			}
+		# random_country = {
+		# 	limit = {	
+		# 		is_secessionist = yes
+		# 		OR = {
+		# 			country_has_primary_culture = cu:north_italian
+		# 			country_has_primary_culture = cu:south_italian
+		# 		}
+		# 	}
+		# 	activate_law = law_type:law_presidential_republic
+		# 	activate_law = law_type:law_oligarchy
+		# 	change_tag = RSM
+		# 	save_scope_as = rsm_scope	
+		# 	capital = {
+		# 		save_scope_as = rsm_capital_scope
+		# 	}
+		# }
+		scope:rsm_scope = {
 			activate_law = law_type:law_presidential_republic
 			activate_law = law_type:law_oligarchy
-			change_tag = RSM
-			save_scope_as = rsm_scope	
-			capital = {
-				save_scope_as = rsm_capital_scope
-			}
 		}
 		random_diplomatic_play = {
 			limit = {

@@ -3639,24 +3639,6 @@ movement_liberal = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
 			}
-
-			if = {
-				limit = { is_capital = yes }
-				if = {
-					limit = { 
-						owner ?= { 
-							NOR = {
-								has_law = law_type:law_monarchy
-								has_law = law_type:law_theocracy
-							}
-						} 
-					}
-					multiply = 10.0
-				}
-				else = {
-					multiply = 0.1
-				}
-			}
 		}
 
 		target_fraction_of_states = {
@@ -3684,24 +3666,6 @@ movement_liberal = {
 			if = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
-			}
-
-			if = {
-				limit = { is_capital = yes }
-				if = {
-					limit = { 
-						owner ?= { 
-							NOR = {
-								has_law = law_type:law_monarchy
-								has_law = law_type:law_theocracy
-							}
-						} 
-					}
-					multiply = 10.0
-				}
-				else = {
-					multiply = 0.1
-				}
 			}
 		}		
 
@@ -4045,24 +4009,6 @@ movement_radical = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
 			}
-
-			if = {
-				limit = { is_capital = yes }
-				if = {
-					limit = { 
-						owner ?= { 
-							NOR = {
-								has_law = law_type:law_monarchy
-								has_law = law_type:law_theocracy
-							}
-						} 
-					}
-					multiply = 10.0
-				}
-				else = {
-					multiply = 0.1
-				}
-			}
 		}
 
 		target_fraction_of_states = {
@@ -4091,24 +4037,6 @@ movement_radical = {
 				limit = { is_incorporated = no }
 				multiply = 0.0
 			}
-
-			if = {
-				limit = { is_capital = yes }
-				if = {
-					limit = { 
-						owner ?= { 
-							NOR = {
-								has_law = law_type:law_monarchy
-								has_law = law_type:law_theocracy
-							}
-						} 
-					}
-					multiply = 10.0
-				}
-				else = {
-					multiply = 0.1
-				}
-			}	
 		}		
 
 		target_fraction_of_states = {

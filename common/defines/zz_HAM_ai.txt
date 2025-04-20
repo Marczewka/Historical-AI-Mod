@@ -75,8 +75,8 @@
 
 	# AI uses these values to determine how 'impactful' a wargoal is, ie how much they would like to avoid having it enforced on them etc
 	DIPLO_PLAY_WAR_GOAL_IMPACT_MANEUEVERS_MULT = 0.5 # 1 	 	# Maneuvers cost of a wargoal is multiplied by this and added to impact
-	DIPLO_PLAY_WAR_GOAL_IMPACT_INFAMY_MULT = 3 # 0.5 		# Infamy generation of a wargoal is multiplied by this and added to impact
-	DIPLO_PLAY_WAR_GOAL_IMPACT_CONQUEST_MULT = 8 # 2.0		# Wargoals that outright conquer states or annex whole countries have their overall impact multiplied by this
+	DIPLO_PLAY_WAR_GOAL_IMPACT_INFAMY_MULT = 3.0 # 0.5 		# Infamy generation of a wargoal is multiplied by this and added to impact
+	DIPLO_PLAY_WAR_GOAL_IMPACT_CONQUEST_MULT = 8.0 # 2.0		# Wargoals that outright conquer states or annex whole countries have their overall impact multiplied by this
 
 	# Boldness determines the confidence threshold at which the AI will back down in a play
 	# Each individual boldness factor is multiplied a dice roll range of (x0 to x1) for actual boldness value in each play - boldness can end up negative!
@@ -110,6 +110,10 @@
 	DIPLO_PLAY_CONFIDENCE_LOW_THRESHOLD = -25 		# If confidence is this or below, show it as low
 	DIPLO_PLAY_CONFIDENCE_HIGH_THRESHOLD = 25 		# If confidence is this or above, show it as high
 	DIPLO_PLAY_CONFIDENCE_VERY_HIGH_THRESHOLD = 50 		# If confidence is this or above, show it as very high
+
+
+	PRODUCTION_BUILDING_RANDOM_FACTOR = 2.0 # 10.0 # The higher this is, the more random AI construction will be
+
 
 	# Below data is used to calculate AI's desire for peace
 	AI_PEACE_AGREEMENT_BASE_VALUE = -30 # -10
@@ -185,7 +189,15 @@
 	CONSTRUCTION_DEBT_RESUME_CRITICAL_CONSTRUCTION = 0.95 # If critical constructions are paused, resume once debt is this low relative to ceiling
 	CONSTRUCTION_DEBT_PAUSE_CRITICAL_CONSTRUCTION = 0.99 # If in this much relative debt to debt ceiling, pause all critical constructions
 
+	MIN_GOVERNMENT_LEGITIMACY = 25				# If legitimacy is below this, consider adding IGs we don't really like to the government
+	DESIRED_GOVERNMENT_LEGITIMACY = 50				# Apply a bonus to the score of governments which have at least this much legitimacy
 	REFORM_GOVERNMENT_MONTHS_BETWEEN_CHANGES = 12 # 30 		# If the AI doesn't have elections, it won't consider changing government composition more often than this to avoid lots of radicals
+	REFORM_GOVERNMENT_NUM_OPTIONS_TO_CHECK = 10 # 5 			# How many top legitimacy possible government constellations will the AI consider
+	REFORM_GOVERNMENT_STICKINESS = 1.0 # 1.25 				# Multiply score of the current government by this when checking whether to reform the government
+	REFORM_GOVERNMENT_PRO_IG_CLOUT_FACTOR = 1.0			# When scoring IGs for putting in government, add to the score multiplier (scaled by clout)
+	REFORM_GOVERNMENT_ANTI_IG_CLOUT_FACTOR = 5.0 # 10.0		# When scoring IGs for putting in government, add to the score divisor (scaled by clout)
+	REFORM_GOVERNMENT_ABOVE_DESIRED_LEGITIMACY_FACTOR = 1.5	# Multiply score of governments that meet the desired legitimacy threshold by this
+	REFORM_GOVERNMENT_BELOW_MIN_LEGITIMACY_FACTOR = 0.1 # If a government option has less than MIN_GOVERNMENT_LEGITIMACY, multiply its score by this
 
 	# Below data is used to calculate how much weight the AI places on enacting/revoking a law
 	CHANGE_LAW_RANDOM_FACTOR = 0.25 # 1.0 # The higher this is, the more random AI law enactment will be
@@ -219,6 +231,16 @@
 	COLONY_ADJACENT_WEIGHT_MULT = 10.0
 	COLONY_UNCONTESTED_WEIGHT_MULT = 3.0
 	COLONY_RANDOM_FACTOR = 2
+
+
+	# Below data is used to determine how the AI invests into institution
+	INSTITUTION_INVESTMENT_RANDOM_FACTOR = 1.0 # The higher this is, the more random AI institution selection will be
+	INSTITUTION_CURRENT_INVESTMENT_DIVISOR = 0.25 # Score for institution is divided by 1 + ( current levels after the first * this )
+	MAX_INSTITUTION_SPENDING_BASE = 0.005 # 0.015 # AI will not spend more BUR than this on institutions (scaled by weekly GDP)
+	MAX_INSTITUTION_SPENDING_PER_INSTITUTION = 0.005 # Added to MAX_INSTITUTION_SPENDING_BASE for each institution a country has
+	INSTITUTION_SPENDING_INCREASE_SPENDING_RATIO = 1.0 # If current + additional institution spending is equal or less than max spending * this, try to improve some institutions
+	INSTITUTION_SPENDING_DECREASE_SPENDING_RATIO = 1.2 # 2.0 # If current institution spending is at least max spending * this, try to degrade some institutions
+
 
 	# AI country-specific goal data
 	SECRET_GOAL_STICKINESS = 2.0 # The higher this is, the less likely the AI is to change an established secret goal during recalculation
@@ -267,4 +289,6 @@
 	VIOLATE_SOVEREIGNTY_MIN_RELATIVE_STRENGTH = 2.0 # We must have their army x this in SP to want to violate their sovereignty
 	VIOLATE_SOVEREIGNTY_RANDOM_FACTOR = 2.0 # The higher this is, the more random the AI will be about who it violates the sovereignty of
 	VIOLATE_SOVEREIGNTY_MIN_THEATER_IMPORTANCE
+
+	PRODUCTION_METHOD_STICKINESS_UPGRADE = 1 # 0.95 # Score of non-current method is multiplied by this when it produces more goods base value in total
 }

@@ -1050,6 +1050,8 @@ ai_strategy_tanzimat_reforms = {
 		ig_intelligentsia
 		ig_industrialists
 		ig_armed_forces
+		ig_rural_folk
+		ig_petty_bourgeoisie
 	}
 	
 	anti_interest_groups = {
@@ -1149,6 +1151,7 @@ ai_strategy_meiji_restoration = {
 		ig_intelligentsia
 		ig_industrialists
 		ig_rural_folk
+		ig_petty_bourgeoisie
 	}
 	
 	anti_interest_groups = {
@@ -1198,7 +1201,7 @@ ai_strategy_meiji_restoration = {
 			value = 1000
 		}		
 		institution_police = {	
-			value = 75 # 150			
+			value = 150			
 		}		
 		institution_health_system = {	
 			value = 50			
@@ -1253,6 +1256,8 @@ ai_strategy_great_reforms = {
 		ig_intelligentsia
 		ig_industrialists
 		ig_armed_forces
+		ig_rural_folk
+		ig_petty_bourgeoisie
 	}
 	
 	pro_movements = {

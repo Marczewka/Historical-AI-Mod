@@ -16,7 +16,7 @@
 		}
 	}
 
-	timeout = 10950
+	timeout = 14600 # 10950
 
 	on_timeout = {
 		remove_modifier = sick_man_of_europe

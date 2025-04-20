@@ -199,7 +199,7 @@ corporate_charters = {
 	}
 	
 	ai_weight = {
-		value = 1 # 3 # very important tech
+		value = 1.5 # 3 # very important tech
 	}
 }
 
@@ -435,7 +435,7 @@ pharmaceuticals = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 1.5 # 1
 	}
 }
 
@@ -571,7 +571,7 @@ joint_stock_companies = {
 	
 	modifier = {
 		country_max_companies_add = 1
-		state_urbanization_per_level_mult = -0.5 # -0.1
+		state_urbanization_per_level_mult = -0.05 # -0.1
 	}	
 	
 	unlocking_technologies = {
@@ -580,7 +580,7 @@ joint_stock_companies = {
 	}
 	
 	ai_weight = {
-		value = 1 # 2 # important tech
+		value = 1.5 # 2 # important tech
 	}
 }
 
@@ -970,7 +970,7 @@ civilizing_mission = {
 	modifier = {
 		country_institution_colonial_affairs_max_investment_add = 1
 		country_max_declared_interests_add = 1
-		country_infamy_generation_against_unrecognized_mult = -0.1 # -0.25
+		country_infamy_generation_against_unrecognized_mult = -0.25
 	}
 	
 	unlocking_technologies = {
@@ -1127,7 +1127,7 @@ corporatism = {
 					has_strategy = ai_strategy_reactionary_agenda
 				}			
 			}
-			add = 1.5
+			add = 1 # 1.5
 		}
 	}
 }
@@ -1148,17 +1148,18 @@ pan-nationalism = {
 	}
 	
 	ai_weight = {
-		value = 1 # 2 # Important in general
+		value = 1.5 # 2 # Important in general
 		
 		# Extra-important for major unifications
 		if = {
 			limit = { 
-				OR = {
-					has_variable = je_german_confederate_unifier
-					has_journal_entry = je_risorgimento
-				}				
+				has_strategy = ai_strategy_unify_germany
+				# OR = {
+				# 	has_variable = je_german_confederate_unifier
+				# 	has_journal_entry = je_risorgimento
+				# }				
 			}
-			add = 5
+			add = 3 # 5
 		}	
 	}
 }

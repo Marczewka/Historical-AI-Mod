@@ -297,7 +297,7 @@ je_north_german_unification = {
 		hidden_trigger = {
 			has_variable = je_unification_progress
 		}	
-		has_technology_researched = nationalism
+		has_technology_researched = pan-nationalism # nationalism
 		is_unification_candidate = GER
 		custom_tooltip = {
 			text = je_german_unification_sole_candidate_trigger_desc

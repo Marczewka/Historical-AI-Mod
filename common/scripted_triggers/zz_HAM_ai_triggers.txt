@@ -75,14 +75,16 @@ has_je_conquest_reason = {
 				any_scope_state = {
 					has_claim_by = ROOT
 				}
+				NOT = {
+					AND = {
+						has_modifier = modifier_risorgimento_support
+						country_rank < rank_value:major_power
+					}
+				}
 			}
 		}
 		AND = {
-			OR = {
-				c:GER ?= this
-				c:NGF ?= this
-				c:SGF ?= this
-			}
+			c:GER ?= this
 			$TARGET$ = {
 				OR = {
 					country_has_primary_culture = cu:north_german
@@ -435,7 +437,7 @@ has_je_conquest_reason = {
 		}
 		
 		AND = {
-			has_journal_entry = je_risorgimento
+			# has_journal_entry = je_risorgimento
 			has_modifier = modifier_risorgimento_support
 			$TARGET$ = { 
 				NOR = {
@@ -454,7 +456,7 @@ has_je_conquest_reason = {
 		}
 
 		AND = {
-			has_journal_entry = je_risorgimento
+			# has_journal_entry = je_risorgimento
 			has_modifier = modifier_risorgimento_support
 			$TARGET$ = { 
 				has_modifier = modifier_risorgimento_opposition 
@@ -587,7 +589,10 @@ has_je_befriend_reason = {
 		}
 
 		AND = {
-			has_modifier = modifier_risorgimento_support
+			OR = {
+				c:ITA ?= this
+				has_modifier = modifier_risorgimento_support
+			}
 			country_rank >= rank_value:major_power
 			$TARGET$ = { 
 				has_modifier = modifier_risorgimento_support 
@@ -599,7 +604,10 @@ has_je_befriend_reason = {
 			has_modifier = modifier_risorgimento_support
 			country_rank < rank_value:major_power
 			$TARGET$ = { 
-				has_modifier = modifier_risorgimento_support 
+				OR = {
+					c:ITA ?= this
+					has_modifier = modifier_risorgimento_support
+				} 
 			}
 		}
 	
@@ -715,7 +723,10 @@ has_je_protect_reason = {
 		}
 
 		AND = {
-			has_modifier = modifier_risorgimento_support
+			OR = {
+				c:ITA ?= this
+				has_modifier = modifier_risorgimento_support
+			}
 			country_rank >= rank_value:major_power
 			$TARGET$ = { 
 				has_modifier = modifier_risorgimento_support 
@@ -727,7 +738,10 @@ has_je_protect_reason = {
 			has_modifier = modifier_risorgimento_support
 			country_rank < rank_value:major_power
 			$TARGET$ = { 
-				has_modifier = modifier_risorgimento_support 
+				OR = {
+					c:ITA ?= this
+					has_modifier = modifier_risorgimento_support
+				}
 			}
 		}
 	

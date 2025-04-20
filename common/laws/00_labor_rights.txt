@@ -35,9 +35,6 @@ law_regulatory_bodies = {
 	institution = institution_workplace_safety
 	institution_modifier = {
 		building_working_conditions_mult = -0.5
-		building_group_bg_extraction_throughput_add = -0.025
-		building_group_bg_manufacturing_throughput_add = -0.025
-		building_group_bg_infrastructure_throughput_add = -0.025
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -63,9 +60,6 @@ law_worker_protections = {
 
 	modifier = {
 		building_working_conditions_mult = -1
-		building_group_bg_extraction_throughput_add = -0.05
-		building_group_bg_manufacturing_throughput_add = -0.05
-		building_group_bg_infrastructure_throughput_add = -0.05
 		country_institution_workplace_safety_max_investment_add = 3
 	}	
 	

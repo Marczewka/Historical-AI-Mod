@@ -54,12 +54,12 @@
 		}
 	}
 
-	on_monthly_pulse = {
-		random_events = {
-			180 = 0
-			20 = italian_unification.2
-		}
-	}
+	# on_monthly_pulse = {
+	# 	random_events = {
+	# 		180 = 0
+	# 		20 = italian_unification.2
+	# 	}
+	# }
 
 	on_complete = {
 		show_as_tooltip = {

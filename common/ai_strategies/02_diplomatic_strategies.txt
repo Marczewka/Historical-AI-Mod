@@ -1509,28 +1509,28 @@ ai_strategy_unify_germany = {
 		# 		add = 1000
 		# 	}		
 		# }		
-		dominate = {		
-			if = {
-				limit = {
-					scope:target_country = {
-						OR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:south_german
-						}					
-						NOT = { is_unification_candidate = GER }
-						NOR = { 
-							is_supporting_unification_candidate = { who = root country_formation = GER }
-							is_subject_of = root
-							AND = {
-								ROOT = { is_unification_candidate = GER }
-								is_in_customs_union_with = root
-							}
-						}	
-					}
-				}
-				add = 1000
-			}		
-		}
+		# dominate = {		
+		# 	if = {
+		# 		limit = {
+		# 			scope:target_country = {
+		# 				OR = {
+		# 					country_has_primary_culture = cu:north_german
+		# 					country_has_primary_culture = cu:south_german
+		# 				}					
+		# 				NOT = { is_unification_candidate = GER }
+		# 				NOR = { 
+		# 					is_supporting_unification_candidate = { who = root country_formation = GER }
+		# 					is_subject_of = root
+		# 					AND = {
+		# 						ROOT = { is_unification_candidate = GER }
+		# 						is_in_customs_union_with = root
+		# 					}
+		# 				}	
+		# 			}
+		# 		}
+		# 		add = 1000
+		# 	}		
+		# }
 		conquer = {				
 			if = {
 				limit = {
@@ -1575,7 +1575,7 @@ ai_strategy_unify_italy = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
-		always = yes
+		always = no # yes
 	}	
 		
 	undesirable_infamy_level = {
@@ -1683,7 +1683,7 @@ ai_strategy_unify_italy = {
 						state_region = s:STATE_SARDINIA	
 					}
 				}	
-				can_reach_target_state = yes
+				has_strategic_land_adjacency = scope:target_state
 			}
 			add = 100
 		}
@@ -1691,7 +1691,13 @@ ai_strategy_unify_italy = {
 	
 	wargoal_scores = {
 		unification = {
-			value = 1000	
+			value = 0
+			if = {
+				limit = {
+					country_rank >= rank_value:great_power
+				}
+				add = 1000
+			}
 		}
 		unification_leadership = {
 			value = 1000

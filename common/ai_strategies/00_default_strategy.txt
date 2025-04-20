@@ -2347,7 +2347,7 @@ ai_strategy_default = {
 						region = sr:region_manchuria
 					}
 					owner = {
-						is_country_type = unrecognized
+						c:CHI = this
 					}
 				}
 			}
@@ -2945,6 +2945,23 @@ ai_strategy_default = {
 			}
 			add = 1
 		}		
+
+		if = { #Carving up China
+			limit = {
+				should_carve_up_china = yes
+				scope:target_country = {
+					c:CHI = this
+					any_scope_state = {
+						OR = {
+							region = sr:region_north_china
+							region = sr:region_south_china
+							region = sr:region_manchuria
+						}
+					}
+				}
+			}
+			add = 1
+		}
 	
 		# Opium wars participants should both be confident
 		if = {
@@ -3516,7 +3533,7 @@ ai_strategy_default = {
 			limit = {
 				should_carve_up_china = yes
 				scope:target_country = {
-					is_country_type = unrecognized
+					c:CHI = this
 					any_scope_state = {
 						OR = {
 							region = sr:region_north_china
@@ -4664,13 +4681,6 @@ ai_strategy_default = {
 			multiply = 0.75
 		}				
 
-		if = {
-			limit = { 
-				has_journal_entry = je_sick_man_army
-			}
-			min = 125
-		}	
-
 		max = {
 			value = 500
 
@@ -4693,7 +4703,16 @@ ai_strategy_default = {
 				multiply = 1.25
 			}
 		}
-		min = 1
+
+		if = {
+			limit = { 
+				has_journal_entry = je_sick_man_army
+			}
+			min = 125
+		}	
+		else = {
+			min = 1
+		}
 	}
 	
 	# How many levels of naval base should the AI have
@@ -7419,11 +7438,11 @@ ai_strategy_default = {
 							region = sr:region_manchuria
 						}
 						owner = {
-							is_country_type = unrecognized
+							c:CHI = this
 						}
 					}
 				}
-				add = 100
+				add = 1000
 			}
 
 			# Britain should go for Hong Kong when starting Opium Wars play against Qing

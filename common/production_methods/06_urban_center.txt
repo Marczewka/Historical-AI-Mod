@@ -23,7 +23,7 @@ pm_market_squares = {
 		workforce_scaled = {
 			goods_input_wood_add = 1
 			goods_input_glass_add = 1
-			goods_output_services_add = 20
+			goods_output_services_add = 15 # 20
 		}
 
 		level_scaled = {
@@ -44,7 +44,7 @@ pm_covered_markets = {
 		workforce_scaled = {
 			goods_input_glass_add = 2
 			goods_input_steel_add = 1
-			goods_output_services_add = 25
+			goods_output_services_add = 20 # 25
 		}
 
 		level_scaled = {
@@ -66,7 +66,7 @@ pm_arcades = {
 			goods_input_glass_add = 2
 			goods_input_steel_add = 2
 			goods_input_electricity_add = 1
-			goods_output_services_add = 30
+			goods_output_services_add = 25 # 30
 		}
 
 		level_scaled = {
@@ -99,9 +99,9 @@ pm_gas_streetlights = {
 			goods_output_services_add = 5
 		}
 
-		level_scaled = {
-			building_employment_laborers_add = 250
-		}
+		# level_scaled = {
+		# 	building_employment_laborers_add = 250
+		# }
 	}
 
 	state_modifiers = {
@@ -126,10 +126,10 @@ pm_electric_streetlights = {
 			goods_output_services_add = 10
 		}
 
-		level_scaled = {
-			building_employment_laborers_add = 200
-			building_employment_engineers_add = 50
-		}
+		# level_scaled = {
+		# 	building_employment_laborers_add = 200
+		# 	building_employment_engineers_add = 50
+		# }
 	}
 
 	state_modifiers = {
@@ -166,8 +166,8 @@ pm_public_trams = {
 
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_engines_add = 0.25 # 0.5
-			goods_output_transportation_add = 2.5 # 4
+			goods_input_engines_add = 0.5
+			goods_output_transportation_add = 4
 		}
 
 		level_scaled = {
@@ -193,8 +193,8 @@ pm_public_motor_carriages = {
 
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_automobiles_add = 0.5 # 1
-			goods_output_transportation_add = 5 # 8
+			goods_input_automobiles_add = 1
+			goods_output_transportation_add = 8
 		}
 
 		level_scaled = {
@@ -214,7 +214,7 @@ pm_state_urban_clergy = {
 
 	building_modifiers = {
 		level_scaled = {
-			building_employment_clergymen_add = 250 #200
+			building_employment_clergymen_add = 200
 		}
 	}
 }
@@ -229,7 +229,7 @@ pm_free_urban_clergy = {
 
 	building_modifiers = {
 		level_scaled = {
-			building_employment_clerks_add = 50 # 100
+			building_employment_clerks_add = 100
 			building_employment_clergymen_add = 150
 		}
 	}
