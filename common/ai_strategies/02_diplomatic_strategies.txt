@@ -50,6 +50,25 @@
 	wargoal_maneuvers_fraction = {
 		value = -0.1
 	}	
+
+	obligation_value = {
+		# Domineering/Protective AI wants to use the obligation to cajole the country into a subordinate relationship
+		if = {
+			limit = {
+				OR = {
+					has_attitude = {
+						who = scope:target_country
+						attitude = protective
+					}
+					has_attitude = {
+						who = scope:target_country
+						attitude = domineering
+					}
+				}			
+			}
+			add = 5
+		}
+	}
 	
 	diplomatic_play_neutrality = {
 		value = 0
@@ -1368,7 +1387,7 @@ ai_strategy_unify_germany = {
 	}
 
 	obligation_value = {
-		value = 0
+		# value = 0
 	
 		if = {
 			limit = { 
@@ -1603,7 +1622,7 @@ ai_strategy_unify_italy = {
 	}
 	
 	obligation_value = {
-		value = 0
+		# value = 0
 	
 		if = {
 			limit = { 
@@ -1810,7 +1829,7 @@ ai_strategy_unify_afghanistan = {
 	}
 		
 	obligation_value = {
-		value = 0
+		# value = 0
 	
 		if = {
 			limit = { 
@@ -1995,7 +2014,7 @@ ai_strategy_unify_ethiopia = {
 	}
 		
 	obligation_value = {
-		value = 0
+		# value = 0
 	
 		if = {
 			limit = { 
@@ -2185,7 +2204,7 @@ ai_strategy_unify_arabia = {
 	}
 		
 	obligation_value = {
-		value = 0
+		# value = 0
 	
 		if = {
 			limit = { 
@@ -2380,7 +2399,7 @@ ai_strategy_unify_scandinavia = {
 	}
 		
 	obligation_value = {
-		value = 0
+		# value = 0
 	
 		if = {
 			limit = { 
@@ -2695,7 +2714,7 @@ ai_strategy_unify_china = {
 	}
 		
 	obligation_value = {
-		value = 0
+		# value = 0
 	
 		if = {
 			limit = { 

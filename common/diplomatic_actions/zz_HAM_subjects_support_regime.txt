@@ -45,9 +45,6 @@
 			always = yes
 		}
 
-		relations_progress_per_day = 0.5  # At 100, +1 relations
-		relations_improvement_max = 50
-	
 		manual_break_effect = {
 			scope:target_country = {
 				add_liberty_desire = 10

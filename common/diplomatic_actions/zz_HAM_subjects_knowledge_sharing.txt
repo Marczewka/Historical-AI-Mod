@@ -57,9 +57,6 @@
 			always = yes
 		}
 
-		relations_progress_per_day = 0.5  # At 100, +1 relations
-		relations_improvement_max = 50
-			
 		requirement_to_maintain = {
 			trigger = {
 				scope:target_country = {

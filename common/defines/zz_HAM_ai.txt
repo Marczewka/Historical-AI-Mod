@@ -1,4 +1,6 @@
 ﻿NAI = {
+	UNIFICATION_SUPPORTER_DEFAULT_RANK_VALUE = 2 # 4 # Rank value is compared to this value for computing supporter rank factor
+	
 	DEFAULT_STRATEGY_STRING = "ai_strategy_default"
 
 	STRATEGY_RANDOM_FACTOR = 10.0 # 20.0 # The higher this is, the more random AI strategy selection will be
@@ -64,7 +66,7 @@
 
 	DIPLO_PLAY_ADD_WARGOAL_MIN_SCORE = 20 # A wargoal needs at least this value for AI to add it to the play
 
-	DIPLO_PLAY_SWAY_MINIMUM_OBLIGATION_VALUE = 15 # 10 # Obligations worth less than this are rejected
+	DIPLO_PLAY_SWAY_MINIMUM_OBLIGATION_VALUE = 20 # 10 # Obligations worth less than this are rejected
 
 
 	DIPLO_PLAY_SWAY_LOW_IMPACT_FACTOR = -100 # Maximum effect applied to acceptance of a reverse-sway if a country has little to lose from the enemy side's wargoals 
@@ -110,6 +112,11 @@
 	DIPLO_PLAY_CONFIDENCE_LOW_THRESHOLD = -25 		# If confidence is this or below, show it as low
 	DIPLO_PLAY_CONFIDENCE_HIGH_THRESHOLD = 25 		# If confidence is this or above, show it as high
 	DIPLO_PLAY_CONFIDENCE_VERY_HIGH_THRESHOLD = 50 		# If confidence is this or above, show it as very high
+
+
+	DIPLO_PLAY_IDEOLOGICAL_OPINION_POSITIVE_FACTOR = 0.2 # Positive ideological opinion is multiplied by this and added to acceptance to join a side
+	DIPLO_PLAY_IDEOLOGICAL_OPINION_NEGATIVE_FACTOR = 0.5 # 1 # Negative ideological opinion is multiplied by this and added to acceptance to join a side
+	DIPLO_PLAY_IDEOLOGICAL_OPINION_REVOLUTION_MULT = 3 # DIPLO_PLAY_IDEOLOGICAL_OPINION_FACTOR is multiplied by this in a revolution play
 
 
 	PRODUCTION_BUILDING_RANDOM_FACTOR = 2.0 # 10.0 # The higher this is, the more random AI construction will be
