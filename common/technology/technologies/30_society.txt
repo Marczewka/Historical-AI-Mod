@@ -388,7 +388,7 @@ egalitarianism = {
 	category = society
 	
 	modifier = {
-		state_expected_sol_from_literacy = 1
+		state_expected_sol_from_literacy = 0.5 # 1
 		state_lower_strata_expected_sol_add = 0.5
 		country_institution_social_security_max_investment_add = 1	
 	}
@@ -652,6 +652,7 @@ nationalism = {
 	
 	modifier = {
 		country_authority_mult = 0.1
+		country_infamy_generation_mult = -0.05
 	}
 	
 	unlocking_technologies = {
@@ -671,7 +672,7 @@ nationalism = {
 		}
 	}
 	ai_weight = {
-		value = 1.5 # 2 # Important in general
+		value = 2 # Important in general
 		
 		# Extra-important for major unifications
 		if = {
@@ -726,7 +727,7 @@ labor_movement = {
 	category = society
 	
 	modifier = {
-		state_expected_sol_from_literacy = 1
+		state_expected_sol_from_literacy = 0.5 # 1
 		state_lower_strata_expected_sol_add = 0.5
 		country_institution_workplace_safety_max_investment_add = 1
 		country_agitator_slots_add = 1
@@ -1040,7 +1041,7 @@ socialism = {
 	category = society
 	
 	modifier = {
-		state_expected_sol_from_literacy = 1
+		state_expected_sol_from_literacy = 0.5 # 1
 		state_lower_strata_expected_sol_add = 0.5
 		country_institution_workplace_safety_max_investment_add = 1
 		country_institution_social_security_max_investment_add = 1
@@ -1141,6 +1142,7 @@ pan-nationalism = {
 	
 	modifier = {
 		country_authority_mult = 0.1
+		country_infamy_generation_mult = -0.1
 	}
 	
 	unlocking_technologies = {
@@ -1148,7 +1150,7 @@ pan-nationalism = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # 2 # Important in general
+		value = 2 # Important in general
 		
 		# Extra-important for major unifications
 		if = {
@@ -1390,7 +1392,7 @@ political_agitation = {
 	category = society
 	
 	modifier = {
-		state_expected_sol_from_literacy = 1
+		state_expected_sol_from_literacy = 0.5 # 1
 		state_lower_strata_expected_sol_add = 0.5
 		country_authority_mult = 0.1
 		country_agitator_slots_add = 1
@@ -1508,7 +1510,7 @@ multilateral_alliances = {
 	category = society
 	
 	modifier = {
-		country_infamy_generation_mult = -0.25
+		country_infamy_generation_mult = -0.15 # -0.25
 		country_allow_multiple_alliances_bool = yes
 	}
 	
@@ -1576,7 +1578,7 @@ mass_propaganda = {
 	
 	modifier = {
 		country_authority_mult = 0.1
-		state_expected_sol_from_literacy = 1
+		state_expected_sol_from_literacy = 0.5 # 1
 		state_lower_strata_expected_sol_add = 0.5
 		country_agitator_slots_add = 1
 	}

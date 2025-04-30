@@ -921,7 +921,7 @@ ai_strategy_default = {
 			add = -75
 		}		
 
-		if = { # Isolationist Japan should tend to back down against market opening plays
+		if = { # China should tend to back down against market opening plays
 			limit = {
 				exists = c:CHI
 				this = c:CHI
@@ -1146,6 +1146,13 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				scope:target_country.country_rank > country_rank
+				OR = {
+					is_subject = no
+					AND = {
+						liberty_desire >= 75
+						is_subject = yes
+					}
+				}
 			}
 			add = {
 				value = scope:target_country.country_rank
@@ -2352,6 +2359,23 @@ ai_strategy_default = {
 				}
 			}
 			add = 100
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_sick_man_syria
+				scope:target_state = {
+					OR = {
+						state_region = s:STATE_ALEPPO
+						state_region = s:STATE_SYRIA
+						state_region = s:STATE_LEBANON
+						state_region = s:STATE_PALESTINE
+						state_region = s:STATE_TRANSJORDAN
+						state_region = s:STATE_ADANA
+					}
+				}
+				multiply = 0
+			}
 		}
 		
 		# Not worth doing against very small markets
@@ -6710,7 +6734,6 @@ ai_strategy_default = {
 				if = {
 					limit = {
 						c:DEI ?= this 
-						has_technology_researched = civilizing_mission
 						scope:target_country = {
 							capital.region = sr:region_indonesia
 							NOT = { capital.state_region = s:STATE_NORTH_BORNEO }
@@ -7032,7 +7055,6 @@ ai_strategy_default = {
 				if = {
 					limit = {
 						c:DEI ?= this 
-						has_technology_researched = civilizing_mission
 						scope:target_country = {
 							capital.region = sr:region_indonesia
 							NOT = { capital.state_region = s:STATE_NORTH_BORNEO }

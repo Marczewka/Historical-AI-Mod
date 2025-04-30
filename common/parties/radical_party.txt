@@ -2,7 +2,7 @@
 # Attracts weak leftists and liberals
 
 radical_party = {
-	color = { 255 102 0 }
+	color = { 150 20 20 }
 	name = {
 		first_valid = {
 			triggered_desc = {

@@ -669,6 +669,7 @@ has_je_protect_reason = {
 		AND = {		
 			is_unification_candidate = GER
 			$TARGET$ = { 
+				is_adjacent_to_country = ROOT
 				OR = {
 					country_has_primary_culture = cu:north_german
 					country_has_primary_culture = cu:south_german

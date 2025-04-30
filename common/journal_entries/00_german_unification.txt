@@ -297,7 +297,13 @@ je_north_german_unification = {
 		hidden_trigger = {
 			has_variable = je_unification_progress
 		}	
-		has_technology_researched = pan-nationalism # nationalism
+		OR = {
+			has_technology_researched = pan-nationalism # nationalism		
+			custom_tooltip = {
+				text = german_homelands_trigger_desc
+				has_global_variable = german_homelands_under_threat
+			}
+		}
 		is_unification_candidate = GER
 		custom_tooltip = {
 			text = je_german_unification_sole_candidate_trigger_desc

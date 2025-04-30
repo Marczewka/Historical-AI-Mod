@@ -1503,7 +1503,11 @@ ai_strategy_unify_germany = {
 			value = 1000	
 		}
 		unification_leadership = {
-			value = 1000
+			value = 0 # 1000
+			if = {
+				has_technology_researched = pan-nationalism
+				add = 1000
+			}
 		}	
 	}
 	

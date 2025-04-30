@@ -293,7 +293,7 @@ ai_strategy_reactionary_agenda = {
 				limit = {
 					ig:ig_landowners = { is_powerful = yes }
 				}
-				add = 5 # 10
+				add = 10
 			}
 		}		
 		
@@ -308,7 +308,7 @@ ai_strategy_reactionary_agenda = {
 				limit = {
 					ig:ig_devout = { is_powerful = yes }
 				}
-				add = 5 # 10
+				add = 10
 			}
 		}
 

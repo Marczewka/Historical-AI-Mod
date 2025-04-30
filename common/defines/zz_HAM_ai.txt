@@ -150,13 +150,13 @@
 	AI_CAPITULATE_ENEMY_WARGOAL_FACTOR = -30 # For each wargoal targeting us in the war
 	AI_CAPITULATE_PEACE_DESIRE_FACTOR = 0.5 # Peace desire is multiplied by this when added to capitulation score
 
-	AI_MONTHS_OF_REDUCED_PEACE_DESIRE = 48 # 10 # Before this amount of months, reduce AI peace desire
+	AI_MONTHS_OF_REDUCED_PEACE_DESIRE = 30 # 10 # Before this amount of months, reduce AI peace desire
 	AI_PEACE_DESIRE_FROM_SHORT_WAR = -5 # -10 # Subtract this amount of peace desire for the above number of months (multiplied by AI_MONTHS_OF_REDUCED_PEACE_DESIRE - months of war duration)
 	AI_PEACE_DESIRE_FROM_TURMOIL = 100 # 25 # Add this amount of peace desire at 100% radicals
-	AI_PEACE_DESIRE_FROM_DEVASTATION = 50 # Add this amount of peace desire at 100% devastation
+	AI_PEACE_DESIRE_FROM_DEVASTATION = 200 # 50 # Add this amount of peace desire at 100% devastation
 	AI_PEACE_DESIRE_FROM_LOYALISTS = -25 # Subtract this amount of peace desire at 100% loyalists
-	AI_PEACE_DESIRE_FROM_DEBT_LEVEL = 200 # 100 # Add this amount of peace desire at 100% debt level
-	AI_PEACE_DESIRE_FROM_BANKRUPTCY = 200 # 100 # Add this amount of peace desire when bankrupt
+	AI_PEACE_DESIRE_FROM_DEBT_LEVEL = 300 # 100 # Add this amount of peace desire at 100% debt level
+	AI_PEACE_DESIRE_FROM_BANKRUPTCY = 300 # 100 # Add this amount of peace desire when bankrupt
 	AI_PEACE_DESIRE_FROM_GOLD_RESERVES = -25 # Subtract this amount of peace desire at 100% gold reserves
 	AI_PEACE_DESIRE_FROM_FORCE_BALANCE = 100 # 50 # Up to this amount is added or subtracted from war support based on DIPLO_PLAY_FORCE_BALANCE_SCALE of the two sides
 	AI_PEACE_DESIRE_FACTOR_FROM_ANNEXATION = 0.5 # If peace will cause the country to be annexed then all positive peace desire factors will be multiplied by this value
@@ -298,4 +298,24 @@
 	VIOLATE_SOVEREIGNTY_MIN_THEATER_IMPORTANCE
 
 	PRODUCTION_METHOD_STICKINESS_UPGRADE = 1 # 0.95 # Score of non-current method is multiplied by this when it produces more goods base value in total
+
+
+	MIN_RANK_TO_FORM_POWER_BLOC = 6						# AIs with a lower rank value than this will never try to form power blocs
+	POWER_BLOC_IDENTITY_RANDOM_FACTOR = 0.5 # 1				# The higher this is, the more random AI selection of power bloc identities will be
+	POWER_BLOC_PRINCIPLE_RANDOM_FACTOR = 0.5 # 1				# The higher this is, the more random AI selection of power bloc principles will be
+	POWER_BLOC_STATUE_RANDOM_FACTOR = 0.5 # 1					# The higher this is, the more random AI selection of power bloc statues will be
+
+	LEAVE_POWER_BLOC_SCORE_THRESHOLD = -100 				# Leave the power bloc if score is less than this. Score is the acceptance value for 'invite_to_power_bloc' diplomatic action
+	POWER_BLOC_KICK_MEMBER_LOW_COHESION_THRESHOLD = 40					# If current cohesion is less than this consider it low and add the corresponding score
+	POWER_BLOC_KICK_MEMBER_LOW_COHESION_SCORE = 2 # 5						# Score to kick a member (which is anyone) if current cohesion is low (multiplied by delta between cohesion and threshold)
+	POWER_BLOC_KICK_MEMBER_COHESION_CHANGE_SCORE = 5 # 2					# Score to kick the member if cohesion change is high enough (multiplied by cohesion chance)
+	POWER_BLOC_KICK_MEMBER_LEVERAGE_ADVANTAGE_SCORE = -0.1			# Score to kick the member if active leverage on them is high enough (multiplied by active leverage)
+	POWER_BLOC_KICK_MEMBER_POOR_RELATIONS_SCORE = 25				# Score to kick the member if relations with the member are Poor, x2 if Cold, x3 if Hostile
+	POWER_BLOC_KICK_MEMBER_HOSTILE_ATTITUDE_SCORE = 25 				# Score to kick the member if attitude towards them is Hostile, x2 if Very Hostile
+	POWER_BLOC_KICK_MEMBER_MARKET_SHARE_SCORE = -50					# Score to kick the member based on their market share in the bloc (if PB has a unified market)
+	POWER_BLOC_KICK_MEMBER_HIGH_ARMY_MILITARY_STRENGTH_SCORE = -25		# Score to kick the member if their army strength is above average (if PB is a military alliance)
+	POWER_BLOC_KICK_MEMBER_HIGH_NAVY_MILITARY_STRENGTH_SCORE = -15		# Score to kick the member if their navy strength is above average (if PB is a military alliance)
+	POWER_BLOC_KICK_MEMBER_SCORE_THRESHOLD = 100						# Kick the member if the total score is less than this
+	POWER_BLOC_KICK_MEMBER_RANDOM_FACTOR = 0.1 # 0.5							# The higher this is, the more random AI will be about which member to kick from the power bloc
+
 }

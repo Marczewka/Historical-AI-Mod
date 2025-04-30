@@ -196,7 +196,8 @@
 		AND = {
 			scope:radical_movement_scope ?= {
 				political_movement_support <= 0.10
-				is_being_suppressed = yes
+				# is_being_suppressed = yes
+				is_in_government = yes
 			}
 			NOT = {
 				any_interest_group = {

@@ -260,7 +260,7 @@
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 
@@ -353,7 +353,7 @@
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}	
 	
@@ -588,7 +588,7 @@ movement_pro_slavery = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -698,7 +698,7 @@ movement_pro_slavery = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -1065,7 +1065,7 @@ movement_royalist_absolutist = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -1103,7 +1103,7 @@ movement_royalist_absolutist = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 		
 		forced_tags = {
@@ -1389,7 +1389,7 @@ movement_royalist_constitutional = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -1430,7 +1430,7 @@ movement_royalist_constitutional = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 		
 		forced_tags = {
@@ -1769,7 +1769,7 @@ movement_labor = { # Explicitly non-socialist labour movement
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -1794,7 +1794,7 @@ movement_labor = { # Explicitly non-socialist labour movement
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}	
 	
@@ -2126,7 +2126,7 @@ movement_socialist = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -2162,7 +2162,7 @@ movement_socialist = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}	
 	
@@ -3069,7 +3069,7 @@ movement_fascist = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -3309,7 +3309,7 @@ movement_corporatist = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -3643,7 +3643,7 @@ movement_liberal = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -3671,7 +3671,7 @@ movement_liberal = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}	
 	
@@ -4013,7 +4013,7 @@ movement_radical = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -4041,7 +4041,7 @@ movement_radical = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}	
 	
@@ -4309,7 +4309,7 @@ movement_nihilist = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -4334,7 +4334,7 @@ movement_nihilist = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}	
 
@@ -4662,7 +4662,7 @@ movement_positivist = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -4901,7 +4901,7 @@ movement_land_reform = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -5144,7 +5144,7 @@ movement_feminist = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -5465,7 +5465,7 @@ movement_reactionary = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	
@@ -5787,7 +5787,7 @@ movement_modernizer = {
 
 		target_fraction_of_states = {
 			value = political_movement_support
-			min = scope:clout
+			add = scope:clout
 		}
 	}
 	

@@ -118,6 +118,10 @@ canal_events.3 = { #Deal accepted
 
 	duration = 3
 
+	immediate = {
+		set_global_variable = suez_canal_purchase_var
+	}
+
 	option = {
 		name = canal_events.3.a
 		s:STATE_SINAI = {
@@ -289,6 +293,10 @@ canal_events.7 = { #Deal accepted
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
 	duration = 3
+
+	immediate = {
+		set_global_variable = panama_canal_purchase_var
+	}
 
 	option = {
 		name = canal_events.7.a

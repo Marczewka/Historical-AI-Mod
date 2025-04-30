@@ -141,7 +141,6 @@ dp_take_treaty_port = {
 		aggressive_diplomatic_plays_permitted = yes
 		NOT = { is_subject_of = scope:target_country }
 		scope:target_country = {
-			is_country_type = unrecognized
 			NOT = { is_country_type = decentralized }
 			NOT = { is_subject_of = root }
 		}
@@ -170,7 +169,13 @@ dp_leadership_germany = {
 	}	
 	
 	possible = {
-		has_technology_researched = pan-nationalism # nationalism			
+		OR = {
+			has_technology_researched = pan-nationalism # nationalism		
+			custom_tooltip = {
+				text = german_homelands_trigger_desc
+				has_global_variable = german_homelands_under_threat
+			}
+		}
 	}
 	
 	on_weekly_pulse = {}

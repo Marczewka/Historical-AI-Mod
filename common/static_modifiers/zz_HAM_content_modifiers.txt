@@ -112,3 +112,8 @@ shogun_ig_forced_to_open_market = {
 	country_legitimacy_headofstate_add = -50
 	country_legitimacy_base_add = 30 # Allows formation of alternative governments
 }
+
+changing_policies_electoral_support = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_law_enactment_success_add = 0.05 # 0.2
+}

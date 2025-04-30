@@ -117,7 +117,7 @@ law_guaranteed_liberties = {
 		country_revolution_progress_mult = -0.1
 		country_secession_progress_mult = -0.1
 		state_radicals_from_political_movements_mult = -0.15 # -0.1
-		state_loyalists_from_political_movements_mult = -0.15 # 0.1
+		state_loyalists_from_political_movements_mult = 0.15 # 0.1
 	}
 
 	on_activate = {

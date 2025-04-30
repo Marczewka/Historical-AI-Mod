@@ -450,6 +450,7 @@ law_laissez_faire = {
 		country_disable_nationalization_bool = yes
 		country_force_privatization_bool = yes
 		country_company_pay_to_establish_bool = yes
+		country_leverage_resistance_mult = -0.25
 	}
 
 	ai_enact_weight_modifier = { #Petitions
