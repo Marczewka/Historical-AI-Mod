@@ -1,0 +1,8 @@
+﻿movement_support_je_sick_man_main = {
+	name = FAILED_TANZIMAT_REFORMS
+
+	visible = {
+		owner ?= { has_modifier = failed_tanzimat }
+		culture ?= { has_discrimination_trait = european_heritage }
+	}
+}

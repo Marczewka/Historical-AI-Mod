@@ -778,7 +778,13 @@ je_unite_the_principalities_button = {
 	}
 
 	possible = {
-        custom_tooltip = {
+		is_at_war = no
+        NOT = {
+			any_overlord_or_above ?= { # Can't unite the principalities if you're already the lesser in a pact with another Romanian state
+				country_has_primary_culture = cu:romanian
+			}
+		}
+		custom_tooltip = {
             text = je_unite_the_principalities_friend_with_all_great_powers_tt
 			NOT = {
 		        any_country = {
@@ -797,6 +803,7 @@ je_unite_the_principalities_button = {
             }
 	        any_country = {
 	        	NOT = { this = ROOT }
+				is_at_war = no
 	        	country_has_primary_culture = cu:romanian
 	            relations:root >= relations_threshold:amicable
 	            OR = {
@@ -808,6 +815,7 @@ je_unite_the_principalities_button = {
 					}
 					is_subject = no
 	            }
+				NOT = { is_subject_of = ROOT }
 	        }
         }
 	}
@@ -835,13 +843,21 @@ je_south_bessarabian_retrocession = {
 
 	visible = { 
 		NOT = { has_variable = south_bessarabia_cession_in_progress }
-		NOR = {
-			any_scope_state = {
-				state_region = s:STATE_BESSARABIA
-			}
-			any_subject_or_below = {
+		NAND = {
+			OR = {
 				any_scope_state = {
 					state_region = s:STATE_BESSARABIA
+				}
+				any_subject_or_below = {
+					any_scope_state = {
+						state_region = s:STATE_BESSARABIA
+					}
+				}
+			}
+			OR = {
+				p:x50F5CB.state.owner = ROOT
+				any_subject_or_below = {
+					p:x50F5CB.state.owner = this
 				}
 			}
 		}
@@ -864,7 +880,7 @@ je_south_bessarabian_retrocession = {
 	            	}
 	            }
 	            has_interest_marker_in_region = ROOT.capital.region
-	            relations:root > 25
+	            relations:root >= relations_threshold:cordial
 	        }
 	    }
         custom_tooltip = {
@@ -872,24 +888,30 @@ je_south_bessarabian_retrocession = {
 
 			OR = {
 				any_neighbouring_state = {
-					state_region = s:STATE_BESSARABIA
+					OR = {
+						state_region = s:STATE_BESSARABIA
+						state_region = s:STATE_DOBRUDJA
+					}
 					owner = {
 						NOT = { ROOT = this }
 						relations:root > relations_threshold:cold
 						NOT = { has_war_with = ROOT }
 					}
-					is_split_state = no
+					# is_split_state = no
 					is_capital = no
 				}
 				any_subject_or_below = {
 					any_neighbouring_state = {
-						state_region = s:STATE_BESSARABIA
+						OR = {
+							state_region = s:STATE_BESSARABIA
+							state_region = s:STATE_DOBRUDJA
+						}
 						owner = {
 							NOT = { ROOT = this }
 							relations:root > relations_threshold:cold
 							NOT = { has_war_with = ROOT }
 						}
-						is_split_state = no
+						# is_split_state = no
 						is_capital = no
 					}
 				}
@@ -904,10 +926,12 @@ je_south_bessarabian_retrocession = {
 		random_country = {
 			limit = {
 				NOT = { ROOT = this }
+				NOT = { is_subject_of = ROOT }
 				relations:root > relations_threshold:cold
 				NOT = { has_war_with = ROOT }
-				any_scope_state = {
-					state_region = s:STATE_BESSARABIA
+				OR = {
+					p:x50F5CB.state.owner = this
+					p:xB0E0A0.state.owner = this
 				}
 			}
 	   		trigger_event = { id = romania.4 }
@@ -920,15 +944,20 @@ je_marea_unire = {
 	desc = "je_marea_unire_button_desc"
 
 	visible = { 
-		exists = c:TRS
-		NOR = { 
-			c:TRS ?= ROOT 
-			c:TRS ?= {
-				is_subject_of = ROOT
+		any_country = {
+			NOT = { this = ROOT }
+			is_at_war = no
+			country_has_primary_culture = cu:romanian
+			OR = {
+				AND = {
+					exists = top_overlord
+					top_overlord = {
+						THIS = root.top_overlord
+					}
+				}
+				is_subject = no
 			}
-		}
-		c:TRS ?= {
-			is_player = no
+			NOT = { is_subject_of = ROOT }
 		}
 	}
 
@@ -937,33 +966,29 @@ je_marea_unire = {
 	}
 
 	possible = {
-		is_at_war = no
-
-		c:TRS ?= {
-			is_subject = no
-			relations:root >= relations_threshold:amicable
-			is_at_war = no
-		}
+		custom_tooltip = {
+            text = je_unite_the_principalities_amicable_or_better_relations_tt
+			NOT = { has_variable = romania_unification_in_motion  }
+	        any_country = {
+	        	NOT = { this = ROOT }
+				is_at_war = no
+	        	country_has_primary_culture = cu:romanian
+	            relations:root >= relations_threshold:amicable
+	            OR = {
+	            	AND = {
+	            		exists = top_overlord
+						top_overlord = {
+							THIS = root.top_overlord
+						}
+					}
+					is_subject = no
+	            }
+				NOT = { is_subject_of = ROOT }
+	        }
+        }
 	}
 
 	effect = {
-		if = {
-			limit = {
-				has_law = law_type:law_monarchy
-				c:TRS ?= {
-					has_law = law_type:law_monarchy
-				}
-			}
-			create_diplomatic_pact = {
-				country = c:TRS
-				type = personal_union
-			}
-		}
-		else = {
-			create_diplomatic_pact = {
-				country = c:TRS
-				type = puppet
-			}
-		}
+		trigger_event = { id = romania.2 }
 	}
 }

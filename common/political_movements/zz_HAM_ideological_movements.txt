@@ -716,7 +716,7 @@ movement_pro_slavery = {
 			}
 			
 			add = {
-				value = 0.25
+				value = 0.5 # 0.25
 				desc = "RULER_IS_ANTI_SLAVERY"
 			}
 		}

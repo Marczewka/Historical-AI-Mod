@@ -112,7 +112,7 @@ romania.2 = {
         	limit = {
 	        	NOT = { this = ROOT }
 	        	country_has_primary_culture = cu:romanian
-	            relations:root >= 25
+	            relations:root >= relations_threshold:amicable
 	            OR = {
 	            	AND = {
 	            		exists = top_overlord
@@ -123,6 +123,7 @@ romania.2 = {
 					}
 					is_subject = no
 	            }
+				NOT = { is_subject_of = ROOT }
         	}
         	save_scope_as = romania_lesser_partner
         	set_variable = {
@@ -177,7 +178,12 @@ romania.2 = {
 			name = romanian_union_var
 			value = 0
 		}
-		add_journal_entry = { type = je_all_for_one }
+		if = {
+			limit = {
+				NOT = { has_journal_entry = je_all_for_one }
+			}
+			add_journal_entry = { type = je_all_for_one }
+		}
 
 		hidden_effect = {
 			remove_variable = romania_unification_in_motion
@@ -332,12 +338,27 @@ romania.4 = {
 	}
 
 	immediate = {
-        random_scope_state = {
-        	limit = {
-				state_region = s:STATE_BESSARABIA
-        	}
-        	save_scope_as = south_bessarabia_cession
-        }
+		if = {
+			limit = {
+				p:xB0E0A0 = {
+					owner = ROOT
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_BESSARABIA
+				}
+				save_scope_as = south_bessarabia_cession
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_DOBRUDJA
+				}
+				save_scope_as = south_bessarabia_cession
+			}
+		}
         random_country = {
         	limit = {
 				OR = {
@@ -362,10 +383,17 @@ romania.4 = {
 			base = 100
 		}
 
-		s:STATE_BESSARABIA = {
-			set_owner_of_provinces = {
-				country = scope:romanian_bessarabia_receiver
-				provinces = { xB0E0A0 x6BF7B8 x712161 }
+		if = {
+			limit = {
+				p:xB0E0A0 = {
+					owner = ROOT
+				}
+			}
+			s:STATE_BESSARABIA = {
+				set_owner_of_provinces = {
+					country = scope:romanian_bessarabia_receiver
+					provinces = { xB0E0A0 x6BF7B8 x712161 }
+				}
 			}
 		}
 		if = {
@@ -391,6 +419,7 @@ romania.4 = {
 				country = ROOT
 				value = 25
 			}
+			remove_variable = south_bessarabia_cession_in_progress
 		}
 	}
 	option = { 

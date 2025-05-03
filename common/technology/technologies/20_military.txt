@@ -279,7 +279,11 @@ logistics = {
 
 		if = {
 			limit = {
-				has_strategy = ai_strategy_unify_germany
+				OR = {
+					has_strategy = ai_strategy_unify_germany
+					has_strategy = ai_strategy_unify_italy
+					has_journal_entry = je_modernizing_paraguay
+				}
 			}
 			add = 3 # 8
 		}		
@@ -301,7 +305,11 @@ triage = {
 
 		if = {
 			limit = {
-				has_strategy = ai_strategy_unify_germany
+				OR = {
+					has_strategy = ai_strategy_unify_germany
+					has_strategy = ai_strategy_unify_italy
+					has_journal_entry = je_modernizing_paraguay
+				}
 			}
 			add = 3 # 8
 		}		
@@ -338,10 +346,14 @@ percussion_cap = {
 		value = 2 # Important tech in general
 		if = {
 			limit = {
-				has_strategy = ai_strategy_unify_germany
+				OR = {
+					has_strategy = ai_strategy_unify_germany
+					has_strategy = ai_strategy_unify_italy
+					has_journal_entry = je_modernizing_paraguay
+				}
 			}
 			add = 3 # 8
-		}	
+		}
 	}
 }
 
@@ -358,12 +370,16 @@ rifling = {
 	ai_weight = {
 		value = 1 # 2 # Important tech in general
 
-		# if = {
-		# 	limit = {
-		# 		has_strategy = ai_strategy_unify_germany
-		# 	}
-		# 	add = 3 # 8
-		# }		
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_unify_germany
+					has_strategy = ai_strategy_unify_italy
+					has_journal_entry = je_modernizing_paraguay
+				}
+			}
+			add = 3 # 8
+		}		
 	}
 }
 
@@ -506,7 +522,11 @@ enlistment_offices = {
 		
 		if = {
 			limit = {
-				has_strategy = ai_strategy_unify_germany
+				OR = {
+					has_strategy = ai_strategy_unify_germany
+					has_strategy = ai_strategy_unify_italy
+					has_journal_entry = je_modernizing_paraguay
+				}
 			}
 			add = 3 # 8
 		}
@@ -529,12 +549,12 @@ electric_telegraph = {
 	ai_weight = {
 		value = 1.5 # 1
 
-		if = {
-			limit = {
-				has_strategy = ai_strategy_unify_germany
-			}
-			add = 3 # 8
-		}
+		# if = {
+		# 	limit = {
+		# 		has_strategy = ai_strategy_unify_germany
+		# 	}
+		# 	add = 3 # 8
+		# }
 	}
 }
 
@@ -592,7 +612,10 @@ breech_loading_artillery = {
 		
 		if = {
 			limit = {
-				has_strategy = ai_strategy_unify_germany
+				OR = {
+					has_strategy = ai_strategy_unify_germany
+					has_strategy = ai_strategy_unify_italy
+				}
 			}
 			add = 3 # 8
 		}

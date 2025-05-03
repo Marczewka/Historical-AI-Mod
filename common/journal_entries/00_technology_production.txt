@@ -390,6 +390,7 @@ je_combustion_engines = {
 	}
 
 	timeout = 3650
+	should_be_pinned_by_default = yes
 }
 
 # Branching Out
@@ -518,6 +519,7 @@ je_railroads = {
 	}
 
 	timeout = 3650
+	should_be_pinned_by_default = yes
 }
 
 je_telephone = {
@@ -567,6 +569,7 @@ je_telephone = {
 	}
 
 	timeout = 3650
+	should_be_pinned_by_default = yes
 }
 
 je_whaling = {
@@ -616,6 +619,7 @@ je_whaling = {
 	}
 
 	timeout = 3650
+	should_be_pinned_by_default = yes
 }
 
 je_pumpjacks = {
@@ -658,6 +662,7 @@ je_pumpjacks = {
 	}
 
 	timeout = 3650
+	should_be_pinned_by_default = yes
 }
 
 je_electrical_generation = {
@@ -701,6 +706,7 @@ je_electrical_generation = {
 	}
 
 	timeout = 3650
+	should_be_pinned_by_default = yes
 }
 
 je_steam_engines = {
@@ -757,4 +763,5 @@ je_steam_engines = {
 	}
 
 	timeout = 3650
+	should_be_pinned_by_default = yes
 }

@@ -57,6 +57,8 @@ je_suez_canal = {
 
 	group = je_group_foreign_affairs
 
+	scripted_button = suez_canal_purchase
+
 	complete = {
 		s:STATE_SINAI = {
 			any_scope_state = {
@@ -150,6 +152,8 @@ je_panama_canal = {
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
 	group = je_group_foreign_affairs
+
+	scripted_button = panama_canal_purchase
 
 	complete = {
 		s:STATE_PANAMA = {

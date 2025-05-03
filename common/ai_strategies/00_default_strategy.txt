@@ -1526,6 +1526,12 @@ ai_strategy_default = {
 				else_if = { # Secondarily take our homelands
 					limit = {
 						scope:target_state = { is_homeland_of_country_cultures = root }
+						NOT = {
+							country_has_primary_culture = cu:central_american
+							country_has_primary_culture = cu:north_andean
+							country_has_primary_culture = cu:south_andean
+							country_has_primary_culture = cu:platinean
+						}
 					}
 					multiply = 2
 				}
@@ -1874,7 +1880,6 @@ ai_strategy_default = {
 				if = { # Dutch East Indies wishes to consolidate Indonesia
 					limit = {
 						c:DEI ?= this
-						has_technology_researched = civilizing_mission
 						scope:target_state = {
 							AND = {
 								region = sr:region_indonesia
@@ -3340,7 +3345,7 @@ ai_strategy_default = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 1
+			add = 1.5
 		}
 
 		# Sardinia confident after treaty of Turin
@@ -3722,21 +3727,23 @@ ai_strategy_default = {
 					"ai_ideological_opinion(scope:target_country)" > -50
 				}
 				scope:target_country = {
-					OR = {
-						state_region = s:STATE_PIEDMONT
-						state_region = s:STATE_LOMBARDY
-						state_region = s:STATE_VENETIA
-						state_region = s:STATE_EMILIA
-						state_region = s:STATE_TUSCANY
-						state_region = s:STATE_ROMAGNA
-						state_region = s:STATE_UMBRIA
-						state_region = s:STATE_LAZIO
-						state_region = s:STATE_ABRUZZO
-						state_region = s:STATE_CAMPANIA
-						state_region = s:STATE_APULIA
-						state_region = s:STATE_CALABRIA
-						state_region = s:STATE_SICILY
-						state_region = s:STATE_SARDINIA	
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_PIEDMONT
+							state_region = s:STATE_LOMBARDY
+							state_region = s:STATE_VENETIA
+							state_region = s:STATE_EMILIA
+							state_region = s:STATE_TUSCANY
+							state_region = s:STATE_ROMAGNA
+							state_region = s:STATE_UMBRIA
+							state_region = s:STATE_LAZIO
+							state_region = s:STATE_ABRUZZO
+							state_region = s:STATE_CAMPANIA
+							state_region = s:STATE_APULIA
+							state_region = s:STATE_CALABRIA
+							state_region = s:STATE_SICILY
+							state_region = s:STATE_SARDINIA	
+						}
 					}
 				}
 			}
@@ -3959,7 +3966,6 @@ ai_strategy_default = {
 		if = { # Dutch East Indies
 			limit = {
 				c:DEI ?= this
-				has_technology_researched = civilizing_mission
 				scope:target_country = {
 					capital.region = sr:region_indonesia
 					NOT = { capital.state_region = s:STATE_NORTH_BORNEO }
@@ -4541,20 +4547,34 @@ ai_strategy_default = {
 		}
 
 		if = {
-			limit = { scaled_gold_reserves >= 0.9 }
-			multiply = 3
+			limit = { 
+				scaled_gold_reserves >= 0.9 
+			}
+			multiply = 2
 		}	
 		else_if = {
-			limit = { scaled_gold_reserves >= 0.75 }
-			multiply = 2
+			limit = { 
+				scaled_gold_reserves >= 0.75 
+			}
+			multiply = 1.5
 		}
 		else_if = {
-			limit = { scaled_gold_reserves >= 0.5 }
-			multiply = 1.5
+			limit = { 
+				scaled_gold_reserves >= 0.5 
+			}
+			multiply = 1.25
 		}
 
 		min = 5
-		max = 10000
+		if = {
+			limit = {
+				gdp < 1000000	
+			}
+			max = 10
+		}
+		else = {
+			max = 10000
+		}
 	}
 	
 	# How many levels of barracks should the AI have
@@ -4665,17 +4685,24 @@ ai_strategy_default = {
 		else_if = {
 			limit = {
 				has_strategy = ai_strategy_unify_germany 
+				NOT = { c:GER ?= this }
 			}
 			multiply = 2.0
 		}
 
 		if = {
 			limit = {
-				has_journal_entry = je_modernizing_paraguay
+				OR = {
+					AND = {
+						c:ARG ?= this
+						game_date < 1836.5.1 
+					}
+					has_modifier = modifier_against_the_confederation
+				}
 			}
-			multiply = 2.0
+			add = 10
 		}
-		
+
 		if = {
 			limit = { has_law = law_type:law_national_militia }
 			multiply = 0.33
@@ -4698,7 +4725,7 @@ ai_strategy_default = {
 					OR = {
 						region = sr:region_england
 						region = sr:region_north_sea_coast
-			}
+					}
 				}
 			}
 			
@@ -4950,6 +4977,13 @@ ai_strategy_default = {
 			limit = { has_law = law_type:law_mass_conscription }
 			add = 1 # 0.5
 		}	
+
+		if = {
+			limit = {
+				has_modifier = modifier_against_the_confederation
+			}
+			add = 2
+		}
 
 		if = {
 			limit = { 
@@ -6966,7 +7000,7 @@ ai_strategy_default = {
 			}	
 		}		
 		dominate = {
-			value = -25 # 0
+			value = -50 # 0
 			
 			if = {
 				limit = {
@@ -8107,6 +8141,15 @@ ai_strategy_default = {
 					}
 					multiply = 0.5
 				}			
+			}
+
+			if = {
+				limit = {
+					c:BOL ?= this
+					has_journal_entry = je_peru_bolivia
+					scope:target_state = { owner = root }
+				}
+				add = 50
 			}
 
 			# Relations with target

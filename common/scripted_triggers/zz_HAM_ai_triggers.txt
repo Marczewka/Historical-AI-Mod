@@ -804,6 +804,62 @@ has_je_protect_reason = {
 has_je_reconcile_reason = {
 	OR = {
 		AND = {
+			has_journal_entry = je_suez_canal
+			is_subject = no
+			has_variable = suez_canal_purchase
+			NOT = { 
+				has_global_variable = suez_canal_purchase_var
+				has_global_variable = suez_canal_complete
+			}
+			s:STATE_SINAI = {
+				any_scope_state = {
+					NOT = {
+						any_scope_building = { 
+							is_building_type = building_suez_canal 
+						}
+					}
+					owner = {
+						owns_treaty_port_in = STATE_SINAI
+						NOT = { 
+							has_variable = suez_survey_complete 
+						}
+					}
+				}
+			}
+			$TARGET$ = {
+				p:xC01060.state.owner = this
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_panama_canal
+			is_subject = no
+			has_variable = panama_canal_purchase
+			NOT = { 
+				has_global_variable = panama_canal_purchase_var
+				has_global_variable = panama_canal_complete
+			}
+			s:STATE_PANAMA = {
+				any_scope_state = {
+					NOT = {
+						any_scope_building = { 
+							is_building_type = building_panama_canal 
+						}
+					}
+					owner = {
+						owns_treaty_port_in = STATE_PANAMA
+						NOT = { 
+							has_variable = panama_survey_complete 
+						}
+					}
+				}
+			}
+			$TARGET$ = {
+				p:xD0EF40.state.owner = this
+			}
+		}
+
+		AND = {
 			has_journal_entry = je_sale_of_alaska
 			$TARGET$ = { 
 				NOT = { is_subject = yes }

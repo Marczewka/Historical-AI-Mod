@@ -32,7 +32,7 @@
 		}
 		custom_tooltip = {
 			text = je_sick_man_main_failure_movements_tt
-			set_variable = {
+			add_modifier = {
 				name = failed_tanzimat
 				years = 30 # 20
 			}

@@ -1717,7 +1717,7 @@ ai_strategy_unify_italy = {
 			value = 0
 			if = {
 				limit = {
-					country_rank >= rank_value:great_power
+					country_rank >= rank_value:major_power
 				}
 				add = 1000
 			}
@@ -1830,18 +1830,7 @@ ai_strategy_unify_afghanistan = {
 	
 	diplomatic_play_boldness = {
 		value = 50
-	}
-		
-	obligation_value = {
-		# value = 0
-	
-		if = {
-			limit = { 
-				scope:target_country = { has_journal_entry = je_unify_afghanistan }
-			}
-			add = 5 # 25
-		}
-	}			
+	}	
 		
 	recklessness = {
 		value = 0.25
@@ -2015,21 +2004,10 @@ ai_strategy_unify_ethiopia = {
 	
 	diplomatic_play_boldness = {
 		value = 50
-	}
-		
-	obligation_value = {
-		# value = 0
-	
-		if = {
-			limit = { 
-				scope:target_country = { can_form_nation = ETH }
-			}
-			add = 5 # 25
-		}
-	}			
+	}		
 		
 	recklessness = {
-		value = 0.25 # 1.0
+		value = 0.5 # 1.0
 	}	
 	
 	aggression = {
@@ -2205,21 +2183,10 @@ ai_strategy_unify_arabia = {
 	
 	diplomatic_play_boldness = {
 		value = 50
-	}
-		
-	obligation_value = {
-		# value = 0
-	
-		if = {
-			limit = { 
-				scope:target_country = { can_form_nation = ARA }
-			}
-			add = 5 # 25
-		}
-	}			
+	}		
 		
 	recklessness = {
-		value = 0.25 # 0.5
+		value = 0.5
 	}	
 	
 	aggression = {
@@ -2715,21 +2682,10 @@ ai_strategy_unify_china = {
 	
 	diplomatic_play_boldness = {
 		value = 50
-	}
-		
-	obligation_value = {
-		# value = 0
-	
-		if = {
-			limit = { 
-				scope:target_country = { can_form_nation = CHI }
-			}
-			add = 5 # 25
-		}
-	}			
+	}		
 		
 	recklessness = {
-		value = 0.25 # 0.5
+		value = 0.5
 	}	
 	
 	aggression = {

@@ -54,6 +54,12 @@
         }
     }
 
+    invalid = {
+        any_overlord_or_above ?= { # Can't unite the principalities if you're already the lesser in a pact with another Romanian state
+            country_has_primary_culture = cu:romanian
+        }
+    }
+
     # timeout = 0 # no timeout. Romania is eternal.
 
     weight = 1000

@@ -387,7 +387,7 @@ movement_cultural_minority = {
 		if = {
 			limit = {
 				owner ?= {
-					has_variable = failed_tanzimat
+					has_modifier = failed_tanzimat
 				}
 				culture = { has_discrimination_trait = european_heritage }
 			}
@@ -740,7 +740,7 @@ movement_cultural_minority = {
 		if = {
 			limit = {
 				owner ?= {
-					has_variable = failed_tanzimat
+					has_modifier = failed_tanzimat
 				}
 				culture = { has_discrimination_trait = european_heritage }
 			}
@@ -910,7 +910,7 @@ movement_cultural_minority = {
 		if = {
 			limit = {
 				owner ?= {
-					has_variable = failed_tanzimat
+					has_modifier = failed_tanzimat
 				}
 				scope:culture = { has_discrimination_trait = european_heritage }
 			}

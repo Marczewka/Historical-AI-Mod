@@ -39,6 +39,10 @@
 			}
 		}
 	}
+
+	ai_chance = {
+		base = 100
+	}
 }
 
 ybycui_iron_works_button = {
@@ -130,6 +134,10 @@ ybycui_iron_works_button = {
 			}
 		}
 	}
+
+	ai_chance = {
+		base = 100
+	}
 }
 
 good_health_prg_button = {
@@ -148,7 +156,7 @@ good_health_prg_button = {
 			state_region = s:STATE_BAJO_PARAGUAY
 			any_scope_building = {
 				is_building_type = building_urban_center
-				level >= 2
+				level >= 1 # 2
 			}
 		}
 		OR = {
@@ -203,6 +211,10 @@ good_health_prg_button = {
 			}
 		}
 	}
+
+	ai_chance = {
+		base = 100
+	}
 }
 
 army_git_good_button = {
@@ -217,18 +229,7 @@ army_git_good_button = {
 	}
 
 	possible = {
-		OR = {
-			has_law = law_type:law_professional_army
-			has_law = law_type:law_mass_conscription
-		}
-		any_scope_state = {
-			state_region = s:STATE_BAJO_PARAGUAY
-            any_scope_building = {
-                is_building_type = building_barracks
-                level >= 15 # 20
-                occupancy >= 0.5
-            }
-        }
+		has_law = law_type:law_mass_conscription
 	}
 
 	effect = {
@@ -255,5 +256,9 @@ army_git_good_button = {
 				months = very_long_modifier_time
 			}
 		}
+	}
+
+	ai_chance = {
+		base = 100
 	}
 }
