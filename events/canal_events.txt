@@ -127,7 +127,7 @@ canal_events.3 = { #Deal accepted
 		s:STATE_SINAI = {
 			set_owner_of_provinces = {
 				country = ROOT
-				provinces = { xC01060 }
+				provinces = { xC01060 x8ED45E }
 			}
 		}
 		change_relations = {
