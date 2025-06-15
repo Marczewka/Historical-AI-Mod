@@ -500,7 +500,7 @@ ai_strategy_default = {
 			}
 		}
 
-		### Brethren Secession
+		### Brotherly Secession
 		if = {
 			limit = { 
 				exists = scope:is_initiator
@@ -518,7 +518,7 @@ ai_strategy_default = {
 			}
 			add = {
 				value = 500
-				desc = "brethren_secession"
+				desc = "brotherly_secession"
 			}
 		}
 

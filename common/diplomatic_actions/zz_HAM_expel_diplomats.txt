@@ -36,7 +36,7 @@
 	accept_effect = {
 		change_relations = { country = scope:target_country value = -30 }
 		set_diplomats_expelled = scope:target_country
-		change_infamy = 5 # 10
+		change_infamy = 10
 		if = {
 			limit = {
 				scope:target_country = {

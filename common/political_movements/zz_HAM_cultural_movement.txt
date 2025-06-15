@@ -777,7 +777,7 @@ movement_cultural_minority = {
 			}
 			multiply = {
 				value = 2.0
-				desc = "INDEPENDENT_BRETHREN_NATION"
+				desc = "INDEPENDENT_BROTHERLY_NATION"
 			}
 		}
 
@@ -934,7 +934,7 @@ movement_cultural_minority = {
 			}
 			add = {
 				value = 0.15
-				desc = "INDEPENDENT_BRETHREN_NATION"
+				desc = "INDEPENDENT_BROTHERLY_NATION"
 			}
 		}
 

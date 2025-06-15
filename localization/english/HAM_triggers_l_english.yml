@@ -1,0 +1,7 @@
+﻿l_english:
+ TRIGGER_HAS_STRATEGIC_LAND_ADJACENCY:0 "Has a strategic land adjacency to $TARGET$"
+ TRIGGER_HAS_STRATEGIC_LAND_ADJACENCY_NOT:1 "Does #bold not #!have a strategic land adjacency to $TARGET$"
+ TRIGGER_HAS_STRATEGIC_LAND_ADJACENCY_FIRST:0 "[COUNTRY.GetNameNoFlag] has a strategic land adjacency to $TARGET$"
+ TRIGGER_HAS_STRATEGIC_LAND_ADJACENCY_FIRST_NOT:0 "[COUNTRY.GetNameNoFlag] does #bold not#! have a strategic land adjacency to $TARGET$"
+ TRIGGER_HAS_STRATEGIC_LAND_ADJACENCY_THIRD:0 "[COUNTRY.GetName] has a strategic land adjacency to $TARGET$"
+ TRIGGER_HAS_STRATEGIC_LAND_ADJACENCY_THIRD_NOT:0 "[COUNTRY.GetName] does #bold not#! have a strategic land adjacency to $TARGET$"
