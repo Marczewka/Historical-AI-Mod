@@ -266,65 +266,6 @@ expert_defensive_strategist = {
 	value = 3
 }
 
-# Multiclass Skills
-
-explorer = {
-	type = skill
-	texture = "gfx/interface/icons/character_trait_icons/explorer.dds"
-
-	character_modifier = {
-		character_popularity_add = 15
-		# character_expedition_events_explorer_mult = 2
-	}
-
-	country_modifier = {
-		country_prestige_add = 10
-		# country_expedition_events_explorer_mult = 0.5
-	}
-
-	possible = {
-		OR = {
-			is_commander = yes
-			is_ruler = yes
-			is_heir = yes
-		}
-		NOT = { age < define:NCharacters|ADULT_AGE }
-	}
-
-	weight = {
-		value = 1	# low base weight, since any character other than IG leaders can qualify for this trait
-		if = {
-			limit = {
-				is_commander = yes
-			}
-			multiply = 4
-		}
-		if = {
-			limit = {
-				OR = {
-					has_trait = persistent
-					has_trait = romantic
-					has_trait = brave
-				}
-			}
-			multiply = 2
-		}
-		if = {
-			limit = {
-				OR = {
-					has_trait = cautious
-				}
-			}
-			divide = 2
-		}
-	}
-
-	replace = {
-	}
-
-	value = 2
-}
-
 engineer = {
 	type = skill
 	texture = "gfx/interface/icons/character_trait_icons/engineer.dds"

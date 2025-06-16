@@ -234,20 +234,20 @@ on_monthly_pulse_country = {
 					c:RUS ?= this
 				}
 				### Generic Objectives
-				# if = {
-				# 	limit = {
-				# 		NOT = {
-				# 			has_variable = je_tibet_expedition_ai_var
-				# 		}
-				# 		has_variable = tibet_has_started
-				# 		NOT = { has_global_variable = tibet_expedition_completed }
-				# 		has_interest_marker_in_region = region_himalayas
-				# 	}
-				# 	set_variable = je_tibet_expedition_ai_var
-				# 	add_journal_entry = {
-				# 		type = je_tibet_expedition
-				# 	}
-				# }
+				if = {
+					limit = {
+						NOT = {
+							has_variable = je_tibet_expedition_ai_var
+						}
+						has_variable = tibet_has_started
+						NOT = { has_global_variable = tibet_expedition_completed }
+						has_interest_marker_in_region = region_himalayas
+					}
+					set_variable = je_tibet_expedition_ai_var
+					add_journal_entry = {
+						type = je_tibet_expedition
+					}
+				}
 				if = {
 					limit = {
 						NOT = {
@@ -383,20 +383,20 @@ on_monthly_pulse_country = {
 					has_journal_entry = je_great_game_control
 				}
 				### Generic Objectives
-				# if = {
-				# 	limit = {
-				# 		NOT = {
-				# 			has_variable = je_tibet_expedition_ai_var
-				# 		}
-				# 		has_variable = tibet_has_started
-				# 		NOT = { has_global_variable = tibet_expedition_completed }
-				# 		has_interest_marker_in_region = region_himalayas
-				# 	}
-				# 	set_variable = je_tibet_expedition_ai_var
-				# 	add_journal_entry = {
-				# 		type = je_tibet_expedition
-				# 	}
-				# }
+				if = {
+					limit = {
+						NOT = {
+							has_variable = je_tibet_expedition_ai_var
+						}
+						has_variable = tibet_has_started
+						NOT = { has_global_variable = tibet_expedition_completed }
+						has_interest_marker_in_region = region_himalayas
+					}
+					set_variable = je_tibet_expedition_ai_var
+					add_journal_entry = {
+						type = je_tibet_expedition
+					}
+				}
 				if = {
 					limit = {
 						NOT = {
@@ -490,32 +490,32 @@ on_monthly_pulse_country = {
 						type = je_consolidate_british_india
 					}
 				}
-				# if = {
-				# 	limit = {
-				# 		NOT = {
-				# 			has_variable = je_pamir_expedition_objective_ai_var
-				# 		}
-				# 		c:RUS ?= {
-				# 			OR = {
-				# 				any_scope_state = {
-				# 					state_region = s:STATE_TAJIKISTAN
-				# 				}
-				# 				any_subject_or_below = {
-				# 					any_scope_state = {
-				# 						state_region = s:STATE_TAJIKISTAN
-				# 					}
-				# 				}
-				# 			}
-				# 		}
-				# 		NOT = {
-				# 			has_variable = dismissed_pamir_expedition
-				# 		}
-				# 	}
-				# 	set_variable = je_pamir_expedition_objective_ai_var
-				# 	add_journal_entry = {
-				# 		type = je_pamir_expedition_objective
-				# 	}
-				# }
+				if = {
+					limit = {
+						NOT = {
+							has_variable = je_pamir_expedition_objective_ai_var
+						}
+						c:RUS ?= {
+							OR = {
+								any_scope_state = {
+									state_region = s:STATE_TAJIKISTAN
+								}
+								any_subject_or_below = {
+									any_scope_state = {
+										state_region = s:STATE_TAJIKISTAN
+									}
+								}
+							}
+						}
+						NOT = {
+							has_variable = dismissed_pamir_expedition
+						}
+					}
+					set_variable = je_pamir_expedition_objective_ai_var
+					add_journal_entry = {
+						type = je_pamir_expedition_objective
+					}
+				}
 			}
 			
 			if = {
@@ -1197,15 +1197,15 @@ on_research_technology_started = {
 # scope:technology = The technology type they just acquired
 on_acquired_technology = {
 	effect = {
-		# if = {
-		# 	limit = {
-		# 		has_variable = grand_exhibition_points_change
-		# 	}
-		# 	change_variable = {
-		# 		name = grand_exhibition_points_change
-		# 		add = 3
-		# 	}
-		# }
+		if = {
+			limit = {
+				has_variable = grand_exhibition_points_change
+			}
+			change_variable = {
+				name = grand_exhibition_points_change
+				add = 3
+			}
+		}
 		if = {
 			limit = {
 				has_game_started = yes
@@ -1392,17 +1392,17 @@ on_character_death = {
 			}
 		}
 		
-		# if = {
-		# 	limit = {
-		# 		has_variable = expedition_leader_var
-		# 		owner = {
-		# 			NOT = { has_variable = tibet_expedition_progress_var }
-		# 		}
-		# 	}
-		# 	owner = {
-		# 		trigger_event = expedition_events.110
-		# 	}
-		# }
+		if = {
+			limit = {
+				has_variable = expedition_leader_var
+				owner = {
+					NOT = { has_variable = tibet_expedition_progress_var }
+				}
+			}
+			owner = {
+				trigger_event = expedition_events.110
+			}
+		}
 
 		### Force-generating French monarchs of the correct dynasty if something goes wrong
 		if = {

@@ -662,8 +662,8 @@ movement_pro_slavery = {
 					limit = {
 						OR = {
 							state_region = s:STATE_MARYLAND
-							# state_region = s:STATE_DELAWARE
-							# state_region = s:STATE_DISTRICT_OF_COLUMBIA
+							state_region = s:STATE_DELAWARE
+							state_region = s:STATE_DISTRICT_OF_COLUMBIA
 						}					
 					}
 					
