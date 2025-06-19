@@ -1052,7 +1052,17 @@ ai_strategy_default = {
 			add = 50
 		}
 
-		
+		# Good luck Denmark
+		if = {
+			limit = {
+				c:DEN ?=this
+				scope:diplomatic_play.target = { c:DEN ?= this }
+				scope:diplomatic_play.initiator = {
+					has_journal_entry = je_schleswig_holstein_question
+				}
+			}
+			add = 50
+		}
 	} 
 		
 	# How many maneuvers are we OK with using up in the initial phase to add more wargoals
@@ -1380,21 +1390,6 @@ ai_strategy_default = {
 			add = 15
 		}
 
-		# ### Schleswig-Holstein
-		# if = {
-		# 	limit = { 
-		# 		wants_to_solve_schleswig_holstein = yes
-		# 		scope:target_country = {
-		# 			any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
-		# 			any_overlord_or_above = {
-		# 				is_oppressor_of_schleswig_holstein = yes
-		# 			}
-		# 		}
-		# 	}
-
-		# 	add = 15
-		# }
-
 		min = 0
 		max = 30
 	}
@@ -1484,10 +1479,10 @@ ai_strategy_default = {
 						limit = {
 							scope:target_state = { is_incorporated = yes }
 						}
-						multiply = 4.0
+						multiply = 6.0
 					}
 					else = {
-						multiply = 2.0
+						multiply = 4.0
 					}	
 				}				
 				else = { # Value owned states higher than foreign states by default
@@ -1498,7 +1493,7 @@ ai_strategy_default = {
 						multiply = 3.0
 					}
 					else = {
-						multiply = 1.5 
+						multiply = 2.0
 					}							
 				}
 		
@@ -1522,9 +1517,7 @@ ai_strategy_default = {
 				}		
 			}
 			else = {
-			### Bordergore prevention
-
-				if = { # Primarily take claims and important split states
+				if = {
 					limit = { 
 						OR = {
 							scope:target_state = { 
@@ -2024,7 +2017,7 @@ ai_strategy_default = {
 							}
 						}
 					}
-					add = 100 # 25
+					add = 25
 				}
 			}
 		
@@ -3006,7 +2999,7 @@ ai_strategy_default = {
 				NOT = { is_diplomatic_play_enemy_of = scope:target_country }
 				scope:target_country.infamy >= infamy_threshold:pariah		
 			}
-			add = 10 # 1
+			add = 1
 		}		
 		
 		# Braver against own overlord in general
@@ -3111,6 +3104,22 @@ ai_strategy_default = {
 			add = 1
 		}
 
+		# # Greek Nationalism
+		# if = {
+		# 	limit = {
+		# 		NOT = { is_diplomatic_play_enemy_of = scope:target_country }
+		# 		has_journal_entry = je_greek_nationalism
+		# 		scope:target_country = {
+		# 			NOT = { country_has_primary_culture = cu:greek }
+		# 			any_scope_state = {
+		# 				state_region = { is_homeland = cu:greek }
+		# 				has_claim_by = root
+		# 			}
+		# 		}
+		# 	}
+		# 	add = 1.0
+		# }	
+
 		# USA should be confident against owners of Oregon
 		if = {
 			limit = {
@@ -3190,22 +3199,6 @@ ai_strategy_default = {
 			add = 1
 		}
 	
-		# # Greek Nationalism
-		# if = {
-		# 	limit = {
-		# 		NOT = { is_diplomatic_play_enemy_of = scope:target_country }
-		# 		has_journal_entry = je_greek_nationalism
-		# 		scope:target_country = {
-		# 			NOT = { country_has_primary_culture = cu:greek }
-		# 			any_scope_state = {
-		# 				state_region = { is_homeland = cu:greek }
-		# 				has_claim_by = root
-		# 			}
-		# 		}
-		# 	}
-		# 	add = 1.0
-		# }	
-		
 		# Ottoman breakup
 		if = {
 			limit = {
@@ -3528,7 +3521,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 300
+			add = 100
 		}
 		
 		# Opium wars aggressor should be very, very aggressive against target if they're banning opium
@@ -3540,7 +3533,7 @@ ai_strategy_default = {
 					is_banning_goods = g:opium
 				}
 			}
-			add = 300
+			add = 100
 		}
 		
 		# Greek Nationalism
@@ -3601,7 +3594,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 50
+			add = 5
 		}
 
 		if = { #Carving up China
@@ -3634,7 +3627,7 @@ ai_strategy_default = {
 					THIS = c:EGY
 				}
 			}
-			add = 300
+			add = 100
 		}
 
 		# USA should be extremely aggressive against owners of their Manifest Destiny states
@@ -3658,7 +3651,7 @@ ai_strategy_default = {
 					NOT = { has_journal_entry = je_texas_tex }	
 				}
 			}
-			add = 300
+			add = 100
 		}
 
 		# USA should be aggressive against CSA
@@ -3722,7 +3715,7 @@ ai_strategy_default = {
 					has_journal_entry = je_peru_bolivia
 				}
 			}
-			add = 300
+			add = 100
 		}
 
 		if = {
@@ -8423,12 +8416,6 @@ ai_strategy_default = {
 						AND = {
 							exists = c:HOL
 							scope:target_country = { this = c:HOL }
-							NAND = {
-								exists = c:SCH
-								c:SCH.top_overlord = {
-									is_oppressor_of_schleswig_holstein = yes
-								}
-							}
 						}
 					}
 					scope:target_country.top_overlord = {

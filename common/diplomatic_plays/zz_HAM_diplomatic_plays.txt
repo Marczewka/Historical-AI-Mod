@@ -19,9 +19,6 @@ dp_make_dominion = {
 	selectable_in_lens = {
 		always = no
 	}
-	selectable_in_lens = {
-		always = no
-	}
 }
 
 dp_secession = {
@@ -91,36 +88,6 @@ dp_unify_afghanistan = {
 			custom_tooltip = {
 				text = AFG_tt
 				can_form_nation = AFG
-			}
-		}
-	}
-	
-	on_weekly_pulse = {}
-	
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-
-dp_leadership_germany = {
-	war_goal = unification_leadership
-	
-	requires_interest_marker = no
-	mirror_war_goal = yes
-	
-	texture = "gfx/interface/icons/war_goals/unify_germany.dds"
-	
-	selectable_in_lens = {
-		always = no
-	}	
-	
-	possible = {
-		OR = {
-			has_technology_researched = pan-nationalism # nationalism		
-			custom_tooltip = {
-				text = german_homelands_trigger_desc
-				has_global_variable = german_homelands_under_threat
 			}
 		}
 	}

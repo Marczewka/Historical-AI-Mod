@@ -337,7 +337,7 @@
 			value = "owner.average_sol"
 			subtract = "owner.average_sol_for_religion(scope:religion)"
 			multiply = 0.1 # 0.05
-			max = 0.25 # Revert after fix 0.5 
+			max = 0.5 
 			min = 0
 			desc = "STANDARD_OF_LIVING_FOR_RELIGION"
 		}
@@ -760,7 +760,7 @@ movement_religious_minority = {
 			value = "owner.average_sol"
 			subtract = "owner.average_sol_for_religion(scope:religion)"
 			multiply = 0.1 # 0.05
-			max = 0.25 # Revert after fix 0.5
+			max = 0.5
 			min = 0
 			desc = "STANDARD_OF_LIVING_FOR_RELIGION"
 		}
