@@ -327,6 +327,15 @@ has_je_conquest_reason = {
 		}
 
 		AND = {
+			has_global_variable = schleswig_holstein_question_solved
+			has_strategy = ai_strategy_unify_germany
+			is_unification_candidate = GER
+			$TARGET$ = {
+				is_unification_candidate = GER
+			}
+		}
+
+		AND = {
 			has_journal_entry = je_acre_dispute
 			$TARGET$ = {
 				any_scope_state = {
@@ -430,14 +439,6 @@ has_je_conquest_reason = {
 				is_revolutionary = no
 			}
 		}	
-
-		AND = {
-			has_global_variable = schleswig_holstein_question_solved
-			has_strategy = ai_strategy_unify_germany
-			$TARGET$ = {
-				is_unification_candidate = GER
-			}
-		}
 
 		AND = {
 			is_unification_candidate = ITA
@@ -577,7 +578,7 @@ has_je_befriend_reason = {
 		}
 
 		AND = {
-			has_journal_entry = vtm_je_treaty_of_turin
+			this ?= c:FRA
 			$TARGET$ = { 
 				has_journal_entry = je_risorgimento
 				any_scope_state = {
@@ -592,7 +593,7 @@ has_je_befriend_reason = {
 				state_region = s:STATE_SAVOY
 			}
 			$TARGET$ = { 
-				has_journal_entry = vtm_je_treaty_of_turin
+				this ?= c:FRA
 			}
 		}
 
@@ -720,7 +721,7 @@ has_je_protect_reason = {
 		}
 
 		AND = {
-			has_journal_entry = vtm_je_treaty_of_turin
+			this ?= c:FRA
 			$TARGET$ = { 
 				has_journal_entry = je_risorgimento
 				any_scope_state = {

@@ -153,7 +153,7 @@ boxer_rebellion_events.2 = {
 		}
 		add_modifier = {
 			name = revere_the_emperor	
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 		chi_add_1_fragile_unity = yes
 		set_variable = won_boxer_rebellion
@@ -166,7 +166,7 @@ boxer_rebellion_events.2 = {
 		}
 		add_modifier = {
 			name = united_in_righteousness	
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 		chi_add_1_fragile_unity = yes
 		set_variable = won_boxer_rebellion

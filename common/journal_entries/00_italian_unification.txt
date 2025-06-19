@@ -8,13 +8,35 @@
 			country_has_primary_culture = cu:north_italian
 			country_has_primary_culture = cu:south_italian
 		}
+		# NOR = {
+		# 	is_revolutionary = yes
+		# 	is_secessionist = yes
+		# }
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_risorgimento_italian_minors_tt
+				trigger = {
+					has_journal_entry = je_risorgimento
+				}
+			}
+			triggered_desc = {
+				desc = blank_tt
+				trigger = {
+					NOT = {
+						has_journal_entry = je_risorgimento
+					}
+				}
+			}
+		}
 	}	
 	
 	scripted_button = je_risorgimento_austrian_radicals_button
 	scripted_button = je_risorgimento_italian_radicals_button
 	scripted_button = je_risorgimento_italian_unification_button
 	scripted_button = je_risorgimento_change_stance_button
-	scripted_button = vtm_je_italian_unification_button
 
 	immediate = {
 		cu:north_italian = {
@@ -41,6 +63,9 @@
 	}
 
 	complete = {
+		hidden_trigger = {
+			has_variable = je_unification_progress
+		}
 		custom_tooltip = {
 			text = is_italy_tt
 			c:ITA ?= this
@@ -54,12 +79,18 @@
 		}
 	}
 
-	# on_monthly_pulse = {
-	# 	random_events = {
-	# 		180 = 0
-	# 		20 = italian_unification.2
-	# 	}
-	# }
+	on_monthly_pulse = {
+		# random_events = {
+		# 	180 = 0
+		# 	20 = italian_unification.2
+		# }
+		effect = {
+			if = {
+				limit = { NOT = { has_variable = je_unification_progress } }
+				set_variable = je_unification_progress
+			}
+		}
+	}
 
 	on_complete = {
 		show_as_tooltip = {

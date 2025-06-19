@@ -23,14 +23,20 @@
 	
 	possible = {
 		# Might have these despite low relations due to a forced pact
-		NOT = { has_diplomatic_pact = { who = scope:target_country type = alliance } }	
-		NOT = { has_diplomatic_pact = { who = scope:target_country type = defensive_pact } }	
-
-		OR = {
-			is_adjacent_to_country = scope:target_country
-			AND = {
-				has_port = yes
-				scope:target_country = { has_port = yes }
+		NOT = {
+			any_scope_treaty = {
+				binds = scope:target_country
+				any_scope_article = {
+					has_type = alliance
+				}
+			}
+		}
+		NOT = {
+			any_scope_treaty = {
+				binds = scope:target_country
+				any_scope_article = {
+					has_type = defensive_pact
+				}
 			}
 		}
 	}
@@ -182,7 +188,7 @@
 	}
 	
 	ai = {
-		check_acceptance_for_will_break = yes # no
+		check_acceptance_for_will_break = no
 		
 		evaluation_chance = {
 			value = 0.1

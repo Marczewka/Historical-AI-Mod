@@ -20,12 +20,65 @@
 						}
 					}
 				}
+				relations:root <= 20
+				any_political_movement = {
+					is_political_movement_type = movement_cultural_minority
+					culture ?= cu:polish
+				}
 				NOT = {
 					any_political_movement = {
-						has_modifier = polish_radicals
+						has_modifier = modifier_polish_unificationist_sentiment
 					}
 				}
 			}
+		}
+	}
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				has_law = law_type:law_theocracy
+			}
+			add = -10
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOT = {
+						country_has_primary_culture = cu:polish
+					}
+					any_scope_state = {
+						state_region = {
+							is_homeland = cu:polish
+						}
+					}
+					relations:root <= 0
+				}
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOT = {
+						country_has_primary_culture = cu:polish
+					}
+					any_scope_state = {
+						state_region = {
+							is_homeland = cu:polish
+						}
+					}
+					relations:root <= -20
+				}
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				is_at_war = yes
+			}
+			multiply = 0
 		}
 	}
 
@@ -50,11 +103,10 @@
 						OR = {
 							culture = cu:polish
 						}
-						has_modifier = polish_radicals
+						has_modifier = modifier_polish_unificationist_sentiment
 					}
 				}
 			}
-			change_relations = { country = ROOT value = -25 }
 			every_scope_state = {
 				limit = {
 					state_region = { 
@@ -67,23 +119,7 @@
 				}
 				set_variable = {
 					name = christ_of_nations_target
-					months = long_modifier_time
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						any_political_movement = {
-							is_political_movement_type = movement_cultural_minority
-							OR = {
-								culture = cu:polish
-							}
-						}
-					}
-				}
-				create_political_movement = { 
-					type = movement_cultural_minority 
-					culture = cu:polish
+					days = long_modifier_time
 				}
 			}
 			random_political_movement = {
@@ -92,11 +128,11 @@
 					OR = {
 						culture = cu:polish
 					}
-					NOT = { has_modifier = polish_radicals }
+					NOT = { has_modifier = modifier_polish_unificationist_sentiment }
 				}
 				add_modifier = {
-					name = polish_radicals
-					months = short_modifier_time
+					name = modifier_polish_unificationist_sentiment
+					days = short_modifier_time
 				}
 			}
 			THIS = {
@@ -126,6 +162,7 @@ je_christ_of_nations_unification_button = {
 
 	possible = {
 		has_technology_researched = nationalism
+		is_at_war = no
 		NOR = {
 			is_revolutionary = yes
 			is_secessionist = yes
@@ -136,6 +173,7 @@ je_christ_of_nations_unification_button = {
 		}
 		any_country = {
 			NOT = { this = root }
+			is_at_war = no
 			NOR = {
 				is_revolutionary = yes
 				is_secessionist = yes
@@ -155,7 +193,7 @@ je_christ_of_nations_unification_button = {
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	effect = {

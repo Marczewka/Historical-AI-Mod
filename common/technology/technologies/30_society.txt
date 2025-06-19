@@ -11,7 +11,6 @@ urbanization = {
 		state_infrastructure_from_population_max_add = 40	
 		state_building_construction_sector_max_level_add = 10
 		country_max_weekly_construction_progress_add = 10
-		market_land_trade_capacity_add = 50
 	}
 	
 	ai_weight = {
@@ -29,7 +28,6 @@ urban_planning = {
 		state_infrastructure_from_population_max_add = 20
 		state_building_construction_sector_max_level_add = 5
 		country_max_weekly_construction_progress_add = 5
-		market_land_trade_capacity_add = 10
 	}
 	
 	unlocking_technologies = {
@@ -192,6 +190,7 @@ corporate_charters = {
 	
 	modifier = {
 		country_max_companies_add = 1
+		country_free_charters_add = 2
 	}	
 	
 	unlocking_technologies = {
@@ -211,6 +210,7 @@ banking = {
 	modifier = {
 		country_minting_mult = 0.1
 		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
 	}
 	
 	unlocking_technologies = {
@@ -250,7 +250,7 @@ colonization = {
 	category = society
 
 	modifier = {
-		country_institution_colonial_affairs_max_investment_add = 1 #2
+		country_institution_colonial_affairs_max_investment_add = 2
 		country_max_declared_interests_add = 1
 		country_infamy_generation_against_unrecognized_mult = -0.1
 	}	
@@ -304,7 +304,6 @@ stock_exchange = {
 	category = society	
 	
 	modifier = {
-		country_trade_route_cost_mult = -0.25
 		state_market_access_price_impact = 0.05 # 0.1
 	}
 	
@@ -361,7 +360,7 @@ empiricism = {
 	category = society
 	
 	modifier = {
-		country_influence_mult = 0.2 # 0.1
+		country_influence_mult = 0.1
 		country_diplomatic_play_maneuvers_add = 10
 		country_institution_schools_max_investment_add = 1
 		state_education_access_wealth_add = 0.005
@@ -388,8 +387,7 @@ egalitarianism = {
 	category = society
 	
 	modifier = {
-		state_expected_sol_from_literacy = 0.5 # 1
-		state_lower_strata_expected_sol_add = 0.5
+		state_expected_sol_from_literacy = 2 # 1
 		country_institution_social_security_max_investment_add = 1	
 	}
 	
@@ -449,7 +447,6 @@ modern_sewerage = {
 		state_infrastructure_from_population_max_add = 20
 		state_building_construction_sector_max_level_add = 5
 		country_max_weekly_construction_progress_add = 5
-		market_land_trade_capacity_add = 10
 		state_pollution_reduction_health_mult = -0.1
 		state_harvest_condition_flood_impact_mult = -0.1
 	}
@@ -485,7 +482,10 @@ quinine = {
 		if = {
 			limit = { 
 				navy_size >= 25
-				vtm_country_is_recognized_trigger = yes
+				OR = {
+					is_country_type = recognized
+					is_country_type = colonial
+				}
 			}
 			add = 1
 		}
@@ -509,7 +509,7 @@ quinine = {
 			limit = { 
 				has_journal_entry = je_patagonia			
 			}
-			add = 3
+			add = 2
 		}	
 	}
 }
@@ -604,6 +604,7 @@ central_banking = {
 	modifier = {
 		country_minting_mult = 0.1
 		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
 	}	
 	
 	unlocking_technologies = {
@@ -778,9 +779,8 @@ labor_movement = {
 	category = society
 	
 	modifier = {
-		state_expected_sol_from_literacy = 0.5 # 1
-		state_lower_strata_expected_sol_add = 0.5
-		country_institution_workplace_safety_max_investment_add = 1
+		state_expected_sol_from_literacy = 2 # 1
+		country_institution_workplace_safety_max_investment_add = 1 # 3
 		country_agitator_slots_add = 1
 	}
 	
@@ -947,7 +947,6 @@ steel_frame_buildings = {
 		state_infrastructure_from_population_max_add = 20
 		state_building_construction_sector_max_level_add = 5
 		country_max_weekly_construction_progress_add = 5
-		market_land_trade_capacity_add = 10
 		state_harvest_condition_flood_impact_mult = -0.05
 	}
 	
@@ -1041,9 +1040,8 @@ socialism = {
 	category = society
 	
 	modifier = {
-		state_expected_sol_from_literacy = 0.5 # 1
-		state_lower_strata_expected_sol_add = 0.5
-		country_institution_workplace_safety_max_investment_add = 1
+		state_expected_sol_from_literacy = 2 # 1
+		country_institution_workplace_safety_max_investment_add = 1 # 2
 		country_institution_social_security_max_investment_add = 1
 	}
 
@@ -1170,6 +1168,7 @@ mutual_funds = {
 	modifier = {
 		country_minting_mult = 0.1
 		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
 	}
 	
 	unlocking_technologies = {
@@ -1189,6 +1188,7 @@ investment_banks = {
 	
 	modifier = {
 		country_max_companies_add = 1
+		country_free_charters_add = 1
 		state_urbanization_per_level_mult = -0.1 # -0.15
 	}	
 	
@@ -1284,7 +1284,6 @@ elevator = {
 		state_infrastructure_from_population_max_add = 20
 		state_building_construction_sector_max_level_add = 5
 		country_max_weekly_construction_progress_add = 5
-		market_land_trade_capacity_add = 10
 	}	
 	
 	unlocking_technologies = {
@@ -1321,7 +1320,7 @@ malaria_prevention = {
 	category = society
 
 	modifier = {
-		country_institution_colonial_affairs_max_investment_add = 2 #1
+		country_institution_colonial_affairs_max_investment_add = 1
 	}
 	
 	unlocking_technologies = {
@@ -1388,8 +1387,7 @@ political_agitation = {
 	category = society
 	
 	modifier = {
-		state_expected_sol_from_literacy = 0.5 # 1
-		state_lower_strata_expected_sol_add = 0.5
+		state_expected_sol_from_literacy = 2 # 1
 		country_authority_mult = 0.1
 		country_agitator_slots_add = 1
 	}
@@ -1430,6 +1428,7 @@ international_exchange_standards = {
 	modifier = {
 		country_minting_mult = 0.1
 		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
 	}
 	
 	unlocking_technologies = {
@@ -1574,8 +1573,7 @@ mass_propaganda = {
 	
 	modifier = {
 		country_authority_mult = 0.1
-		state_expected_sol_from_literacy = 0.5 # 1
-		state_lower_strata_expected_sol_add = 0.5
+		state_expected_sol_from_literacy = 2 # 1
 		country_agitator_slots_add = 1
 	}
 	
@@ -1670,7 +1668,6 @@ paved_roads = {
 	
 	modifier = {
 		state_infrastructure_from_automobiles_consumption_add = 0.25
-		market_land_trade_capacity_add = 20
 		state_market_access_price_impact = 0.05
 	}
 	

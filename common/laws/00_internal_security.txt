@@ -36,8 +36,6 @@ law_national_guard = {
 
 	institution = institution_home_affairs
 	institution_modifier = {
-		country_revolution_progress_mult = -0.1
-		country_secession_progress_mult = -0.1
 		state_conscription_rate_add = 0.005
 		political_movement_radicalism_add = -0.05
 		state_harvest_condition_flood_impact_mult = -0.05
@@ -81,9 +79,7 @@ law_secret_police = {
 	
 	institution = institution_home_affairs
 	institution_modifier = {
-		country_revolution_progress_mult = -0.1
-		country_secession_progress_mult = -0.1
-		country_suppression_attraction_mult = -0.05
+		country_suppression_attraction_factor = -0.05
 		political_movement_radicalism_add = -0.03 # -0.05
 	}
 
@@ -111,13 +107,15 @@ law_guaranteed_liberties = {
 		law_right_of_assembly
 		law_protected_speech
 	}
+
+	modifier = {
+		country_institution_home_affairs_max_investment_add = 2
+	}
 	
 	institution = institution_home_affairs
 	institution_modifier = {
-		country_revolution_progress_mult = -0.1
-		country_secession_progress_mult = -0.1
-		state_radicals_from_political_movements_mult = -0.15 # -0.1
-		state_loyalists_from_political_movements_mult = 0.15 # 0.1
+		state_radicals_from_political_movements_mult = -0.05
+		state_loyalists_from_political_movements_mult = 0.05
 	}
 
 	on_activate = {

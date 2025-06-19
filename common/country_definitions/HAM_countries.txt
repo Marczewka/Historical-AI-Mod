@@ -21,17 +21,6 @@ GAL = {
 	capital = STATE_EAST_GALICIA
 }
 
-BHN = {
-	color = { 169  41  41 }
-	
-	country_type = unrecognized
-	
-	tier = principality
-	
-	cultures = { bedouin }
-	capital = STATE_ABU_DHABI
-}
-
 CHI = {
 	color = { 252 185 61 }
 	

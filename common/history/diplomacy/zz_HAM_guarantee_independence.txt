@@ -1,8 +1,0 @@
-﻿DIPLOMACY = {
-	c:USA ?= {
-		create_diplomatic_pact = {
-			country = c:LIB 
-			type = guarantee_independence
-		}
-	}	
-}

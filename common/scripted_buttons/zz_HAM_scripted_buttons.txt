@@ -8,16 +8,24 @@
 		} 
 	}
 
+	cooldown = { days = 365 }
+
 	ai_chance = {
-		base = 0
-		modifier = {
-			trigger = { 
+		value = 0
+		if = {
+			limit = {
+				scaled_debt > 0
+			}
+			add = 25
+		}
+		if = {
+			limit = {
 				has_modifier = declared_bankruptcy
 			}
 			add = 50
 		}
-		modifier = {
-			trigger = { 
+		if = {
+			limit = {
 				any_country = {
 					NOT = { this = root }
 					country_rank >= root.country_rank
@@ -27,8 +35,8 @@
 			}
 			add = 25
 		}
-		modifier = {
-			trigger = { 
+		if = {
+			limit = {
 				any_country = {
 					NOT = { this = root }
 					country_rank >= root.country_rank
@@ -41,10 +49,6 @@
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = has_alaska_sale_cooldown_tt
-			NOT = { has_variable = alaska_sale_cooldown }
-		}
 		OR = {
 			has_state_in_state_region = STATE_ALASKA
 			any_subject_or_below = {
@@ -65,15 +69,12 @@
 				}
 			}
 		}
-		scaled_debt > 0
+
 	}
 
 	effect = {
-		set_variable = {
-			name = alaska_sale_cooldown
-			months = 12
-		}
 		save_scope_as = alaska_seller
+		set_variable = { name = alaska_sale_cooldown days = 365 }
 		random_country = {
 			limit = {
 				NOT = { is_subject = yes }
@@ -96,26 +97,29 @@ je_buy_alaska_button = {
 	desc = "je_buy_alaska_button_desc"
 
 	visible = { 
-		c:ALK ?= {
-			is_player = no
+		OR = {
+			NOT = {
+				exists = c:ALK
+			}
+			c:ALK ?= {
+				is_player = no
+			}
 		} 
 	}
 
+	cooldown = { days = 365 }
+
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	possible = {
+		is_subject = no
 		any_scope_state = {
 			is_incorporated = yes
 			region = sr:region_pacific_coast
 			is_homeland_of_country_cultures = ROOT
 		}
-		custom_tooltip = {
-			text = has_alaska_sale_cooldown_tt
-			NOT = { has_variable = alaska_sale_cooldown }
-		}
-		is_subject = no
 		scope:alaska_overlord = {
 			relations:root > relations_threshold:poor
 		}
@@ -134,10 +138,6 @@ je_buy_alaska_button = {
 	}
 
 	effect = {
-		set_variable = {
-			name = alaska_sale_cooldown
-			months = 12
-		}
 		trigger_event = {
 			id = alaska.4
 			popup = yes
@@ -179,9 +179,17 @@ je_risorgimento_austrian_radicals_button = {
 						}
 					}
 				}
+				relations:root <= 20
+				any_political_movement = {
+					is_political_movement_type = movement_cultural_minority
+					OR = {
+						culture ?= cu:north_italian
+						culture ?= cu:south_italian
+					}
+				}
 				NOT = {
 					any_political_movement = {
-						has_modifier = austria_italian_radicals
+						has_modifier = modifier_italian_unificationist_sentiment
 					}
 				}
 			}
@@ -189,21 +197,15 @@ je_risorgimento_austrian_radicals_button = {
 	}
 
 	ai_chance = {
-		base = 50
-		modifier = {
-			trigger = {
-				is_at_war = yes
-			}
-			add = -100
-		}
-		modifier = {
-			trigger = {
+		value = 0
+		if = {
+			limit = {
 				has_law = law_type:law_theocracy
 			}
-			add = -70
+			add = -10
 		}
-		modifier = {
-			trigger = {
+		if = {
+			limit = {
 				any_country = {
 					NOR = {
 						country_has_primary_culture = cu:south_italian
@@ -217,24 +219,40 @@ je_risorgimento_austrian_radicals_button = {
 							}
 						}
 					}
-					NOT = {
-						any_political_movement = {
-							is_political_movement_type = movement_cultural_minority
-							OR = {
-								culture = cu:north_italian
-								culture = cu:south_italian
-							}
-							has_modifier = austria_italian_radicals
-						}
-					}
+					relations:root <= 0
 				}
 			}
-			add = 25
+			add = 10
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOR = {
+						country_has_primary_culture = cu:south_italian
+						country_has_primary_culture = cu:north_italian
+					}
+					any_scope_state = {
+						state_region = {
+							OR = {
+								is_homeland = cu:south_italian
+								is_homeland = cu:north_italian
+							}
+						}
+					}
+					relations:root <= -20
+				}
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				is_at_war = yes
+			}
+			multiply = 0
 		}
 	}
 
 	effect = {
-		custom_tooltip = je_risorgimento_austrian_radicals_button
 		ROOT = {
 			save_scope_as = saboteur_country
 		}
@@ -254,16 +272,10 @@ je_risorgimento_austrian_radicals_button = {
 				}
 				NOT = {
 					any_political_movement = {
-						is_political_movement_type = movement_cultural_minority
-						OR = {
-							culture = cu:north_italian
-							culture = cu:south_italian
-						}
-						has_modifier = austria_italian_radicals
+						has_modifier = modifier_italian_unificationist_sentiment
 					}
 				}
 			}
-			change_relations = { country = ROOT value = -25 }
 			every_scope_state = {
 				limit = {
 					state_region = { 
@@ -286,39 +298,20 @@ je_risorgimento_austrian_radicals_button = {
 					culture = cu:south_italian
 				}
 			}
-			if = {
-				limit = {
-					NOT = {
-						any_political_movement = {
-							is_political_movement_type = movement_cultural_minority
-							OR = {
-								culture = cu:north_italian
-								culture = cu:south_italian
-							}
-						}
-					}
-				}
-				create_political_movement = { 
-					type = movement_cultural_minority 
-					culture = cu:north_italian
-				}
-			}
-			every_political_movement = {
+			random_political_movement = {
 				limit = {
 					is_political_movement_type = movement_cultural_minority
 					OR = {
-						culture = cu:north_italian
-						culture = cu:south_italian
+						culture ?= cu:north_italian
+						culture ?= cu:south_italian
 					}
-					NOT = { has_modifier = austria_italian_radicals }
+					NOT = { has_modifier = modifier_italian_unificationist_sentiment }
 				}
+				save_scope_as = italian_nationalist_movement
 				add_modifier = {
-					name = austria_italian_radicals
-					months = normal_modifier_time
+					name = modifier_italian_unificationist_sentiment
+					days = normal_modifier_time
 				}
-			}
-			THIS = {
-				save_scope_as = victim_country
 			}
 			post_notification = nationalism_decision_agitation_occurred
 			every_country = {
@@ -349,7 +342,7 @@ je_risorgimento_italian_radicals_button = {
 			has_modifier = modifier_risorgimento_support
 		}
 		country_rank >= rank_value:minor_power
-		any_country = {
+		any_diplomatically_relevant_country = {
 			OR = {
 				country_has_primary_culture = cu:south_italian
 				country_has_primary_culture = cu:north_italian
@@ -358,34 +351,35 @@ je_risorgimento_italian_radicals_button = {
 				text = risorgimento_opposing_stance_tt
 				has_modifier = modifier_risorgimento_opposition
 			}
+			relations:root <= 20
+			any_political_movement = {
+				custom_tooltip = {
+					text = movement_compatible_with_italian_unification_tt
+					OR = {
+						movement_is_socialist = yes
+						movement_is_liberal = yes
+						movement_is_nationalist = yes
+					}
+				}
+			}
 			NOT = {
 				any_political_movement = {
-					OR = {
-						is_political_movement_type = movement_radical
-						is_political_movement_type = movement_liberal
-					}
-					has_modifier = modifier_risorgimento
+					has_modifier = modifier_italian_unificationist_sentiment
 				}
 			}
 		}
 	}
 
 	ai_chance = {
-		base = 50
-		modifier = {
-			trigger = {
-				is_at_war = yes
-			}
-			add = -100
-		}
-		modifier = {
-			trigger = {
+		value = 10
+		if = {
+			limit = {
 				has_law = law_type:law_theocracy
 			}
-			add = -50
+			add = -10
 		}
-		modifier = {
-			trigger = {
+		if = {
+			limit = {
 				any_country = {
 					OR = {
 						country_has_primary_culture = cu:south_italian
@@ -397,10 +391,10 @@ je_risorgimento_italian_radicals_button = {
 					relations:root >= 20
 				}
 			}
-			add = -25
+			add = -10
 		}
-		modifier = {
-			trigger = {
+		if = {
+			limit = {
 				any_country = {
 					OR = {
 						country_has_primary_culture = cu:south_italian
@@ -412,13 +406,18 @@ je_risorgimento_italian_radicals_button = {
 					relations:root <= 20
 				}
 			}
-			add = 25
+			add = 10
+		}
+		if = {
+			limit = {
+				is_at_war = yes
+			}
+			multiply = 0
 		}
 	}
 
 	effect = {
-		custom_tooltip = je_risorgimento_italian_radicals_button
-		ROOT = {
+				ROOT = {
 			save_scope_as = saboteur_country
 		}
 		every_country = {
@@ -433,15 +432,27 @@ je_risorgimento_italian_radicals_button = {
 				}
 				NOT = {
 					any_political_movement = {
+						has_modifier = modifier_italian_unificationist_sentiment
+					}
+				}
+				any_political_movement = {
+					custom_tooltip = {
+						text = movement_compatible_with_italian_unification_tt
 						OR = {
-							is_political_movement_type = movement_radical
-							is_political_movement_type = movement_liberal
+							movement_is_socialist = yes
+							movement_is_liberal = yes
+							movement_is_nationalist = yes
 						}
-						has_modifier = modifier_risorgimento
 					}
 				}
 			}
-			change_relations = { country = ROOT value = -25 }
+			THIS = {
+				save_scope_as = victim_country
+			}
+			change_relations = {
+				country = ROOT
+				value = -10
+			}
 			every_scope_state = {
 				limit = {
 					state_region = { 
@@ -464,45 +475,21 @@ je_risorgimento_italian_radicals_button = {
 					culture = cu:south_italian
 				}
 			}
-			if = {
-				limit = {
-					NOT = {
-						any_political_movement = {
-							is_political_movement_type = movement_radical
-						}
-					}
-				}
-				create_political_movement = { 
-					type = movement_radical 
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						any_political_movement = {
-							is_political_movement_type = movement_liberal
-						}
-					}
-				}
-				create_political_movement = { 
-					type = movement_liberal 
-				}
-			}
-			every_political_movement = {
+			ordered_political_movement = {
 				limit = {
 					OR = {
-						is_political_movement_type = movement_radical
-						is_political_movement_type = movement_liberal
+						movement_is_socialist = yes
+						movement_is_liberal = yes
+						movement_is_nationalist = yes
 					}
-					NOT = { has_modifier = modifier_risorgimento }
+					NOT = { has_modifier = modifier_italian_unificationist_sentiment }
 				}
+				order_by = political_movement_support
+				save_scope_as = italian_nationalist_movement
 				add_modifier = {
-					name = modifier_risorgimento
-					months = normal_modifier_time
+					name = modifier_italian_unificationist_sentiment
+					days = normal_modifier_time
 				}
-			}
-			THIS = {
-				save_scope_as = victim_country
 			}
 			post_notification = sabotage_decision_agitation_occurred
 			every_country = {
@@ -571,7 +558,7 @@ je_risorgimento_italian_unification_button = {
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	effect = {
@@ -588,7 +575,7 @@ je_risorgimento_change_stance_button = {
 	}
 
 	possible = {
-		not = {
+		NOT = {
 			custom_tooltip = {
 				text = change_stance_cooldown_tt
 				has_variable = stance_cooldown_var
@@ -597,9 +584,9 @@ je_risorgimento_change_stance_button = {
 	}
 
 	ai_chance = {
-		base = -50
-		modifier = {
-			trigger = {
+		value = -50
+		if = {
+			limit = {
 				NOR = {
 					has_law = law_type:law_theocracy
 					has_law = law_type:law_monarchy
@@ -607,8 +594,8 @@ je_risorgimento_change_stance_button = {
 			}
 			add = 50
 		}
-		modifier = {
-			trigger = {
+		if = {
+			limit = {
 				NOR = { 
 					has_law = law_type:law_autocracy 
 					has_law = law_type:law_oligarchy
@@ -616,8 +603,8 @@ je_risorgimento_change_stance_button = {
 			}
 			add = 50
 		}
-		modifier = {
-			trigger = {
+		if = {
+			limit = {
 				OR = { 
 					has_law = law_type:law_census_voting
 					has_law = law_type:law_universal_suffrage
@@ -625,8 +612,8 @@ je_risorgimento_change_stance_button = {
 			}
 			add = 50
 		}
-		modifier = {
-			trigger = {
+		if = {
+			limit = {
 				NOT = { 
 					has_law = law_type:law_traditionalism
 				}
@@ -638,10 +625,6 @@ je_risorgimento_change_stance_button = {
 	effect = {
 		root = {
 			save_scope_as = italian_unifier_candidate
-		}
-		set_variable = { 
-			name = stance_cooldown_var 
-			months = normal_modifier_time 
 		}
 		if = {
 			limit = {
@@ -692,9 +675,9 @@ je_risorgimento_change_stance_button = {
 		}
 		every_political_movement = {
 			limit = {
-				has_modifier = modifier_risorgimento
+				has_modifier = modifier_italian_unificationist_sentiment
 			}
-			remove_modifier = modifier_risorgimento
+			remove_modifier = modifier_italian_unificationist_sentiment
 		}
 		add_modifier = {
 			name = modifier_risorgimento_support
@@ -774,7 +757,7 @@ je_unite_the_principalities_button = {
 	visible = { always = yes }
 	
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	possible = {
@@ -864,7 +847,7 @@ je_south_bessarabian_retrocession = {
 	}
 	
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	possible = {
@@ -962,7 +945,7 @@ je_marea_unire = {
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	possible = {

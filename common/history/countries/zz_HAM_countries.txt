@@ -1,19 +1,4 @@
 ﻿COUNTRIES = {
-  # Lower max colonial affairs
-  every_country = {
-    limit = {
-      OR = {
-				has_law = law_type:law_colonial_exploitation
-				has_law = law_type:law_colonial_resettlement
-				has_law = law_type:law_frontier_colonization
-			}
-    }
-    set_institution_investment_level = {
-      institution = institution_colonial_affairs
-      level = 1
-    }
-  }
-
   # Journals from day one
   every_country = {
     limit = {
@@ -67,14 +52,9 @@
     set_tax_level = low # better sol for peasants than in Russia
   }
   c:USA ?= {
-    activate_law = law_type:law_freedom_of_conscience
     add_journal_entry = { type = je_oregon }
   }
   c:BIC ?= {
     set_military_wage_level = medium
-  }
-  c:DEI ?= {
-    activate_law = law_type:law_freedom_of_conscience
-    activate_law = law_type:law_colonial_resettlement # already extraction economy
   }
 }

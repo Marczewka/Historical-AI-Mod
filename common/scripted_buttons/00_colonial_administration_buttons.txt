@@ -14,6 +14,8 @@
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		any_scope_state = {
 			region = sr:region_senegal
@@ -37,12 +39,14 @@
 	}
 
 	ai_chance = {
-		base = 0
-		modifier = {
-			NOT = {
-				any_scope_state = {
-					region = sr:region_senegal
-					is_under_colonization = yes
+		value = 0
+		if = {
+			limit = {
+				NOT = {
+					any_scope_state = {
+						region = sr:region_senegal
+						is_under_colonization = yes
+					}
 				}
 			}
 			add = 100
@@ -102,6 +106,9 @@
 				}
 				activate_law = law_type:law_frontier_colonization
 				activate_law = law_type:law_presidential_republic
+				add_modifier = {
+					name = colonial_administration
+				}
 			}
 		}
 		hidden_effect = {
@@ -132,6 +139,8 @@ je_colonial_administration_button_niger = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		any_scope_state = {
 			region = sr:region_niger
@@ -155,12 +164,14 @@ je_colonial_administration_button_niger = {
 	}
 
 	ai_chance = {
-		base = 0
-		modifier = {
-			NOT = {
-				any_scope_state = {
-					region = sr:region_niger
-					is_under_colonization = yes
+		value = 0
+		if = {
+			limit = {
+				NOT = {
+					any_scope_state = {
+						region = sr:region_niger
+						is_under_colonization = yes
+					}
 				}
 			}
 			add = 100
@@ -220,6 +231,9 @@ je_colonial_administration_button_niger = {
 				}
 				activate_law = law_type:law_frontier_colonization
 				activate_law = law_type:law_presidential_republic
+				add_modifier = {
+					name = colonial_administration
+				}				
 			}
 		}
 		hidden_effect = {
@@ -250,6 +264,8 @@ je_colonial_administration_button_ethiopia = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		any_scope_state = {
 			region = sr:region_ethiopia
@@ -273,12 +289,14 @@ je_colonial_administration_button_ethiopia = {
 	}
 
 	ai_chance = {
-		base = 0
-		modifier = {
-			NOT = {
-				any_scope_state = {
-					region = sr:region_ethiopia
-					is_under_colonization = yes
+		value = 0
+		if = {
+			limit = {
+				NOT = {
+					any_scope_state = {
+						region = sr:region_ethiopia
+						is_under_colonization = yes
+					}
 				}
 			}
 			add = 100
@@ -338,6 +356,9 @@ je_colonial_administration_button_ethiopia = {
 				}
 				activate_law = law_type:law_frontier_colonization
 				activate_law = law_type:law_presidential_republic
+				add_modifier = {
+					name = colonial_administration
+				}				
 			}
 		}
 		hidden_effect = {
@@ -368,6 +389,8 @@ je_colonial_administration_button_zanj = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		any_scope_state = {
 			region = sr:region_zanj
@@ -391,12 +414,14 @@ je_colonial_administration_button_zanj = {
 	}
 
 	ai_chance = {
-		base = 0
-		modifier = {
-			NOT = {
-				any_scope_state = {
-					region = sr:region_zanj
-					is_under_colonization = yes
+		value = 0
+		if = {
+			limit = {
+				NOT = {
+					any_scope_state = {
+						region = sr:region_zanj
+						is_under_colonization = yes
+					}
 				}
 			}
 			add = 100
@@ -456,6 +481,9 @@ je_colonial_administration_button_zanj = {
 				}
 				activate_law = law_type:law_frontier_colonization
 				activate_law = law_type:law_presidential_republic
+				add_modifier = {
+					name = colonial_administration
+				}				
 			}
 		}
 		hidden_effect = {
@@ -486,6 +514,8 @@ je_colonial_administration_button_southern_africa = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		any_scope_state = {
 			region = sr:region_southern_africa
@@ -509,12 +539,14 @@ je_colonial_administration_button_southern_africa = {
 	}
 
 	ai_chance = {
-		base = 0
-		modifier = {
-			NOT = {
-				any_scope_state = {
-					region = sr:region_southern_africa
-					is_under_colonization = yes
+		value = 0
+		if = {
+			limit = {
+				NOT = {
+					any_scope_state = {
+						region = sr:region_southern_africa
+						is_under_colonization = yes
+					}
 				}
 			}
 			add = 100
@@ -574,6 +606,9 @@ je_colonial_administration_button_southern_africa = {
 				}
 				activate_law = law_type:law_frontier_colonization
 				activate_law = law_type:law_presidential_republic
+				add_modifier = {
+					name = colonial_administration
+				}				
 			}
 		}
 		hidden_effect = {
@@ -604,6 +639,8 @@ je_colonial_administration_button_congo = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		any_scope_state = {
 			region = sr:region_congo
@@ -627,12 +664,14 @@ je_colonial_administration_button_congo = {
 	}
 
 	ai_chance = {
-		base = 0
-		modifier = {
-			NOT = {
-				any_scope_state = {
-					region = sr:region_congo
-					is_under_colonization = yes
+		value = 0
+		if = {
+			limit = {
+				NOT = {
+					any_scope_state = {
+						region = sr:region_congo
+						is_under_colonization = yes
+					}
 				}
 			}
 			add = 100
@@ -692,6 +731,9 @@ je_colonial_administration_button_congo = {
 				}
 				activate_law = law_type:law_frontier_colonization
 				activate_law = law_type:law_presidential_republic
+				add_modifier = {
+					name = colonial_administration
+				}			
 			}
 		}
 		hidden_effect = {
@@ -719,6 +761,8 @@ je_colonial_administration_button_expand_senegal = {
 			has_variable = senegal_subject_var
 		}
 	}
+
+	cooldown = { days = 90 }
 
 	possible = {
 		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
@@ -751,7 +795,7 @@ je_colonial_administration_button_expand_senegal = {
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	effect = {
@@ -855,6 +899,8 @@ je_colonial_administration_button_expand_niger = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
 		is_diplomatic_play_committed_participant = no
@@ -885,7 +931,7 @@ je_colonial_administration_button_expand_niger = {
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	effect = {
@@ -989,6 +1035,8 @@ je_colonial_administration_button_expand_ethiopia = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
 		is_diplomatic_play_committed_participant = no
@@ -1019,7 +1067,7 @@ je_colonial_administration_button_expand_ethiopia = {
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	effect = {
@@ -1123,6 +1171,8 @@ je_colonial_administration_button_expand_zanj = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
 		is_diplomatic_play_committed_participant = no
@@ -1153,7 +1203,7 @@ je_colonial_administration_button_expand_zanj = {
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	effect = {
@@ -1257,6 +1307,8 @@ je_colonial_administration_button_expand_southern_africa = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
 		is_diplomatic_play_committed_participant = no
@@ -1287,7 +1339,7 @@ je_colonial_administration_button_expand_southern_africa = {
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	effect = {
@@ -1391,6 +1443,8 @@ je_colonial_administration_button_expand_congo = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
 		is_diplomatic_play_committed_participant = no
@@ -1420,7 +1474,7 @@ je_colonial_administration_button_expand_congo = {
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 
 	effect = {

@@ -53,23 +53,25 @@
 	}
 
 	ai_chance = {
-		base = 0
-		modifier = {
-			trigger = { produced_bureaucracy > 5000 }
+		value = 0
+		if = {
+			limit = { produced_bureaucracy > 5000 }
 			add = 5
 		}
-		modifier = {
-			trigger = {
+		if = {
+			limit = {
 				has_strategy = ai_strategy_armed_isolationism
 			}
-			add = -1000
+			multiply = 0
 		}		
-		modifier = {
+		if = {
+			limit = {
 			OR = {
 				is_diplomatic_play_committed_participant = yes
 				is_at_war = yes
 			}
-			add = -1000
+			}
+			multiply = 0
 		}		
 	}
 }
@@ -86,7 +88,7 @@ stop_suez_survey_decision = {
 		remove_modifier = modifier_surveying_suez
 	}
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -173,25 +175,27 @@ stop_suez_survey_decision = {
 # 	}
 
 # 	ai_chance = {
-# 		base = 0
-# 		modifier = {
-# 			trigger = { gold_reserves > 15000000 }
+# 		value = 0
+# 		if = {
+# 			limit = { gold_reserves > 15000000 }
 # 			add = 10
 # 		}
-# 		modifier = {
-# 			trigger = { 
+# 		if = {
+# 			limit = {
 # 				weekly_net_fixed_income > 100000
 # 				gold_reserves > 0
 # 			}
 # 			add = 10
-# 		}		
-# 		modifier = {
-# 			OR = {
-# 				is_diplomatic_play_committed_participant = yes
-# 				is_at_war = yes
+# 		}
+# 		if = {
+# 			limit = {
+# 				OR = {
+# 					is_diplomatic_play_committed_participant = yes
+# 					is_at_war = yes
+# 				}
 # 			}
-# 			add = -1000
-# 		}		
+# 			multiply = 0
+# 		}
 # 	}
 # }
 
@@ -250,23 +254,25 @@ panama_survey_decision = {
 	}
 
 	ai_chance = {
-		base = 0
-		modifier = {
-			trigger = { produced_bureaucracy > 5000 }
+		value = 0
+		if = {
+			limit = { produced_bureaucracy > 5000 }
 			add = 5
 		}
-		modifier = {
-			trigger = {
+		if = {
+			limit = {
 				has_strategy = ai_strategy_armed_isolationism
 			}
-			add = -1000
+			multiply = 0
 		}		
-		modifier = {
-			OR = {
-				is_diplomatic_play_committed_participant = yes
-				is_at_war = yes
+		if = {
+			limit = {
+				OR = {
+					is_diplomatic_play_committed_participant = yes
+					is_at_war = yes
+				}
 			}
-			add = -1000
+			multiply = 0
 		}		
 	}
 }
@@ -283,7 +289,7 @@ stop_panama_survey_decision = {
 		remove_modifier = modifier_surveying_panama
 	}
 	ai_chance = {
-		base = 0
+		value = 0
 	}
 }
 
@@ -371,24 +377,26 @@ stop_panama_survey_decision = {
 # 	}
 
 # 	ai_chance = {
-# 		base = 0
-# 		modifier = {
-# 			trigger = { gold_reserves > 15000000 }
+# 		value = 0
+# 		if = {
+# 			limit = { gold_reserves > 15000000 }
 # 			add = 10
 # 		}
-# 		modifier = {
-# 			trigger = { 
+# 		if = {
+# 			limit = {
 # 				weekly_net_fixed_income > 100000
 # 				gold_reserves > 0
 # 			}
 # 			add = 10
 # 		}
-# 		modifier = {
-# 			OR = {
-# 				is_diplomatic_play_committed_participant = yes
-# 				is_at_war = yes
+# 		if = {
+# 			limit = {
+# 				OR = {
+# 					is_diplomatic_play_committed_participant = yes
+# 					is_at_war = yes
+# 				}
 # 			}
-# 			add = -1000
-# 		}		
+# 			multiply = 0
+# 		}
 # 	}
 # }

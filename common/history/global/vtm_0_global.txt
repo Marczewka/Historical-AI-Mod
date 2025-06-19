@@ -5,21 +5,21 @@
 GLOBAL = {
 
 	# State traits
-	every_state = { # We have to do this because "has_state_trait" only works on state scopes, not state regions.
-		## Put these last
-		if = {
-			limit = {
-				is_cold_water_port = yes
-				NOT = { has_state_trait = state_trait_cold_water_port }
-			}
-			state_region = { add_state_trait = state_trait_cold_water_port }
-		}
-	}
+	# every_state = { # We have to do this because "has_state_trait" only works on state scopes, not state regions.
+	# 	## Put these last
+	# 	if = {
+	# 		limit = {
+	# 			is_cold_water_port = yes
+	# 			NOT = { has_state_trait = state_trait_cold_water_port }
+	# 		}
+	# 		state_region = { add_state_trait = state_trait_cold_water_port }
+	# 	}
+	# }
 	
 	# Homelands
-	s:STATE_TRANSDANUBIA = {
-		remove_homeland = cu:south_german
-	}
+	# s:STATE_TRANSDANUBIA = {
+	# 	remove_homeland = cu:south_german
+	# }
 
 	# # States
 	# s:STATE_KENYA = {
@@ -39,18 +39,18 @@ GLOBAL = {
 		remove_modifier = land_redistribution_compensation_modifier
 	}
 
-	# Interest Groups
-	every_country = {
-		limit = {
-			OR = {
-				has_law = law_type:law_presidential_republic
-				has_law = law_type:law_parliamentary_republic
-				has_law = law_type:law_council_republic
-			}
-		}
-		ig:ig_landowners ?= {
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_republican_paternalistic
-		}
-	}
+	# # Interest Groups
+	# every_country = {
+	# 	limit = {
+	# 		OR = {
+	# 			has_law = law_type:law_presidential_republic
+	# 			has_law = law_type:law_parliamentary_republic
+	# 			has_law = law_type:law_council_republic
+	# 		}
+	# 	}
+	# 	ig:ig_landowners ?= {
+	# 		remove_ideology = ideology_paternalistic
+	# 		add_ideology = ideology_republican_paternalistic
+	# 	}
+	# }
 }

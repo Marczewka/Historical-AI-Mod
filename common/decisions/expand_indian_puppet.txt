@@ -87,7 +87,7 @@
 		}
 	}
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 }
 
@@ -159,7 +159,7 @@
 # 		}
 # 	}
 # 	ai_chance = {
-# 		base = 100
+# 		value = 100
 # 	}
 # }
 

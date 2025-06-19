@@ -40,8 +40,8 @@ law_local_police = {
 
 	institution = institution_police
 	institution_modifier = {
-		state_turmoil_effects_mult = -0.15
 		interest_group_ig_landowners_pol_str_mult = 0.05
+		state_turmoil_effects_mult = -0.05
 	}
 
 	can_impose = {
@@ -136,7 +136,6 @@ law_dedicated_police = {
 
 	institution = institution_police
 	institution_modifier = {
-		state_turmoil_effects_mult = -0.1
 		state_radicals_from_political_movements_mult = -0.05
 	}
 
@@ -228,7 +227,6 @@ law_militarized_police = {
 
 	institution = institution_police
 	institution_modifier = {
-		state_turmoil_effects_mult = -0.1
 		state_radicals_from_political_movements_mult = -0.05
 		state_radicalism_increases_violent_hostility_mult = -0.05
 		state_radicalism_increases_cultural_erasure_mult = -0.05

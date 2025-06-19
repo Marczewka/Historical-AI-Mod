@@ -529,7 +529,7 @@ peru_bolivia_events.4 = {
 						}	
 					}
 				}
-				add = 50
+				add = 25
 			}
 		}
 		add_journal_entry = {
@@ -537,17 +537,22 @@ peru_bolivia_events.4 = {
 		}
 		add_modifier = {
 			name = modifier_against_the_confederation
+			# days = short_modifier_time
 		}
-		hidden_effect = {
-			c:BOL ?= {
-			    every_subject_or_below = { # Wants to assist the subjects in attaining independence
-			        set_mutual_secret_goal = {
-			        	country = root
-			        	secret_goal = befriend
-			        }
-			    }
-			}
-		}
+		# hidden_effect = {
+		# 	c:BOL ?= {
+		# 		set_mutual_secret_goal = {
+		# 			country = root
+		# 			secret_goal = antagonize
+		# 		}
+		# 	    every_subject_or_below = { # Wants to assist the subjects in attaining independence
+		# 	        set_mutual_secret_goal = {
+		# 	        	country = root
+		# 	        	secret_goal = befriend
+		# 	        }
+		# 	    }
+		# 	}
+		# }
 		if = {
 			limit = {
 				exists = global_var:peru_bolivia_var
@@ -559,7 +564,7 @@ peru_bolivia_events.4 = {
 	option = {
 		name = peru_bolivia_events.4.b
 		ai_chance = {
-			base = 0 # 5
+			base = 5
 			modifier = {
 				trigger = {
 					OR = {
@@ -655,7 +660,7 @@ peru_bolivia_events.5 = {
 		default_option = yes
 		add_modifier = {
 			name = modifier_confederation_war_success
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 	}
 }
@@ -691,7 +696,7 @@ peru_bolivia_events.6 = {
 		default_option = yes
 		add_modifier = {
 			name = modifier_confederation_diplomatic_success
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 	}
 }
@@ -732,7 +737,7 @@ peru_bolivia_events.7 = {
 		}
 		add_modifier = {
 			name = modifier_confederation_failure
-			months = normal_modifier_time
+			days = normal_modifier_time
 			is_decaying = yes
 		}
 	}
@@ -787,7 +792,7 @@ peru_bolivia_events.8 = {
 		}
 	}
 
-	cooldown = { months = stupidly_long_modifier_time }
+	cooldown = { days = stupidly_long_modifier_time }
 
 	option = {
 		name = peru_bolivia_events.8.a

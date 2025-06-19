@@ -15,7 +15,6 @@ law_hindu_caste_enforced = {
 	}
 
 	modifier = {
-		building_subsistence_output_mult = -0.20
 		state_bureaucracy_population_base_cost_factor_mult = -0.25
 		interest_group_ig_landowners_pol_str_mult = 0.25
 
@@ -66,7 +65,6 @@ law_hindu_caste_codified = {
 	}
 	
 	modifier = {
-		building_subsistence_output_mult = -0.10
 		state_bureaucracy_population_base_cost_factor_mult = -0.15
 		interest_group_ig_landowners_pol_str_mult = 0.15
 

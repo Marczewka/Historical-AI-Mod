@@ -398,12 +398,12 @@ bessemer_process = {
 	ai_weight = {
 		value = 1
 		
-		# if = {
-		# 	limit = { 
-		# 		 has_strategy = ai_strategy_industrial_expansion
-		# 	}
-		# 	add = 1
-		# }		
+		if = {
+			limit = {
+				 has_strategy = ai_strategy_industrial_expansion
+			}
+			add = 1
+		}
 	}
 }
 

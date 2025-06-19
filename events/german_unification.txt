@@ -107,7 +107,7 @@ german_unification.1 = {
 			leader = {
 				add_modifier = {
 					name = german_unification_popularity
-					months = long_modifier_time
+					days = long_modifier_time
 				}
 			}
 		}
@@ -125,7 +125,8 @@ german_unification.1 = {
 			hidden_effect = {
 				if = {
 					limit = {
-						c:AUS ?= {
+						exists = c:AUS
+						c:AUS = {
 							country_rank >= rank_value:great_power
 							NOT = { has_claim = root }
 							owns_entire_state_region = STATE_BOHEMIA
@@ -134,7 +135,7 @@ german_unification.1 = {
 						}
 					}
 					
-					c:AUS ?= {
+					c:AUS = {
 						set_mutual_secret_goal = {
 							country = root
 							secret_goal = reconcile
@@ -161,7 +162,7 @@ german_unification.1 = {
 		name = german_unification.1.b
 		add_modifier = {
 			name = partial_german_unification_influence_prestige
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		if = {
 			limit = {
@@ -306,20 +307,7 @@ german_unification.3 = {
 	immediate = {
 		set_global_variable = bismarck_variable
 		create_character = {
-			first_name = Otto
-			last_name = von_Bismarck
-			historical = yes
-			culture = cu:north_german
-			ig_leader = yes
-			interest_group = ig_landowners
-			female = no
-			birth_date = 1815.4.1
-			dna = dna_otto_von_bismarck
-			ideology = ideology_royalist
-			traits = {
-				direct
-				cautious
-			}
+			template = PRU_otto_von_bismarck
 		}
 		ig:ig_landowners = {
 			save_scope_as = junkers
@@ -334,19 +322,7 @@ german_unification.3 = {
 		default_option = yes
 		show_as_tooltip = {
 			create_character = {
-				first_name = Otto
-				last_name = von_Bismarck
-				historical = yes
-				culture = cu:north_german
-				ig_leader = yes
-				interest_group = ig_landowners
-				female = no
-				birth_date = 1815.4.1
-				ideology = ideology_royalist
-				traits = {
-					direct
-					cautious
-				}
+				template = PRU_otto_von_bismarck
 			}
 		}
 		scope:bismarck_scope = {
@@ -356,7 +332,7 @@ german_unification.3 = {
 		}
 		add_modifier = {
 			name = realpolitik
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 	}
 	option = {
@@ -364,19 +340,7 @@ german_unification.3 = {
 		default_option = yes
 		show_as_tooltip = {
 			create_character = {
-				first_name = Otto
-				last_name = von_Bismarck
-				historical = yes
-				culture = cu:north_german
-				ig_leader = yes
-				interest_group = ig_landowners
-				female = no
-				birth_date = 1815.4.1
-				ideology = ideology_royalist
-				traits = {
-					direct
-					cautious
-				}
+				template = PRU_otto_von_bismarck
 			}
 		}
 		scope:bismarck_scope = {
@@ -386,7 +350,7 @@ german_unification.3 = {
 		}
 		add_modifier = {
 			name = germany_aggressive_expansion
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 	}
 }
@@ -409,6 +373,22 @@ german_unification.4 = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	duration = 3
+
+immediate = {
+	if = {
+		limit = {
+			has_global_variable = bismarck_variable
+		}
+		s:STATE_NORTH_DAKOTA = {
+			random_scope_state = {
+		        set_hub_name = {
+		            type = city
+		            name = HUB_NAME_STATE_NORTH_DAKOTA_city_bismarck
+		        }
+	        }
+		}
+	}
+}
 
 	trigger = {
 	}
@@ -601,7 +581,7 @@ german_unification.100 = {
 		}
 		add_modifier = {
 			name = partial_german_unification_influence_prestige
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		change_infamy = 40
 		every_country = {
@@ -632,7 +612,7 @@ german_unification.100 = {
 		}
 		add_modifier = {
 			name = partial_german_unification_influence_prestige
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		every_country = {
 			limit = {
@@ -792,7 +772,7 @@ german_unification.101 = {
 #
 #	duration = 3
 #
-#	cooldown = { months = 4 }
+#	cooldown = { days = 4 }
 #
 #	trigger = {
 #		root.infamy < infamy_threshold:infamous

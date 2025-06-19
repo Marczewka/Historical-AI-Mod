@@ -1,52 +1,50 @@
 ﻿france_annex_savoy = {
 	is_shown = {
-		always = no
-		# has_dlc_feature = voice_of_the_people_content
-		# exists = c:FRA
-		# c:FRA = ROOT
-		# NOT = { has_global_variable = fra_annexed_savoy }
-		# is_subject = no
-		# NOT = { owns_entire_state_region = STATE_SAVOY }
-		# any_country = {
-		# 	NOT = { THIS = ROOT }
-		# 	any_scope_state = {
-		# 		state_region = s:STATE_SAVOY
-		# 		is_split_state = no
-		# 		is_capital = no
-		# 	}
-		# 	is_player = no
-		# }
+		has_dlc_feature = voice_of_the_people_content
+		exists = c:FRA
+		c:FRA = ROOT
+		NOT = { has_global_variable = fra_annexed_savoy }
+		is_subject = no
+		NOT = { owns_entire_state_region = STATE_SAVOY }
+		any_country = {
+			NOT = { THIS = ROOT }
+			any_scope_state = {
+				state_region = s:STATE_SAVOY
+				is_split_state = no
+				is_capital = no
+			}
+			is_player = no
+		}
 	}
 
 	possible = {
-		always = no # moved to scripted buttons
-		# has_technology_researched = nationalism
-		# any_country = {
-		# 	custom_tooltip = {
-		# 		text = at_peace_nocontext_tt
-		# 		is_at_war = no
-		# 	}
-		# 	any_scope_state = {
-		# 		state_region = s:STATE_SAVOY
-		# 		is_split_state = no
-		# 		is_capital = no
-		# 	}
-		# 	custom_tooltip = {
-		# 		text = relations_amicable_nocontext_tt
-		# 		relations:root >= relations_threshold:amicable
-		# 	}
-		# 	is_revolutionary = no
-		# 	OR = {
-		# 		is_subject = no
-		# 		is_subject_of = ROOT
-		# 	}
-		# 	trigger_if = {
-		# 		limit = {
-		# 			is_subject = no
-		# 		}
-		# 		owes_obligation_to = ROOT
-		# 	}
-		# }
+		has_technology_researched = nationalism
+		any_country = {
+			custom_tooltip = {
+				text = at_peace_nocontext_tt
+				is_at_war = no
+			}
+			any_scope_state = {
+				state_region = s:STATE_SAVOY
+				is_split_state = no
+				is_capital = no
+			}
+			# custom_tooltip = {
+			# 	text = relations_amicable_nocontext_tt
+				relations:root >= relations_threshold:amicable
+			# }
+			is_revolutionary = no
+			OR = {
+				is_subject = no
+				is_subject_of = ROOT
+			}
+			trigger_if = {
+				limit = {
+					is_subject = no
+				}
+				owes_obligation_to = ROOT
+			}
+		}
 	}
 
 	when_taken = {
@@ -61,37 +59,31 @@
 	}
 
 	ai_chance = {
-		base = 1
+		value = 1
 	}
 }
 
-
-
-
-#### TODO: turn this into a Risorgimento scripted button for Sardinia
 sell_savoy = {
 	is_shown = {
-		always = no
-		#exists = c:FRA
-		#NOT = { has_global_variable = fra_annexed_savoy }
-		#any_scope_state = {
-		#	state_region = s:STATE_SAVOY
-		#	is_split_state = no
-		#	is_capital = no
-		#}
-		#is_subject = no
+		exists = c:FRA
+		NOT = { has_global_variable = fra_annexed_savoy }
+		any_scope_state = {
+			state_region = s:STATE_SAVOY
+			is_split_state = no
+			is_capital = no
+		}
+		is_subject = no
 	}
 
 	possible = {
-		always = no
-		#has_technology_researched = nationalism
-		#c:FRA = {
-		#	is_at_war = no
-		#	owns_entire_state_region = STATE_RHONE
-		#	is_subject = no
-		#	NOT = { owes_obligation_to = ROOT }
-		#	relations:root >= relations_threshold:cordial
-		#}
+		has_technology_researched = nationalism
+		c:FRA = {
+			is_at_war = no
+			owns_entire_state_region = STATE_RHONE
+			is_subject = no
+			NOT = { owes_obligation_to = ROOT }
+			relations:root >= relations_threshold:cordial
+		}
 	}
 
 	when_taken = {
@@ -133,22 +125,74 @@ sell_savoy = {
 	}
 
 	ai_chance = {
-		base = 0
-		modifier = {
-			c:FRA = {
-				relations:root >= relations_threshold:amicable
-			}
-			OR = {
-				has_diplomatic_pact = {
-					who = c:FRA
-					type = defensive_pact
+		value = -100 # 0
+		if = {
+			limit = {
+				# c:FRA = {
+				# 	relations:root >= relations_threshold:amicable
+				# }
+				OR = {
+					any_scope_treaty = {
+						binds = c:FRA
+						any_scope_article = {
+							has_type = defensive_pact
+						}
+					}
+					any_scope_treaty = {
+						binds = c:FRA
+						any_scope_article = {
+							has_type = alliance
+						}
+					}
 				}
-				has_diplomatic_pact = {
-					who = c:FRA
-					type = alliance
+			}
+			add = 50 # 1
+		}
+		if = {
+			limit = {
+				c:FRA ?= {
+					relations:root >= relations_threshold:cordial
 				}
 			}
-			add = 1
+			add = 25
+		}
+		if = {
+			limit = {
+				c:FRA ?= {
+					relations:root >= relations_threshold:amicable
+				}
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_strategy = ai_strategy_unify_italy
+				}
+			}
+			add = -100
+		}
+		if = {
+			limit = {
+				sr:region_italy = {
+					any_scope_country = {
+						NOR = {
+							country_has_primary_culture = cu:south_italian
+							country_has_primary_culture = cu:north_italian
+						}
+						any_scope_state = {
+							state_region = {
+								OR = {
+									is_homeland = cu:south_italian
+									is_homeland = cu:north_italian
+								}
+							}
+						}
+						NOT = { has_truce_with = ROOT }
+					}
+				}
+			}
+			add = 100
 		}
 	}
 }
@@ -201,6 +245,6 @@ france_annex_luxembourg = {
 	}
 
 	ai_chance = {
-		base = 1
+		value = 1
 	}
 }

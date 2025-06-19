@@ -43,17 +43,7 @@
 
 	possible = {
 		OR = {
-			any_country = {
-				filter = {
-					country_rank >= rank_value:major_power
-					OR = {
-						country_has_primary_culture = cu:north_german
-						country_has_primary_culture = cu:south_german
-					}
-				}
-				has_technology_researched = pan-nationalism	
-				percent >= 0.75 # 1.00
-			}
+			has_technology_researched = pan-nationalism	
 			custom_tooltip = {
 				text = je_german_unification_idea_trigger_desc
 				has_variable = je_german_unification_idea

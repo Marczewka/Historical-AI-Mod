@@ -1,7 +1,7 @@
 ﻿je_suez_survey = {
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
-	group = je_group_foreign_affairs
+	group = je_group_technology
 
 	on_monthly_pulse = {
 		effect = {
@@ -55,7 +55,7 @@
 je_suez_canal = {
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
-	group = je_group_foreign_affairs
+	group = je_group_technology
 
 	scripted_button = suez_canal_purchase
 
@@ -97,7 +97,7 @@ je_suez_canal = {
 je_panama_survey = {
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
-	group = je_group_foreign_affairs
+	group = je_group_technology
 
 	on_monthly_pulse = {
 		effect = {
@@ -151,7 +151,7 @@ je_panama_survey = {
 je_panama_canal = {
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
-	group = je_group_foreign_affairs
+	group = je_group_technology
 
 	scripted_button = panama_canal_purchase
 

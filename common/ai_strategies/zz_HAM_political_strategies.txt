@@ -1,18 +1,17 @@
-﻿# Generic
-ai_strategy_conservative_agenda = {
+﻿ai_strategy_conservative_agenda = {
 	icon = "gfx/interface/icons/ai_strategy_icons/conservative_agenda.dds"
 	
 	type = political
 	
 	revolution_aversion = {
-		value = 50
+		value = 75
 	}
 	
 	min_law_chance_to_pass = {
-		value = 15
+		value = 30
 		if = {
 			limit = { ai_has_reasons_to_not_oppose_law = yes }			
-			multiply = 0.5
+			multiply = 0.33
 		}			
 	}
 	
@@ -25,20 +24,16 @@ ai_strategy_conservative_agenda = {
 	}
 	
 	change_law_chance = { 
-		value = 5
+		value = 2.5
 		
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
-			add = 5
+			add = 7.5
 		}
 
 		if = {
 			limit = { 
-				OR = {
-					has_journal_entry = je_government_petition  
-					has_journal_entry = je_law_imposition
-					has_journal_entry = je_british_dictate_law
-				}
+				has_enactment_je_or_law_commitment = yes
 			}
 			add = 25
 		}			
@@ -177,11 +172,7 @@ ai_strategy_reactionary_agenda = {
 
 		if = {
 			limit = { 
-				OR = {
-					has_journal_entry = je_government_petition  
-					has_journal_entry = je_law_imposition
-					has_journal_entry = je_british_dictate_law
-				}
+				has_enactment_je_or_law_commitment = yes
 			}
 			add = 10
 		}			
@@ -354,7 +345,7 @@ ai_strategy_progressive_agenda = {
 	}
 	
 	min_law_chance_to_pass = {
-		value = 15
+		value = 20
 		if = {
 			limit = { ai_has_reasons_to_not_oppose_law = yes }			
 			multiply = 0.5
@@ -379,11 +370,7 @@ ai_strategy_progressive_agenda = {
 
 		if = {
 			limit = { 
-				OR = {
-					has_journal_entry = je_government_petition  
-					has_journal_entry = je_law_imposition
-					has_journal_entry = je_british_dictate_law
-				}
+				has_enactment_je_or_law_commitment = yes
 			}
 			add = 25
 		}			
@@ -467,7 +454,7 @@ ai_strategy_progressive_agenda = {
 				ruler = {
 					OR = {
 						has_ideology = ideology:ideology_radical
-						has_ideology = ideology:ideology_atheist
+						has_ideology = ideology:ideology_nihilist
 						has_ideology = ideology:ideology_feminist
 						has_ideology = ideology:ideology_abolitionist
 						has_ideology = ideology:ideology_market_liberal
@@ -568,11 +555,7 @@ ai_strategy_egalitarian_agenda = {
 
 		if = {
 			limit = { 
-				OR = {
-					has_journal_entry = je_government_petition  
-					has_journal_entry = je_law_imposition
-					has_journal_entry = je_british_dictate_law
-				}
+				has_enactment_je_or_law_commitment = yes
 			}
 			add = 25
 		}			
@@ -723,7 +706,7 @@ ai_strategy_nationalist_agenda = {
 	}
 	
 	min_law_chance_to_pass = {
-		value = 15
+		value = 20
 		if = {
 			limit = { ai_has_reasons_to_not_oppose_law = yes }			
 			multiply = 0.5
@@ -748,11 +731,7 @@ ai_strategy_nationalist_agenda = {
 
 		if = {
 			limit = { 
-				OR = {
-					has_journal_entry = je_government_petition  
-					has_journal_entry = je_law_imposition
-					has_journal_entry = je_british_dictate_law
-				}
+				has_enactment_je_or_law_commitment = yes
 			}
 			add = 25
 		}		
@@ -901,8 +880,6 @@ ai_strategy_nationalist_agenda = {
 	}
 }
 
-# Specific
-
 ai_strategy_maintain_mandate_of_heaven = {
 	icon = "gfx/interface/icons/ai_strategy_icons/reactionary_agenda.dds"
 	
@@ -933,11 +910,7 @@ ai_strategy_maintain_mandate_of_heaven = {
 		
 		if = {
 			limit = { 
-				OR = {
-					has_journal_entry = je_government_petition  
-					has_journal_entry = je_law_imposition
-					has_journal_entry = je_british_dictate_law
-				}
+				has_enactment_je_or_law_commitment = yes
 			}
 			add = 10
 		}		
@@ -1018,7 +991,7 @@ ai_strategy_maintain_mandate_of_heaven = {
 }
 
 ai_strategy_tanzimat_reforms = {
-	icon = "gfx/interface/icons/ai_strategy_icons/nationalist_agenda.dds"
+	icon = "gfx/interface/icons/ai_strategy_icons/progressive_agenda.dds"
 	
 	type = political
 	
@@ -1119,7 +1092,7 @@ ai_strategy_tanzimat_reforms = {
 }
 
 ai_strategy_meiji_restoration = {
-	icon = "gfx/interface/icons/ai_strategy_icons/nationalist_agenda.dds"
+	icon = "gfx/interface/icons/ai_strategy_icons/progressive_agenda.dds"
 	
 	type = political
 	

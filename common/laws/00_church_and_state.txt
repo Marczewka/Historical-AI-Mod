@@ -280,8 +280,6 @@ law_state_atheism = {
 
 	disallowing_laws = {
 		law_theocracy
-		law_monarchy
-		law_religious_schools
 		law_guaranteed_liberties
 	}
 
@@ -316,7 +314,7 @@ law_state_atheism = {
 	on_enact = {
 		add_modifier = {
 			name = antireligious_policies
-			months = long_modifier_time
+			days = long_modifier_time
 			is_decaying = yes # VTM
 		}
 		custom_tooltip = {

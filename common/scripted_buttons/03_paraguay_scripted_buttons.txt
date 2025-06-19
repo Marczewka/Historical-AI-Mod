@@ -24,7 +24,7 @@
 		add_modifier = {
 			name = establishing_humanity_modifier
 			multiplier = money_amount_multiplier_medium
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 		set_global_variable = humanita_fortress_global_var
 		show_as_tooltip = {
@@ -34,14 +34,14 @@
 				}
 				add_modifier = {
 					name = humanita_fortress_modifier
-					months = very_long_modifier_time
+					days = very_long_modifier_time
 				}
 			}
 		}
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 }
 
@@ -61,7 +61,7 @@ ybycui_iron_works_button = {
 			state_region = s:STATE_BAJO_PARAGUAY
             any_scope_building = {
                 is_building_type = building_iron_mine
-                level >= 1 # 3
+                level >= 2 # 3
                 occupancy >= 0.5
             }
             any_scope_building = {
@@ -88,7 +88,7 @@ ybycui_iron_works_button = {
 				}
 				add_modifier = {
 					name = ybycui_iron_works_modifier
-					months = very_long_modifier_time
+					days = very_long_modifier_time
 				}
 			}
 			random_scope_state = {
@@ -109,13 +109,13 @@ ybycui_iron_works_button = {
 					}
 					add_modifier = {
 						name = ybycui_steelworks
-						months = very_long_modifier_time
+						days = very_long_modifier_time
 					}
 				}
 				else = {
 					add_modifier = {
 						name = ybycui_steelworks
-						months = very_long_modifier_time
+						days = very_long_modifier_time
 						multiplier = 1.5
 					}
 				}
@@ -126,7 +126,7 @@ ybycui_iron_works_button = {
 				}
 				add_modifier = {
 					name = ybycui_prisoner_workforce_modifier
-					months = very_long_modifier_time
+					days = very_long_modifier_time
 				}
 				add_radicals_in_state = {
 					value = small_radicals
@@ -136,7 +136,7 @@ ybycui_iron_works_button = {
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 }
 
@@ -206,14 +206,14 @@ good_health_prg_button = {
 				}
 				add_modifier = {
 					name = vaccinations_prg_modifier
-					months = very_long_modifier_time
+					days = very_long_modifier_time
 				}
 			}
 		}
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 }
 
@@ -247,18 +247,18 @@ army_git_good_button = {
 					}
 					add_modifier = {
 						name = barracks_boost_paraguay_quantity_modifier
-						months = very_long_modifier_time
+						days = very_long_modifier_time
 					}
 				}
 			}
 			add_modifier = {
 				name = barracks_boost_paraguay_quality_modifier
-				months = very_long_modifier_time
+				days = very_long_modifier_time
 			}
 		}
 	}
 
 	ai_chance = {
-		base = 100
+		value = 100
 	}
 }
