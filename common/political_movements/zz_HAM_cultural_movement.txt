@@ -921,7 +921,7 @@ movement_cultural_minority = {
 						value >= 0.05
 					}					
 				}
-				add = 1 # 10
+				# add = 10
 
 				if = {
 					limit = {
@@ -1075,6 +1075,13 @@ movement_cultural_minority = {
 				desc = "DISCRIMINATION_LEVEL_open_prejudice"
 			}
 		}	
+
+		add = {
+			value = political_movement_identity_support
+			subtract = 0.5
+			min = 0
+			desc = "HIGH_MOVEMENT_IDENTITY_SUPPORT"
+		}
 
 		subtract = {
 			value = 0.5

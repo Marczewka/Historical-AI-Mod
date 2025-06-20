@@ -155,7 +155,7 @@
 
 	
 	# At what fraction of combat strength and morale/org will the AI attack
-	FRONT_MIN_OVERALL_STRENGTH_FACTOR_TO_ATTACK = 0.95 # 0.8			# Must have at least this multiplier of overall power projection on the front compared to the enemy's to want to attack
+	FRONT_MIN_OVERALL_STRENGTH_FACTOR_TO_ATTACK = 0.8			# Must have at least this multiplier of overall power projection on the front compared to the enemy's to want to attack
 	FRONT_MIN_INDIVIDUAL_ARMY_STRENGTH_FACTOR_TO_ATTACK = 0.95 	# Must have at least this multiplier of average power projection of allied formations on the front to want to attack
 	FRONT_MIN_MORALE_TO_ATTACK = 0.8							# As a fraction of max morale (1)
 	FRONT_MIN_ORGANIZATION_TO_ATTACK = 0.8						# As a fraction of formation's max organization

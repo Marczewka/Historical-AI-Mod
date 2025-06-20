@@ -725,7 +725,7 @@ movement_religious_minority = {
 							value >= 0.25
 						}
 					}
-					add = 50
+					add = 2 # 50
 				}
 				else_if = {
 					limit = {
@@ -734,15 +734,19 @@ movement_religious_minority = {
 							value >= 0.1
 						}
 					}
-					add = 10
+					add = 1 # 10
 				}
+			}	
+			if = {
+				limit = { is_treaty_port = yes }
+				multiply = 0.0
 			}			
 		}	
 
 		target_fraction_of_states = {
 			value = political_movement_identity_support
-			add = scope:clout
-			multiply = 3
+			# add = scope:clout
+			multiply = 0.4 # 3
 			min = 0.15
 			max = 0.75
 		}		
@@ -763,6 +767,13 @@ movement_religious_minority = {
 			max = 0.5
 			min = 0
 			desc = "STANDARD_OF_LIVING_FOR_RELIGION"
+		}
+
+		add = {
+			value = political_movement_identity_support
+			subtract = 0.5
+			min = 0
+			desc = "HIGH_MOVEMENT_IDENTITY_SUPPORT"
 		}
 
 		subtract = {

@@ -215,6 +215,7 @@ italian_unification.4 = {
 
 	trigger = {
 		NOT = { has_variable = italian_unification_5_happened_here }
+		is_subject = no
 		capital = {
 			radical_fraction = {
 				value >= 0.10
