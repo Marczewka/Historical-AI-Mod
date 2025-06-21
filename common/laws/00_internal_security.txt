@@ -26,7 +26,7 @@ law_national_guard = {
 	progressiveness = 25
 
 	unlocking_technologies = {
-		tech_bureaucracy # law_enforcement
+		law_enforcement
 	}
 
 	modifier = {
@@ -69,7 +69,7 @@ law_secret_police = {
 	progressiveness = 0
 	
 	unlocking_technologies = {
-		law_enforcement # central_archives
+		central_archives
 	}
 
 	modifier = {
@@ -80,7 +80,7 @@ law_secret_police = {
 	institution = institution_home_affairs
 	institution_modifier = {
 		country_suppression_attraction_factor = -0.05
-		political_movement_radicalism_add = -0.03 # -0.05
+		political_movement_radicalism_add = -0.05
 	}
 
 	on_enact = {
