@@ -417,7 +417,7 @@ je_risorgimento_italian_radicals_button = {
 	}
 
 	effect = {
-				ROOT = {
+		ROOT = {
 			save_scope_as = saboteur_country
 		}
 		every_country = {

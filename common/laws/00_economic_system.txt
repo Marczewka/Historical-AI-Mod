@@ -95,7 +95,10 @@ law_interventionism = {
 					has_journal_entry = je_meiji_main
 					has_journal_entry = je_great_reforms_serfdom
 				}
-				has_law = law_type:law_traditionalism
+				OR = {
+					has_law = law_type:law_traditionalism
+					has_law = law_type:law_agrarianism
+				}
 			}
 			add = 10000 # Top priority for Tanzimat/Meiji AI is to get out of Traditionalism
 		}
@@ -170,8 +173,10 @@ law_agrarianism = {
 
 		if = {
 			limit = { 
-				has_modifier = shogun_ig_forced_to_open_market
-				has_journal_entry = je_meiji_main
+				OR = {
+					has_modifier = shogun_ig_forced_to_open_market
+					has_journal_entry = je_meiji_main
+				}
 				has_law = law_type:law_traditionalism
 			}
 			add = 1000 # Top priority for Meiji AI is to get out of Traditionalism
@@ -464,7 +469,10 @@ law_laissez_faire = {
 					has_journal_entry = je_meiji_main
 					has_journal_entry = je_great_reforms_serfdom
 				}
-				has_law = law_type:law_traditionalism
+				OR = {
+					has_law = law_type:law_traditionalism
+					has_law = law_type:law_agrarianism
+				}
 			}
 			add = 10000 # Top priority for Tanzimat/Meiji AI is to get out of Traditionalism
 		}	
