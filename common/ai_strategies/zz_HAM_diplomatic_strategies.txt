@@ -1512,7 +1512,13 @@ ai_strategy_unify_germany = {
 			value = 1000	
 		}
 		unification_leadership = {
-			value = 1000
+			value = 0 # 1000
+			if = {
+				limit = {
+					has_global_variable = schleswig_holstein_question_solved
+				}
+				add = 1000
+			}
 		}	
 	}
 	

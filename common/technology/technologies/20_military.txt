@@ -460,18 +460,18 @@ hydraulic_cranes = {
 	}
 	
 	ai_weight = {
-		value = 0.5 # 1
+		value = 1
 		
 		if = {
 			limit = { has_port = yes }
 			add = 0.5
 		}	
 		
-		# Important for anyone with a navy
-		if = {
-			limit = { navy_size >= 5 }
-			add = 0.5
-		}
+		# # Important for anyone with a navy
+		# if = {
+		# 	limit = { navy_size >= 5 }
+		# 	add = 0.5
+		# }
 	}
 }
 
@@ -745,18 +745,18 @@ floating_harbor = {
 	}
 	
 	ai_weight = {
-		value = 0.5 # 1
+		value = 1
 		
 		if = {
 			limit = { has_port = yes }
 			add = 0.5
 		}	
 		
-		# Important for anyone with a navy
-		if = {
-			limit = { navy_size >= 5 }
-			add = 0.5
-		}		
+		# # Important for anyone with a navy
+		# if = {
+		# 	limit = { navy_size >= 5 }
+		# 	add = 0.5
+		# }		
 	}
 }
 
@@ -772,18 +772,18 @@ gantry_cranes = {
 	}
 	
 	ai_weight = {
-		value = 0.5 # 1
+		value = 1
 		
 		if = {
 			limit = { has_port = yes }
 			add = 0.5
 		}	
 		
-		# Important for anyone with a navy
-		if = {
-			limit = { navy_size >= 5 }
-			add = 1
-		}		
+		# # Important for anyone with a navy
+		# if = {
+		# 	limit = { navy_size >= 5 }
+		# 	add = 1
+		# }		
 	}
 }
 
@@ -1045,18 +1045,18 @@ concrete_dockyards = {
 	}
 	
 	ai_weight = {
-		value = 0.5 # 1
+		value = 1
 		
 		if = {
 			limit = { has_port = yes }
 			add = 0.5
 		}	
 		
-		# Important for anyone with a navy
-		if = {
-			limit = { navy_size >= 5 }
-			add = 0.5
-		}		
+		# # Important for anyone with a navy
+		# if = {
+		# 	limit = { navy_size >= 5 }
+		# 	add = 0.5
+		# }		
 	}
 }
 
