@@ -37,6 +37,24 @@ sick_man.1 = {
 
 	option = {
 		name = sick_man.1.a
+		add_journal_entry = {
+			type = je_sick_man_syria
+		}
+		add_journal_entry = {
+			type = je_sick_man_economy
+		}
+		add_journal_entry = {
+			type = je_sick_man_education
+		}
+		add_journal_entry = {
+			type = je_sick_man_separatism
+		}
+		add_journal_entry = {
+			type = je_sick_man_army
+		}
+		add_journal_entry = {
+			type = je_sick_man_bureaucracy
+		}
 		show_as_tooltip = {
 			add_modifier = {
 				name = sick_man_of_europe

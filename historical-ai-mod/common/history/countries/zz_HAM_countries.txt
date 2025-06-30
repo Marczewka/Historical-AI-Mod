@@ -16,27 +16,41 @@
     }
     add_journal_entry = { type = je_age_of_princes }
   }
-  every_country = {
-    limit = {
-      is_country_type = unrecognized
-      has_technology_researched = colonization
-      OR = {
-        country_rank >= rank_value:unrecognized_major_power
-        any_overlord_or_above = {
-          country_rank >= rank_value:great_power
-        }
-      }
-    }
-    add_journal_entry = { type = je_earn_recognition }
-  }
 
-  c:ALK ?= {
-    activate_law = law_type:law_racial_segregation
-    activate_law = law_type:law_freedom_of_conscience
+  c:AUS ?= {
+		activate_law = law_type:law_secret_police
+    set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+		set_institution_investment_level = {
+			institution = institution_home_affairs
+			level = 2
+		}
   }
-  c:HAI ?= {
-    set_tax_level = very_high
-    add_taxed_goods = g:tobacco
+  c:RUS ?= {
+    activate_law = law_type:law_local_police
+		activate_law = law_type:law_secret_police
+    set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+		set_institution_investment_level = {
+			institution = institution_home_affairs
+			level = 3
+		}
+  }
+  c:TUR ?= {
+    activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_racial_segregation
+    add_modifier = {
+			name = millet_system
+			months = -1
+		}
+  }
+  c:ALK ?= {
+    activate_law = law_type:law_freedom_of_conscience
+    activate_law = law_type:law_racial_segregation
   }
   c:CHI ?= {
     set_government_wage_level = medium

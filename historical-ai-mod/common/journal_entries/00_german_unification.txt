@@ -324,15 +324,7 @@ je_north_german_unification = {
 	on_complete = {
 		trigger_event = { id = german_unification.1 } # North German Confederation
 		remove_variable = je_unification_progress
-	}
-
-	invalid = {
-		OR = {
-			exists = c:GER
-			exists = c:SGF
-			exists = c:NGF
-		}
-    }
+	    }
 
 	status_desc = {
 		first_valid = {

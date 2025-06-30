@@ -160,6 +160,8 @@ je_christ_of_nations_unification_button = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		has_technology_researched = nationalism
 		is_at_war = no

@@ -216,9 +216,9 @@ je_alaska = {
 			}
 			scope:alaska_overlord = {
 				NOR = {
+					has_state_in_state_region = STATE_ALASKA
+					any_subject_or_below = {
 						has_state_in_state_region = STATE_ALASKA
-						any_subject_or_below = {
-							has_state_in_state_region = STATE_ALASKA
 					}
 				}
 			}

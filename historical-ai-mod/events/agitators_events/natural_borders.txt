@@ -341,7 +341,6 @@ natural_borders.3 = {
 	option = { # incorporate Savoy into France
 		name = natural_borders.3.a
 		default_option = yes
-
 		if = {
 			limit = {
 				is_owed_obligation_by = scope:savoy_country

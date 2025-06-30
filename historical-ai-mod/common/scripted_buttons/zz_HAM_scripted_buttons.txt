@@ -502,6 +502,8 @@ je_risorgimento_italian_unification_button = {
 		}
 	}
 
+	cooldown = { days = 90 }
+
 	possible = {
 		has_technology_researched = nationalism
 		custom_tooltip = {

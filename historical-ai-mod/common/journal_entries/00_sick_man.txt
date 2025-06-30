@@ -474,11 +474,6 @@ je_sick_man_bureaucracy = {
 		}
 	}
 
-	modifiers_while_active = {
-		outmoded_bureaucracy
-		millet_system
-	}
-
 	on_monthly_pulse = {
 		random_events = {
 			100 = 0

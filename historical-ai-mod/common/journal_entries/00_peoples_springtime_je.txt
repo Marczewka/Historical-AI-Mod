@@ -32,6 +32,9 @@
 			has_global_variable = peoples_springtime_happening
 		}
 		OR = {
+			radical_fraction = {
+				value >= 0.05
+			}
 			AND = {
 				any_political_movement = { 
 					OR = {

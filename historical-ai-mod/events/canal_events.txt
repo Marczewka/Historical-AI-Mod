@@ -118,10 +118,6 @@ canal_events.3 = { #Deal accepted
 
 	duration = 3
 
-	immediate = {
-		set_global_variable = suez_canal_purchase_var
-	}
-
 	option = {
 		name = canal_events.3.a
 		s:STATE_SINAI = {
@@ -434,7 +430,7 @@ canal_events.100 = {
 			scope:suez_state = {
 				add_claim = ROOT
 		   	}
-			   set_global_variable = suez_claimed
+			set_global_variable = suez_claimed
 		}
 		set_variable = suez_canal_purchase
 		custom_tooltip = suez_canal_purchase_available
