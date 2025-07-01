@@ -50,7 +50,7 @@
 				}
 			}
 			add = {
-				desc = "AVG_STANDARD_OF_LIVING"
+				desc = "earning_recognition_progress_sol_tt"
 				value = 1
 			}
 		}

@@ -4,11 +4,11 @@
 
 law_ethnostate = {
 	group = lawgroup_citizenship
-	
+
 	icon = "gfx/interface/icons/law_icons/ethnostate.dds"
-	
+
 	progressiveness = -75
-	
+
 	on_enact = {
 		recalculate_pop_ig_support = yes
 	}
@@ -22,10 +22,10 @@ law_ethnostate = {
 
 		#From this block, we only apply the highest value a Pop qualifies for
 		country_acceptance_primary_culture_add = 100
-		country_acceptance_shared_heritage_and_cultural_trait_add = 60 # 55 # 40
-		country_acceptance_shared_heritage_trait_add = 40 # 35 # 20
-		country_acceptance_shared_cultural_trait_add = 20 # 15 # 0
-		country_acceptance_culture_base_add = 0 # 15 # 0
+		country_acceptance_shared_heritage_and_cultural_trait_add = 40
+		country_acceptance_shared_heritage_trait_add = 20
+		country_acceptance_shared_cultural_trait_add = 0
+		country_acceptance_culture_base_add = 0
 	}
 
 	acceptance_modifier = {
@@ -78,10 +78,10 @@ law_ethnostate = {
 		country_disallow_government_work_second_rate_citizen_bool = no
 		country_disallow_government_work_full_acceptance_bool = no
 	}
-	
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
@@ -91,24 +91,24 @@ law_ethnostate = {
 
 law_national_supremacy = {
 	group = lawgroup_citizenship
-	
+
 	icon = "gfx/interface/icons/law_icons/national_supremacy.dds"
-	
+
 	progressiveness = -25
-	
+
 	on_enact = {
 		recalculate_pop_ig_support = yes
 	}
-	
+
 	modifier = {
 		country_authority_add = 150
 
 		#From this block, we only apply the highest value a Pop qualifies for
 		country_acceptance_primary_culture_add = 100
-		country_acceptance_shared_heritage_and_cultural_trait_add = 80 # 75 # 60
-		country_acceptance_shared_heritage_trait_add = 60 # 55 # 40
-		country_acceptance_shared_cultural_trait_add = 40 # 35 # 20
-		country_acceptance_culture_base_add = 20 # 15 # 0
+		country_acceptance_shared_heritage_and_cultural_trait_add = 60
+		country_acceptance_shared_heritage_trait_add = 40
+		country_acceptance_shared_cultural_trait_add = 20
+		country_acceptance_culture_base_add = 0
 	}
 
 	acceptance_modifier = {
@@ -164,7 +164,7 @@ law_national_supremacy = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
@@ -174,24 +174,24 @@ law_national_supremacy = {
 
 law_racial_segregation = {
 	group = lawgroup_citizenship
-	
+
 	icon = "gfx/interface/icons/law_icons/racial_segregation.dds"
-	
+
 	progressiveness = 0
-	
+
 	on_enact = {
 		recalculate_pop_ig_support = yes
 	}
-	
+
 	modifier = {
 		country_authority_add = 100
 
 		#From this block, we only apply the highest value a Pop qualifies for
 		country_acceptance_primary_culture_add = 100
-		country_acceptance_shared_heritage_and_cultural_trait_add = 90 # 85 # 70
-		country_acceptance_shared_heritage_trait_add = 70 # 65 # 50
-		country_acceptance_shared_cultural_trait_add = 50 # 45 # 30
-		country_acceptance_culture_base_add = 30 # 25 # 10
+		country_acceptance_shared_heritage_and_cultural_trait_add = 80 # 70
+		country_acceptance_shared_heritage_trait_add = 60 # 50
+		country_acceptance_shared_cultural_trait_add = 40 # 30
+		country_acceptance_culture_base_add = 20 # 10
 	}
 
 	acceptance_modifier = {
@@ -240,7 +240,7 @@ law_racial_segregation = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
@@ -250,29 +250,29 @@ law_racial_segregation = {
 
 law_cultural_exclusion = {
 	group = lawgroup_citizenship
-	
+
 	icon = "gfx/interface/icons/law_icons/cultural_exclusion.dds"
-	
+
 	progressiveness = 25
-	
+
 	unlocking_laws = {
 		law_slavery_banned
 		law_debt_slavery
 	}
-	
+
 	on_enact = {
 		recalculate_pop_ig_support = yes
 	}
-	
+
 	modifier = {
 		country_authority_add = 50
 
 		#From this block, we only apply the highest value a Pop qualifies for
-		country_acceptance_primary_culture_add = 100 # 115 # 100
-		country_acceptance_shared_heritage_and_cultural_trait_add = 100 # 95 # 80
-		country_acceptance_shared_heritage_trait_add = 80 # 75 # 60
-		country_acceptance_shared_cultural_trait_add = 60 # 55 # 40
-		country_acceptance_culture_base_add = 40 # 35 # 20
+		country_acceptance_primary_culture_add = 100
+		country_acceptance_shared_heritage_and_cultural_trait_add = 90 # 80
+		country_acceptance_shared_heritage_trait_add = 80 # 60
+		country_acceptance_shared_cultural_trait_add = 60 # 40
+		country_acceptance_culture_base_add = 40 # 20
 	}
 
 	acceptance_modifier = {
@@ -282,7 +282,7 @@ law_cultural_exclusion = {
 
 		country_assimilation_cultural_erasure_mult = 0.05
 		country_assimilation_open_prejudice_mult = 0.15
-		
+
 		country_allow_voting_violent_hostility_bool = no
 		country_voting_power_cultural_erasure_mult = -0.25
 		country_allow_voting_cultural_erasure_bool = yes
@@ -317,10 +317,10 @@ law_cultural_exclusion = {
 		country_disallow_government_work_second_rate_citizen_bool = no
 		country_disallow_government_work_full_acceptance_bool = no
 	}
-	
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
@@ -330,30 +330,30 @@ law_cultural_exclusion = {
 
 law_multicultural = {
 	group = lawgroup_citizenship
-	
+
 	icon = "gfx/interface/icons/law_icons/multicultural.dds"
-	
+
 	progressiveness = 75
 
 	unlocking_laws = {
 		law_slavery_banned
 	}
-	
+
 	unlocking_technologies = {
 		human_rights
 	}
-	
+
 	on_enact = {
 		recalculate_pop_ig_support = yes
 	}
 
 	modifier = {
 		#From this block, we only apply the highest value a Pop qualifies for
-		country_acceptance_primary_culture_add = 100 # 115 # 100
-		country_acceptance_shared_heritage_and_cultural_trait_add = 100 # 105 # 90
-		country_acceptance_shared_heritage_trait_add = 100 # 85
-		country_acceptance_shared_cultural_trait_add = 95 # 80
-		country_acceptance_culture_base_add = 90 # 75
+		country_acceptance_primary_culture_add = 100
+		country_acceptance_shared_heritage_and_cultural_trait_add = 90
+		country_acceptance_shared_heritage_trait_add = 85
+		country_acceptance_shared_cultural_trait_add = 80
+		country_acceptance_culture_base_add = 75
 	}
 
 	acceptance_modifier = {
@@ -379,17 +379,17 @@ law_multicultural = {
  		country_disallow_military_work_open_prejudice_bool = no
 		country_disallow_military_work_second_rate_citizen_bool = no
 		country_disallow_military_work_full_acceptance_bool = no
-		
+
 		country_disallow_government_work_violent_hostility_bool = no
  		country_disallow_government_work_cultural_erasure_bool = no
  		country_disallow_government_work_open_prejudice_bool = no
 		country_disallow_government_work_second_rate_citizen_bool = no
 		country_disallow_government_work_full_acceptance_bool = no
 	}
-	
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
