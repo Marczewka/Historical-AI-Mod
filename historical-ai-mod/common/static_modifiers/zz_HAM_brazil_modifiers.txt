@@ -1,6 +1,0 @@
-﻿war_fervor_modifier = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	state_conscription_rate_mult = 1
-	unit_morale_recovery_mult = 0.2
-	unit_morale_loss_mult = -0.1
-}

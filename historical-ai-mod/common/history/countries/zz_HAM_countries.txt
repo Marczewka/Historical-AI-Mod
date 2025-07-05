@@ -1,44 +1,7 @@
 ﻿COUNTRIES = {
-  # Journals from day one
-  every_country = {
-    limit = {
-      OR = {
-        country_has_primary_culture = cu:north_german
-        country_has_primary_culture = cu:south_german
-      }
-    }
-    add_journal_entry = { type = je_german_unification_idea }
-    add_journal_entry = { type = je_schleswig_holstein_question }
-  }
-  every_country = {
-    limit = {
-      can_form_nation = ETH
-    }
-    add_journal_entry = { type = je_age_of_princes }
-  }
-
-  c:AUS ?= {
-		activate_law = law_type:law_secret_police
-    set_institution_investment_level = {
-			institution = institution_police
-			level = 1
-		}
-		set_institution_investment_level = {
-			institution = institution_home_affairs
-			level = 2
-		}
-  }
-  c:RUS ?= {
-    activate_law = law_type:law_local_police
-		activate_law = law_type:law_secret_police
-    set_institution_investment_level = {
-			institution = institution_police
-			level = 1
-		}
-		set_institution_investment_level = {
-			institution = institution_home_affairs
-			level = 3
-		}
+  c:ALK ?= {
+    activate_law = law_type:law_freedom_of_conscience
+    activate_law = law_type:law_racial_segregation
   }
   c:TUR ?= {
     activate_law = law_type:law_freedom_of_conscience
@@ -47,26 +10,11 @@
 			name = millet_system
 			months = -1
 		}
-  }
-  c:ALK ?= {
-    activate_law = law_type:law_freedom_of_conscience
-    activate_law = law_type:law_racial_segregation
-  }
-  c:CHI ?= {
-    set_government_wage_level = medium
-  }
-  c:TUR ?= {
     set_government_wage_level = medium
     set_military_wage_level = medium
   }
-  c:RUS ?= {
-    set_tax_level = medium # peasant taxes
-  }
-  c:JAP ?= {
-    set_tax_level = low # better sol for peasants than in Russia
-  }
-  c:USA ?= {
-    add_journal_entry = { type = je_oregon }
+  c:CHI ?= {
+    set_government_wage_level = medium
   }
   c:BIC ?= {
     set_military_wage_level = medium

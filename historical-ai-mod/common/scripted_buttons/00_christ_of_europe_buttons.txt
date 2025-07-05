@@ -138,14 +138,6 @@
 			THIS = {
 				save_scope_as = victim_country
 			}
-			post_notification = polish_decision_agitation_stirred
-			every_country = {
-				limit = {
-					has_interest_marker_in_region = region_poland
-					NOT = { this = prev }
-				}
-				post_notification = polish_decision_agitation_stirred
-			}
 		}
 	}
 }

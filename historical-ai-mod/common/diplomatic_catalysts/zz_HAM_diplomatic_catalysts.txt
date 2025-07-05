@@ -9,7 +9,7 @@
 			}
 		}	
 		
-		type = only_hostile
+		type = more_hostile
 		chance = { value = 1.0 }
 	}		
 	
@@ -22,7 +22,7 @@
 			}
 		}	
 		
-		type = only_friendly
+		type = more_friendly
 		chance = { value = 1.0 }
 	}		
 }

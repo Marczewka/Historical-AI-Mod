@@ -1,8 +1,16 @@
 ﻿# Root = Country
+on_monthly_pulse_country = {
+	events = {
+		italian_unification.2
+	}
+}
+
+# Root = Country
 # scope:target = Uprising country
 on_revolution_start = {
 	on_actions = {
 		revolution_risorgimento_on_action
+		revolution_dominicana_on_action
 	}
 }
 
@@ -33,6 +41,32 @@ revolution_risorgimento_on_action = {
 					type = je_risorgimento
 				}
 			}
+		}
+	}
+}
+
+revolution_dominicana_on_actioneffect = {
+	if = {
+		limit = {
+			NOT = {
+				exists = c:DOM
+			}
+			scope:target ?= {
+				OR = {
+					country_has_primary_culture = cu:caribeno
+					country_has_primary_culture = cu:afro_caribeno
+				}
+				capital.state_region = s:STATE_SANTO_DOMINGO
+			}
+			ROOT = {
+				NOR = {
+					country_has_primary_culture = cu:caribeno
+					country_has_primary_culture = cu:afro_caribeno
+				}
+			}
+		}
+		scope:target = {
+			change_tag = DOM
 		}
 	}
 }

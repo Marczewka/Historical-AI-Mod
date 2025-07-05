@@ -30,33 +30,44 @@
 	}
 
 	complete = {
-		NOR = {
-			s:STATE_ARAUCANIA = {
-				any_scope_state = {
-					owner = {
-						is_country_type = decentralized
-					}
-				}
-			}
-			s:STATE_PATAGONIA = {
-				any_scope_state = {
-					owner = {
-						is_country_type = decentralized
-					}
-				}
-			}
-			s:STATE_RIO_NEGRO = {
-				any_scope_state = {
-					owner = {
-						is_country_type = decentralized
-					}
-				}
-			}
+		OR = {
+			owns_entire_state_region = STATE_ARAUCANIA
+			owns_entire_state_region = STATE_PATAGONIA
 		}
 	}
 
 	on_complete = {
 		trigger_event = { id = patagonia.1 }
+		hidden_effect = {
+			set_variable = colonized_patagonia
+		}
+	}
+
+	invalid = {
+		s:STATE_ARAUCANIA = {
+			OR = { 
+				is_homeland = cu:south_andean
+				is_homeland = cu:platinean
+				is_homeland = cu:chilean
+				is_homeland = cu:argentine
+				is_homeland = cu:uruguayan
+				is_homeland = cu:paraguayan
+				is_homeland = cu:bolivian
+				is_homeland = cu:peruvian
+			}
+		}
+		s:STATE_PATAGONIA = {
+			OR = { 
+				is_homeland = cu:south_andean
+				is_homeland = cu:platinean
+				is_homeland = cu:chilean
+				is_homeland = cu:argentine
+				is_homeland = cu:uruguayan
+				is_homeland = cu:paraguayan
+				is_homeland = cu:bolivian
+				is_homeland = cu:peruvian
+			}
+		}
 	}
 
 	on_yearly_pulse = {

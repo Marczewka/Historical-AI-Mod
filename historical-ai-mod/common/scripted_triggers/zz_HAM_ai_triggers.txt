@@ -513,7 +513,7 @@ has_je_subjugation_reason = {
 			scope:target_country = { 
 				exists = c:JAP
 				this = c:JAP		
-				has_law = law_type:law_isolationism
+				has_law_or_variant = law_type:law_isolationism
 				gdp >= 5000000
 			} 		
 		}

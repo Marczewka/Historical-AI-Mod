@@ -101,6 +101,14 @@ algeria_events.1 = {
 		s:STATE_MAURITANIA = {
 			add_claim = c:FRA
 		}
+		if = {
+			limit = {
+				exists = c:SPA
+			}
+			s:STATE_AL_RIF = {
+				add_claim = c:SPA
+			}
+		}
 	}
 	option = { # Focus on migration
 		name = algeria_events.1.b
@@ -169,6 +177,14 @@ algeria_events.1 = {
 		}
 		s:STATE_MAURITANIA = {
 			add_claim = c:FRA
+		}
+		if = {
+			limit = {
+				exists = c:SPA
+			}
+			s:STATE_AL_RIF = {
+				add_claim = c:SPA
+			}
 		}
 	}
 	option = {  # Focus on appeasement
@@ -249,6 +265,14 @@ algeria_events.1 = {
 		}
 		s:STATE_MAURITANIA = {
 			add_claim = c:FRA
+		}
+		if = {
+			limit = {
+				exists = c:SPA
+			}
+			s:STATE_AL_RIF = {
+				add_claim = c:SPA
+			}
 		}
 	}
 }

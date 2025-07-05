@@ -303,13 +303,6 @@ je_risorgimento_austrian_radicals_button = {
 				}
 			}
 			post_notification = nationalism_decision_agitation_occurred
-			every_country = {
-				limit = {
-					has_interest_marker_in_region = region_italy
-					NOT = { this = prev }
-				}
-				post_notification = nationalism_decision_agitation_stirred
-			}
 		}
 	}
 }
@@ -481,13 +474,6 @@ je_risorgimento_italian_radicals_button = {
 				}
 			}
 			post_notification = sabotage_decision_agitation_occurred
-			every_country = {
-				limit = {
-					has_interest_marker_in_region = region_italy
-					NOT = { this = prev }
-				}
-				post_notification = sabotage_decision_agitation_stirred
-			}
 		}
 	}
 }

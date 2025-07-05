@@ -602,25 +602,21 @@ italian_unification.7 = {
 
 	immediate = {
 		save_scope_as = rsm_revolted_scope
-		# random_country = {
-		# 	limit = {	
-		# 		is_secessionist = yes
-		# 		OR = {
-		# 			country_has_primary_culture = cu:north_italian
-		# 			country_has_primary_culture = cu:south_italian
-		# 		}
-		# 	}
-		# 	activate_law = law_type:law_presidential_republic
-		# 	activate_law = law_type:law_oligarchy
-		# 	change_tag = RSM
-		# 	save_scope_as = rsm_scope	
-		# 	capital = {
-		# 		save_scope_as = rsm_capital_scope
-		# 	}
-		# }
-		scope:rsm_scope = {
+		random_country = {
+			limit = {
+				is_secessionist = yes
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+			}
 			activate_law = law_type:law_presidential_republic
 			activate_law = law_type:law_oligarchy
+			change_tag = RSM
+			save_scope_as = rsm_scope
+			capital = {
+				save_scope_as = rsm_capital_scope
+			}
 		}
 		random_diplomatic_play = {
 			limit = {
@@ -1142,14 +1138,5 @@ italian_unification.10 = {
 			}
 		}
 		add_modifier = modifier_risorgimento_opposition
-		every_country = {
-			limit = {
-				has_interest_marker_in_region = region_italy
-				NOT = {
-					THIS = ROOT
-				}
-			}
-			post_notification = ita_italian_anti_unification_intent
-		}
 	}
 }
