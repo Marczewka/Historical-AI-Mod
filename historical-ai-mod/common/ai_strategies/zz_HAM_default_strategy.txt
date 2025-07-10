@@ -284,7 +284,7 @@ ai_strategy_default = {
 		}
 
 		
-		### Brotherly Secession
+		### Kindred Secession
 		if = {
 			limit = { 
 				exists = scope:is_initiator
@@ -302,7 +302,7 @@ ai_strategy_default = {
 			}
 			add = {
 				value = 150
-				desc = "brotherly_secession"
+				desc = "kindred_secession"
 			}
 		}
 
@@ -1411,8 +1411,7 @@ ai_strategy_default = {
 								state_region = { 
 									any_scope_state = { 
 										owner = ROOT 
-										is_treaty_port = no
-										state_population > 100000
+										# is_treaty_port = no
 										is_incorporated = yes
 									}
 								}
@@ -1421,7 +1420,21 @@ ai_strategy_default = {
 						} 
 					}					
 					multiply = 2.0
-					add = 20	
+					if = {
+						limit = {
+							scope:target_state = { 
+								is_split_state = yes 
+								state_region = { 
+									any_scope_state = { 
+										owner = ROOT 
+										is_treaty_port = no
+										state_population > 100000
+									}
+								}
+							}
+						}
+						add = 20	
+					}
 				}
 				else_if = { # Secondarily take our homelands
 					limit = {
@@ -2286,15 +2299,8 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				has_journal_entry = je_sick_man_syria
-				scope:target_state = {
-					OR = {
-						state_region = s:STATE_ALEPPO
-						state_region = s:STATE_SYRIA
-						state_region = s:STATE_LEBANON
-						state_region = s:STATE_PALESTINE
-						state_region = s:STATE_TRANSJORDAN
-						state_region = s:STATE_ADANA
-					}
+				scope:target_country = {
+					c:EGY ?= this
 				}
 			}
 			multiply = 0
@@ -3613,29 +3619,15 @@ ai_strategy_default = {
 		if = {
 			limit = {
 				c:MEX ?= this
+				game_date < 1840.1.1
 				scope:target_country = {
+					c:GUA ?= this
 					any_scope_state = {
 						state_region = s:STATE_CHIAPAS
 					}
 				}
 			}
-			if = {
-				limit = {
-					scope:target_country = {
-						c:GUA ?= this
-					}
-				}
-				add = 100
-			}
-			else_if = {
-				limit = {
-					game_date < 1840.1.1
-					scope:target_country = {
-						c:UCA ?= this
-					}
-				}
-				add = -100
-			}
+			add = 100
 		}
 
 		if = {
@@ -7435,7 +7427,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				multiply = 0.1
+				multiply = 0
 			}	
 
 			# More reluctant to get involved in plays
@@ -7443,7 +7435,7 @@ ai_strategy_default = {
 				limit = {
 					NOT = { is_diplomatic_play_involved_with = scope:target_country.top_overlord }
 				}
-				multiply = 0.1
+				multiply = 0
 			}
 		
 			if = {
@@ -7657,8 +7649,8 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					scope:target_country = {
+						c:BOL ?= this
 						has_journal_entry = je_peru_bolivia
-						country_has_primary_culture = cu:south_andean
 					}
 					has_modifier = modifier_against_the_confederation						
 				}

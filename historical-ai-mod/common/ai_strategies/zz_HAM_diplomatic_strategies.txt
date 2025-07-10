@@ -1524,48 +1524,50 @@ ai_strategy_unify_germany = {
 	}
 	
 	secret_goal_scores = {
-		# Moved to je_reason
-		# protect = {		
-		# 	if = {
-		# 		limit = {
-		# 			scope:target_country = {
-		# 				OR = {
-		# 					country_has_primary_culture = cu:north_german
-		# 					country_has_primary_culture = cu:south_german
-		# 				}
-		# 				NOT = { is_unification_candidate = GER }
-		# 				OR = { 
-		# 					is_supporting_unification_candidate = { who = root country_formation = GER }
-		# 					is_subject_of = root
-		# 					is_in_customs_union_with = root
-		# 				}						
-		# 			}
-		# 		}
-		# 		add = 1000
-		# 	}		
-		# }		
-		# dominate = {		
-		# 	if = {
-		# 		limit = {
-		# 			scope:target_country = {
-		# 				OR = {
-		# 					country_has_primary_culture = cu:north_german
-		# 					country_has_primary_culture = cu:south_german
-		# 				}					
-		# 				NOT = { is_unification_candidate = GER }
-		# 				NOR = { 
-		# 					is_supporting_unification_candidate = { who = root country_formation = GER }
-		# 					is_subject_of = root
-		# 					AND = {
-		# 						ROOT = { is_unification_candidate = GER }
-		# 						is_in_customs_union_with = root
-		# 					}
-		# 				}	
-		# 			}
-		# 		}
-		# 		add = 1000
-		# 	}		
-		# }
+		protect = {		
+			if = {
+				limit = {
+					scope:target_country = {
+						OR = {
+							country_has_primary_culture = cu:north_german
+							country_has_primary_culture = cu:south_german
+						}
+						NOT = { is_unification_candidate = GER }
+						OR = { 
+							is_supporting_unification_candidate = { who = root country_formation = GER }
+							is_subject_of = root
+							AND = {
+								ROOT = { is_unification_candidate = GER }
+								is_in_customs_union_with = root
+							}
+						}						
+					}
+				}
+				add = 1000
+			}		
+		}		
+		dominate = {		
+			if = {
+				limit = {
+					scope:target_country = {
+						OR = {
+							country_has_primary_culture = cu:north_german
+							country_has_primary_culture = cu:south_german
+						}					
+						NOT = { is_unification_candidate = GER }
+						NOR = { 
+							is_supporting_unification_candidate = { who = root country_formation = GER }
+							is_subject_of = root
+							AND = {
+								ROOT = { is_unification_candidate = GER }
+								is_in_customs_union_with = root
+							}
+						}	
+					}
+				}
+				add = 1000
+			}		
+		}
 		conquer = {				
 			if = {
 				limit = {

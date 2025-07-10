@@ -194,7 +194,7 @@ corporate_charters = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # 3 # very important tech
+		value = 3 # very important tech
 	}
 }
 
@@ -621,7 +621,7 @@ joint_stock_companies = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # 2 # important tech
+		value = 2 # important tech
 	}
 }
 
@@ -1188,7 +1188,7 @@ investment_banks = {
 	}
 	
 	ai_weight = {
-		value = 1 # 2 # important tech
+		value = 2 # important tech
 	}
 }
 
@@ -1444,7 +1444,7 @@ corporate_management = {
 	}
 	
 	ai_weight = {
-		value = 1 # 2 # important tech
+		value = 2 # important tech
 	}
 }
 

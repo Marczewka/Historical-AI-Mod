@@ -364,7 +364,7 @@ je_sick_man_separatism = {
 	}
 
 	goal_add_value = {
-		add = 240 # 180
+		add = 360 # 180
 	}
 
 	invalid = {
@@ -468,10 +468,7 @@ je_sick_man_bureaucracy = {
 			name = sick_man_var
 			add = 1
 		}
-		show_as_tooltip = {
-			remove_modifier = outmoded_bureaucracy
-			remove_modifier = millet_system
-		}
+		remove_modifier = outmoded_bureaucracy
 	}
 
 	on_monthly_pulse = {
