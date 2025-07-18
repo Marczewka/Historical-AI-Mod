@@ -1405,31 +1405,33 @@ ai_strategy_default = {
 			else = {
 				if = {
 					limit = { 
-						OR = {
-							scope:target_state = { 
-								is_split_state = yes 
-								state_region = { 
-									any_scope_state = { 
-										owner = ROOT 
-										# is_treaty_port = no
-										is_incorporated = yes
+						scope:target_state = { 
+							OR = {
+								AND = {
+									is_split_state = yes 
+									state_region = { 
+										any_scope_state = { 
+											owner = ROOT 
+											is_incorporated = yes
+										}
 									}
 								}
+								has_claim_by = root
 							}
-							scope:target_state = { has_claim_by = root } 
-						} 
+						}	
 					}					
 					multiply = 2.0
 					if = {
 						limit = {
 							scope:target_state = { 
-								is_split_state = yes 
-								state_region = { 
-									any_scope_state = { 
-										owner = ROOT 
-										is_treaty_port = no
-										state_population > 100000
+								OR = {
+									state_region = { 
+										any_scope_state = { 
+											owner = ROOT 
+											state_population > 100000
+										}
 									}
+									has_claim_by = root
 								}
 							}
 						}
@@ -1449,22 +1451,22 @@ ai_strategy_default = {
 					multiply = 2
 				}
 
-				if = { # State without port that we don't border (direct land border or wargoal adjacency only)
+				if = {
 					limit = { 
 						NOT = { has_strategic_land_adjacency = scope:target_state } 
-						# scope:target_state = { has_port = no }
+						scope:target_state = { is_coastal = no }
 					}
-					multiply = 0.5
+					multiply = 0
 				}
 
-				if = { # We strategically border the country but not the state (direct land border or wargoal adjacency only)
+				if = {
 					limit = {
 						has_strategic_land_adjacency = scope:target_country
 						NOT = { has_strategic_land_adjacency = scope:target_state }
 					}
-					multiply = 0.75 # 0.5
+					multiply = 0.5
 				}
-				if = { # We directly border the country but not the state
+				else_if = {
 					limit = {
 						is_adjacent_to_country = scope:target_country
 						NOT = { is_adjacent_to_state = scope:target_state }
@@ -3390,8 +3392,19 @@ ai_strategy_default = {
 			limit = {
 				scope:target_country = {
 					top_overlord = { country_rank < rank_value:unrecognized_major_power }
-					any_scope_state = {
-						has_claim_by = ROOT
+					any_scope_state = { 
+						OR = {
+							AND = {
+								is_split_state = yes 
+								state_region = { 
+									any_scope_state = { 
+										owner = ROOT 
+										is_incorporated = yes
+									}
+								}
+							}
+							has_claim_by = root
+						}
 					}
 				}
 			}

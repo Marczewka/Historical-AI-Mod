@@ -1,0 +1,4 @@
+﻿NPops = {
+	ACCEPTANCE_FROM_HOMELAND_COMMUNITY = 10										# The amount of acceptance a pop gets from living in their homeland, applied statically on their Cultural Community
+	MIN_REQUIRED_ACCEPTANCE_FOR_MIGRATION = 40 # 30		 							# If a pop would have less than this much acceptance in a target state, they won't mass migrate there
+}

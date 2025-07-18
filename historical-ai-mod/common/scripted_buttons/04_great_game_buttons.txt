@@ -365,7 +365,7 @@ je_consolidate_afghanistan_durand_line = {
 			country_or_subject_owns_entire_state_region = STATE_QUETTA
 			country_or_subject_owns_entire_state_region = STATE_BALUCHISTAN
 		}
-		c:GBR ?= this
+		NOT = { c:RUS ?= this }
 	}
 
 	possible = {
@@ -620,7 +620,7 @@ je_consolidate_afghanistan_indus_line = {
 				}
 			}
 		}
-		c:GBR ?= this
+		NOT = { c:RUS ?= this }
 	}
 
 	possible = {
@@ -912,7 +912,7 @@ je_consolidate_afghanistan_southeast_status_quo = {
 				}
 			}
 		}
-		c:GBR ?= this
+		NOT = { c:RUS ?= this }
 	}
 
 	possible = {
@@ -1021,7 +1021,7 @@ je_consolidate_afghanistan_torkestan_line = {
 				state_region = s:STATE_BALKH
 			}
 		}
-		c:RUS ?= this
+		NOT = { c:GBR ?= this }
 	}
 
 	possible = {
@@ -1231,7 +1231,7 @@ je_consolidate_afghanistan_amu_darya_line = {
 				}
 			}
 		}
-		c:RUS ?= this
+		NOT = { c:GBR ?= this }
 	}
 
 	possible = {
@@ -1390,7 +1390,7 @@ je_consolidate_afghanistan_north_status_quo = {
 				}
 			}
 		}
-		c:RUS ?= this
+		NOT = { c:GBR ?= this }
 	}
 
 	possible = {
