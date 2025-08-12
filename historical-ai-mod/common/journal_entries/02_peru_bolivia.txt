@@ -42,9 +42,6 @@
 			c:NPU ?= {
 				is_subject_of = c:BOL
 			}
-			c:IQU ?= {
-				is_subject_of = c:BOL
-			}
 			c:PEU ?= {
 				is_subject_of = c:BOL
 			}
@@ -90,9 +87,6 @@
 			c:NPU ?= {
 				is_subject_of = c:BOL
 			}
-			c:IQU ?= {
-				is_subject_of = c:BOL
-			}
 			c:PEU ?= {
 				is_subject_of = c:BOL
 			}
@@ -112,41 +106,29 @@
 				exists = c:BOL
 			}
 			AND = {
-				OR = {
-					NOT = {
-						exists = c:SPU
-					}
-					c:SPU ?= {
-						NOT = { is_subject_of = c:BOL }
-					}
+				NOT = {
+					exists = c:SPU
 				}
-				OR = {
-					NOT = {
-						exists = c:NPU
-					}
-					c:NPU ?= {
-						NOT = { is_subject_of = c:BOL }
-					}
+				NOT = {
+					exists = c:NPU
 				}
-				OR = {
-					NOT = {
-						exists = c:IQU
-					}
-					c:IQU ?= {
-						NOT = { is_subject_of = c:BOL }
-					}
-				}
-				OR = {
-					NOT = {
-						exists = c:PEU
-					}
-					c:PEU ?= {
-						NOT = { is_subject_of = c:BOL }
-					}
+				NOT = {
+					exists = c:PEU
 				}
 			}
+			c:SPU ?= {
+				NOT = { is_subject_of = c:BOL }
+			}
+			c:NPU ?= {
+				NOT = { is_subject_of = c:BOL }
+			}
+			c:PEU ?= {
+				NOT = { is_subject_of = c:BOL }
+			}
+			c:BOL ?= {
 			NOT = {
 				country_has_primary_culture = cu:south_andean
+				}
 			}
 			c:BOL ?= {
 				is_subject = yes
