@@ -1,5 +1,5 @@
 ﻿NAI = {
-	UNIFICATION_BASE_VALUE = 0
+	UNIFICATION_SUPPORT_INVALID_TARGET_FACTOR = -1000 # Unification support factor when country isn't a valid target for the unification play
 	UNIFICATION_SUPPORTER_DEFAULT_RANK_VALUE = 2 # 4 # Rank value is compared to this value for computing supporter rank factor
 
 	DIPLO_PLAY_SWAY_CALL_IN_OBLIGATION = 100 # When calling in an obligation

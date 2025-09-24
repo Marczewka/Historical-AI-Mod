@@ -33,7 +33,7 @@ ai_desires_target_state = {
 				is_split_state = yes 
 				state_region = { 
 					any_scope_state = { 
-						owner = ROOT 
+						owner = root
 						is_treaty_port = no
 						state_population > 100000
 						is_incorporated = yes
@@ -128,7 +128,7 @@ has_je_conquest_reason = {
 				}
 				NOT = { 
 					top_overlord = { 
-						religion = { has_discrimination_trait = christian }
+						religion = { has_discrimination_trait = heritage_christian }
 					}
 				}
 			}
@@ -221,7 +221,7 @@ has_je_conquest_reason = {
 		}
 
 		$TARGET$ = {
-			has_modifier = failed_tanzimat
+			has_variable = failed_tanzimat
 			any_scope_state = {
 				is_homeland_of_country_cultures = root
 				has_claim_by = root
@@ -308,7 +308,7 @@ has_je_conquest_reason = {
 
 		AND = {
 			country_has_primary_culture = cu:russian
-			has_law = law_type:law_national_supremacy
+			has_law_or_variant = law_type:law_national_supremacy
 			$TARGET$ = {
 				any_scope_state = {
 					OR = {
@@ -543,6 +543,12 @@ has_je_subjugation_reason = {
 				}
 			}
 		}
+		AND = {
+			has_journal_entry = je_danubian_federation
+			$TARGET$ = {
+				has_variable = danubian_federation_opposed
+			}
+		}
 	}	
 }
 
@@ -551,11 +557,11 @@ has_je_befriend_reason = {
 	
 	OR = {
 		AND = {
-			NOT = { has_variable = ionian_islands_var }
-			country_has_primary_culture = cu:greek
+			NOT = { has_variable = ionian_islands_decision_var }
+			c:GRE ?= this
 			is_subject = no
 			exists = c:ION
-			c:ION = {
+			c:ION ?= {
 				is_subject = yes
 				is_player = no
 				NOT = { is_subject_of = ROOT }
@@ -663,9 +669,16 @@ has_je_befriend_reason = {
 
 		AND = {
 			has_journal_entry = je_unite_the_principalities
-			$TARGET$ = { 
+			$TARGET$ = {
 				country_has_primary_culture = cu:romanian
-			}			
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_danubian_federation
+			$TARGET$ = {
+				has_variable = danubian_federation_receptive
+			}
 		}
 	}	
 }
@@ -695,8 +708,8 @@ has_je_protect_reason = {
 		}		
 
 		AND = {
-			NOT = { has_variable = ionian_islands_var }
-			country_has_primary_culture = cu:greek
+			NOT = { has_variable = ionian_islands_decision_var }
+			c:GRE ?= this
 			is_subject = no
 			exists = c:ION
 			c:ION = {

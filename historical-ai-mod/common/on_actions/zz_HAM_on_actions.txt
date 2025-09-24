@@ -45,7 +45,7 @@ revolution_risorgimento_on_action = {
 	}
 }
 
-revolution_dominicana_on_actioneffect = {
+revolution_dominicana_on_action = {
 	if = {
 		limit = {
 			NOT = {

@@ -11,7 +11,7 @@
 		add_claim = c:BOL
 	}
 	s:STATE_CHACO = {
-		add_claim = c:ARG	
+		add_claim = c:ARG
 	}
 	s:STATE_SANTA_FE = {
 		add_claim = c:ARG

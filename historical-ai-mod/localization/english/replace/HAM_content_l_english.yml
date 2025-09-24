@@ -3,11 +3,8 @@
 hungarian_radicals: "Dual Monarchy compromise rejected"
 
 # Poland
-rejected_polish_union_pol_var_tt: "Hasn't rejected to annex"
 je_christ_of_nations_unification_button: "Unite with another Polish state"
 je_christ_of_nations_unification_button_desc: "Through diplomacy and mutual aims, we are finally able to unify with another Polish state."
-modifier_polish_unificationist_sentiment: "Polish Nationalist Sentiments"
-owns_polish_homelands_tt: "Owns [GetCulture('polish').GetName] [concept_homeland] states"
 
 # Italy
 je_risorgimento_italian_unification_button: "Unite with another Italian state"
@@ -32,9 +29,6 @@ dp_unify_afghanistan_tooltip:1 "#header Start a $dp_unify_afghanistan$ [concept_
 dp_unify_afghanistan_desc:0 "Sets the initiating [concept_war_goal] to annex all lesser Afghanistann countries."
 je_indochina_overlord_religion_desc: "Overlord has christian state religion"
 AFG_tt:0 "[SCOPE.sCountry('target_country').GetName] can form Afghanistan"
-failed_tanzimat: "Failed Tanzimat Reforms"
-je_sick_man_main_goal:0 "Complete 7 'Tanzimat' [Concept('concept_journal_entry', '$concept_journal_entries$')]"
-je_sick_man_education_goal:1 "Increase the literacy rate of your people to 50%."
 protected_speech_tt:0 "Cannot [concept_exile], [concept_bolster] or [concept_suppress]"
 
 kindred_secession: "wants to help kindred secession"

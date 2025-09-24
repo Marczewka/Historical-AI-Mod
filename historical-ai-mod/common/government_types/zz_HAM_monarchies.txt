@@ -8,11 +8,25 @@
 	female_heir = "RULER_TITLE_PRINCESS"
 	
 	possible = {
-		has_law = law_type:law_monarchy
-		has_law = law_type:law_autocracy 
+		has_law_or_variant = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
 		OR = {
-			c:PRU ?= this
 			country_tier = kingdom
+			c:ITA ?= this
+			c:PRU ?= this
+		}
+		NAND = {
+			is_subject_type = subject_type_personal_union
+			any_overlord_or_above = {
+				has_variable = cisleithania_var
+			}
+			OR = {
+				has_variable = transleithania_var
+				has_variable = triune_kingdom_var
+			}
+		}
+		NOT = {
+			is_subject_type = subject_type_crown_land
 		}
 	}
 
@@ -34,12 +48,18 @@ gov_feudal_kingdom = {
 	female_heir = "RULER_TITLE_PRINCESS"
 	
 	possible = {
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		country_has_voting_franchise = no
-		has_law = law_type:law_serfdom
+		NOT = {
+			has_law_or_variant = law_type:law_technocracy
+		}
+		has_law_or_variant = law_type:law_serfdom
 		OR = {
-			c:PRU ?= this
 			country_tier = kingdom
+			c:PRU ?= this
+		}
+		NOT = {
+			is_subject_type = subject_type_crown_land
 		}
 	}
 
@@ -61,11 +81,32 @@ gov_kingdom = {
 	female_heir = "RULER_TITLE_PRINCESS"
 	
 	possible = {
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		country_has_voting_franchise = no
+		NOT = {
+			has_law_or_variant = law_type:law_technocracy
+		}
 		OR = {
-			c:PRU ?= this
 			country_tier = kingdom
+			c:ITA ?= this
+			c:PRU ?= this
+			AND = {
+				c:MON ?= this
+				has_variable = king_sounds_better
+			}
+		}
+		NAND = {
+			is_subject_type = subject_type_personal_union
+			any_overlord_or_above = {
+				has_variable = cisleithania_var
+			}
+			OR = {
+				has_variable = transleithania_var
+				has_variable = triune_kingdom_var
+			}
+		}
+		NOT = {
+			is_subject_type = subject_type_crown_land
 		}
 	}
 
@@ -87,11 +128,30 @@ gov_constitutional_kingdom = {
 	female_heir = "RULER_TITLE_PRINCESS"
 	
 	possible = {
-		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_monarchy
 		country_has_voting_franchise = yes
 		OR = {
-			c:PRU ?= this
 			country_tier = kingdom
+			c:HAI ?= this
+			c:ITA ?= this
+			c:PRU ?= this
+			AND = {
+				c:MON ?= this
+				has_variable = king_sounds_better
+			}
+		}
+		NAND = {
+			is_subject_type = subject_type_personal_union
+			any_overlord_or_above = {
+				has_variable = cisleithania_var
+			}
+			OR = {
+				has_variable = transleithania_var
+				has_variable = triune_kingdom_var
+			}
+		}
+		NOT = {
+			is_subject_type = subject_type_crown_land
 		}
 	}
 

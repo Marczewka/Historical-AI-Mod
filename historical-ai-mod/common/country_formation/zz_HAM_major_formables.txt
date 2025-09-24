@@ -37,7 +37,7 @@
 	unification_play = dp_unify_germany
 	leadership_play = dp_leadership_germany
 
-	required_states_fraction = 0.8 # 0.75
+	required_states_fraction = 0.8 # 0.73
 	
 	ai_will_do = { has_technology_researched = nationalism }
 
@@ -55,11 +55,28 @@
 				exists = c:RHN
 			}
 		}
+		custom_tooltip = {
+			text = no_dual_or_triple_monarchy_tt
+			NOR = {
+				has_government_type = gov_dual_monarchy
+				has_government_type = gov_triple_monarchy
+			}
+		}
+		NOT = {
+			c:KUK ?= this
+		}
 	}
 	
 	max_num_formation_candidates = 3
 	can_be_formation_candidate = {
 		country_rank >= rank_value:major_power
+	}
+
+	can_be_unification_target = {
+		NOR = {
+			has_government_type = gov_dual_monarchy
+			has_government_type = gov_triple_monarchy
+		}
 	}
 }
 
@@ -97,6 +114,10 @@ ITA = {
 			country_has_primary_culture = cu:north_italian
 			country_has_primary_culture = cu:south_italian
 		}
+		NOR = {
+            c:AUS ?= this
+            c:KUK ?= this
+        }
 	}
 	
 	max_num_formation_candidates = 3

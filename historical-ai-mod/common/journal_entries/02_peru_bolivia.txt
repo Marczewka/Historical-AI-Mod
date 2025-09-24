@@ -125,9 +125,14 @@
 			c:PEU ?= {
 				NOT = { is_subject_of = c:BOL }
 			}
-			c:BOL ?= {
-			NOT = {
-				country_has_primary_culture = cu:south_andean
+			trigger_if = {
+				limit = {
+					NOT = {
+						c:IQU ?= this
+					}
+				}
+				NOT = {
+					country_has_primary_culture = cu:south_andean
 				}
 			}
 			c:BOL ?= {

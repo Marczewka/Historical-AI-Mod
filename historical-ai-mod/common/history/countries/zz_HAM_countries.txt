@@ -3,20 +3,4 @@
     activate_law = law_type:law_freedom_of_conscience
     activate_law = law_type:law_racial_segregation
   }
-  c:TUR ?= {
-    activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_racial_segregation
-    add_modifier = {
-			name = millet_system
-			months = -1
-		}
-    set_government_wage_level = medium
-    set_military_wage_level = medium
-  }
-  c:CHI ?= {
-    set_government_wage_level = medium
-  }
-  c:BIC ?= {
-    set_military_wage_level = medium
-  }
 }

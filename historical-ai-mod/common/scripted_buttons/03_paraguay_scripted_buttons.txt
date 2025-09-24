@@ -160,9 +160,9 @@ good_health_prg_button = {
 			}
 		}
 		OR = {
-			has_law = law_type:law_charitable_health_system
-			has_law = law_type:law_private_health_insurance
-			has_law = law_type:law_public_health_insurance
+			has_law_or_variant = law_type:law_charitable_health_system
+			has_law_or_variant = law_type:law_private_health_insurance
+			has_law_or_variant = law_type:law_public_health_insurance
 			any_country = {
 				country_rank = rank_value:great_power
 				relations:root >= relations_threshold:amicable
@@ -229,7 +229,7 @@ army_git_good_button = {
 	}
 
 	possible = {
-		has_law = law_type:law_mass_conscription
+		has_law_or_variant = law_type:law_mass_conscription
 	}
 
 	effect = {

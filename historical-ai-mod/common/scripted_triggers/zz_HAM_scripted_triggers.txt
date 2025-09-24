@@ -34,20 +34,6 @@ can_reach_target_state = {
 	}
 }
 
-meiji_completion_trigger = {
-	AND = {
-		ig:ig_landowners = {
-			is_in_government = no
-		}
-		OR = {
-			government_legitimacy >= 50
-			ig:ig_landowners = { is_marginal = yes }
-		}
-		has_insurrectionary_interest_groups = no
-		is_at_war = no	
-	}	
-}
-
 wants_to_solve_schleswig_holstein = {
 	has_strategy = ai_strategy_unify_germany 
 	has_journal_entry = je_schleswig_holstein_question 

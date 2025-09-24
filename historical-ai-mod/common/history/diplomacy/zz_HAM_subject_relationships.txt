@@ -6,13 +6,6 @@
 		}
 	}
 
-	c:USA ?= {
-		remove_diplomatic_pact = {
-			country = c:LIB 
-			type = protectorate
-		}
-	}
-
 	c:BIC ?= {
 		remove_diplomatic_pact = {
 			country = c:BHW

@@ -1,5 +1,0 @@
-﻿DIPLOMACY = {
-	c:AUS ?= { 
-		set_relations = { country = c:TUR value = -10 }
-	}
-}
