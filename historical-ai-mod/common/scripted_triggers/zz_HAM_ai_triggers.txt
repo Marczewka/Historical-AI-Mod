@@ -115,25 +115,6 @@ has_je_conquest_reason = {
 			}
 		}
 		AND = {
-			has_journal_entry = je_indochina
-			$TARGET$ = {
-				any_scope_state = {
-					OR = {
-						state_region = s:STATE_TONKIN
-						state_region = s:STATE_ANNAM
-						state_region = s:STATE_MEKONG
-						state_region = s:STATE_LAOS
-						state_region = s:STATE_CAMBODIA				
-					}
-				}
-				NOT = { 
-					top_overlord = { 
-						religion = { has_discrimination_trait = heritage_christian }
-					}
-				}
-			}
-		}
-		AND = {
 			has_journal_entry = je_eastern_frontier
 			$TARGET$ = {
 				any_scope_state = {

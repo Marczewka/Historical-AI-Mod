@@ -100,15 +100,8 @@
 		add_modifier = {
 			name = schleswig_holstein_question_solver
 			days = long_modifier_time
-			is_decaying = yes
 		}	
 		hidden_effect = { set_global_variable = schleswig_holstein_question_solved }
-		c:PRU ?= {
-			create_diplomatic_catalyst = {  
-				type = catalyst_journal_entry
-				target = c:AUS
-			}
-		}
 	}
 	
 	status_desc = {

@@ -81,20 +81,6 @@ german_unification.1 = {
 				trigger_event = { id = german_unification.2 days = 0 popup = yes }
 			}
 		}
-		every_country = {
-			limit = {
-				OR = {
-					country_has_primary_culture = cu:north_german
-					country_has_primary_culture = cu:south_german
-				}
-			}
-			ROOT = {
-				create_diplomatic_catalyst = {  
-					type = catalyst_journal_entry
-					target = PREV
-				}
-			}
-		}
 	}
 
 	option = {
@@ -131,7 +117,7 @@ german_unification.1 = {
 							NOT = { has_claim = root }
 							owns_entire_state_region = STATE_BOHEMIA
 							owns_entire_state_region = STATE_CENTRAL_HUNGARY
-							#owns_entire_state_region = STATE_LOMBARDY
+							owns_entire_state_region = STATE_LOMBARDY
 						}
 					}
 					
@@ -462,10 +448,6 @@ german_unification.5 = {
 	option = {
 		name = german_unification.5.a
 		default_option = yes	
-		create_diplomatic_catalyst = {  
-			type = catalyst_journal_entry
-			target = c:DEN
-		}
 		if = {
 			limit = { country_has_primary_culture = cu:north_german }
 			add_journal_entry = {

@@ -1,16 +1,4 @@
-﻿PRU = {
-	color = { 0 49 83 }
-	
-	country_type = recognized
-
-	# So it can form NGF
-	tier = principality # kingdom
-	
-	cultures = { north_german }
-	capital = STATE_BRANDENBURG
-}
-
-GAL = {
+﻿GAL = {
 	color = { 13  81  130 }
 	
 	country_type = recognized

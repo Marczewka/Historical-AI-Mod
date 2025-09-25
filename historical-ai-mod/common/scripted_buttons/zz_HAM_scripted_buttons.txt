@@ -416,6 +416,54 @@ je_risorgimento_italian_radicals_button = {
 					days = normal_modifier_time
 				}
 			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:north_italian
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							country_rank >= rank_value:major_power
+						}
+					}
+					add_radicals_in_state = {
+						value = 0.10
+						culture = cu:north_italian
+					}
+				}
+				else = {
+					add_radicals_in_state = {
+						value = 0.05
+						culture = cu:north_italian
+					}
+				}
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:south_italian
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							country_rank >= rank_value:major_power
+						}
+					}
+					add_radicals_in_state = {
+						value = 0.10
+						culture = cu:south_italian
+					}
+				}
+				else = {
+					add_radicals_in_state = {
+						value = 0.05
+						culture = cu:south_italian
+					}
+				}
+			}
 			post_notification = sabotage_decision_agitation_occurred
 		}
 	}
@@ -610,55 +658,6 @@ je_risorgimento_change_stance_button = {
 				}
 			}
 			post_notification = ita_italian_unification_intent
-		}
-		every_country = {
-			limit = {
-				NOR = {
-					country_has_primary_culture = cu:north_italian
-					country_has_primary_culture = cu:south_italian
-				}
-				custom_tooltip = {
-					text = owns_italian_homelands_tt
-					any_scope_state = {
-						state_region = {
-							OR = {
-								is_homeland = cu:south_italian
-								is_homeland = cu:north_italian
-							}
-						}
-					}
-				}
-			}
-			change_relations = { country = ROOT value = -25 }
-			ROOT = {
-				create_diplomatic_catalyst = {  
-					type = catalyst_journal_entry
-					target = PREV
-				}
-			}
-			create_diplomatic_catalyst = {  
-				type = catalyst_event_negative
-				target = ROOT
-			}
-		}
-		every_country = {
-			limit = {
-				custom_tooltip = {
-					text = risorgimento_unifying_stance_tt
-					has_modifier = modifier_risorgimento_support
-				}
-			}
-			change_relations = { country = ROOT value = 50 }
-			ROOT = {
-				create_diplomatic_catalyst = {  
-					type = catalyst_journal_entry
-					target = PREV
-				}
-			}
-			create_diplomatic_catalyst = {  
-				type = catalyst_journal_entry
-				target = ROOT
-			}
 		}
 		if = {
 			limit = {

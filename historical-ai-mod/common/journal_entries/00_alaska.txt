@@ -168,10 +168,6 @@ je_alaska = {
 				}
 			}
 		}
-		create_diplomatic_catalyst = {  
-			type = catalyst_journal_entry
-			target = scope:alaska_overlord
-		}
 	}
 
 	complete = {

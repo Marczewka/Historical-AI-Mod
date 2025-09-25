@@ -1007,7 +1007,7 @@ ai_strategy_default = {
             limit = {
             	has_journal_entry = je_expanding_paraguay
             }
-            add = 100 # 25
+            add = 25
         }
 
 		# Italian minors should be willing to fight Austria
@@ -1021,7 +1021,7 @@ ai_strategy_default = {
 					is_diplomatic_play_enemy_of = c:RSM
 				}
 			}
-			add = 100 # 50
+			add = 50
 		}
 
 		
@@ -1038,7 +1038,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			 add = 100 # 50
+			 add = 50
 		}
 
 		# Second Balkan War, pitting the balkan nations against each other (Wallachia)
@@ -1054,7 +1054,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 100 # 50
+			add = 50
 		}
 
 		# Balkan minors are quite bold during the Eastern Question
@@ -1065,7 +1065,7 @@ ai_strategy_default = {
 					has_journal_entry = je_great_eastern_crisis
 				}
 			}
-			add = 50 # 10
+			add = 10
 		}
 
 		# Ottomans will tend to back down against Austria when they have the Great Eastern Crisis
@@ -1100,7 +1100,7 @@ ai_strategy_default = {
 					has_journal_entry = je_schleswig_holstein_question
 				}
 			}
-			add = 100 # 50
+			add = 50
 		}
 
 		if = { # War of the Confederation participants
@@ -1880,34 +1880,6 @@ ai_strategy_default = {
 					}
 				}
 				add = 25
-			}
-
-			# Indochina
-			if = {
-				limit = {
-					has_journal_entry = je_indochina
-				}
-				if = {
-					limit = {
-						scope:target_state = {
-							OR = {
-								state_region = s:STATE_TONKIN
-								state_region = s:STATE_ANNAM
-								state_region = s:STATE_MEKONG
-								state_region = s:STATE_LAOS
-								state_region = s:STATE_CAMBODIA							
-							}
-							owner = {
-								NOT = {
-									top_overlord = { 
-										religion = { has_discrimination_trait = christian }
-									}
-								}
-							}
-						}		
-					}
-					add = 25 
-				}
 			}
 
 			if = {
@@ -3487,46 +3459,6 @@ ai_strategy_default = {
 			add = 5
 		}
 
-		# Sardinia confident after treaty of Turin
-		if = {
-			limit = {
-				NOT = { is_diplomatic_play_enemy_of = scope:target_country }
-				has_strategy = ai_strategy_unify_italy
-				any_country = {
-					country_rank >= rank_value:great_power
-					any_scope_treaty = {
-						binds = ROOT
-						any_scope_article = {
-							has_type = alliance
-						}
-					}
-					scaled_debt < 0.05
-					"ai_ideological_opinion(scope:target_country)" > -50
-				}
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_PIEDMONT
-							state_region = s:STATE_LOMBARDY
-							state_region = s:STATE_VENETIA
-							state_region = s:STATE_EMILIA
-							state_region = s:STATE_TUSCANY
-							state_region = s:STATE_ROMAGNA
-							state_region = s:STATE_UMBRIA
-							state_region = s:STATE_LAZIO
-							state_region = s:STATE_ABRUZZO
-							state_region = s:STATE_CAMPANIA
-							state_region = s:STATE_APULIA
-							state_region = s:STATE_CALABRIA
-							state_region = s:STATE_SICILY
-							state_region = s:STATE_SARDINIA	
-						}
-					}
-				}
-			}
-			add = 2
-		}
-
 		if = {
 			limit = {
 				has_journal_entry = je_the_eastern_border
@@ -3727,7 +3659,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 200 # 100
+			add = 100
 		}
 		
 		# Opium wars aggressor should be very, very aggressive against target if they're banning opium
@@ -3739,7 +3671,7 @@ ai_strategy_default = {
 					is_banning_goods = g:opium
 				}
 			}
-			add = 200 # 100
+			add = 100
 		}
 		
 		if = { #TUR should want to invade MON
@@ -3855,7 +3787,7 @@ ai_strategy_default = {
 					}					
 				}
 			}
-			add = 50 # 5
+			add = 5
 		}
 
 		# Ottomans should be very aggressive against owners of Syria and Egypt when they have the relevant JE's
@@ -3920,7 +3852,7 @@ ai_strategy_default = {
 					}
 				}				
 			}
-			add = 50 # 5
+			add = 5
 		}
 
 		# Extra aggression against Peru-Bolivia in general
@@ -3954,88 +3886,11 @@ ai_strategy_default = {
 			add = 25
 		}
 
-		# Indochina
-		if = {
-			limit = {
-				has_journal_entry = je_indochina
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_TONKIN
-							state_region = s:STATE_ANNAM
-							state_region = s:STATE_MEKONG
-							state_region = s:STATE_LAOS
-							state_region = s:STATE_CAMBODIA				
-						}
-					}
-					NOT = { 
-						top_overlord = { 
-							religion = { has_discrimination_trait = christian }
-						}
-					}	
-				}
-			}
-			add = 50
-		}
-
-		if = {
-			limit = {
-				c:MEX ?= this
-				game_date < 1840.1.1
-				scope:target_country = {
-					c:GUA ?= this
-					any_scope_state = {
-						state_region = s:STATE_CHIAPAS
-					}
-				}
-			}
-			add = 100
-		}
-
 		if = {
 			limit = {
 				c:GUA ?= this
 				scope:target_country = {
 					c:ALT ?= this
-				}
-			}
-			add = 50
-		}
-
-		# Sardinia confident after treaty of Turin
-		if = {
-			limit = {
-				has_strategy = ai_strategy_unify_italy
-				any_country = {
-					country_rank >= rank_value:great_power
-					any_scope_treaty = {
-						binds = ROOT
-						any_scope_article = {
-							has_type = alliance
-						}
-					}
-					scaled_debt < 0.05
-					"ai_ideological_opinion(scope:target_country)" > -50
-				}
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_PIEDMONT
-							state_region = s:STATE_LOMBARDY
-							state_region = s:STATE_VENETIA
-							state_region = s:STATE_EMILIA
-							state_region = s:STATE_TUSCANY
-							state_region = s:STATE_ROMAGNA
-							state_region = s:STATE_UMBRIA
-							state_region = s:STATE_LAZIO
-							state_region = s:STATE_ABRUZZO
-							state_region = s:STATE_CAMPANIA
-							state_region = s:STATE_APULIA
-							state_region = s:STATE_CALABRIA
-							state_region = s:STATE_SICILY
-							state_region = s:STATE_SARDINIA	
-						}
-					}
 				}
 			}
 			add = 50
@@ -4080,7 +3935,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 25 # 3
+			add = 3
 		}
 
 		# Britain consolidating South Asia
@@ -4147,7 +4002,7 @@ ai_strategy_default = {
 				}
 				can_reach_target_country = yes
 			}
-			add = 25 # 10
+			add = 10
 		}
 
 		if = { #Russian Central Asia
@@ -4169,7 +4024,7 @@ ai_strategy_default = {
 				}
 				can_reach_target_country = yes
 			}
-			add = 25 # 15
+			add = 15
 		}
 		
 		if = { #Russian Central Asia
@@ -4216,7 +4071,7 @@ ai_strategy_default = {
 					country_has_primary_culture = cu:korean
 				}
 			}
-			add = 25 # 5
+			add = 5
 		}
 
 		if = { # Britain consolidating South Africa
@@ -4237,7 +4092,7 @@ ai_strategy_default = {
 				limit = {
 					has_journal_entry = je_scramble_for_africa
 				}
-				add = 50 # 25
+				add = 25
 			}			
 		}
 
@@ -4329,7 +4184,7 @@ ai_strategy_default = {
 				limit = {
 					has_journal_entry = je_scramble_for_africa
 				}
-				add = 50 # 25
+				add = 25
 			}			
 		}
 
@@ -4415,7 +4270,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 50 # 5
+			add = 5
 		}
 		
 		# Russia should very aggressively go for the Caucasus if it's still a great power.
@@ -4442,7 +4297,7 @@ ai_strategy_default = {
 					has_global_variable = caucasus_failure_var
 				}
 			}
-			add = 50 # 10
+			add = 10
 		}
 
 		if = {
@@ -4488,7 +4343,7 @@ ai_strategy_default = {
 					}
                 }
             }
-            add = 100 # 25
+            add = 25
         }
 		
 		# Acre claimant wants Acre
@@ -4499,7 +4354,7 @@ ai_strategy_default = {
 					has_state_in_state_region = STATE_ACRE
 				}
 			}
-			add = 100 # 25
+			add = 25
 		}
 		
         # Great Powers with slavery banned should be more aggressive against an openly slave trading Brazil
@@ -4651,7 +4506,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 100 # 35
+			add = 35
 		}
 
 		# Countries with high-fervour primary cultures are more aggressive against rivals or countries with homelands
@@ -5005,7 +4860,6 @@ ai_strategy_default = {
 		}
 		else_if = {
 			limit = {
-				country_rank >= rank_value:major_power
 				has_strategy = ai_strategy_unify_italy
 				NOT = { c:ITA ?= this }
 			}
@@ -5015,16 +4869,6 @@ ai_strategy_default = {
 		if = {
 			limit = { has_law_or_variant = law_type:law_national_militia }
 			multiply = 0.33
-		}	
-		
-		if = {
-			limit = { has_law_or_variant = law_type:law_peasant_levies }
-			multiply = 0.5
-		}
-		
-		if = {
-			limit = { has_law_or_variant = law_type:law_mass_conscription }
-			multiply = 0.66
 		}
 
 		if = {
@@ -8163,6 +8007,7 @@ ai_strategy_default = {
 			
 			if = {
 				limit = {
+					is_diplomatic_play_involved_with = scope:target_country
 					has_diplomatic_pact = {
 						who = scope:target_country
 						type = rivalry

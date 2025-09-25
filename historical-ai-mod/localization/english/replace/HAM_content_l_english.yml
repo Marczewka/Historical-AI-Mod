@@ -3,11 +3,11 @@
 hungarian_radicals: "Dual Monarchy compromise rejected"
 
 # Poland
-je_christ_of_nations_unification_button: "Unite with another Polish state"
+je_christ_of_nations_unification_button: "Unite With Another Polish State"
 je_christ_of_nations_unification_button_desc: "Through diplomacy and mutual aims, we are finally able to unify with another Polish state."
 
 # Italy
-je_risorgimento_italian_unification_button: "Unite with another Italian state"
+je_risorgimento_italian_unification_button: "Unite With Another Italian State"
 je_risorgimento_italian_unification_button_desc: "Through diplomacy and mutual aims, we are finally able to unify with another Italian state."
 italian_minor_dont_annex_tt: "We haven't rejected to annex in the past #bold five years#!"
 je_risorgimento_change_stance_button: "Start supporting Risorgimento"
@@ -27,7 +27,6 @@ ai_strategy_unify_afghanistan_desc:0 "[COUNTRY.GetName] wants to unite the Afgha
 dp_unify_afghanistan:0 "Unify Afghanistan"
 dp_unify_afghanistan_tooltip:1 "#header Start a $dp_unify_afghanistan$ [concept_diplomatic_play]#!\n$TOOLTIP_DELIMITER$\n$dp_unify_afghanistan_desc$"
 dp_unify_afghanistan_desc:0 "Sets the initiating [concept_war_goal] to annex all lesser Afghanistann countries."
-je_indochina_overlord_religion_desc: "Overlord has christian state religion"
 AFG_tt:0 "[SCOPE.sCountry('target_country').GetName] can form Afghanistan"
 protected_speech_tt:0 "Cannot [concept_exile], [concept_bolster] or [concept_suppress]"
 
