@@ -106,7 +106,7 @@ democracy = {
 	category = society
 	
 	modifier = {
-		country_institution_social_security_max_investment_add = 1	
+		country_institution_social_security_max_investment_add = 2
 	}
 	
 	unlocking_technologies = {
@@ -338,6 +338,7 @@ mass_communication = {
 	
 	modifier = {
 		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
 	}
 	
 	unlocking_technologies = {
@@ -464,6 +465,7 @@ quinine = {
 
 	modifier = {
 		country_institution_colonial_affairs_max_investment_add = 1
+		country_institution_health_system_max_investment_add = 1
 	}
 	
 	unlocking_technologies = {
@@ -693,6 +695,7 @@ nationalism = {
 	
 	modifier = {
 		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
 	}
 	
 	unlocking_technologies = {
@@ -720,7 +723,9 @@ nationalism = {
 					country_has_primary_culture = cu:north_italian
 					country_has_primary_culture = cu:south_italian
 				}
-				has_variable = risorgimento_unifying_stance
+				any_country = {
+					has_journal_entry = je_risorgimento
+				}
 			}
 			multiply = 4
 		}
@@ -794,6 +799,9 @@ postal_savings = {
 	modifier = {
 		state_farmers_investment_pool_efficiency_mult = 0.15
 		state_shopkeepers_investment_pool_efficiency_mult = 0.15
+		state_bureaucrats_investment_pool_efficiency_mult = 0.15
+		state_engineers_investment_pool_efficiency_mult = 0.15
+		state_machinists_investment_pool_efficiency_mult = 0.15
 		building_cash_reserves_mult = 0.2
 	}
 	
@@ -884,6 +892,10 @@ feminism = {
 				}
 			}
 		}
+	}
+	
+	modifier = {
+		country_institution_social_security_max_investment_add = 1
 	}
 
 	unlocking_technologies = {
@@ -1115,6 +1127,7 @@ pan-nationalism = {
 	modifier = {
 		country_authority_mult = 0.1
 		country_support_separatism_strength_mult = 0.25
+		country_voting_power_mult = 0.1
 	}
 	
 	unlocking_technologies = {
@@ -1304,6 +1317,7 @@ malaria_prevention = {
 
 	modifier = {
 		country_institution_colonial_affairs_max_investment_add = 1
+		country_institution_health_system_max_investment_add = 1
 	}
 	
 	unlocking_technologies = {
@@ -1349,6 +1363,7 @@ central_planning = {
 	modifier = {
 		state_tax_capacity_add = 25
 		country_government_dividends_efficiency_add = 0.05
+		country_institution_home_affairs_max_investment_add = 1
 	}
 	
 	unlocking_technologies = {
@@ -1371,6 +1386,7 @@ political_agitation = {
 	modifier = {
 		state_expected_sol_from_literacy = 1
 		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
 		country_agitator_slots_add = 1
 	}
 	
@@ -1517,6 +1533,7 @@ mass_surveillance = {
 	modifier = {
 		state_tax_capacity_add = 25
 		country_support_separatism_resistance_mult = 0.25
+		country_institution_home_affairs_max_investment_add = 1
 	}
 	
 	unlocking_technologies = {
@@ -1556,6 +1573,7 @@ mass_propaganda = {
 	
 	modifier = {
 		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
 		state_expected_sol_from_literacy = 1
 		country_agitator_slots_add = 1
 		country_support_separatism_strength_mult = 0.25

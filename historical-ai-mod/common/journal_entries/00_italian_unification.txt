@@ -1,4 +1,4 @@
-﻿je_risorgimento = {
+je_risorgimento = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	
 	group = je_group_historical_content
@@ -117,7 +117,7 @@
 		show_as_tooltip = {
 			trigger_event = { id = italian_unification.1 popup = yes }
 		}
-			}
+	}
 
 	fail = {
 		custom_tooltip = {

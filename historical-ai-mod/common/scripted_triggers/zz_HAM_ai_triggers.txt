@@ -4,12 +4,18 @@
 			OR = {
 				has_strategy = ai_strategy_world_revolution
 				has_strategy = ai_strategy_territorial_expansion
-			}					
-			has_strategic_land_adjacency = scope:target_state
+			}	
 			has_secret_goal = { # AI wants to conquer the state owner
 				who = scope:target_state.owner
 				secret_goal = conquer
 			}	
+			OR = {
+				has_strategic_land_adjacency = scope:target_state # Will limit its ambitions to land borders
+				AND = {
+					scope:target_state.region ?= capital.region # Will try to annex states in its capital region regardless of whether they border it or not
+					can_reach_target_state = yes
+				}
+			}
 		}
 		AND = { # Colonialist AI wants colonies
 			has_strategy = ai_strategy_colonial_expansion
@@ -46,7 +52,13 @@ ai_desires_target_state = {
 				has_strategy = ai_strategy_world_revolution
 				has_strategy = ai_strategy_territorial_expansion
 			}					
-			has_strategic_adjacency = scope:target_state
+			OR = {
+				has_strategic_land_adjacency = scope:target_state # Will limit its ambitions to land borders
+				AND = {
+					scope:target_state.region ?= capital.region # Will try to annex states in its capital region regardless of whether they border it or not
+					can_reach_target_state = yes
+				}
+			}
 		}
 		AND = { # Colonialist AI wants colonies
 			OR = {
@@ -54,7 +66,7 @@ ai_desires_target_state = {
 				has_strategy = ai_strategy_colonial_expansion
 			}
 			scope:target_state.owner = { is_country_type = unrecognized }				
-			can_reach_target_state = yes
+			can_reach_target_state = yes  # Willing to go overseas to acquire territories
 		}
 		AND = { # AI wants nearby states if gifted them by overlord
 			has_strategic_adjacency = scope:target_state
@@ -123,7 +135,7 @@ ai_has_enact_weight_modifier_journal_entries = {
 }
 
 has_je_conquest_reason = {
-	# can_reach_target_country = yes
+	can_reach_target_country = yes
 
 	OR = {	
 		AND = {
@@ -427,6 +439,7 @@ has_je_conquest_reason = {
 					}
 				}
 			}
+			can_reach_target_country = yes
 		}			
 		
 		AND = {
@@ -483,11 +496,9 @@ has_je_conquest_reason = {
 
 		AND = {
 			is_unification_candidate = ITA
-			has_strategy = ai_strategy_unify_italy
-			country_rank >= rank_value:major_power
+			has_variable = risorgimento_unifying_stance
 			$TARGET$ = {
 				is_unification_candidate = ITA
-				country_rank >= rank_value:major_power
 			}
 		}
 		
@@ -517,13 +528,7 @@ has_je_conquest_reason = {
 				has_variable = risorgimento_anti_unifying_stance 
 			}
 		}
-	}
-}
 
-has_je_subjugation_reason = {
-	# can_reach_target_country = yes
-
-	OR = {	
 		AND = {
 			OR = {
 				has_strategy = ai_strategy_colonial_expansion
@@ -532,9 +537,16 @@ has_je_subjugation_reason = {
 			has_technology_researched = civilizing_mission
 			$TARGET$ = {
 				is_country_type = unrecognized
-				country_rank < rank_value:unrecognized_major_power
+				top_overlord = { country_rank < rank_value:unrecognized_major_power }
 			}
 		}
+	}
+}
+
+has_je_subjugation_reason = {
+	can_reach_target_country = yes
+
+	OR = {	
 		AND = {
 			OR = {
 				has_journal_entry = je_sick_man_syria
@@ -554,6 +566,7 @@ has_je_subjugation_reason = {
 					}
 				}
 			}
+			has_strategy = ai_strategy_economic_imperialism
 			country_rank = rank_value:great_power
 			navy_size >= 25
 			scope:target_country = { 
@@ -696,18 +709,22 @@ has_je_befriend_reason = {
 		AND = {
 			OR = {
 				c:ITA ?= this
-				has_variable = risorgimento_unifying_stance
+				AND = {
+					has_journal_entry = je_risorgimento
+					has_variable = risorgimento_unifying_stance
+				}
 			}
-			country_rank >= rank_value:major_power
 			$TARGET$ = { 
 				has_variable = risorgimento_unifying_stance 
 				country_rank < rank_value:major_power
+				NOT = { is_unification_candidate = ITA }
 			}
 		}
 
 		AND = {
 			has_variable = risorgimento_unifying_stance
 			country_rank < rank_value:major_power
+			NOT = { is_unification_candidate = ITA }
 			$TARGET$ = { 
 				OR = {
 					c:ITA ?= this
@@ -830,23 +847,15 @@ has_je_protect_reason = {
 		AND = {
 			OR = {
 				c:ITA ?= this
-				has_variable = risorgimento_unifying_stance
+				AND = {
+					has_journal_entry = je_risorgimento
+					has_variable = risorgimento_unifying_stance
+				}
 			}
-			country_rank >= rank_value:major_power
 			$TARGET$ = { 
 				has_variable = risorgimento_unifying_stance 
 				country_rank < rank_value:major_power
-			}
-		}
-
-		AND = {
-			has_variable = risorgimento_unifying_stance
-			country_rank < rank_value:major_power
-			$TARGET$ = { 
-				OR = {
-					c:ITA ?= this
-					has_variable = risorgimento_unifying_stance
-				}
+				NOT = { is_unification_candidate = ITA }
 			}
 		}
 	

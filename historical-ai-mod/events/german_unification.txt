@@ -275,6 +275,8 @@ german_unification.3 = {
 	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
 
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	cooldown = { days = never_fire_again_modifier_time }
 
 	duration = 3
 

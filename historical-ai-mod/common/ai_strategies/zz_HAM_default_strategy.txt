@@ -164,112 +164,6 @@ ai_strategy_default = {
 				}
 			}
 		}
-
-		### Protect Herat
-		if = {
-			limit = { 
-				OR = {
-					c:GBR = this
-					has_journal_entry = je_unify_afghanistan
-				}
-				scope:enemy_country = {
-					c:PER = this
-					OR = {
-						play_participant_has_war_goal_of_type_against = {
-							type = annex_country
-							target = scope:country
-						}
-						play_participant_has_war_goal_of_type_against = {
-							type = return_state
-							target = scope:country
-						}
-						play_participant_has_war_goal_of_type_against = {
-							type = conquer_state
-							target = scope:country
-						}
-						play_participant_has_war_goal_of_type_against = {
-							type = make_protectorate
-							target = scope:country
-						}								
-						play_participant_has_war_goal_of_type_against = {
-							type = liberate_country
-							target = scope:country
-						}
-						play_participant_has_war_goal_of_type_against = {
-							type = liberate_subject
-							target = scope:country
-						}		
-						play_participant_has_war_goal_of_type_against = {
-							type = transfer_subject
-							target = scope:country
-						}
-						play_participant_has_war_goal_of_type_against = {
-							type = take_treaty_port
-							target = scope:country
-						}
-					}
-				}
-				scope:country = {
-					any_scope_state = {
-						state_region = s:STATE_HERAT
-					}
-				}
-			}
-
-			add = {
-				value = 100
-				desc = "protect_herat"
-			}
-		}
-
-		### Monroe Doctrine
-		if = {
-			limit = { 
-				c:USA = this
-				scope:enemy_country = {
-					NOR = {
-						country_is_in_north_america = yes
-						country_is_in_central_america = yes
-						country_is_in_south_america = yes
-					}
-					OR = {
-						play_participant_has_war_goal_of_type_against = {
-							type = annex_country
-							target = scope:country
-						}
-						play_participant_has_war_goal_of_type_against = {
-							type = conquer_state
-							target = scope:country
-						}
-						play_participant_has_war_goal_of_type_against = {
-							type = make_protectorate
-							target = scope:country
-						}								
-						play_participant_has_war_goal_of_type_against = {
-							type = transfer_subject
-							target = scope:country
-						}
-						play_participant_has_war_goal_of_type_against = {
-							type = take_treaty_port
-							target = scope:country
-						}		
-					}
-				}
-				scope:country = {
-					OR = {
-						country_is_in_north_america = yes
-						country_is_in_central_america = yes
-						country_is_in_south_america = yes
-					}
-				}
-			}
-
-			add = {
-				value = 100
-				desc = "monroe_doctrine"
-			}
-		}
-
 		
 		### Kindred Secession
 		if = {
@@ -1022,13 +916,12 @@ ai_strategy_default = {
 				THIS = {
 					has_journal_entry = je_risorgimento
 				}
-				any_country = {
+				any_diplomatically_relevant_country = {
 					is_diplomatic_play_enemy_of = c:RSM
 				}
 			}
 			add = 50
 		}
-
 		
 		# Second Balkan War, pitting the balkan nations against each other
 		if = {
@@ -1396,23 +1289,6 @@ ai_strategy_default = {
 			add = 10
 		}
 
-		### Protect Herat
-		if = {
-			limit = { 
-				OR = {
-					c:GBR = this
-					has_journal_entry = je_unify_afghanistan
-				}
-				scope:target_country = {
-					is_diplomatic_play_involved_with = c:PER
-					any_scope_state = {
-						state_region = s:STATE_HERAT
-					}
-				}
-			}
-			add = 15
-		}
-
 		### Protect Afghanistan
 		if = {
 			limit = { 
@@ -1451,6 +1327,7 @@ ai_strategy_default = {
 				has_variable = risorgimento_unifying_stance
 				scope:target_country = {
 					has_variable = risorgimento_unifying_stance
+					NOT = { is_unification_candidate = ITA }
 				}
 			}
 			add = 15
@@ -2140,27 +2017,23 @@ ai_strategy_default = {
 						}
 					}
 				}
-				multiply = 0.5 # 0
+				multiply = 0.25 # 0
 			}
 			
-			if = { #Do Not Take Chinese States In Full, unless another power has already done so
+			if = { #Do Not Take core Chinese States In Full, unless another power has already done so
 				limit = {
 					country_rank >= rank_value:major_power
 					scope:target_state = {
-						owner ={
-							top_overlord = { has_journal_entry = je_warlord_china }
+						owner = {
+							OR = {
+								c:CHI ?= this
+								c:TPG ?= this
+							}
 						}
 						OR = {
 							region = sr:region_north_china
 							region = sr:region_south_china
-							state_region = s:STATE_DZUNGARIA
-							state_region = s:STATE_TIANSHAN
-							state_region = s:STATE_QINGHAI
-							state_region = s:STATE_NGARI
-							state_region = s:STATE_LHASA
-							region = sr:region_manchuria
 						}
-						NOT = { has_claim_by = root }
 					}				
 					OR = {
 						country_is_in_north_america = yes
@@ -2168,51 +2041,10 @@ ai_strategy_default = {
 						country_is_in_south_america = yes
 					}					
 					NOR = {
-						s:STATE_DZUNGARIA = {
-							any_scope_state = {
-								NOT = { is_treaty_port = yes }
-								owner = {
-									NOT = { THIS = ROOT }
-									country_rank >= rank_value:major_power
-									OR = {
-										country_is_in_north_america = yes
-										country_is_in_europe = yes
-										country_is_in_south_america = yes
-									}					
-								}
-							}
-						}
-						s:STATE_TIANSHAN = {
-							any_scope_state = {
-								NOT = { is_treaty_port = yes }
-								owner = {
-									NOT = { THIS = ROOT }
-									country_rank >= rank_value:major_power
-									OR = {
-										country_is_in_north_america = yes
-										country_is_in_europe = yes
-										country_is_in_south_america = yes
-									}					
-								}
-							}
-						}
-						s:STATE_QINGHAI = {
-							any_scope_state = {
-								NOT = { is_treaty_port = yes }
-								owner = {
-									NOT = { THIS = ROOT }
-									country_rank >= rank_value:major_power
-									OR = {
-										country_is_in_north_america = yes
-										country_is_in_europe = yes
-										country_is_in_south_america = yes
-									}					
-								}
-							}
-						}
 						sr:region_north_china = {
 							any_scope_state = {
 								NOT = { is_treaty_port = yes }
+								is_largest_state_in_region = yes
 								owner = {
 									NOT = { THIS = ROOT }
 									country_rank >= rank_value:major_power
@@ -2227,6 +2059,7 @@ ai_strategy_default = {
 						sr:region_south_china = {
 							any_scope_state = {
 								NOT = { is_treaty_port = yes }
+								is_largest_state_in_region = yes
 								owner = {
 									NOT = { THIS = ROOT }
 									country_rank >= rank_value:major_power
@@ -2238,73 +2071,32 @@ ai_strategy_default = {
 								}
 							}			 
 						}	
-						s:STATE_NGARI = {
-							any_scope_state = {
-								NOT = { is_treaty_port = yes }
-								owner = {
-									NOT = { THIS = ROOT }
-									country_rank >= rank_value:major_power
-									OR = {
-										country_is_in_north_america = yes
-										country_is_in_europe = yes
-										country_is_in_south_america = yes
-									}					
-								}
-							}
-						}
-						s:STATE_LHASA = {
-							any_scope_state = {
-								NOT = { is_treaty_port = yes }
-								owner = {
-									NOT = { THIS = ROOT }
-									country_rank >= rank_value:major_power
-									OR = {
-										country_is_in_north_america = yes
-										country_is_in_europe = yes
-										country_is_in_south_america = yes
-									}					
-								}
-							}
-						}
-						# sr:region_manchuria = {
-						# 	any_scope_state = {
-						# 		NOT = { is_treaty_port = yes }
-						# 		owner = {
-						# 			NOT = { THIS = ROOT }
-						# 			country_rank >= rank_value:major_power
-						# 			OR = {
-						# 				country_is_in_north_america = yes
-						# 				country_is_in_europe = yes
-						# 				country_is_in_south_america = yes
-						# 			}					
-						# 		}
-						# 	}			 
-						# }			
 					}
 				}
 				multiply = 0
 			}
+
 			if = { #Do Not Take Japanese States In Full, unless another power has already done so
 				limit = {
 					country_rank >= rank_value:major_power
-					exists = c:JAP
 					scope:target_state = {
-						owner = { 
-							is_country_type = unrecognized 
-							this = c:JAP
+						owner = {
+							c:JAP ?= this
 						}
 						region = sr:region_japan
+						NOT = { state_region = s:STATE_SAKHALIN }
 					}				
 					OR = {
 						country_is_in_north_america = yes
 						country_is_in_europe = yes
 						country_is_in_south_america = yes
 					}					
-					NOR = {
+					NOT = {
 						sr:region_japan = {
 							any_scope_state = {
 								NOT = { is_treaty_port = yes }
 								NOT = { state_region = s:STATE_SAKHALIN }
+								is_largest_state_in_region = yes
 								owner = {
 									NOT = { THIS = ROOT }
 									country_rank >= rank_value:major_power
@@ -2314,7 +2106,7 @@ ai_strategy_default = {
 										country_is_in_south_america = yes
 									}					
 								}
-							}			 
+							}	
 						}	
 					}
 				}
@@ -2455,7 +2247,10 @@ ai_strategy_default = {
 						region = sr:region_manchuria
 					}
 					owner = {
-						c:CHI = this
+						OR = {
+							c:CHI ?= this
+							c:TPG ?= this
+						}
 					}
 				}
 			}
@@ -2646,7 +2441,7 @@ ai_strategy_default = {
 
 					if = {
 						limit = {
-							NOT = {	has_strategic_land_adjacency = scope:target_country }
+							NOT = {	has_strategic_adjacency = scope:target_country }
 						}
 						multiply = 0.5
 					}					
@@ -2825,7 +2620,7 @@ ai_strategy_default = {
 			limit = {
 				has_strategy = ai_strategy_economic_imperialism
 				scope:target_country = { 
-					has_law = law_type:law_isolationism
+					has_law_or_variant = law_type:law_isolationism
 					gdp >= 5000000
 				} 			
 			}
@@ -2860,14 +2655,14 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	# root is the AI doing the evaluation, scope:overlord is prospective overlord
 	become_subject_value = {
-		value = -150 # -100
+		value = -100
 
 		if = {
 			limit = {
 				NOT = { has_strategic_land_adjacency = scope:overlord }
 			}
 			
-			add = -10
+			add = -50 # -10
 		}			
 
 		if = {
@@ -3088,7 +2883,10 @@ ai_strategy_default = {
 			limit = {
 				should_carve_up_china = yes
 				scope:target_country = {
-					c:CHI = this
+					OR = {
+						c:CHI ?= this
+						c:TPG ?= this
+					}
 					any_scope_state = {
 						OR = {
 							region = sr:region_north_china
@@ -3254,15 +3052,7 @@ ai_strategy_default = {
 			limit = {
 				wants_to_solve_schleswig_holstein = yes	
 				scope:target_country = {
-					OR = {
-						is_oppressor_of_schleswig_holstein = yes
-						AND = {
-							any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
-							top_overlord = {
-								is_oppressor_of_schleswig_holstein = yes
-							}
-						}
-					}
+					is_oppressor_of_schleswig_holstein = yes
 				}
 			}
 			add = 0.5
@@ -3764,15 +3554,7 @@ ai_strategy_default = {
 			limit = { 
 				wants_to_solve_schleswig_holstein = yes	
 				scope:target_country = {
-					OR = {
-						is_oppressor_of_schleswig_holstein = yes
-						AND = {
-							any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
-							top_overlord = {
-								is_oppressor_of_schleswig_holstein = yes
-							}
-						}
-					}
+					is_oppressor_of_schleswig_holstein = yes
 				}
 			}
 			add = 5
@@ -3782,7 +3564,10 @@ ai_strategy_default = {
 			limit = {
 				should_carve_up_china = yes
 				scope:target_country = {
-					c:CHI = this
+					OR = {
+						c:CHI ?= this
+						c:TPG ?= this
+					}
 					any_scope_state = {
 						OR = {
 							region = sr:region_north_china
@@ -3843,7 +3628,7 @@ ai_strategy_default = {
 					c:CSA ?= this
 				}
 			}
-			add = 5
+			add = 50
 		}
 
 		# Extra french aggression for Haiti renouncing debt payments
@@ -4726,6 +4511,14 @@ ai_strategy_default = {
 			multiply = 1.25
 		}
 
+		# If has Grunderzeit
+		if = {
+			limit = {
+				has_journal_entry = je_grunderzeit
+			}
+			multiply = 1.5
+		}
+
 		if = {
 			limit = {
 				OR = {
@@ -4742,6 +4535,32 @@ ai_strategy_default = {
 		}	
 		
 		min = 10
+	}
+	
+	# How much does the AI want to prioritize economic construction vs government spending?
+	# Having a value above 0 here makes the AI less willing to spend on government expenses and more willing to take on debt to build production buildings
+	# Values below 0 have the opposite effect and thus also increase AI government spending
+	# +0.1 = +10% higher acceptable debt threshold for economic construction / +10% stricter budget requirements for government expenses
+	# Acceptable debt threshold for economic construction is capped at CONSTRUCTION_DEBT_PAUSE
+	# Using this value in other strategies will function additively
+	economic_vs_government_spending_balance = {
+		value = 0.0
+		if = {
+			limit = {
+				has_journal_entry = je_grunderzeit
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = grunderzeit_participant_low_var
+					}
+				}
+				add = 0.3
+			}
+			else = {
+				add = 0.15
+			}
+		}
 	}
 	
 	# How many levels of barracks should the AI have
@@ -4903,6 +4722,12 @@ ai_strategy_default = {
 		min = {
 			value = 1
 
+			if = {
+				limit = {
+					has_journal_entry = je_patagonia
+				}
+				multiply = 10
+			}
 			if = {
 				limit = {
 					has_journal_entry = je_sick_man_army

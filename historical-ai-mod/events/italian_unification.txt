@@ -26,13 +26,13 @@ italian_unification.1 = {
 		ruler.interest_group = {
 			save_scope_as = ruler_ig_scope
 		}
-	}		
+	}
 
 	option = {
 		name = italian_unification.1.a
 		default_option = yes
 		give_claims_on_italy = yes
-		
+
 		# prestige
 		add_modifier = {
 			name = italian_unifier_prestige
@@ -42,7 +42,7 @@ italian_unification.1 = {
 	option = {
 		name = italian_unification.1.b
 		give_claims_on_italy = yes
-		
+
 		# ruler IG attraction
 		scope:ruler_ig_scope = {
 			add_modifier = {
@@ -73,10 +73,25 @@ italian_unification.2 = {
 	duration = 1
 
 	trigger = {
-		has_technology_researched = nationalism
 		OR = {
 			c:ITA ?= this
-			has_variable = risorgimento_unifying_stance
+			AND = {
+				custom_tooltip = {
+					text = risorgimento_unifying_stance_tt
+					has_variable = risorgimento_unifying_stance
+				}
+				is_unification_candidate = ITA
+			}
+		}
+		NOT = {
+			any_country = {
+				NOT = { this = root }
+				is_unification_candidate = ITA
+				custom_tooltip = {
+					text = risorgimento_unifying_stance_tt
+					has_variable = risorgimento_unifying_stance
+				}
+			}
 		}
 		NOR = {
 			is_revolutionary = yes
@@ -101,11 +116,6 @@ italian_unification.2 = {
 				is_subject = no
 				is_subject_of = ROOT
 				is_in_customs_union_with = root
-			}
-			OR = {
-				this.gdp < root.gdp
-				root = { c:ITA ?= this }
-				root = { is_player = yes }
 			}
 			country_rank <= rank_value:minor_power
 			relations:root >= relations_threshold:amicable
@@ -139,11 +149,6 @@ italian_unification.2 = {
 					is_subject = no
 					is_subject_of = ROOT
 					is_in_customs_union_with = root
-				}
-				OR = {
-					this.gdp < root.gdp
-					root = { c:ITA ?= this }
-					root = { is_player = yes }
 				}
 				country_rank <= rank_value:minor_power
 				relations:root >= relations_threshold:amicable
@@ -910,43 +915,18 @@ italian_unification.10 = {
 	option = {
 		name = italian_unification.10.a
 		ai_chance = {
-			base = 50
+			base = 40
 			modifier = {
 				trigger = {
-					NOR = {
-						has_law = law_type:law_theocracy
-						has_law = law_type:law_monarchy
-					}
+					c:SAR ?= this
 				}
 				add = 50
 			}
 			modifier = {
 				trigger = {
-					NOR = { 
-						has_law = law_type:law_autocracy 
-						has_law = law_type:law_oligarchy
-					}
+					c:SIC ?= this
 				}
-				add = 50
-			}
-			modifier = {
-				trigger = {
-					power_bloc ?= {
-						power_bloc_leader = { 
-							NOR = {
-								country_has_primary_culture = cu:north_italian
-								country_has_primary_culture = cu:south_italian
-							}
-						}
-					}
-				}
-				add = -50
-			}
-			modifier = {
-				trigger = {
-					has_law = law_type:law_traditionalism
-				}
-				add = -50
+				add = -35
 			}
 		}
 		default_option = yes
@@ -962,7 +942,7 @@ italian_unification.10 = {
 					has_ideology = ideology:ideology_liberal
 					has_ideology = ideology:ideology_liberal_modern
 					leader = {
-						OR = {						
+						OR = {
 							has_ideology = ideology:ideology_radical
 							has_ideology = ideology:ideology_jingoist_leader
 						}
@@ -1044,34 +1024,23 @@ italian_unification.10 = {
 			}
 			modifier = {
 				trigger = {
-					power_bloc ?= {
-						power_bloc_leader = { 
-							NOR = {
-								country_has_primary_culture = cu:north_italian
-								country_has_primary_culture = cu:south_italian
-							}
-						}
+					ig:ig_landowners ?= {
+						is_in_government = yes
 					}
+				}
+				add = 15
+			}
+			modifier = {
+				trigger = {
+					c:SAR ?= this
+				}
+				add = -50
+			}
+			modifier = {
+				trigger = {
+					c:SIC ?= this
 				}
 				add = 50
-			}
-			modifier = {
-				trigger = {
-					NOR = {
-						has_law_or_variant = law_type:law_theocracy
-						has_law_or_variant = law_type:law_monarchy
-					}
-				}
-				add = -50
-			}
-			modifier = {
-				trigger = {
-					NOR = { 
-						has_law_or_variant = law_type:law_autocracy 
-						has_law_or_variant = law_type:law_oligarchy
-					}
-				}
-				add = -50
 			}
 		}
 		every_interest_group = {

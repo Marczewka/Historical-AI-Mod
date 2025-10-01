@@ -1515,7 +1515,7 @@ ai_strategy_unify_germany = {
 
 	building_group_weights = {
 		bg_army = 1.5
-		bg_artillery_foundaries = 1.5
+		bg_artillery_foundries = 1.5
 		bg_arms_industries = 1.5
 		bg_munition_plants = 1.5
 	}
@@ -1577,7 +1577,7 @@ ai_strategy_unify_germany = {
 							}
 						}
 					}
-					multiply = 2 # Maximum 220 if Pan-National, 60 if not
+					multiply = 1.5 # Maximum 155 if Pan-National, 45 if not
 				}
 				else_if = {
 					limit = {
@@ -1588,7 +1588,7 @@ ai_strategy_unify_germany = {
 							}
 						}
 					}
-					multiply = 5 # Maximum 550 if Pan-National, 150 if not
+					multiply = 2.5 # Maximum 275 if Pan-National, 75 if not
 				}
 			}
 			if = {
@@ -1717,7 +1717,7 @@ ai_strategy_unify_germany = {
 						}
 					}
 				}
-				multiply = 2 # Maximum 220 if Pan-National, 60 if not
+				multiply = 1.5 # Maximum 155 if Pan-National, 45 if not
 			}
 			else_if = {
 				limit = {
@@ -1728,7 +1728,7 @@ ai_strategy_unify_germany = {
 						}
 					}
 				}
-				multiply = 5 # Maximum 550 if Pan-National, 150 if not
+				multiply = 2.5 # Maximum 275 if Pan-National, 75 if not
 			}
 		}
 		if = {
@@ -1837,21 +1837,11 @@ ai_strategy_unify_italy = {
 		if = {
 			limit = {
 				scope:target_state = {
-					OR = {
-						state_region = s:STATE_PIEDMONT
-						state_region = s:STATE_LOMBARDY
-						state_region = s:STATE_VENETIA
-						state_region = s:STATE_EMILIA
-						state_region = s:STATE_TUSCANY
-						state_region = s:STATE_ROMAGNA
-						state_region = s:STATE_UMBRIA
-						state_region = s:STATE_LAZIO
-						state_region = s:STATE_ABRUZZO
-						state_region = s:STATE_CAMPANIA
-						state_region = s:STATE_APULIA
-						state_region = s:STATE_CALABRIA
-						state_region = s:STATE_SICILY
-						state_region = s:STATE_SARDINIA	
+					state_region = {
+						OR = {
+							is_homeland = cu:north_italian
+							is_homeland = cu:south_italian
+						}
 					}
 				}	
 				has_strategic_land_adjacency = scope:target_state
@@ -1861,18 +1851,66 @@ ai_strategy_unify_italy = {
 	}
 	
 	wargoal_scores = {
-		unification = {
-			value = 0
+		unification_leadership = {
+			value = 5
+			if = { # Fervour
+				limit = {
+					has_technology_researched = pan-nationalism
+				}
+				add = {
+					value = country_fervor_primary_culture
+					divide = 2
+				}
+			}
+			else = {
+				add = {
+					value = country_fervor_primary_culture
+					divide = 10
+				}
+			}
+			if = { # At this point - up to 55 if Pan-National, 15 if not
+				limit = {
+					any_political_movement ?= {
+						is_political_movement_type = movement_italian_national
+						save_temporary_scope_as = italian_national_movement
+					}
+				}
+				scope:italian_national_movement ?= {
+					multiply = {
+						value = 1
+						add = this.political_movement_radicalism # At this point - maximum 110 [if Pan-National] to 30 [if not]
+					}
+				}
+				if = {
+					limit = {
+						scope:italian_national_movement ?= {
+							any_influenced_interest_group = {
+								is_in_government = yes
+								is_powerful = no
+							}
+						}
+					}
+					multiply = 1.5 # Maximum 155 if Pan-National, 45 if not
+				}
+				else_if = {
+					limit = {
+						scope:italian_national_movement ?= {
+							any_influenced_interest_group = {
+								is_in_government = yes
+								is_powerful = yes
+							}
+						}
+					}
+					multiply = 2.5 # Maximum 275 if Pan-National, 75 if not
+				}
+			}
 			if = {
 				limit = {
-					country_rank >= rank_value:major_power
+					has_law = law_type:law_subjecthood
 				}
-				add = 1000
+				multiply = 0.1
 			}
 		}
-		unification_leadership = {
-			value = 1000
-		}			
 	}	
 	
 	secret_goal_scores = {
@@ -1885,7 +1923,6 @@ ai_strategy_unify_italy = {
 					}
 					NOT = { is_unification_candidate = ITA }
 					OR = { 
-						has_variable = risorgimento_unifying_stance
 						is_supporting_unification_candidate = { who = root country_formation = ITA }
 						is_subject_of = root
 						is_in_customs_union_with = root
@@ -1896,40 +1933,40 @@ ai_strategy_unify_italy = {
 				value = 1000
 			}		
 		}		
-		conquer = {				
+		dominate = {
 			trigger = {
-				OR = {
-					scope:target_country = {
-						OR = {
-							country_has_primary_culture = cu:north_italian
-							country_has_primary_culture = cu:south_italian
-						}					
-						NOR = { 
-							# is_unification_candidate = ITA
-							has_variable = risorgimento_unifying_stance
-							is_supporting_unification_candidate = { who = root country_formation =ITA }
-							is_subject_of = root
-							is_in_customs_union_with = root
-						}	
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
 					}
-					scope:target_country = {				
+					NOR = {
 						is_unification_candidate = ITA
-						NAND = {
-							has_variable = risorgimento_unifying_stance
-							country_rank < rank_value:major_power
-						}
+						is_supporting_unification_candidate = { who = root country_formation =ITA }
+						is_subject_of = root
+						is_in_customs_union_with = root
 					}
 				}
 			}
 			score = {
 				value = 1000
 			}
-		}		
+		}
+		conquer = {
+			trigger = {
+				scope:target_country = {
+					is_unification_candidate = ITA
+				}
+			}
+			score = {
+				value = 1000
+			}
+		}	
 	}
 		
 	possible = {
 		is_subject = no
-		has_variable = risorgimento_unifying_stance
+		is_unification_candidate = ITA
 		NOT = { country_tier = empire }
 	}
 
@@ -1972,7 +2009,7 @@ ai_strategy_unify_italy = {
 						}
 					}
 				}
-				multiply = 5 # Maximum 550 if Pan-National, 150 if not
+				multiply = 1.5 # Maximum 155 if Pan-National, 45 if not
 			}
 			else_if = {
 				limit = {
@@ -1983,7 +2020,7 @@ ai_strategy_unify_italy = {
 						}
 					}
 				}
-				multiply = 10 # Maximum 1100 if Pan-National, 300 if not
+				multiply = 2.5 # Maximum 275 if Pan-National, 75 if not
 			}
 		}
 		if = {
@@ -3526,7 +3563,7 @@ ai_strategy_restore_natural_borders = {
 
 	building_group_weights = {
 		bg_army = 1.5
-		bg_artillery_foundaries = 1.5
+		bg_artillery_foundries = 1.5
 		bg_arms_industries = 1.5
 		bg_munition_plants = 1.5
 	}
