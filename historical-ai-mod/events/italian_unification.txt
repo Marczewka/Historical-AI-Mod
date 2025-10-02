@@ -73,20 +73,18 @@ italian_unification.2 = {
 	duration = 1
 
 	trigger = {
+		has_technology_researched = nationalism
 		OR = {
 			c:ITA ?= this
-			AND = {
-				custom_tooltip = {
-					text = risorgimento_unifying_stance_tt
-					has_variable = risorgimento_unifying_stance
-				}
-				is_unification_candidate = ITA
+			custom_tooltip = {
+				text = risorgimento_unifying_stance_tt
+				has_variable = risorgimento_unifying_stance
 			}
 		}
 		NOT = {
 			any_country = {
 				NOT = { this = root }
-				is_unification_candidate = ITA
+				country_rank >= rank_value:major_power
 				custom_tooltip = {
 					text = risorgimento_unifying_stance_tt
 					has_variable = risorgimento_unifying_stance
@@ -116,6 +114,11 @@ italian_unification.2 = {
 				is_subject = no
 				is_subject_of = ROOT
 				is_in_customs_union_with = root
+			}
+			OR = {
+				this.gdp < root.gdp
+				root = { c:ITA ?= this }
+				root = { is_player = yes }
 			}
 			country_rank <= rank_value:minor_power
 			relations:root >= relations_threshold:amicable
@@ -149,6 +152,11 @@ italian_unification.2 = {
 					is_subject = no
 					is_subject_of = ROOT
 					is_in_customs_union_with = root
+				}
+				OR = {
+					this.gdp < root.gdp
+					root = { c:ITA ?= this }
+					root = { is_player = yes }
 				}
 				country_rank <= rank_value:minor_power
 				relations:root >= relations_threshold:amicable
@@ -922,11 +930,35 @@ italian_unification.10 = {
 				}
 				add = 50
 			}
+			# modifier = {
+			# 	trigger = {
+			# 		c:SIC ?= this
+			# 	}
+			# 	add = -35
+			# }
 			modifier = {
 				trigger = {
-					c:SIC ?= this
+					NOR = {
+						has_law = law_type:law_theocracy
+						has_law = law_type:law_monarchy
+					}
 				}
-				add = -35
+				add = 25
+			}
+			modifier = {
+				trigger = {
+					NOR = { 
+						has_law = law_type:law_autocracy 
+						has_law = law_type:law_oligarchy
+					}
+				}
+				add = 25
+			}
+			modifier = {
+				trigger = {
+					has_law = law_type:law_traditionalism
+				}
+				add = -25
 			}
 		}
 		default_option = yes
@@ -1036,12 +1068,12 @@ italian_unification.10 = {
 				}
 				add = -50
 			}
-			modifier = {
-				trigger = {
-					c:SIC ?= this
-				}
-				add = 50
-			}
+			# modifier = {
+			# 	trigger = {
+			# 		c:SIC ?= this
+			# 	}
+			# 	add = 50
+			# }
 		}
 		every_interest_group = {
 			limit = {

@@ -19,10 +19,6 @@
 	s:STATE_PASTAZA = {
 		add_claim = c:NPU
 	}
-	# Because Great Britain can't help
-	s:STATE_HERAT = {
-		remove_claim = c:PER
-	}
 	s:STATE_ARAUCANIA = {
 		remove_claim = c:ARG
 	}

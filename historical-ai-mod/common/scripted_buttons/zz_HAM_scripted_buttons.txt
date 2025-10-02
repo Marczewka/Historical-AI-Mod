@@ -385,7 +385,7 @@ je_risorgimento_italian_radicals_button = {
 		ROOT = {
 			save_scope_as = saboteur_country
 		}
-		every_country = {
+		random_diplomatically_relevant_country = {
 			limit = {
 				OR = {
 					country_has_primary_culture = cu:south_italian
@@ -418,54 +418,6 @@ je_risorgimento_italian_radicals_button = {
 					days = normal_modifier_time
 				}
 			}
-			every_scope_state = {
-				limit = {
-					state_region = {
-						is_homeland = cu:north_italian
-					}
-				}
-				if = {
-					limit = {
-						ROOT = {
-							country_rank >= rank_value:major_power
-						}
-					}
-					add_radicals_in_state = {
-						value = 0.10
-						culture = cu:north_italian
-					}
-				}
-				else = {
-					add_radicals_in_state = {
-						value = 0.05
-						culture = cu:north_italian
-					}
-				}
-			}
-			every_scope_state = {
-				limit = {
-					state_region = {
-						is_homeland = cu:south_italian
-					}
-				}
-				if = {
-					limit = {
-						ROOT = {
-							country_rank >= rank_value:major_power
-						}
-					}
-					add_radicals_in_state = {
-						value = 0.10
-						culture = cu:south_italian
-					}
-				}
-				else = {
-					add_radicals_in_state = {
-						value = 0.05
-						culture = cu:south_italian
-					}
-				}
-			}
 			post_notification = sabotage_decision_agitation_occurred
 		}
 	}
@@ -484,15 +436,15 @@ je_risorgimento_italian_unification_button = {
 	cooldown = { days = 90 }
 
 	possible = {
+		has_technology_researched = nationalism
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_tt
 			has_variable = risorgimento_unifying_stance
 		}
-		is_unification_candidate = ITA
 		NOT = {
 			any_country = {
 				NOT = { this = root }
-				is_unification_candidate = ITA
+				country_rank >= rank_value:major_power
 				custom_tooltip = {
 					text = risorgimento_unifying_stance_tt
 					has_variable = risorgimento_unifying_stance
@@ -517,6 +469,11 @@ je_risorgimento_italian_unification_button = {
 			OR = {
 				is_subject = no
 				is_subject_of = ROOT
+				is_in_customs_union_with = root
+			}
+			OR = {
+				this.gdp < root.gdp
+				root = { is_player = yes }
 			}
 			country_rank <= rank_value:minor_power
 			relations:root >= relations_threshold:amicable
@@ -655,6 +612,17 @@ je_risorgimento_change_stance_button = {
 				has_variable = risorgimento_anti_unifying_stance
 			}
 			remove_variable = risorgimento_anti_unifying_stance
+		}
+		add_modifier = {
+			name = modifier_risorgimento_support
+			days = long_modifier_time
+			is_decaying = yes
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_risorgimento_opposition
+			}
+			remove_modifier = modifier_risorgimento_opposition
 		}
 		every_country = {
 			limit = {

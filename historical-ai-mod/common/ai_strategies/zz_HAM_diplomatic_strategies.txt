@@ -1746,7 +1746,7 @@ ai_strategy_unify_italy = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
-		always = no # yes
+		always = yes
 	}	
 		
 	undesirable_infamy_level = {
@@ -1945,6 +1945,10 @@ ai_strategy_unify_italy = {
 						is_supporting_unification_candidate = { who = root country_formation =ITA }
 						is_subject_of = root
 						is_in_customs_union_with = root
+						AND = {
+							has_variable = risorgimento_unifying_stance
+							country_rank <= rank_value:minor_power
+						}
 					}
 				}
 			}
@@ -1956,6 +1960,10 @@ ai_strategy_unify_italy = {
 			trigger = {
 				scope:target_country = {
 					is_unification_candidate = ITA
+					OR = {
+						has_variable = risorgimento_anti_unifying_stance
+						country_rank >= rank_value:major_power
+					}
 				}
 			}
 			score = {
@@ -1967,6 +1975,7 @@ ai_strategy_unify_italy = {
 	possible = {
 		is_subject = no
 		is_unification_candidate = ITA
+		country_rank >= rank_value:major_power
 		NOT = { country_tier = empire }
 	}
 

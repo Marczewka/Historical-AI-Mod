@@ -453,6 +453,31 @@ ai_strategy_default = {
 			}
 			else_if = {
 				limit = {
+					OR = { # They will meddle more if you want to take Persian or Afghan states.
+						scope:diplomatic_play_type = play_type:dp_conquer_state
+						any_diplomatic_play = {
+							scope:country = {
+								is_diplomatic_play_enemy_of = scope:enemy_country
+							}
+							OR = {
+								has_play_goal = conquer_state
+							}
+						}
+					}
+					scope:country = { 
+						OR = {
+							c:PER ?= this
+							c:AFG ?= this
+						}
+					}
+				}
+				add = {
+					value = 150
+					desc = "defending_against_great_game_rival"
+				}
+			}
+			else_if = {
+				limit = {
 					OR = { # They will meddle less if you just want to take states.
 						scope:diplomatic_play_type = play_type:dp_conquer_state
 						any_diplomatic_play = {
@@ -3052,7 +3077,15 @@ ai_strategy_default = {
 			limit = {
 				wants_to_solve_schleswig_holstein = yes	
 				scope:target_country = {
-					is_oppressor_of_schleswig_holstein = yes
+					OR = {
+						is_oppressor_of_schleswig_holstein = yes
+						AND = {
+							any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
+							top_overlord = {
+								is_oppressor_of_schleswig_holstein = yes
+							}
+						}
+					}
 				}
 			}
 			add = 0.5
@@ -3554,7 +3587,15 @@ ai_strategy_default = {
 			limit = { 
 				wants_to_solve_schleswig_holstein = yes	
 				scope:target_country = {
-					is_oppressor_of_schleswig_holstein = yes
+					OR = {
+						is_oppressor_of_schleswig_holstein = yes
+						AND = {
+							any_scope_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }
+							top_overlord = {
+								is_oppressor_of_schleswig_holstein = yes
+							}
+						}
+					}
 				}
 			}
 			add = 5
@@ -3620,17 +3661,6 @@ ai_strategy_default = {
 			add = 100
 		}
 
-		# USA should be aggressive against CSA
-		if = {
-			limit = {
-				has_journal_entry = je_acw_war
-				scope:target_country = {
-					c:CSA ?= this
-				}
-			}
-			add = 50
-		}
-
 		# Extra french aggression for Haiti renouncing debt payments
 		if = {
 			limit = {
@@ -3674,16 +3704,6 @@ ai_strategy_default = {
 				}
 			}
 			add = 25
-		}
-
-		if = {
-			limit = {
-				c:GUA ?= this
-				scope:target_country = {
-					c:ALT ?= this
-				}
-			}
-			add = 50
 		}
 
 		# East India Company vs its neighbors
@@ -3884,44 +3904,6 @@ ai_strategy_default = {
 				}
 				add = 25
 			}			
-		}
-
-		if = {
-			limit = {
-				has_technology_researched = civilizing_mission
-				country_rank >= rank_value:major_power
-				scope:target_country = {
-					is_country_type = unrecognized
-					top_overlord = { country_rank < rank_value:unrecognized_major_power }
-				}
-			}
-			add = 5
-		}
-
-		if = {
-			limit = {
-				has_journal_entry = je_scramble_for_africa
-				scope:target_country = {
-					country_is_in_africa = yes
-					top_overlord = { country_rank < rank_value:unrecognized_major_power }
-				}
-			}
-			add = 50
-		}
-
-		if = {
-			limit = {
-				c:GBR ?= this 
-				has_technology_researched = civilizing_mission
-				scope:target_country = {
-					OR = {
-						capital.state_region = s:STATE_NORTH_BORNEO
-						capital.state_region = s:STATE_MALAYA
-					}
-					is_country_type = unrecognized
-				}						
-			}
-			add = 25
 		}
 
 		if = { # Dutch East Indies
@@ -4359,6 +4341,65 @@ ai_strategy_default = {
 			add = 25
 		}
 
+		# USA should be aggressive against CSA
+		if = {
+			limit = {
+				has_journal_entry = je_acw_war
+				scope:target_country = {
+					c:CSA ?= this
+				}
+			}
+			add = 50
+		}
+
+		if = {
+			limit = {
+				c:GUA ?= this
+				scope:target_country = {
+					c:ALT ?= this
+				}
+			}
+			add = 50
+		}
+
+		if = {
+			limit = {
+				has_technology_researched = civilizing_mission
+				country_rank >= rank_value:major_power
+				scope:target_country = {
+					is_country_type = unrecognized
+					top_overlord = { country_rank < rank_value:unrecognized_major_power }
+				}
+			}
+			add = 5
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_scramble_for_africa
+				scope:target_country = {
+					country_is_in_africa = yes
+					top_overlord = { country_rank < rank_value:unrecognized_major_power }
+				}
+			}
+			add = 50
+		}
+
+		if = {
+			limit = {
+				c:GBR ?= this 
+				has_technology_researched = civilizing_mission
+				scope:target_country = {
+					OR = {
+						capital.state_region = s:STATE_NORTH_BORNEO
+						capital.state_region = s:STATE_MALAYA
+					}
+					is_country_type = unrecognized
+				}						
+			}
+			add = 25
+		}
+
 		# Italian Consolidation
 		if = {
 			limit = { 
@@ -4370,6 +4411,10 @@ ai_strategy_default = {
 					}
 					any_scope_state = {
 						has_claim_by = ROOT
+					}
+					NOT = {
+						has_variable = risorgimento_unifying_stance
+						country_rank < rank_value:major_power
 					}
 				}
 			}
@@ -4395,6 +4440,28 @@ ai_strategy_default = {
 				}
 			}
 			add = 100
+		}
+
+		if = {
+			limit = {
+				c:MEX ?= this
+				scope:target_country = {
+					any_scope_state = {
+						state_region = s:STATE_CHIAPAS
+					}
+				}
+			}
+			add = 10
+		}
+
+		if = {
+			limit = {
+				c:GUA ?= this
+				scope:target_country = {
+					c:ALT ?= this
+				}
+			}
+			add = 10
 		}
 
 		# Neutral Switzerland
@@ -6053,6 +6120,13 @@ ai_strategy_default = {
 
 				if = {
 					limit = {
+						has_je_reconcile_reason = { TARGET = scope:target_country }
+					}
+					add = 10000
+				}
+
+				if = {
+					limit = {
 						scope:target_country = {
 							has_secret_goal = {
 								who = root
@@ -6732,7 +6806,6 @@ ai_strategy_default = {
 							has_journal_entry = je_scramble_for_africa
 							scope:target_country = {
 								country_is_in_africa = yes
-							top_overlord = { country_rank < rank_value:unrecognized_major_power }
 							}
 						}
 						add = 500
@@ -6794,17 +6867,17 @@ ai_strategy_default = {
 						add = 1000
 					}
 
-				if = {
-					limit = {
-						c:DEI ?= this 
-						scope:target_country = {
-							capital.region = sr:region_indonesia
-							NOT = { capital.state_region = s:STATE_NORTH_BORNEO }
-							is_country_type = unrecognized
-						}						
+					if = {
+						limit = {
+							c:DEI ?= this 
+							scope:target_country = {
+								capital.region = sr:region_indonesia
+								NOT = { capital.state_region = s:STATE_NORTH_BORNEO }
+								is_country_type = unrecognized
+							}						
+						}
+						add = 1000
 					}
-					add = 1000
-				}
 			
 					if = {
 						limit = {
@@ -6896,26 +6969,46 @@ ai_strategy_default = {
 					add = 25
 				}
 
-				if = { # Britain consolidating South Africa
-					limit = {
-						country_has_primary_culture = cu:british
-						has_technology_researched = malaria_prevention
-						any_subject_or_below = {
-							capital.region = sr:region_southern_africa
-						}
+				# Italian Consolidation
+				if = {
+					limit = { 
+						c:ITA ?= this
 						scope:target_country = {
-							capital.region = sr:region_southern_africa
-							top_overlord = { country_rank < rank_value:unrecognized_major_power }
+							OR = {
+								country_has_primary_culture = cu:north_italian
+								country_has_primary_culture = cu:south_italian
+							}
+							any_scope_state = {
+								has_claim_by = ROOT
+							}
+							NOT = {
+								has_variable = risorgimento_unifying_stance
+								country_rank < rank_value:major_power
+							}
 						}
 					}
-					add = 25
+					add = 100
+				}
 
-					if = {
-						limit = {
-							has_journal_entry = je_scramble_for_africa
+				# German Consolidation
+				if = {
+					limit = { 
+						OR = {
+							c:GER ?= this
+							c:NGF ?= this
+							c:SGF ?= this
 						}
-						add = 50
-					}			
+						scope:target_country = {
+							OR = {
+								country_has_primary_culture = cu:north_german
+								country_has_primary_culture = cu:south_german
+							}
+							any_scope_state = {
+								has_claim_by = ROOT
+							}
+						}
+					}
+					add = 100
 				}
 				
 				if = {
@@ -7060,7 +7153,7 @@ ai_strategy_default = {
 						country_rank >= rank_value:major_power
 						scope:target_country = { is_country_type = unrecognized }
 					}
-				}					
+				}			
 				can_reach_target_country = yes
 				NOT = { is_subject_of = scope:target_country }
 				
@@ -7154,16 +7247,16 @@ ai_strategy_default = {
 						add = 10 # 50
 					}
 
-					# if = {
-					# 	limit = {
-					# 		has_journal_entry = je_scramble_for_africa
-					# 		scope:target_country = {
-					# 			country_is_in_africa = yes
-					# 		}
-					# 	}
-					# 	add = 250
-					# }
-					
+					if = {
+						limit = {
+							has_journal_entry = je_scramble_for_africa
+							scope:target_country = {
+								country_is_in_africa = yes
+							}
+						}
+						add = 250
+					}
+
 					if = {
 						limit = {
 							c:GBR ?= this 
@@ -7224,18 +7317,14 @@ ai_strategy_default = {
 						country_rank > scope:target_country.country_rank
 						scope:target_country.country_rank < rank_value:major_power
 						scope:target_country = { NOT = { is_subject_of = root }	}
+						scope:target_country = {
+							any_neighbouring_state = {
+								owner = root 
+								is_incorporated = yes
+							}
+						} 
 					}
-					if = {
-						limit = {
-							scope:target_country = {
-								any_neighbouring_state = {
-									owner = root 
-									is_incorporated = yes
-								}
-							} 
-						}
-						add = 25
-					}
+					add = 25
 				}
 
 				if = {
@@ -7349,28 +7438,6 @@ ai_strategy_default = {
 						}
 					}
 					add = 25
-				}
-
-				if = { # Britain consolidating South Africa
-					limit = {
-						country_has_primary_culture = cu:british
-						has_technology_researched = malaria_prevention
-						any_subject_or_below = {
-							capital.region = sr:region_southern_africa
-						}
-						scope:target_country = {
-							capital.region = sr:region_southern_africa
-							top_overlord = { country_rank < rank_value:unrecognized_major_power }
-						}
-					}
-					add = 25
-
-					if = {
-						limit = {
-							has_journal_entry = je_scramble_for_africa
-						}
-						add = 50
-					}			
 				}
 
 				if = {
@@ -7588,7 +7655,6 @@ ai_strategy_default = {
 		transfer_subject = {
 			if = {
 				limit = {
-					can_reach_target_country = yes
 					has_secret_goal = {
 						who = scope:target_country
 						secret_goal = dominate
@@ -7597,20 +7663,6 @@ ai_strategy_default = {
 			
 				add = scope:target_country.ai_subject_value:root
 			}
-
-			if = { # Better to take overlord than the subject
-				limit = {
-					scope:target_country = {
-						is_subject = yes
-						is_country_type = unrecognized
-						top_overlord ?= {
-							is_country_type = unrecognized
-							this.country_rank >= scope:target_country.country_rank
-						}
-					}
-				}
-				multiply = 0
-			}	
 
 			# More reluctant to get involved in plays
 			if = {
@@ -7685,72 +7737,72 @@ ai_strategy_default = {
 				add = 50
 			}
 			
-			# if = {
-			# 	limit = {
-			# 		c:BIC ?= this
-			# 		scope:target_country = {
-			# 			is_country_type = unrecognized
-			# 			target_is_our_or_fellow_subject = no
-			# 			OR = {
-			# 				capital.region = sr:region_madras
-			# 				capital.region = sr:region_bombay
-			# 				capital.region = sr:region_bengal
-			# 				capital.region = sr:region_central_india
-			# 				AND = {
-			# 					capital.region = sr:region_punjab
-			# 					NOT = { capital.state_region = s:STATE_HILL_PUNJAB }
-			# 					NOT = { capital.state_region = s:STATE_PUNJAB }
-			# 				}
-			# 				AND = {
-			# 					OR = {
-			# 						capital.state_region = s:STATE_PEGU
-			# 						capital.state_region = s:STATE_MANDALAY
-			# 						capital.state_region = s:STATE_KACHIN
-			# 						capital.state_region = s:STATE_SHAN_STATES
-			# 						capital.state_region = s:STATE_HILL_PUNJAB
-			# 						capital.state_region = s:STATE_PUNJAB
-			# 						capital.state_region = s:STATE_PASHTUNISTAN
-			# 						capital.state_region = s:STATE_KASHMIR
-			# 						capital.state_region = s:STATE_QUETTA
-			# 					}
-			# 					root.top_overlord = { NOT = { has_journal_entry = je_opium_wars } }
-			# 				}
-			# 			}
-			# 			NOT = {
-			# 				any_scope_state = {
-			# 					has_claim_by = ROOT
-			# 				}
-			# 			}
-			# 		}
-			# 	}
-			# 	add = 25
-			# }
+			if = {
+				limit = {
+					c:BIC ?= this
+					scope:target_country = {
+						is_country_type = unrecognized
+						target_is_our_or_fellow_subject = no
+						OR = {
+							capital.region = sr:region_madras
+							capital.region = sr:region_bombay
+							capital.region = sr:region_bengal
+							capital.region = sr:region_central_india
+							AND = {
+								capital.region = sr:region_punjab
+								NOT = { capital.state_region = s:STATE_HILL_PUNJAB }
+								NOT = { capital.state_region = s:STATE_PUNJAB }
+							}
+							AND = {
+								OR = {
+									capital.state_region = s:STATE_PEGU
+									capital.state_region = s:STATE_MANDALAY
+									capital.state_region = s:STATE_KACHIN
+									capital.state_region = s:STATE_SHAN_STATES
+									capital.state_region = s:STATE_HILL_PUNJAB
+									capital.state_region = s:STATE_PUNJAB
+									capital.state_region = s:STATE_PASHTUNISTAN
+									capital.state_region = s:STATE_KASHMIR
+									capital.state_region = s:STATE_QUETTA
+								}
+								root.top_overlord = { NOT = { has_journal_entry = je_opium_wars } }
+							}
+						}
+						NOT = {
+							any_scope_state = {
+								has_claim_by = ROOT
+							}
+						}
+					}
+				}
+				add = 25
+			}
 
-			# if = {
-			# 	limit = {
-			# 		c:GBR ?= this 
-			# 		scope:target_country = {
-			# 			OR = {
-			# 				capital.state_region = s:STATE_NORTH_BORNEO
-			# 				capital.state_region = s:STATE_MALAYA
-			# 			}
-			# 			is_country_type = unrecognized
-			# 		}						
-			# 	}
-			# 	add = 25
-			# }
+			if = {
+				limit = {
+					c:GBR ?= this 
+					scope:target_country = {
+						OR = {
+							capital.state_region = s:STATE_NORTH_BORNEO
+							capital.state_region = s:STATE_MALAYA
+						}
+						is_country_type = unrecognized
+					}						
+				}
+				add = 25
+			}
 			
-			# if = {
-			# 	limit = {
-			# 		c:DEI ?= this
-			# 		scope:target_country = {
-			# 			capital.region = sr:region_indonesia
-			# 			NOT = { capital.state_region = s:STATE_NORTH_BORNEO }
-			# 			is_country_type = unrecognized
-			# 		}
-			# 	}
-			# 	add = 25
-			# }
+			if = {
+				limit = {
+					c:DEI ?= this
+					scope:target_country = {
+						capital.region = sr:region_indonesia
+						NOT = { capital.state_region = s:STATE_NORTH_BORNEO }
+						is_country_type = unrecognized
+					}
+				}
+				add = 25
+			}
 
 			if = {
 				limit = {
@@ -7761,17 +7813,17 @@ ai_strategy_default = {
 					}	
 				}
 			
-				add = scope:target_country.ai_subject_value:root			
+				add = scope:target_country.ai_subject_value:root
+
+				if = {
+					limit = {	
+						NOT = { has_strategic_land_adjacency = scope:target_country }
+						scope:target_country = { NOT = { is_country_type = unrecognized } }
+					}
+					multiply = 0.1				
+				}	
 			}	
 
-			if = {
-				limit = {	
-					NOT = { has_strategic_land_adjacency = scope:target_country }
-					scope:target_country = { NOT = { is_country_type = unrecognized } }
-				}
-				multiply = 0.1				
-			}			
-			
 
 			min = 0
 			max = 100				
@@ -7869,7 +7921,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_rank >= rank_value:major_power					
-					"ai_ideological_opinion(scope:target_country)" <= -35 # -25	
+					"ai_ideological_opinion(scope:target_country)" <= -25	
 					scope:target_country = { is_subject = no }
 					scope:target_country = {
 						is_adjacent_to_country = root
@@ -8094,7 +8146,7 @@ ai_strategy_default = {
 		}	
 
 		contain_threat = {
-			value = 100 # 1000
+			value = 1000
 		}	
 
 		annex_country = {
