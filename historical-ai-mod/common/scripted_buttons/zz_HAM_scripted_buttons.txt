@@ -157,6 +157,7 @@ je_risorgimento_austrian_radicals_button = {
 	cooldown = { days = normal_modifier_time }
 
 	possible = {
+		has_technology_researched = nationalism
 		country_rank >= rank_value:minor_power
 		sr:region_italy = {
 			any_scope_country = {
@@ -514,8 +515,9 @@ je_risorgimento_change_stance_button = {
 				has_variable = stance_cooldown_var
 			}
 		}
-		NOT = {
+		NOR = {
 			has_journal_entry = je_red_summer
+			has_journal_entry = je_springtime_of_the_peoples
 		}
 	}
 

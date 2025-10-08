@@ -1616,7 +1616,25 @@ ai_strategy_unify_germany = {
 							ROOT = { is_unification_candidate = GER }
 							is_in_customs_union_with = root
 						}
-					}						
+					}	
+					NOR = {
+						has_attitude = {
+							who = root
+							attitude = antagonistic
+						}
+						has_attitude = {
+							who = root
+							attitude = domineering
+						}	
+						has_attitude = {
+							who = root
+							attitude = belligerent
+						}	
+						has_attitude = {
+							who = root
+							attitude = rebellious
+						}						
+					}					
 				}
 			}
 			score = {
@@ -1625,22 +1643,40 @@ ai_strategy_unify_germany = {
 		}		
 		dominate = {		
 			trigger = {
-					scope:target_country = {
-						OR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:south_german
-						}					
-						NOT = { is_unification_candidate = GER }
-						NOR = { 
-							is_supporting_unification_candidate = { who = root country_formation = GER }
-							is_subject_of = root
-							AND = {
-								ROOT = { is_unification_candidate = GER }
-								is_in_customs_union_with = root
-							}
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:north_german
+						country_has_primary_culture = cu:south_german
+					}					
+					NOT = { is_unification_candidate = GER }
+					NOR = { 
+						is_supporting_unification_candidate = { who = root country_formation = GER }
+						is_subject_of = root
+						AND = {
+							ROOT = { is_unification_candidate = GER }
+							is_in_customs_union_with = root
+						}
+					}	
+					OR = {
+						has_attitude = {
+							who = root
+							attitude = antagonistic
+						}
+						has_attitude = {
+							who = root
+							attitude = domineering
 						}	
+						has_attitude = {
+							who = root
+							attitude = belligerent
+						}	
+						has_attitude = {
+							who = root
+							attitude = rebellious
+						}						
 					}
 				}
+			}
 			score = {
 				value = 1000
 			}		
@@ -1924,7 +1960,29 @@ ai_strategy_unify_italy = {
 						is_supporting_unification_candidate = { who = root country_formation = ITA }
 						is_subject_of = root
 						is_in_customs_union_with = root
+						AND = {
+							has_variable = risorgimento_unifying_stance
+							country_rank <= rank_value:minor_power
+						}
 					}	
+					NOR = {
+						has_attitude = {
+							who = root
+							attitude = antagonistic
+						}
+						has_attitude = {
+							who = root
+							attitude = domineering
+						}	
+						has_attitude = {
+							who = root
+							attitude = belligerent
+						}	
+						has_attitude = {
+							who = root
+							attitude = rebellious
+						}
+					}
 				}
 			}
 			score = {
@@ -1946,6 +2004,24 @@ ai_strategy_unify_italy = {
 						AND = {
 							has_variable = risorgimento_unifying_stance
 							country_rank <= rank_value:minor_power
+						}
+					}
+					OR = {
+						has_attitude = {
+							who = root
+							attitude = antagonistic
+						}
+						has_attitude = {
+							who = root
+							attitude = domineering
+						}	
+						has_attitude = {
+							who = root
+							attitude = belligerent
+						}	
+						has_attitude = {
+							who = root
+							attitude = rebellious
 						}
 					}
 				}

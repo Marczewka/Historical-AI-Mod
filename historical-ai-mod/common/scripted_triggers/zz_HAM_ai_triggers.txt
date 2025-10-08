@@ -18,7 +18,10 @@
 			}
 		}
 		AND = { # Colonialist AI wants colonies
-			has_strategy = ai_strategy_colonial_expansion
+			OR = {
+				has_strategy = ai_strategy_economic_imperialism
+				has_strategy = ai_strategy_colonial_expansion
+			}
 			scope:target_state.owner = { is_country_type = unrecognized }				
 			can_reach_target_state = yes
 			has_secret_goal = { # AI wants to conquer the state owner
@@ -65,7 +68,10 @@ ai_desires_target_state = {
 				has_strategy = ai_strategy_economic_imperialism
 				has_strategy = ai_strategy_colonial_expansion
 			}
-			scope:target_state.owner = { is_country_type = unrecognized }				
+			scope:target_state.owner = { 
+				is_country_type = unrecognized 
+				country_rank < rank_value:unrecognized_regional_power
+			}
 			can_reach_target_state = yes  # Willing to go overseas to acquire territories
 		}
 		AND = { # AI wants nearby states if gifted them by overlord
@@ -75,64 +81,6 @@ ai_desires_target_state = {
 	}
 }
 
-has_enactment_je_or_law_commitment = {
-	OR = {
-		has_journal_entry = je_government_petition
-		has_journal_entry = je_law_imposition
-		has_journal_entry = je_british_dictate_law
-		has_any_law_commitment = yes
-	}
-}
-
-ai_has_reasons_to_not_oppose_law = {
-	OR = {
-		has_law_commitment = scope:law.type
-		any_political_movement = {
-			law_enactment_stance = {
-				law = scope:law.type
-				value > neutral
-			}
-			political_movement_radicalism >= 0.75
-		}
-		AND = {
-			has_journal_entry = je_government_petition
-			var:desired_law_var	?= scope:law
-		}
-		AND = {
-			OR = {
-				has_journal_entry = je_law_imposition
-				has_journal_entry = je_british_dictate_law
-			}
-			imposed_law	?= scope:law
-		}
-	}
-}
-
-ai_has_enact_weight_modifier_journal_entries = {
-	OR = {
-		has_law_commitment = scope:law.type
-		AND = {
-			has_journal_entry = je_government_petition
-			has_variable = desired_law_var
-			scope:law = var:desired_law_var
-		}
-		AND = {
-			OR = {
-				has_journal_entry = je_law_imposition
-				has_journal_entry = je_british_dictate_law
-			}
-			scope:law = imposed_law
-		}
-		AND = {
-			has_journal_entry = je_gyojo_shinwon
-			OR = {
-				scope:law = scope:donghak_desired_law_1
-				scope:law = scope:donghak_desired_law_2
-				scope:law = scope:donghak_desired_law_3
-			}
-		}
-	}
-}
 
 has_je_conquest_reason = {
 	# can_reach_target_country = yes
@@ -182,6 +130,7 @@ has_je_conquest_reason = {
 
 		AND = {
 			c:BIC ?= this
+			has_strategic_land_adjacency = scope:target_country
 			$TARGET$ = {
 				is_country_type = unrecognized
 				target_is_our_or_fellow_subject = no
@@ -194,12 +143,13 @@ has_je_conquest_reason = {
 						region = sr:region_punjab
 						state_region = s:STATE_KASHMIR
 						# himalayas intentionally excluded to make BIC less aggressive against Tibet etc
+						state_region = s:STATE_PEGU
 						state_region = s:STATE_MANDALAY
 						state_region = s:STATE_KACHIN
 						state_region = s:STATE_SHAN_STATES
-						state_region = s:STATE_PEGU
 						state_region = s:STATE_PASHTUNISTAN
-						state_region = s:STATE_QUETTA			
+						state_region = s:STATE_KASHMIR
+						state_region = s:STATE_QUETTA		
 					}
 				}
 			}
@@ -311,6 +261,7 @@ has_je_conquest_reason = {
 		AND = {
 			has_journal_entry = je_eastern_frontier
 			$TARGET$ = {
+				is_country_type = unrecognized
 				any_scope_state = {
 					OR = {
 						region = sr:region_persia
@@ -417,25 +368,62 @@ has_je_conquest_reason = {
 			}
 		}
 
+		# Consolidate Italy
 		AND = {
-			has_journal_entry = je_acw_war
+			c:ITA ?= this
 			$TARGET$ = {
-				c:CSA ?= this
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+				any_scope_state = { 
+					has_claim_by = root
+				}
+				NOT = {
+					has_variable = risorgimento_unifying_stance
+					country_rank < rank_value:major_power
+				}
+			}
+		}
+
+		# Consolidate Germany
+		AND = {
+			OR = {
+				c:GER ?= this
+				c:NGF ?= this
+				c:SGF ?= this
+			}
+			$TARGET$ = {
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+				}
+				any_scope_state = { 
+					has_claim_by = root
+				}
 			}
 		}
 
 		AND = {
-			has_journal_entry = je_eastern_frontier
+			c:MEX ?= this
 			$TARGET$ = {
 				any_scope_state = {
-					OR = {
-						region = sr:region_persia
-						region = sr:region_central_asia
-						region = sr:region_bombay
-						region = sr:region_punjab
-					}
-					has_claim_by = ROOT
+					state_region = s:STATE_CHIAPAS
 				}
+			}
+		}
+
+		AND = {
+			c:GUA ?= this
+			$TARGET$ = {
+				c:ALT ?= this
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_acw_war
+			$TARGET$ = {
+				c:CSA ?= this
 			}
 		}
 
