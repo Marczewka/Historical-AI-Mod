@@ -4747,6 +4747,11 @@ ai_strategy_default = {
 		}
 
 		if = {
+			limit = { has_law_or_variant = law_type:law_peasant_levies }
+			multiply = 0.66
+		}	
+
+		if = {
 			limit = {
 				OR = {
 					has_journal_entry = je_prussia_of_the_balkans

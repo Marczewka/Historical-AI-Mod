@@ -81,15 +81,7 @@ sell_savoy = {
 			is_at_war = no
 			owns_entire_state_region = STATE_RHONE
 			is_subject = no
-			NAND = { 
-				owes_obligation_to = ROOT 
-				any_scope_treaty = {
-					binds = ROOT
-					any_scope_article = {
-						has_type = alliance
-					}
-				}
-			}
+			NOT = { owes_obligation_to = ROOT }
 			relations:root >= relations_threshold:cordial
 		}
 	}
@@ -97,13 +89,12 @@ sell_savoy = {
 	when_taken = {
 		set_global_variable = fra_annexed_savoy
 		set_global_variable = fra_savoy_sardinia
-		# In the event
-		# c:FRA = {
-		# 	set_owes_obligation_to = {
-		# 		country = ROOT
-		# 		setting = yes
-		# 	}
-		# }
+		c:FRA = {
+			set_owes_obligation_to = {
+				country = ROOT
+				setting = yes
+			}
+		}
 		show_as_tooltip = {
 			random_scope_state = {
 				limit = {
@@ -140,21 +131,20 @@ sell_savoy = {
 				c:FRA = {
 					relations:root >= relations_threshold:amicable
 				}
-				# OR = {
-				# 	any_scope_treaty = {
-				# 		binds = c:FRA
-				# 		any_scope_article = {
-				# 			has_type = defensive_pact
-				# 		}
-				# 	}
-				# 	any_scope_treaty = {
-				# 		binds = c:FRA
-				# 		any_scope_article = {
-				# 			has_type = alliance
-				# 		}
-				# 	}
-				# }
-				has_strategy = ai_strategy_unify_italy
+				OR = {
+					any_scope_treaty = {
+						binds = c:FRA
+						any_scope_article = {
+							has_type = defensive_pact
+						}
+					}
+					any_scope_treaty = {
+						binds = c:FRA
+						any_scope_article = {
+							has_type = alliance
+						}
+					}
+				}
 			}
 			add = 100 # 1
 		}

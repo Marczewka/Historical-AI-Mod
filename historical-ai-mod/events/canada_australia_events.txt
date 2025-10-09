@@ -355,10 +355,7 @@ can_aus.5 = {
 		}
 		if = {
 			limit = {
-				NOR = { 
-					is_subject_type = subject_type_dominion 
-					is_country_type = unrecognized
-				}
+				NOT = { is_subject_type = subject_type_dominion }
 			}
 			change_subject_type = subject_type_dominion
 		}

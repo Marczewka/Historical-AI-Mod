@@ -163,6 +163,7 @@ centralization = {
 	modifier = {
 		state_tax_capacity_add = 25
 		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
 	}
 	
 	unlocking_technologies = {
@@ -533,6 +534,7 @@ central_archives = {
 	modifier = {
 		state_tax_capacity_add = 25
 		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
 	}
 	
 	unlocking_technologies = {
@@ -1247,6 +1249,7 @@ identification_documents = {
 	modifier = {
 		state_tax_capacity_add = 25
 		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
 	}
 	
 	unlocking_technologies = {
@@ -1364,6 +1367,7 @@ central_planning = {
 		state_tax_capacity_add = 25
 		country_government_dividends_efficiency_add = 0.05
 		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
 	}
 	
 	unlocking_technologies = {
@@ -1534,6 +1538,7 @@ mass_surveillance = {
 		state_tax_capacity_add = 25
 		country_support_separatism_resistance_mult = 0.25
 		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
 	}
 	
 	unlocking_technologies = {

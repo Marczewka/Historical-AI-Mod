@@ -708,6 +708,10 @@ je_unite_the_principalities_button = {
 					is_subject = no
 	            }
 				NOT = { is_subject_of = ROOT }
+				NOR = {
+					c:AUS ?= this
+					c:KUK ?= this
+				}
 	        }
         }
 	}
