@@ -437,21 +437,14 @@ je_risorgimento_italian_unification_button = {
 	cooldown = { days = 90 }
 
 	possible = {
+		is_unification_candidate = ITA
+		NOT = {
+			is_subject = yes
+		}
 		has_technology_researched = nationalism
 		custom_tooltip = {
 			text = risorgimento_unifying_stance_tt
 			has_variable = risorgimento_unifying_stance
-		}
-		country_rank >= rank_value:minor_power
-		NOT = {
-			any_country = {
-				NOT = { this = root }
-				country_rank >= rank_value:major_power
-				custom_tooltip = {
-					text = risorgimento_unifying_stance_tt
-					has_variable = risorgimento_unifying_stance
-				}
-			}
 		}
 		NOR = {
 			is_revolutionary = yes
@@ -460,10 +453,6 @@ je_risorgimento_italian_unification_button = {
 		any_country = {
 			is_at_war = no
 			NOT = { this = root }
-			NOR = {
-				is_revolutionary = yes
-				is_secessionist = yes
-			}
 			OR = {
 				country_has_primary_culture = cu:north_italian
 				country_has_primary_culture = cu:south_italian
@@ -473,11 +462,7 @@ je_risorgimento_italian_unification_button = {
 				is_subject_of = ROOT
 				is_in_customs_union_with = root
 			}
-			OR = {
-				this.gdp < root.gdp
-				root = { is_player = yes }
-			}
-			country_rank <= rank_value:minor_power
+			country_rank < root.country_rank
 			relations:root >= relations_threshold:amicable
 			is_player = no
 			custom_tooltip = {

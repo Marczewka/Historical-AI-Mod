@@ -75,26 +75,15 @@ italian_unification.2 = {
 	cooldown = { days = 90 }
 
 	trigger = {
+		is_unification_candidate = ITA
 		NOT = {
 			is_subject = yes
 		}
-		has_technology_researched = nationalism
 		OR = {
 			c:ITA ?= this
 			custom_tooltip = {
 				text = risorgimento_unifying_stance_tt
 				has_variable = risorgimento_unifying_stance
-			}
-		}
-		country_rank >= rank_value:minor_power
-		NOT = {
-			any_country = {
-				NOT = { this = root }
-				country_rank >= rank_value:major_power
-				custom_tooltip = {
-					text = risorgimento_unifying_stance_tt
-					has_variable = risorgimento_unifying_stance
-				}
 			}
 		}
 		NOR = {
@@ -104,10 +93,6 @@ italian_unification.2 = {
 		any_country = {
 			is_at_war = no
 			NOT = { this = root }
-			NOR = {
-				is_revolutionary = yes
-				is_secessionist = yes
-			}
 			OR = {
 				country_has_primary_culture = cu:north_italian
 				country_has_primary_culture = cu:south_italian
@@ -122,12 +107,7 @@ italian_unification.2 = {
 				is_subject_of = ROOT
 				is_in_customs_union_with = root
 			}
-			OR = {
-				this.gdp < root.gdp
-				root = { c:ITA ?= this }
-				root = { is_player = yes }
-			}
-			country_rank <= rank_value:minor_power
+			country_rank < root.country_rank
 			relations:root >= relations_threshold:amicable
 			is_player = no
 			custom_tooltip = {
@@ -141,11 +121,8 @@ italian_unification.2 = {
 	immediate = {
 		random_country = {
 			limit = {
+				is_at_war = no
 				NOT = { this = root }
-				NOR = {
-					is_revolutionary = yes
-					is_secessionist = yes
-				}
 				OR = {
 					country_has_primary_culture = cu:north_italian
 					country_has_primary_culture = cu:south_italian
@@ -160,12 +137,7 @@ italian_unification.2 = {
 					is_subject_of = ROOT
 					is_in_customs_union_with = root
 				}
-				OR = {
-					this.gdp < root.gdp
-					root = { c:ITA ?= this }
-					root = { is_player = yes }
-				}
-				country_rank <= rank_value:minor_power
+				country_rank < root.country_rank
 				relations:root >= relations_threshold:amicable
 				is_player = no
 				custom_tooltip = {

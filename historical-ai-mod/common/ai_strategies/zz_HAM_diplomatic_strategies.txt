@@ -1414,7 +1414,7 @@ ai_strategy_unify_germany = {
 	}
 
 	obligation_value = {
-		# value = 0
+		value = 0
 	
 		if = {
 			limit = { 
@@ -1425,7 +1425,7 @@ ai_strategy_unify_germany = {
 					}
 				}
 			}
-			add = 5 # 25
+			add = 25
 		}
 	}	
 
@@ -1676,20 +1676,17 @@ ai_strategy_unify_germany = {
 	possible = {
 		is_subject = no
 		OR = {
+			is_unification_candidate = GER	
 			AND = {
-				is_unification_candidate = GER	
-				NOT = { country_tier = empire }
-			}
-			AND = {
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+				}	
 				has_technology_researched = pan-nationalism
-				c:NGF?= this
-			}
-			AND = {
-				has_technology_researched = pan-nationalism
-				c:PRU ?= this
 				country_rank >= rank_value:great_power
 			}
 		}
+		NOT = { country_tier = empire }
 	}
 
 	weight = {
@@ -1788,7 +1785,7 @@ ai_strategy_unify_italy = {
 	}
 	
 	obligation_value = {
-		# value = 0
+		value = 0
 	
 		if = {
 			limit = { 
@@ -1799,7 +1796,7 @@ ai_strategy_unify_italy = {
 					}				
 				}
 			}
-			add = 5 # 25
+			add = 25
 		}
 	}		
 	
@@ -1945,7 +1942,7 @@ ai_strategy_unify_italy = {
 						}
 						AND = {
 							has_variable = risorgimento_unifying_stance
-							country_rank <= rank_value:minor_power
+							country_rank < root.country_rank
 						}
 					}
 				}
@@ -1971,7 +1968,7 @@ ai_strategy_unify_italy = {
 						}
 						AND = {
 							has_variable = risorgimento_unifying_stance
-							country_rank <= rank_value:minor_power
+							country_rank < root.country_rank
 						}
 					}
 					OR = {
@@ -2002,10 +1999,6 @@ ai_strategy_unify_italy = {
 			trigger = {
 				scope:target_country = {
 					is_unification_candidate = ITA
-					OR = {
-						has_variable = risorgimento_anti_unifying_stance
-						country_rank >= rank_value:major_power
-					}
 				}
 			}
 			score = {
@@ -2019,13 +2012,11 @@ ai_strategy_unify_italy = {
 		OR = {
 			is_unification_candidate = ITA
 			AND = {
-				NOT = {
-					c:ITA ?= this
-				}
 				OR = {
 					country_has_primary_culture = cu:north_italian
 					country_has_primary_culture = cu:south_italian
 				}	
+				has_technology_researched = pan-nationalism
 				country_rank >= rank_value:great_power
 			}
 		}
