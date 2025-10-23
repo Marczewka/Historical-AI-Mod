@@ -92,24 +92,25 @@
 		}
 		custom_tooltip = if_they_accept_tt
 		custom_tooltip = AFG_appeal_accept_tt
+		custom_tooltip = MILITARY_ASSISTANCE_RUS
 		show_as_tooltip = {
-			c:RUS = {
-				create_treaty = {
-					first_country = c:RUS
-					second_country = ROOT
+			# c:RUS = {
+			# 	create_treaty = {
+			# 		first_country = c:RUS
+			# 		second_country = ROOT
 
-					is_draft = no
-					binding_period = { years = 2 }
+			# 		is_draft = no
+			# 		binding_period = { years = 2 }
 
-					articles_to_create = {
-						{
-							article = military_assistance
-							source_country = c:RUS
-							target_country = ROOT
-						}
-					}
-				}
-			}
+			# 		articles_to_create = {
+			# 			{
+			# 				article = military_assistance
+			# 				source_country = c:RUS
+			# 				target_country = ROOT
+			# 			}
+			# 		}
+			# 	}
+			# }
 			create_diplomatic_catalyst = {
 				type = catalyst_event_positive
 				target = scope:relevant_country
@@ -251,24 +252,25 @@ je_afghan_unification_appeal_to_britain_button = {
 		}
 		custom_tooltip = if_they_accept_tt
 		custom_tooltip = AFG_appeal_accept_tt
+		custom_tooltip = MILITARY_ASSISTANCE_GBR
 		show_as_tooltip = {
-			c:GBR = {
-				create_treaty = {
-					first_country = c:GBR
-					second_country = ROOT
+			# c:GBR = {
+			# 	create_treaty = {
+			# 		first_country = c:GBR
+			# 		second_country = ROOT
 
-					is_draft = no
-					binding_period = { years = 2 }
+			# 		is_draft = no
+			# 		binding_period = { years = 2 }
 
-					articles_to_create = {
-						{
-							article = military_assistance
-							source_country = c:GBR
-							target_country = ROOT
-						}
-					}
-				}
-			}
+			# 		articles_to_create = {
+			# 			{
+			# 				article = military_assistance
+			# 				source_country = c:GBR
+			# 				target_country = ROOT
+			# 			}
+			# 		}
+			# 	}
+			# }
 			create_diplomatic_catalyst = {
 				type = catalyst_event_positive
 				target = scope:relevant_country
@@ -352,7 +354,9 @@ je_consolidate_afghanistan_durand_line = {
 						region = sr:region_punjab
 						region = sr:region_bombay
 						region = sr:region_himalayas
-						region = sr:region_himalayas
+						state_region = s:STATE_PASHTUNISTAN
+						state_region = s:STATE_QUETTA
+						state_region = s:STATE_BALUCHISTAN
 					}
 					any_neighbouring_state = {
 						owner = c:AFG
@@ -360,12 +364,11 @@ je_consolidate_afghanistan_durand_line = {
 				}
 			}
 		}
-		NOT = {
+		NAND = {
 			country_or_subject_owns_entire_state_region = STATE_PASHTUNISTAN
 			country_or_subject_owns_entire_state_region = STATE_QUETTA
 			country_or_subject_owns_entire_state_region = STATE_BALUCHISTAN
 		}
-		NOT = { c:RUS ?= this }
 	}
 
 	possible = {
@@ -427,6 +430,9 @@ je_consolidate_afghanistan_durand_line = {
 								region = sr:region_punjab
 								region = sr:region_bombay
 								region = sr:region_himalayas
+								state_region = s:STATE_PASHTUNISTAN
+								state_region = s:STATE_QUETTA
+								state_region = s:STATE_BALUCHISTAN
 							}
 							any_neighbouring_state = {
 								owner = c:AFG
@@ -620,7 +626,6 @@ je_consolidate_afghanistan_indus_line = {
 				}
 			}
 		}
-		NOT = { c:RUS ?= this }
 	}
 
 	possible = {
@@ -682,6 +687,9 @@ je_consolidate_afghanistan_indus_line = {
 								region = sr:region_punjab
 								region = sr:region_bombay
 								region = sr:region_himalayas
+								state_region = s:STATE_PASHTUNISTAN
+								state_region = s:STATE_QUETTA
+								state_region = s:STATE_BALUCHISTAN
 							}
 							any_neighbouring_state = {
 								owner = c:AFG
@@ -912,7 +920,6 @@ je_consolidate_afghanistan_southeast_status_quo = {
 				}
 			}
 		}
-		NOT = { c:RUS ?= this }
 	}
 
 	possible = {
@@ -1021,7 +1028,6 @@ je_consolidate_afghanistan_torkestan_line = {
 				state_region = s:STATE_BALKH
 			}
 		}
-		NOT = { c:GBR ?= this }
 	}
 
 	possible = {
@@ -1231,7 +1237,6 @@ je_consolidate_afghanistan_amu_darya_line = {
 				}
 			}
 		}
-		NOT = { c:GBR ?= this }
 	}
 
 	possible = {
@@ -1390,7 +1395,6 @@ je_consolidate_afghanistan_north_status_quo = {
 				}
 			}
 		}
-		NOT = { c:GBR ?= this }
 	}
 
 	possible = {
@@ -1626,7 +1630,6 @@ je_consolidate_afghanistan_approve_of_treaty = {
 			}
 		}
 		custom_tooltip = afghanistan_abandon_claims_tt
-		custom_tooltip = bic_abandon_claims_tt
 		show_as_tooltip = {
 			if = {
 				limit = {
@@ -2261,26 +2264,27 @@ je_consolidate_afghanistan_offer_compensation = {
 	effect = {
 		set_variable = proposed_compensation_for_afghanistan
 		custom_tooltip = if_treaty_process_succeeds_tt
-		show_as_tooltip = {
-			create_treaty = {
-				first_country = root
-				second_country = c:AFG
+		custom_tooltip = MONEY_TRANSFER_AFG
+		# show_as_tooltip = {
+		# 	create_treaty = {
+		# 		first_country = root
+		# 		second_country = c:AFG
 
-				is_draft = no
-				binding_period = { years = 2 }
+		# 		is_draft = no
+		# 		binding_period = { years = 2 }
 
-				articles_to_create = {
-					{
-						article = money_transfer
-						source_country = root
-						target_country = c:AFG
-						inputs = {
-							{ quantity = 1000 }
-						}
-					}
-				}
-			}
-		}
+		# 		articles_to_create = {
+		# 			{
+		# 				article = money_transfer
+		# 				source_country = root
+		# 				target_country = c:AFG
+		# 				inputs = {
+		# 					{ quantity = 1000 }
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# }
 	}
 
 	ai_chance = {

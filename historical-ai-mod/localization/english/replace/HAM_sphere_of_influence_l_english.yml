@@ -1,2 +1,5 @@
 ﻿l_english:
 bic_abandon_claims_tt: "#v $BIC$#! will abandon all claims on #v $AFG$#!"
+MILITARY_ASSISTANCE_RUS: "Signs a #bold $military_assistance$#! [concept_treaty] with [SCOPE.sCountry('russia_scope').GetName]"
+MILITARY_ASSISTANCE_GBR: "Signs a #bold $military_assistance$#! [concept_treaty] with [SCOPE.sCountry('britain_scope').GetName]"
+MONEY_TRANSFER_AFG: "[SCOPE.GetRootScope.GetCountry.GetName] signs a two year #bold $money_transfer$#! [concept_treaty] for #bold 1000#!@money! with [SCOPE.sCountry('afghanistan_scope').GetName]"

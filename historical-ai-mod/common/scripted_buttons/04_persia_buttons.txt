@@ -379,6 +379,7 @@ persia_british_aid_button = {
 			trigger_event = { id = persia_events.4 popup = yes }
 		}
 		custom_tooltip = if_they_accept_tt
+		custom_tooltip = MILITARY_ASSISTANCE_GBR
 		show_as_tooltip = {
 			if = {
 				limit = {
@@ -389,46 +390,46 @@ persia_british_aid_button = {
 				add_modifier = {
 					name = modifier_south_persia_rifles
 				}
-				c:GBR = {
-					create_treaty = {
-						first_country = c:GBR
-						second_country = ROOT
+				# c:GBR = {
+				# 	create_treaty = {
+				# 		first_country = c:GBR
+				# 		second_country = ROOT
 
-						is_draft = no
-						binding_period = { years = 2 }
+				# 		is_draft = no
+				# 		binding_period = { years = 2 }
 
-						articles_to_create = {
-							{
-								article = military_assistance
-								source_country = c:GBR
-								target_country = ROOT
-							}
-						}
-					}
-				}
+				# 		articles_to_create = {
+				# 			{
+				# 				article = military_assistance
+				# 				source_country = c:GBR
+				# 				target_country = ROOT
+				# 			}
+				# 		}
+				# 	}
+				# }
 			}
-			if = {
-				limit = {
-					has_modifier = modifier_south_persia_rifles
-				}
-				c:GBR = {
-					create_treaty = {
-						first_country = c:GBR
-						second_country = ROOT
+			# if = {
+			# 	limit = {
+			# 		has_modifier = modifier_south_persia_rifles
+			# 	}
+			# 	c:GBR = {
+			# 		create_treaty = {
+			# 			first_country = c:GBR
+			# 			second_country = ROOT
 
-						is_draft = no
-						binding_period = { years = 2 }
+			# 			is_draft = no
+			# 			binding_period = { years = 2 }
 
-						articles_to_create = {
-							{
-								article = military_assistance
-								source_country = c:GBR
-								target_country = ROOT
-							}
-						}
-					}
-				}
-			}
+			# 			articles_to_create = {
+			# 				{
+			# 					article = military_assistance
+			# 					source_country = c:GBR
+			# 					target_country = ROOT
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# }
 			scope:relevant_country.power_bloc = {
 				add_leverage = { target = scope:persian_nation_scope value = 25 }
 			}
@@ -493,6 +494,7 @@ persia_russian_aid_button = {
 			trigger_event = { id = persia_events.4 popup = yes }
 		}
 		custom_tooltip = if_they_accept_tt
+		custom_tooltip = MILITARY_ASSISTANCE_RUS
 		show_as_tooltip = {
 			if = {
 				limit = {
@@ -503,46 +505,46 @@ persia_russian_aid_button = {
 				add_modifier = {
 					name = modifier_persian_cossack_brigade
 				}
-				c:RUS = {
-					create_treaty = {
-						first_country = c:RUS
-						second_country = ROOT
+				# c:RUS = {
+				# 	create_treaty = {
+				# 		first_country = c:RUS
+				# 		second_country = ROOT
 
-						is_draft = no
-						binding_period = { years = 2 }
+				# 		is_draft = no
+				# 		binding_period = { years = 2 }
 
-						articles_to_create = {
-							{
-								article = military_assistance
-								source_country = c:RUS
-								target_country = ROOT
-							}
-						}
-					}
-				}
+				# 		articles_to_create = {
+				# 			{
+				# 				article = military_assistance
+				# 				source_country = c:RUS
+				# 				target_country = ROOT
+				# 			}
+				# 		}
+				# 	}
+				# }
 			}
-			if = {
-				limit = {
-					has_modifier = modifier_persian_cossack_brigade
-				}
-				c:RUS = {
-					create_treaty = {
-						first_country = c:RUS
-						second_country = ROOT
+			# if = {
+			# 	limit = {
+			# 		has_modifier = modifier_persian_cossack_brigade
+			# 	}
+			# 	c:RUS = {
+			# 		create_treaty = {
+			# 			first_country = c:RUS
+			# 			second_country = ROOT
 
-						is_draft = no
-						binding_period = { years = 2 }
+			# 			is_draft = no
+			# 			binding_period = { years = 2 }
 
-						articles_to_create = {
-							{
-								article = military_assistance
-								source_country = c:RUS
-								target_country = ROOT
-							}
-						}
-					}
-				}
-			}
+			# 			articles_to_create = {
+			# 				{
+			# 					article = military_assistance
+			# 					source_country = c:RUS
+			# 					target_country = ROOT
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# }
 			scope:relevant_country.power_bloc = {
 				add_leverage = { target = scope:persian_nation_scope value = 25 }
 			}

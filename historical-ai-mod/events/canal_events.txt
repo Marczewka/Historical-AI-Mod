@@ -411,6 +411,9 @@ canal_events.100 = {
 		set_variable = suez_canal_purchase
 		custom_tooltip = suez_canal_purchase_available
 		custom_tooltip = suez_canal_construction_available
+		ai_chance = {
+			base = 50
+		}
 	}
 
 	option = { # we will take it by force
@@ -436,7 +439,7 @@ canal_events.100 = {
 		custom_tooltip = suez_canal_purchase_available
 		custom_tooltip = suez_canal_construction_available
 		ai_chance = {
-			base = 0
+			base = 50
 			modifier = {
 				trigger = {
 					OR = {
@@ -450,7 +453,30 @@ canal_events.100 = {
 						}
 					}
 				}
-				add = 100
+				add = 50
+			}
+			modifier = {
+				trigger = {
+					OR = {
+						has_attitude = {
+							who = suez_owner
+							attitude = protective
+						}
+						has_attitude = {
+							who = suez_owner
+							attitude = conciliatory
+						}
+						has_attitude = {
+							who = suez_owner
+							attitude = protective
+						}
+						has_attitude = {
+							who = suez_owner
+							attitude = genial
+						}
+					}
+				}
+				add = -50
 			}
 		}
 	}
@@ -463,9 +489,6 @@ canal_events.100 = {
 			type = je_suez_canal
 		}
 		custom_tooltip = suez_canal_construction_available
-		ai_chance = {
-			base = 10
-		}
 	}
 }
 
@@ -534,6 +557,9 @@ canal_events.101 = {
 		set_variable = panama_canal_purchase
 		custom_tooltip = panama_canal_purchase_available
 		custom_tooltip = panama_canal_construction_available
+		ai_chance = {
+			base = 50
+		}
 	}
 
 	option = { # we will take it by force
@@ -558,6 +584,47 @@ canal_events.101 = {
 		set_variable = panama_canal_purchase
 		custom_tooltip = panama_canal_purchase_available
 		custom_tooltip = panama_canal_construction_available
+		ai_chance = {
+			base = 50
+			modifier = {
+				trigger = {
+					OR = {
+						has_attitude = {
+							who = panama_owner
+							attitude = belligerent
+						}
+						has_attitude = {
+							who = panama_owner
+							attitude = domineering
+						}
+					}
+				}
+				add = 50
+			}
+			modifier = {
+				trigger = {
+					OR = {
+						has_attitude = {
+							who = panama_owner
+							attitude = protective
+						}
+						has_attitude = {
+							who = panama_owner
+							attitude = conciliatory
+						}
+						has_attitude = {
+							who = panama_owner
+							attitude = protective
+						}
+						has_attitude = {
+							who = panama_owner
+							attitude = genial
+						}
+					}
+				}
+				add = -50
+			}
+		}
 	}
 	option = { # we should build the canal
 		name = canal_events.100.c

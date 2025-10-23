@@ -519,14 +519,6 @@
 				every_state = {
 					limit = {
 						has_claim_by = c:AFG
-						OR = {
-							has_claim_by = c:RUS
-							has_claim_by = c:GBR
-							has_claim_by = c:BIC
-							owner = c:RUS
-							owner = c:GBR
-							owner = c:BIC
-						}
 					}
 					state_region = {
 						remove_claim = c:AFG
@@ -1879,6 +1871,15 @@ je_unify_afghanistan = {
 
 	scripted_button = je_afghan_unification_appeal_to_russia_button
 	scripted_button = je_afghan_unification_appeal_to_britain_button
+
+	immediate = {
+		c:GBR ?= {
+            save_scope_as = britain_scope
+        }
+        c:RUS ?= {
+          save_scope_as = russia_scope
+		}
+	}
 
 	possible = {
 		capital ?= {
