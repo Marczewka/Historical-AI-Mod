@@ -447,6 +447,37 @@ has_je_conquest_reason = {
 				}
 			}
 		}
+
+		AND = {
+			has_journal_entry = je_scramble_for_africa
+			$TARGET$ = {
+				country_is_in_africa = yes
+				OR = {
+					any_scope_building = {
+						OR = {
+							is_building_type = building_gold_mine
+							is_building_type = building_gold_fields
+						}
+					}
+					country_has_primary_culture = cu:boer
+				}
+				is_subject = no
+			}
+		}
+
+		AND = {
+			has_journal_entry = je_scramble_for_africa
+			$TARGET$ = { 
+				country_is_in_africa = yes
+				is_country_type = unrecognized 
+				OR = {
+					is_subject = no
+					top_overlord ?= {
+						is_country_type = unrecognized
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -504,6 +535,18 @@ has_je_subjugation_reason = {
 			has_journal_entry = je_danubian_federation
 			$TARGET$ = {
 				has_variable = danubian_federation_opposed
+			}
+		}
+		AND = {
+			has_journal_entry = je_eastern_question_austria
+			$TARGET$ = {
+				owns_entire_state_region = STATE_BOSNIA
+			}
+		}
+		if = {
+			has_journal_entry = je_eastern_question_russia
+			$TARGET$ = {
+				has_journal_entry = je_great_eastern_crisis
 			}
 		}
 		AND = {

@@ -5483,7 +5483,7 @@ ai_strategy_default = {
 				limit = {
 					c:RUS ?= this
 				}
-				add = 10 # 200
+				add = 20 # 200
 			}
 			if = { #especially during Eastern Crisis
 				limit = {
@@ -5492,20 +5492,7 @@ ai_strategy_default = {
 						has_journal_entry = je_great_eastern_crisis
 					}
 				}
-				add = 100 # 300
-			}
-		}
-		AFG = {
-			# Great Britain is inclined to want to release Afghanistan
-			if = {
-				limit = {
-					c:GBR ?= this
-					scope:target_country = {
-						c:PER ?= this
-						any_scope_state = { state_region = s:STATE_HERAT }
-					}
-				}
-				add = 100
+				add = 300
 			}
 		}
 	}

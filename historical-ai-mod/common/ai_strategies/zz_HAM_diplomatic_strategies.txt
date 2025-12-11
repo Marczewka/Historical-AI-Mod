@@ -163,7 +163,7 @@ ai_strategy_maintain_power_balance = {
 		value = 10
 		
 		if = {
-			limit = { country_rank >= rank_value:major_power }
+			limit = { country_rank < rank_value:major_power }
 			add = 10
 		}
 

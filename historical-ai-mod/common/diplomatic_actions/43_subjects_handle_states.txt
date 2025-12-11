@@ -108,12 +108,12 @@
 						OR = {
 							c:BIC ?= this
 							c:DEI ?= this
-							AND = {
-								ROOT = {
-									NOT = { has_journal_entry = je_scramble_for_africa }
-								}
-								is_african_subject = yes
-							}
+							# AND = {
+							# 	ROOT = {
+							# 		NOT = { has_journal_entry = je_scramble_for_africa }
+							# 	}
+							# 	is_african_subject = yes
+							# }
 						}
 					}
 				}
@@ -215,10 +215,7 @@
 
 			OR = {
 				scope:target_country = {
-					liberty_desire >= 75
-				}
-				scope:first_state = {
-					has_claim_by = scope:target_country
+					liberty_desire >= 90
 				}
 				scope:target_country = {
 						OR = {
@@ -252,22 +249,13 @@
 									region = sr:region_indonesia
 								}
 							}
-							# AND = {
-							# 	ROOT = {
-							# 		NOT = { has_journal_entry = je_scramble_for_africa }
-							# 	}
-							# 	is_african_subject = yes
-							# 	scope:first_state = {
-							# 		state_is_in_africa = yes
-							# 	}
-							# }
 						}
 					}
 			}
 		}
 
 		propose_score = {
-			value = 10
+			value = 0 # 10
 
 			if = { # Consolidation of colonial tags
 				limit = {
@@ -318,6 +306,15 @@
 				add = 50
 			}
 
+			if = {
+				limit = {
+					scope:first_state = {
+						has_claim_by = scope:target_country
+					}
+				}
+				add = 10
+			}
+
 			# Prefer ceding land to same culture subjects
 			if = {
 				limit = {
@@ -326,6 +323,14 @@
 					}
 				}
 				multiply = 5.0
+			}
+			else_if = {
+				limit = {
+					scope:first_state = {
+						is_homeland_of_country_cultures = scope:target_country
+					}
+				}
+				add = 50
 			}
 
 			# Avoid ceding land to unrecognized if there's alternatives
