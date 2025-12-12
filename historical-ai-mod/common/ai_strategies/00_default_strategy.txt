@@ -1843,313 +1843,314 @@ ai_strategy_default = {
 					}
 					multiply = 1.5
 				}
+			}
 
-				if = {
-					limit = {
-						has_journal_entry = je_boxer_rebellion
-						scope:target_state.state_region = { is_homeland = cu:han }
-					}
-					add = 50
+			if = {
+				limit = {
+					has_journal_entry = je_boxer_rebellion
+					scope:target_state.state_region = { is_homeland = cu:han }
 				}
+				add = 50
+			}
 
-				if = {
-					limit = {
-						has_journal_entry = je_greek_nationalism
-						scope:target_state.state_region = { is_homeland = cu:greek }
-					}
-					add = 50
+			if = {
+				limit = {
+					has_journal_entry = je_greek_nationalism
+					scope:target_state.state_region = { is_homeland = cu:greek }
 				}
+				add = 50
+			}
 
-				if = {
-					limit = {
-						has_journal_entry = je_eastern_question_austria
-						scope:target_state = { state_region = s:STATE_BOSNIA }
-					}
-					add = 50
+			if = {
+				limit = {
+					has_journal_entry = je_eastern_question_austria
+					scope:target_state = { state_region = s:STATE_BOSNIA }
 				}
+				add = 50
+			}
 
-				if = {
-					limit = {
-					has_journal_entry = je_consolidate_colonial_rule
-						scope:target_country = {
-							is_country_type = unrecognized
-							target_is_our_or_fellow_subject = no
+			if = {
+				limit = {
+				has_journal_entry = je_consolidate_colonial_rule
+					scope:target_country = {
+						is_country_type = unrecognized
+						target_is_our_or_fellow_subject = no
+					}
+					scope:target_state = {
+						OR = {
+							region = sr:region_madras
+							region = sr:region_bombay
+							region = sr:region_bengal
+							region = sr:region_central_india
+							AND = {
+								region = sr:region_punjab
+								NOT = { state_region = s:STATE_HILL_PUNJAB }
+								NOT = { state_region = s:STATE_PUNJAB }
+							}
+							state_region = s:STATE_EASTERN_HIMALAYAS
+							state_region = s:STATE_HIMALAYAS
+							AND = {
+								OR = {
+									state_region = s:STATE_PEGU
+									state_region = s:STATE_MANDALAY
+									state_region = s:STATE_KACHIN
+									state_region = s:STATE_SHAN_STATES
+									state_region = s:STATE_HILL_PUNJAB
+									state_region = s:STATE_PUNJAB
+									state_region = s:STATE_PASHTUNISTAN
+									state_region = s:STATE_KASHMIR
+									state_region = s:STATE_QUETTA
+								}
+								root.top_overlord ?= { NOT = { has_journal_entry = je_opium_wars } }
+							}
 						}
-						scope:target_state = {
+						NOT = { has_claim_by = ROOT }
+					}
+				}
+				add = 50
+			}
+
+			# Britain consolidating South Asia
+			if = {
+				limit = {
+					c:GBR ?= this
+					has_variable = british_raj_var
+					exists = c:BIC
+					scope:target_country = {
+						NOT = { is_subject_of = ROOT }
+						any_scope_state = {
 							OR = {
 								region = sr:region_madras
 								region = sr:region_bombay
 								region = sr:region_bengal
 								region = sr:region_central_india
-								AND = {
-									region = sr:region_punjab
-									NOT = { state_region = s:STATE_HILL_PUNJAB }
-									NOT = { state_region = s:STATE_PUNJAB }
-								}
+								region = sr:region_punjab
 								state_region = s:STATE_EASTERN_HIMALAYAS
 								state_region = s:STATE_HIMALAYAS
-								AND = {
-									OR = {
-										state_region = s:STATE_PEGU
-										state_region = s:STATE_MANDALAY
-										state_region = s:STATE_KACHIN
-										state_region = s:STATE_SHAN_STATES
-										state_region = s:STATE_HILL_PUNJAB
-										state_region = s:STATE_PUNJAB
-										state_region = s:STATE_PASHTUNISTAN
-										state_region = s:STATE_KASHMIR
-										state_region = s:STATE_QUETTA
-									}
-									root.top_overlord ?= { NOT = { has_journal_entry = je_opium_wars } }
-								}
-							}
-							NOT = { has_claim_by = ROOT }
-						}
-					}
-					add = 50
-				}
-
-				# Britain consolidating South Asia
-				if = {
-					limit = {
-						c:GBR ?= this
-						has_variable = british_raj_var
-						exists = c:BIC
-						scope:target_country = {
-							NOT = { is_subject_of = ROOT }
-							any_scope_state = {
-								OR = {
-									region = sr:region_madras
-									region = sr:region_bombay
-									region = sr:region_bengal
-									region = sr:region_central_india
-									region = sr:region_punjab
-									state_region = s:STATE_EASTERN_HIMALAYAS
-									state_region = s:STATE_HIMALAYAS
-									state_region = s:STATE_MANDALAY
-									state_region = s:STATE_KACHIN
-									state_region = s:STATE_SHAN_STATES
-									state_region = s:STATE_PEGU
-									state_region = s:STATE_PASHTUNISTAN
-									state_region = s:STATE_QUETTA
-									state_region = s:STATE_KASHMIR
-								}
+								state_region = s:STATE_MANDALAY
+								state_region = s:STATE_KACHIN
+								state_region = s:STATE_SHAN_STATES
+								state_region = s:STATE_PEGU
+								state_region = s:STATE_PASHTUNISTAN
+								state_region = s:STATE_QUETTA
+								state_region = s:STATE_KASHMIR
 							}
 						}
 					}
-					add = 50
 				}
+				add = 50
+			}
 
-				if = {
-					limit = {
-						has_journal_entry = je_expanding_paraguay
-						scope:target_country = {
-							has_state_in_state_region = STATE_CORRIENTES
-						}
+			if = {
+				limit = {
+					has_journal_entry = je_expanding_paraguay
+					scope:target_country = {
+						has_state_in_state_region = STATE_CORRIENTES
 					}
-					add = 50
 				}
+				add = 50
+			}
 
-				if = {
-					limit = {
-						has_journal_entry = je_expanding_paraguay
-						scope:target_country = {
-							OR = {
-								has_state_in_state_region = STATE_SANTA_FE
-								has_state_in_state_region = STATE_PARANA
-								has_state_in_state_region = STATE_RIO_GRANDE_DO_SUL
-							}
-						}
-					}
-					add = 25
-				}
-
-				if = {
-					limit = {
-						has_journal_entry = je_age_of_princes
-						scope:target_state = {
-							OR = {
-								state_region = s:STATE_AMHARA
-								state_region = s:STATE_GONDER
-							}
-						}
-					}
-					add = 50
-				}
-
-				if = {
-					limit = {
+			if = {
+				limit = {
+					has_journal_entry = je_expanding_paraguay
+					scope:target_country = {
 						OR = {
-							AND = {
-								has_journal_entry = je_unify_afghanistan
-								is_subject = yes
-							}
-							c:AFG ?= this
-						}
-						scope:target_state = {
-							state_region = s:STATE_HERAT
-							state_region = s:STATE_KANDAHAR
-							state_region = s:STATE_KABUL
-							state_region = s:STATE_CENTRAL_HIGHLANDS
-							state_region = s:STATE_BALKH
-							state_region = s:STATE_PASHTUNISTAN
-							state_region = s:STATE_QUETTA
-							state_region = s:STATE_NORTHERN_BALUCHISTAN
+							has_state_in_state_region = STATE_SANTA_FE
+							has_state_in_state_region = STATE_PARANA
+							has_state_in_state_region = STATE_RIO_GRANDE_DO_SUL
 						}
 					}
-					add = 75
 				}
+				add = 25
+			}
 
+			if = {
+				limit = {
+					has_journal_entry = je_age_of_princes
+					scope:target_state = {
+						OR = {
+							state_region = s:STATE_AMHARA
+							state_region = s:STATE_GONDER
+						}
+					}
+				}
+				add = 50
+			}
+
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_journal_entry = je_unify_afghanistan
+							is_subject = yes
+						}
+						c:AFG ?= this
+					}
+					scope:target_state = {
+						state_region = s:STATE_HERAT
+						state_region = s:STATE_KANDAHAR
+						state_region = s:STATE_KABUL
+						state_region = s:STATE_CENTRAL_HIGHLANDS
+						state_region = s:STATE_BALKH
+						state_region = s:STATE_PASHTUNISTAN
+						state_region = s:STATE_QUETTA
+						state_region = s:STATE_NORTHERN_BALUCHISTAN
+					}
+				}
+				add = 75
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_eastern_frontier
+					scope:target_state = {
+						OR = {
+							region = sr:region_persia
+							region = sr:region_central_asia
+							region = sr:region_bombay
+							region = sr:region_punjab
+						}
+						has_claim_by = ROOT
+					}
+				}
+				add = 75
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_manifest_destiny_mexico
+				}
+				
 				if = {
 					limit = {
-						has_journal_entry = je_eastern_frontier
 						scope:target_state = {
 							OR = {
-								region = sr:region_persia
-								region = sr:region_central_asia
-								region = sr:region_bombay
-								region = sr:region_punjab
+								state_region = s:STATE_COLORADO
+								state_region = s:STATE_UTAH
+								state_region = s:STATE_TEXAS
+								state_region = s:STATE_KANSAS
+								state_region = s:STATE_OKLAHOMA
+								state_region = s:STATE_ARIZONA						
+								state_region = s:STATE_CALIFORNIA
+								state_region = s:STATE_NEVADA
+								state_region = s:STATE_NEW_MEXICO								
 							}
-							has_claim_by = ROOT
-						}
+						}					
 					}
-					add = 75
-				}
-
-				if = {
-					limit = {
-						has_journal_entry = je_manifest_destiny_mexico
-					}
+					add = 50
 					
 					if = {
-						limit = {
-							scope:target_state = {
-								OR = {
-									state_region = s:STATE_COLORADO
-									state_region = s:STATE_UTAH
-									state_region = s:STATE_TEXAS
-									state_region = s:STATE_KANSAS
-									state_region = s:STATE_OKLAHOMA
-									state_region = s:STATE_ARIZONA						
-									state_region = s:STATE_CALIFORNIA
-									state_region = s:STATE_NEVADA
-									state_region = s:STATE_NEW_MEXICO								
-								}
-							}					
-						}
-						add = 50
-						
-						if = {
-							limit = { is_adjacent_to_state = scope:target_state }
-							multiply = 2
+						limit = { is_adjacent_to_state = scope:target_state }
+						multiply = 2
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_conquer_oregon
+					scope:target_state = {
+						OR = {
+							state_region = s:STATE_WASHINGTON
+							state_region = s:STATE_IDAHO
+							state_region = s:STATE_OREGON
 						}
 					}
 				}
+				add = 50
+			}
 
-				if = {
-					limit = {
-						has_journal_entry = je_conquer_oregon
-						scope:target_state = {
-							OR = {
-								state_region = s:STATE_WASHINGTON
-								state_region = s:STATE_IDAHO
-								state_region = s:STATE_OREGON
-							}
-						}
+			if = {
+				limit = {
+					has_journal_entry = je_alaska
+					scope:target_state = {
+						state_region = s:STATE_ALASKA
 					}
-					add = 50
 				}
+				add = 50
+			}
 
-				if = {
-					limit = {
-						has_journal_entry = je_alaska
-						scope:target_state = {
-							state_region = s:STATE_ALASKA
-						}
-					}
-					add = 50
-				}
-
-				if = {
-					limit = {
-						has_journal_entry = je_the_eastern_border
-						scope:target_state = {
-							OR = {
-								state_region = s:STATE_OUTER_MANCHURIA
-								state_region = s:STATE_JETISY
-								state_region = s:STATE_ALTAI # STATE_TOMSK
-								state_region = s:STATE_KIRGHIZIA
-								state_region = s:STATE_AMUR
-							}
-						}
-					}
-					add = 50
-				}
-
-				if = {
-					limit = {
-						has_journal_entry = je_conquest_of_algeria
-						scope:target_state = {
-							OR = {
-								state_region = s:STATE_ALGIERS
-								state_region = s:STATE_CONSTANTINE
-								state_region = s:STATE_ORAN
-								state_region = s:STATE_SAHARA
-								state_region = s:STATE_EAST_SAHARA
-							}
-						}
-					}
-					add = 100
-				}
-
-				if = { #Russian Central Asia
-					limit = {
-						has_journal_entry = je_conquest_of_central_asia
-						scope:target_state = {
-							state_region = s:STATE_SYRDARYA
-							state_region = s:STATE_UZBEKIA
+			if = {
+				limit = {
+					has_journal_entry = je_the_eastern_border
+					scope:target_state = {
+						OR = {
+							state_region = s:STATE_OUTER_MANCHURIA
+							state_region = s:STATE_JETISY
+							state_region = s:STATE_ALTAI # STATE_TOMSK
 							state_region = s:STATE_KIRGHIZIA
-							state_region = s:STATE_KHIVA # Chorasmia
-							state_region = s:STATE_TURKMENIA
-							state_region = s:STATE_TAJIKISTAN
-							state_region = s:STATE_FERGANA
-							state_region = s:STATE_MERZ # Merv
+							state_region = s:STATE_AMUR
 						}
 					}
-					add = 75
 				}
+				add = 50
+			}
 
-				if = {
-					limit = {
-						country_has_primary_culture = cu:russian
-						has_law = law_type:law_national_supremacy # TODO - Official Nationality
-						has_technology_researched = nationalism
-						scope:target_state = {
-							owner = {
-								OR = {
-									c:OZH ?= this
-									c:UZH ?= this
-									c:KZH ?= this
-									c:KAZ ?= this
-								}
+			if = {
+				limit = {
+					has_journal_entry = je_conquest_of_algeria
+					scope:target_state = {
+						OR = {
+							state_region = s:STATE_ALGIERS
+							state_region = s:STATE_CONSTANTINE
+							state_region = s:STATE_ORAN
+							state_region = s:STATE_SAHARA
+							state_region = s:STATE_EAST_SAHARA
+						}
+					}
+				}
+				add = 100
+			}
+
+			if = { #Russian Central Asia
+				limit = {
+					has_journal_entry = je_conquest_of_central_asia
+					scope:target_state = {
+						state_region = s:STATE_SYRDARYA
+						state_region = s:STATE_UZBEKIA
+						state_region = s:STATE_KIRGHIZIA
+						state_region = s:STATE_KHIVA # Chorasmia
+						state_region = s:STATE_TURKMENIA
+						state_region = s:STATE_TAJIKISTAN
+						state_region = s:STATE_FERGANA
+						state_region = s:STATE_MERZ # Merv
+					}
+				}
+				add = 75
+			}
+
+			if = {
+				limit = {
+					country_has_primary_culture = cu:russian
+					has_law = law_type:law_national_supremacy # TODO - Official Nationality
+					has_technology_researched = nationalism
+					scope:target_state = {
+						owner = {
+							OR = {
+								c:OZH ?= this
+								c:UZH ?= this
+								c:KZH ?= this
+								c:KAZ ?= this
 							}
 						}
 					}
-					add = 15
 				}
+				add = 15
+			}
 
-				if = { # Dutch East Indies wishes to consolidate Indonesia
-					limit = {
-						c:DEI ?= this
-						scope:target_state = {
-							AND = {
-								region = sr:region_indonesia
-								NOT = { state_region = s:STATE_NORTH_BORNEO }
-							}
+			if = { # Dutch East Indies wishes to consolidate Indonesia
+				limit = {
+					c:DEI ?= this
+					scope:target_state = {
+						AND = {
+							region = sr:region_indonesia
+							NOT = { state_region = s:STATE_NORTH_BORNEO }
 						}
 					}
-					add = 50
 				}
+				add = 50
+			}
 
 			# French Natural Borders
 			if = {
@@ -2354,60 +2355,60 @@ ai_strategy_default = {
 					}
 				}
 				multiply = 0
+			}
 
-				if = {
-					limit = {
-						c:GBR ?= this 
-						has_technology_researched = civilizing_mission
-						scope:target_state = {
-							OR = {
-								state_region = s:STATE_NORTH_BORNEO
-								state_region = s:STATE_MALAYA
-							}
-						}						
-					}
-					add = 50
-				}
-
-				if = {
-					limit = {
-						has_journal_entry = je_sick_man_syria
-						scope:target_state = {
-							OR = {
-								state_region = s:STATE_ALEPPO
-								state_region = s:STATE_SYRIA
-								state_region = s:STATE_LEBANON
-								state_region = s:STATE_PALESTINE
-								state_region = s:STATE_TRANSJORDAN
-								state_region = s:STATE_ADANA
-							}	
+			if = {
+				limit = {
+					c:GBR ?= this 
+					has_technology_researched = civilizing_mission
+					scope:target_state = {
+						OR = {
+							state_region = s:STATE_NORTH_BORNEO
+							state_region = s:STATE_MALAYA
 						}
-					}
-					add = 50
+					}						
 				}
+				add = 50
+			}
 
-				if = {
-					limit = { 
-						NOT = { has_strategic_land_adjacency = scope:target_state } 
-						scope:target_state = { is_coastal = no }
+			if = {
+				limit = {
+					has_journal_entry = je_sick_man_syria
+					scope:target_state = {
+						OR = {
+							state_region = s:STATE_ALEPPO
+							state_region = s:STATE_SYRIA
+							state_region = s:STATE_LEBANON
+							state_region = s:STATE_PALESTINE
+							state_region = s:STATE_TRANSJORDAN
+							state_region = s:STATE_ADANA
+						}	
 					}
-					multiply = 0
 				}
+				add = 50
+			}
 
-				if = {
-					limit = {
-						has_strategic_land_adjacency = scope:target_country
-						NOT = { has_strategic_land_adjacency = scope:target_state }
-					}
-					multiply = 0.5
+			if = {
+				limit = { 
+					NOT = { has_strategic_land_adjacency = scope:target_state } 
+					scope:target_state = { is_coastal = no }
 				}
-				else_if = {
-					limit = {
-						is_adjacent_to_country = scope:target_country
-						NOT = { is_adjacent_to_state = scope:target_state }
-					}
-					multiply = 0.75
+				multiply = 0
+			}
+
+			if = {
+				limit = {
+					has_strategic_land_adjacency = scope:target_country
+					NOT = { has_strategic_land_adjacency = scope:target_state }
 				}
+				multiply = 0.5
+			}
+			else_if = {
+				limit = {
+					is_adjacent_to_country = scope:target_country
+					NOT = { is_adjacent_to_state = scope:target_state }
+				}
+				multiply = 0.75
 			}
 		}
 
@@ -4222,16 +4223,8 @@ ai_strategy_default = {
 						state_region = s:STATE_ZAMBEZIA
 						state_region = s:STATE_LOURENCO_MARQUES
 					}
-					OR = {
-						AND = {
-							is_subject = no
-							country_rank < rank_value:unrecognized_major_power
-						}
-						top_overlord ?= {
-							country_rank < rank_value:unrecognized_major_power
-						}
-					}
 				}
+			}
 			add = 25
 
 			if = {
@@ -8061,7 +8054,6 @@ ai_strategy_default = {
 
 			min = 0
 			max = 100				
-		}
 		}
 
 		make_tributary = {

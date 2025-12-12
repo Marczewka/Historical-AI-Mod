@@ -1,4 +1,4 @@
-﻿building_power_bloc_statue = {
+﻿REPLACE:building_power_bloc_statue = {
 
 	building_group = bg_monuments
 

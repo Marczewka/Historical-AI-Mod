@@ -1,5 +1,4 @@
-﻿
-dp_make_dominion = {	
+﻿REPLACE:dp_make_dominion = {	
 	war_goal = make_dominion
 
 	texture = "gfx/interface/icons/war_goals/make_dominion.dds"
@@ -21,7 +20,7 @@ dp_make_dominion = {
 	}
 }
 
-dp_secession = {
+REPLACE:dp_secession = {
 	requires_interest_marker = no
 	initiator_can_add_war_goals = yes # no
 	target_can_add_war_goals = no

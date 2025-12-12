@@ -1,4 +1,4 @@
-﻿give_claims_on_italy = {
+﻿REPLACE:give_claims_on_italy = {
 	every_state = {
 		limit = {
 			NAND = { 
@@ -27,7 +27,7 @@
 	}
 }
 
-give_claims_on_germany = {
+REPLACE:give_claims_on_germany = {
 	every_state = {
 		limit = {
 			NAND = { 

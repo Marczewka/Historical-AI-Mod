@@ -1,4 +1,4 @@
-﻿ai_strongly_desires_target_state = {
+﻿REPLACE:ai_strongly_desires_target_state = {
 	OR = {
 		AND = { # Aggressive AI wants nearby land
 			OR = {
@@ -33,7 +33,7 @@
 	}			
 }
 
-ai_desires_target_state = {
+REPLACE:ai_desires_target_state = {
 	OR = {
 		ai_strongly_desires_target_state = yes
 		scope:target_state = { is_homeland_of_country_cultures = root } # AI is interested in homelands
@@ -81,7 +81,7 @@ ai_desires_target_state = {
 }
 
 
-has_je_conquest_reason = {
+REPLACE:has_je_conquest_reason = {
 	# can_reach_target_country = yes
 
 	OR = {	
@@ -456,7 +456,7 @@ has_je_conquest_reason = {
 					any_scope_building = {
 						OR = {
 							is_building_type = building_gold_mine
-							is_building_type = building_gold_fields
+							is_building_type = building_gold_field
 						}
 					}
 					country_has_primary_culture = cu:boer
@@ -481,7 +481,7 @@ has_je_conquest_reason = {
 	}
 }
 
-has_je_subjugation_reason = {
+REPLACE:has_je_subjugation_reason = {
 	# can_reach_target_country = yes
 
 	OR = {
@@ -543,7 +543,7 @@ has_je_subjugation_reason = {
 				owns_entire_state_region = STATE_BOSNIA
 			}
 		}
-		if = {
+		AND = {
 			has_journal_entry = je_eastern_question_russia
 			$TARGET$ = {
 				has_journal_entry = je_great_eastern_crisis
@@ -604,7 +604,7 @@ has_je_subjugation_reason = {
 	}	
 }
 
-has_je_befriend_reason = {
+REPLACE:has_je_befriend_reason = {
 	# can_reach_target_country = yes
 	country_rank <= $TARGET$.country_rank
 	
@@ -753,7 +753,7 @@ has_je_befriend_reason = {
 	}	
 }
 
-has_je_protect_reason = {
+REPLACE:has_je_protect_reason = {
 	# can_reach_target_country = yes
 	country_rank > $TARGET$.country_rank
 	
@@ -1017,7 +1017,7 @@ has_je_reconcile_reason = {
 	}
 }
 
-should_carve_up_china = {
+REPLACE:should_carve_up_china = {
 	country_rank >= rank_value:great_power
 	NOT = {
 		any_scope_state = {

@@ -10,7 +10,6 @@ on_monthly_pulse_country = {
 on_revolution_start = {
 	on_actions = {
 		revolution_risorgimento_on_action
-		revolution_dominicana_on_action
 	}
 }
 
@@ -46,7 +45,7 @@ revolution_risorgimento_on_action = {
 }
 
 on_law_enactment_started = {
-	on_action = {
+	on_actions = {
 		abolish_monarchy_corporatism
 	}
 }

@@ -1,4 +1,4 @@
-﻿GAL = {
+﻿REPLACE:GAL = {
 	color = { 13  81  130 }
 	
 	country_type = recognized

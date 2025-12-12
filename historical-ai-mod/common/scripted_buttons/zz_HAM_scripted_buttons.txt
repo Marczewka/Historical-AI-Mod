@@ -1,4 +1,4 @@
-﻿je_sell_alaska_button = {
+﻿REPLACE:je_sell_alaska_button = {
 	name = "je_sell_alaska_button"
 	desc = "je_sell_alaska_button_desc"
 
@@ -90,7 +90,7 @@
 	}
 }
 
-je_buy_alaska_button = {
+REPLACE:je_buy_alaska_button = {
 	name = "je_buy_alaska_button"
 	desc = "je_buy_alaska_button_desc"
 
@@ -143,7 +143,7 @@ je_buy_alaska_button = {
 	}
 }
 
-je_risorgimento_austrian_radicals_button = {
+REPLACE:je_risorgimento_austrian_radicals_button = {
 	name = "je_risorgimento_austrian_radicals_button"
 	desc = "je_risorgimento_austrian_radicals_button_desc"
 
@@ -300,7 +300,7 @@ je_risorgimento_austrian_radicals_button = {
 	}
 }
 
-je_risorgimento_italian_radicals_button = {
+REPLACE:je_risorgimento_italian_radicals_button = {
 	name = "je_risorgimento_italian_radicals_button"
 	desc = "je_risorgimento_italian_radicals_button_desc"
 
@@ -420,6 +420,264 @@ je_risorgimento_italian_radicals_button = {
 			}
 			post_notification = sabotage_decision_agitation_occurred
 		}
+	}
+}
+
+REPLACE:je_unite_the_principalities_button = {
+	name = "je_unite_the_principalities_button"
+	desc = "je_unite_the_principalities_button_desc"
+
+	visible = { always = yes }
+	
+	ai_chance = {
+		value = 100
+	}
+
+	possible = {
+		is_at_war = no
+        NOT = {
+			any_overlord_or_above ?= { # Can't unite the principalities if you're already the lesser in a pact with another Romanian state
+				country_has_primary_culture = cu:romanian
+			}
+		}
+		custom_tooltip = {
+            text = je_unite_the_principalities_friend_with_all_great_powers_tt
+			NOT = {
+		        any_country = {
+		            country_rank >= rank_value:great_power
+		            NOT = { has_war_with = ROOT }
+		            has_interest_marker_in_region = ROOT.capital.region
+		            relations:root < relations_threshold:neutral
+		        }
+	        }
+        }
+        custom_tooltip = {
+            text = je_unite_the_principalities_amicable_or_better_relations_tt
+            NOR = { 
+            	has_variable = romania_unification_in_motion 
+            	has_variable = ROM_united_principality
+            }
+            OR = {
+				is_subject_type = subject_type_protectorate
+				is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_tributary
+				is_subject = no
+			}
+	        any_country = {
+	        	NOT = { this = ROOT }
+				is_at_war = no
+	        	country_has_primary_culture = cu:romanian
+	            relations:root >= relations_threshold:amicable
+	            OR = {
+	            	AND = {
+	            		exists = top_overlord
+						OR = {
+							is_subject_type = subject_type_protectorate
+							is_subject_type = subject_type_dominion
+							is_subject_type = subject_type_tributary
+						}
+						top_overlord = {
+							THIS = root.top_overlord
+						}
+					}
+					is_subject = no
+	            }
+				NOT = { is_subject_of = ROOT }
+				NOR = {
+					c:AUS ?= this
+					c:KUK ?= this
+				}
+	        }
+        }
+	}
+
+	effect = {
+		if = {
+			limit = {
+				is_subject = yes
+				exists = top_overlord
+			}
+			set_variable = romania_subject
+        	top_overlord = {
+        		trigger_event = { 
+	        		id = romania.1 
+	        	}
+	        }
+	    }
+	    trigger_event = { id = romania.2 }
+	}
+}
+
+REPLACE:je_south_bessarabian_retrocession = {
+	name = "je_south_bessarabian_retrocession_button"
+	desc = "je_south_bessarabian_retrocession_button_desc"
+
+	visible = { 
+		NOT = { has_variable = south_bessarabia_cession_in_progress }
+		NAND = {
+			OR = {
+				any_scope_state = {
+					state_region = s:STATE_BESSARABIA
+				}
+				any_subject_or_below = {
+					any_scope_state = {
+						state_region = s:STATE_BESSARABIA
+					}
+				}
+			}
+			OR = {
+				p:x50F5CB.state.owner = ROOT
+				any_subject_or_below = {
+					p:x50F5CB.state.owner = this
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 100
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = je_south_bessarabian_retrocession_button_tt1
+
+	        any_country = {
+	            country_rank >= rank_value:great_power
+	            NOT = { 
+	            	has_war_with = ROOT 
+	            	any_scope_state = {
+	            		state_region = s:STATE_BESSARABIA
+	            	}
+	            }
+	            has_interest_marker_in_region = ROOT.capital.region
+	            relations:root >= relations_threshold:cordial
+	        }
+	    }
+        custom_tooltip = {
+        	text = je_south_bessarabian_retrocession_button_tt2
+
+			OR = {
+				any_neighbouring_state = {
+					OR = {
+						state_region = s:STATE_BESSARABIA
+						state_region = s:STATE_DOBRUDJA
+					}
+					owner = {
+						NOT = { ROOT = this }
+						relations:root > relations_threshold:cold
+						NOT = { has_war_with = ROOT }
+					}
+					# is_split_state = no
+					is_capital = no
+				}
+				any_subject_or_below = {
+					any_neighbouring_state = {
+						OR = {
+							state_region = s:STATE_BESSARABIA
+							state_region = s:STATE_DOBRUDJA
+						}
+						owner = {
+							NOT = { ROOT = this }
+							relations:root > relations_threshold:cold
+							NOT = { has_war_with = ROOT }
+						}
+						# is_split_state = no
+						is_capital = no
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		set_variable = {
+			name = south_bessarabia_cession_in_progress
+		}
+		random_country = {
+			limit = {
+				NOT = { ROOT = this }
+				NOT = { is_subject_of = ROOT }
+				relations:root > relations_threshold:cold
+				NOT = { has_war_with = ROOT }
+				OR = {
+					p:x50F5CB.state.owner = this
+					p:xB0E0A0.state.owner = this
+				}
+			}
+	   		trigger_event = { id = romania.4 }
+		}
+	}
+}
+
+REPLACE:je_marea_unire = {
+	name = "je_marea_unire_button"
+	desc = "je_marea_unire_button_desc"
+
+	visible = { 
+		any_country = {
+			NOT = { this = ROOT }
+			country_has_primary_culture = cu:romanian
+			OR = {
+				AND = {
+					exists = top_overlord
+					top_overlord = {
+						THIS = root.top_overlord
+					}
+				}
+				is_subject = no
+			}
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	possible = {
+		is_at_war = no
+		custom_tooltip = {
+            text = je_unite_the_principalities_amicable_or_better_relations_tt
+            NOT = { 
+            	has_variable = romania_unification_in_motion 
+            }
+            OR = {
+				is_subject_type = subject_type_protectorate
+				is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_tributary
+				is_subject = no
+			}
+	        any_country = {
+	        	NOT = { this = ROOT }
+				is_at_war = no
+	        	country_has_primary_culture = cu:romanian
+	            relations:root >= relations_threshold:amicable
+	            OR = {
+	            	AND = {
+	            		exists = top_overlord
+						OR = {
+							is_subject_type = subject_type_protectorate
+							is_subject_type = subject_type_dominion
+							is_subject_type = subject_type_tributary
+						}
+						top_overlord = {
+							THIS = root.top_overlord
+						}
+					}
+					is_subject = no
+	            }
+				NOT = { is_subject_of = ROOT }
+				NOR = {
+					c:AUS ?= this
+					c:KUK ?= this
+				}
+	        }
+        }
+	}
+
+	effect = {
+		trigger_event = { id = romania.2 }
 	}
 }
 
@@ -630,264 +888,6 @@ je_risorgimento_change_stance_button = {
 			}
 			set_strategy = ai_strategy_unify_italy
 		}
-	}
-}
-
-je_unite_the_principalities_button = {
-	name = "je_unite_the_principalities_button"
-	desc = "je_unite_the_principalities_button_desc"
-
-	visible = { always = yes }
-	
-	ai_chance = {
-		value = 100
-	}
-
-	possible = {
-		is_at_war = no
-        NOT = {
-			any_overlord_or_above ?= { # Can't unite the principalities if you're already the lesser in a pact with another Romanian state
-				country_has_primary_culture = cu:romanian
-			}
-		}
-		custom_tooltip = {
-            text = je_unite_the_principalities_friend_with_all_great_powers_tt
-			NOT = {
-		        any_country = {
-		            country_rank >= rank_value:great_power
-		            NOT = { has_war_with = ROOT }
-		            has_interest_marker_in_region = ROOT.capital.region
-		            relations:root < relations_threshold:neutral
-		        }
-	        }
-        }
-        custom_tooltip = {
-            text = je_unite_the_principalities_amicable_or_better_relations_tt
-            NOR = { 
-            	has_variable = romania_unification_in_motion 
-            	has_variable = ROM_united_principality
-            }
-            OR = {
-				is_subject_type = subject_type_protectorate
-				is_subject_type = subject_type_dominion
-				is_subject_type = subject_type_tributary
-				is_subject = no
-			}
-	        any_country = {
-	        	NOT = { this = ROOT }
-				is_at_war = no
-	        	country_has_primary_culture = cu:romanian
-	            relations:root >= relations_threshold:amicable
-	            OR = {
-	            	AND = {
-	            		exists = top_overlord
-						OR = {
-							is_subject_type = subject_type_protectorate
-							is_subject_type = subject_type_dominion
-							is_subject_type = subject_type_tributary
-						}
-						top_overlord = {
-							THIS = root.top_overlord
-						}
-					}
-					is_subject = no
-	            }
-				NOT = { is_subject_of = ROOT }
-				NOR = {
-					c:AUS ?= this
-					c:KUK ?= this
-				}
-	        }
-        }
-	}
-
-	effect = {
-		if = {
-			limit = {
-				is_subject = yes
-				exists = top_overlord
-			}
-			set_variable = romania_subject
-        	top_overlord = {
-        		trigger_event = { 
-	        		id = romania.1 
-	        	}
-	        }
-	    }
-	    trigger_event = { id = romania.2 }
-	}
-}
-
-je_south_bessarabian_retrocession = {
-	name = "je_south_bessarabian_retrocession_button"
-	desc = "je_south_bessarabian_retrocession_button_desc"
-
-	visible = { 
-		NOT = { has_variable = south_bessarabia_cession_in_progress }
-		NAND = {
-			OR = {
-				any_scope_state = {
-					state_region = s:STATE_BESSARABIA
-				}
-				any_subject_or_below = {
-					any_scope_state = {
-						state_region = s:STATE_BESSARABIA
-					}
-				}
-			}
-			OR = {
-				p:x50F5CB.state.owner = ROOT
-				any_subject_or_below = {
-					p:x50F5CB.state.owner = this
-				}
-			}
-		}
-	}
-	
-	ai_chance = {
-		value = 100
-	}
-
-	possible = {
-		custom_tooltip = {
-			text = je_south_bessarabian_retrocession_button_tt1
-
-	        any_country = {
-	            country_rank >= rank_value:great_power
-	            NOT = { 
-	            	has_war_with = ROOT 
-	            	any_scope_state = {
-	            		state_region = s:STATE_BESSARABIA
-	            	}
-	            }
-	            has_interest_marker_in_region = ROOT.capital.region
-	            relations:root >= relations_threshold:cordial
-	        }
-	    }
-        custom_tooltip = {
-        	text = je_south_bessarabian_retrocession_button_tt2
-
-			OR = {
-				any_neighbouring_state = {
-					OR = {
-						state_region = s:STATE_BESSARABIA
-						state_region = s:STATE_DOBRUDJA
-					}
-					owner = {
-						NOT = { ROOT = this }
-						relations:root > relations_threshold:cold
-						NOT = { has_war_with = ROOT }
-					}
-					# is_split_state = no
-					is_capital = no
-				}
-				any_subject_or_below = {
-					any_neighbouring_state = {
-						OR = {
-							state_region = s:STATE_BESSARABIA
-							state_region = s:STATE_DOBRUDJA
-						}
-						owner = {
-							NOT = { ROOT = this }
-							relations:root > relations_threshold:cold
-							NOT = { has_war_with = ROOT }
-						}
-						# is_split_state = no
-						is_capital = no
-					}
-				}
-			}
-		}
-	}
-
-	effect = {
-		set_variable = {
-			name = south_bessarabia_cession_in_progress
-		}
-		random_country = {
-			limit = {
-				NOT = { ROOT = this }
-				NOT = { is_subject_of = ROOT }
-				relations:root > relations_threshold:cold
-				NOT = { has_war_with = ROOT }
-				OR = {
-					p:x50F5CB.state.owner = this
-					p:xB0E0A0.state.owner = this
-				}
-			}
-	   		trigger_event = { id = romania.4 }
-		}
-	}
-}
-
-je_marea_unire = {
-	name = "je_marea_unire_button"
-	desc = "je_marea_unire_button_desc"
-
-	visible = { 
-		any_country = {
-			NOT = { this = ROOT }
-			country_has_primary_culture = cu:romanian
-			OR = {
-				AND = {
-					exists = top_overlord
-					top_overlord = {
-						THIS = root.top_overlord
-					}
-				}
-				is_subject = no
-			}
-			NOT = { is_subject_of = ROOT }
-		}
-	}
-
-	ai_chance = {
-		value = 100
-	}
-
-	possible = {
-		is_at_war = no
-		custom_tooltip = {
-            text = je_unite_the_principalities_amicable_or_better_relations_tt
-            NOT = { 
-            	has_variable = romania_unification_in_motion 
-            }
-            OR = {
-				is_subject_type = subject_type_protectorate
-				is_subject_type = subject_type_dominion
-				is_subject_type = subject_type_tributary
-				is_subject = no
-			}
-	        any_country = {
-	        	NOT = { this = ROOT }
-				is_at_war = no
-	        	country_has_primary_culture = cu:romanian
-	            relations:root >= relations_threshold:amicable
-	            OR = {
-	            	AND = {
-	            		exists = top_overlord
-						OR = {
-							is_subject_type = subject_type_protectorate
-							is_subject_type = subject_type_dominion
-							is_subject_type = subject_type_tributary
-						}
-						top_overlord = {
-							THIS = root.top_overlord
-						}
-					}
-					is_subject = no
-	            }
-				NOT = { is_subject_of = ROOT }
-				NOR = {
-					c:AUS ?= this
-					c:KUK ?= this
-				}
-	        }
-        }
-	}
-
-	effect = {
-		trigger_event = { id = romania.2 }
 	}
 }
 

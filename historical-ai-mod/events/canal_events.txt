@@ -468,7 +468,7 @@ canal_events.100 = {
 						}
 						has_attitude = {
 							who = suez_owner
-							attitude = protective
+							attitude = cooperative
 						}
 						has_attitude = {
 							who = suez_owner
@@ -614,7 +614,7 @@ canal_events.101 = {
 						}
 						has_attitude = {
 							who = panama_owner
-							attitude = protective
+							attitude = cooperative
 						}
 						has_attitude = {
 							who = panama_owner

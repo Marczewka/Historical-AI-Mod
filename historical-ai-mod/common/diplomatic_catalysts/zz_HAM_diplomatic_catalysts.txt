@@ -1,4 +1,4 @@
-﻿catalyst_journal_entry = {
+﻿REPLACE:catalyst_journal_entry = {
 	category = cc_journal_entry
 
 	ai_country_goal_recalculation = {
