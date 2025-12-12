@@ -1,67 +1,18 @@
-﻿# Root = Country
-on_monthly_pulse_country = {
-	events = {
-		italian_unification.2
-	}
+﻿on_game_started = {
+    on_actions = {
+        annex_hoh
+    }
 }
 
-# Root = Country
-# scope:target = Uprising country
-on_revolution_start = {
-	on_actions = {
-		revolution_risorgimento_on_action
-	}
-}
-
-revolution_risorgimento_on_action = {
-	effect = {
-		if = {
-			limit = {
-				scope:target = {
-					OR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-					NOR = {
-						country_tier = hegemony
-						country_tier = empire
-					}
-				}
-				any_country = {
-					OR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian				
-					}
-					has_technology_researched = nationalism
-				}
-			}
-			scope:target = {
-				add_journal_entry = {
-					type = je_risorgimento
-				}
-			}
-		}
-	}
-}
-
-on_law_enactment_started = {
-	on_actions = {
-		abolish_monarchy_corporatism
-	}
-}
-
-abolish_monarchy_corporatism = {
-	effect = {
-		if = {
-			limit = {
-				has_law = law_type:law_monarchy
-				is_enacting_law = law_type:law_corporate_state
-			}
-			set_variable = {
-				name = abolishing_monarchy_var
-				value = 0
-			}
-			add_journal_entry = { type =  je_abolish_monarchy }
-		}
-	}
+annex_hoh = {
+    effect = {
+        s:STATE_WURTTEMBERG = {
+            set_owner_of_provinces = {
+                country = c:PRU
+                provinces = {
+                    x908060
+                }
+            }
+        }
+    }
 }
