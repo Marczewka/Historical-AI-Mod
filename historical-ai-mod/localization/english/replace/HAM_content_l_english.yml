@@ -29,7 +29,8 @@ protected_speech_tt:0 "Cannot [concept_exile], [concept_bolster] or [concept_sup
 
 kindred_secession: "wants to help kindred secession"
 protect_herat: "wants to protect Herat owner from Persia"
-monroe_doctrine: "opposes European colonialism in the Western Hemisphere"
+monroe_doctrine: "the Monroe Doctrine"
+balance_of_power: "wants to preserve the balance of power in Europe"
 savoy: "wants to protect Savoy owner"
 
 national_identity_tt: "Has not used this action in the last #bold 5#! years"

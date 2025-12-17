@@ -5,7 +5,6 @@ ai_strategy_maintain_power_balance = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
-		NOT = { has_journal_entry = je_alaska }
 		NOT = { has_journal_entry = je_oregon }
 		global_country_ranking = 1
 	}
@@ -51,25 +50,6 @@ ai_strategy_maintain_power_balance = {
 	wargoal_maneuvers_fraction = {
 		value = -0.1
 	}	
-
-	obligation_value = {
-		# Domineering/Protective AI wants to use the obligation to cajole the country into a subordinate relationship
-		if = {
-			limit = {
-				OR = {
-					has_attitude = {
-						who = scope:target_country
-						attitude = protective
-					}
-					has_attitude = {
-						who = scope:target_country
-						attitude = domineering
-					}
-				}			
-			}
-			add = 5
-		}
-	}
 	
 	diplomatic_play_neutrality = {
 		value = 0
@@ -194,7 +174,6 @@ ai_strategy_territorial_expansion = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
-		NOT = { has_journal_entry = je_alaska }
 		NOT = { has_journal_entry = je_oregon }
 		OR = {
 			global_country_ranking <= 3
@@ -392,7 +371,6 @@ ai_strategy_colonial_expansion = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
-		NOT = { has_journal_entry = je_alaska }
 		NOT = { has_journal_entry = je_oregon }
 		OR = {
 			global_country_ranking <= 3
@@ -757,7 +735,6 @@ ai_strategy_colonial_expansion = {
 			}
 			multiply = 0.5
 		}
-
 		
 		if = {
 			limit = { has_radical_leftist_government = yes }
@@ -898,7 +875,6 @@ ai_strategy_economic_imperialism = {
 	type = diplomatic
 	
 	will_form_power_bloc = {
-		NOT = { has_journal_entry = je_alaska }
 		NOT = { has_journal_entry = je_oregon }
 		OR = {
 			global_country_ranking <= 3

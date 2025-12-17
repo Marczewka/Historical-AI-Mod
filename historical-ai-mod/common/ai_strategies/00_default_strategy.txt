@@ -152,7 +152,7 @@ ai_strategy_default = {
 							}
 						}
 						AND = {
-							NOT = { exists = scope:is_initiator }
+							scope:is_initiator = no
 							OR = {
 								any_scope_treaty = {
 									binds = scope:country
@@ -244,7 +244,7 @@ ai_strategy_default = {
 							}
 						}
 						AND = {
-							NOT = { exists = scope:is_initiator }
+							scope:is_initiator = no
 							OR = {
 								any_scope_treaty = {
 									binds = scope:country
@@ -284,6 +284,15 @@ ai_strategy_default = {
 								type = enforce_treaty_article
 								target = scope:country
 							}
+							AND = {
+								scope:is_initiator = no
+								OR = {
+									scope:diplomatic_play_type = play_type:dp_conquer_state
+									scope:diplomatic_play_type = play_type:dp_make_protectorate
+									scope:diplomatic_play_type = play_type:dp_liberate_country
+									scope:diplomatic_play_type = play_type:dp_take_treaty_port	
+								}
+							}
 						}
 					}
 				}
@@ -321,11 +330,11 @@ ai_strategy_default = {
 					has_variable = veiled_protectorate_support_ottomans
 					OR = {
 						AND = {
-							NOT = { exists = scope:is_initiator }
+							scope:is_initiator = no
 							scope:enemy_country = { c:TUR ?= this }
 						}
 						AND = {
-							exists = scope:is_initiator
+							scope:is_initiator = yes
 							scope:country = { c:TUR ?= this }
 						}
 					}
@@ -341,11 +350,11 @@ ai_strategy_default = {
 					has_variable = veiled_protectorate_support_egypt
 					OR = {
 						AND = {
-							NOT = { exists = scope:is_initiator }
+							scope:is_initiator = no
 							scope:enemy_country = { c:EGY ?= this }
 						}
 						AND = {
-							exists = scope:is_initiator
+							scope:is_initiator = yes
 							scope:country = { c:EGY ?= this }
 						}
 					}
@@ -361,7 +370,7 @@ ai_strategy_default = {
 		### Risorgimento
 		if = {
 			limit = {
-				exists = scope:is_initiator
+				scope:is_initiator = yes
 				scope:diplomatic_play_type = play_type:dp_secession
 				root = {
 					has_variable = risorgimento_unifying_stance
@@ -702,7 +711,7 @@ ai_strategy_default = {
 		### Russia shouldn't join secession plays, since then it couldn't add wargoals of its own
 		if = {
 			limit = {
-				exists = scope:is_initiator
+				scope:is_initiator = yes
 				scope:diplomatic_play_type = play_type:dp_secession
 				root = {
 					c:RUS ?= this
@@ -734,7 +743,7 @@ ai_strategy_default = {
  		### Austria doesn't want anything except for Bosnia
 		if = {
 			limit = {
-				exists = scope:is_initiator
+				scope:is_initiator = yes
 				scope:diplomatic_play_type = play_type:dp_secession
 				root = {
 					c:AUS ?= this
@@ -775,7 +784,7 @@ ai_strategy_default = {
  		### War of the Confederation
 		if = {
 			limit = {
-				exists = scope:is_initiator
+				scope:is_initiator = yes
 				root = {
 					has_variable = attack_bolivia
 				}
@@ -823,7 +832,7 @@ ai_strategy_default = {
 				}
 				scope:enemy_country = {
 					has_journal_entry = je_reconquista
-					exists = scope:is_initiator
+					scope:is_initiator = yes
 				}
 				scope:country = {
 					is_historical_spanish_american_colony = yes
@@ -860,7 +869,16 @@ ai_strategy_default = {
 						play_participant_has_war_goal_of_type_against = {
 							type = make_protectorate
 							target = scope:country
-						}								
+						}	
+						AND = {
+							scope:is_initiator = no
+							OR = {
+								scope:diplomatic_play_type = play_type:dp_annex_war						
+								scope:diplomatic_play_type = play_type:dp_return_state
+								scope:diplomatic_play_type = play_type:dp_conquer_state
+								scope:diplomatic_play_type = play_type:dp_make_protectorate
+							}
+						}
 					}
 				}
 				scope:country = {
@@ -906,7 +924,17 @@ ai_strategy_default = {
 						play_participant_has_war_goal_of_type_against = {
 							type = take_treaty_port
 							target = scope:country
-						}		
+						}
+						AND = {
+							scope:is_initiator = no
+							OR = {
+								scope:diplomatic_play_type = play_type:dp_annex_war						
+								scope:diplomatic_play_type = play_type:dp_conquer_state
+								scope:diplomatic_play_type = play_type:dp_make_protectorate
+								scope:diplomatic_play_type = play_type:dp_transfer_subject
+								scope:diplomatic_play_type = play_type:dp_take_treaty_port	
+							}
+						}	
 					}
 				}
 				scope:country = {
@@ -919,8 +947,75 @@ ai_strategy_default = {
 			}
 
 			add = {
-				value = 200
+				value = 100
 				desc = "monroe_doctrine"
+			}
+		}
+
+		### Balance of Power
+		if = {
+			limit = { 
+				is_in_geographic_region = geographic_region_europe
+				country_rank = rank_value:great_power
+				scope:enemy_country = {
+					country_rank = rank_value:great_power
+					OR = {
+						play_participant_has_war_goal_of_type_against = {
+							type = annex_country
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = conquer_state
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = make_protectorate
+							target = scope:country
+						}								
+						play_participant_has_war_goal_of_type_against = {
+							type = transfer_subject
+							target = scope:country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = take_treaty_port
+							target = scope:country
+						}
+						AND = {
+							scope:is_initiator = no
+							OR = {
+								scope:diplomatic_play_type = play_type:dp_annex_war						
+								scope:diplomatic_play_type = play_type:dp_conquer_state
+								scope:diplomatic_play_type = play_type:dp_make_protectorate
+								scope:diplomatic_play_type = play_type:dp_transfer_subject
+								scope:diplomatic_play_type = play_type:dp_take_treaty_port	
+							}
+						}
+					}
+				}
+				scope:country = {
+					is_in_geographic_region = geographic_region_europe
+					OR = {
+						AND = {
+							is_subject = no
+							country_rank < rank_value:great_power
+						}
+						top_overlord ?= {
+							country_rank < rank_value:great_power
+						}
+					}
+					is_country_type = recognized
+					NOR = {
+						any_primary_culture = {
+							is_primary_culture_of = scope:enemy_country
+						}
+						is_in_same_power_bloc = scope:enemy_country
+					}
+				}
+			}
+
+			add = {
+				value = 100
+				desc = "balance_of_power"
 			}
 		}
 
@@ -946,7 +1041,7 @@ ai_strategy_default = {
 		### Kindred Secession
 		if = {
 			limit = { 
-				exists = scope:is_initiator
+				scope:is_initiator = yes
 				scope:diplomatic_play_type = play_type:dp_secession
 				scope:country = {
 					any_primary_culture = {
@@ -960,7 +1055,7 @@ ai_strategy_default = {
 				}
 			}
 			add = {
-				value = 150
+				value = 100
 				desc = "kindred_secession"
 			}
 		}
@@ -1474,7 +1569,84 @@ ai_strategy_default = {
 						is_in_geographic_region = geographic_region_south_america
 					}
 				}
+				any_country = {
+					NOR = {
+						is_in_geographic_region = geographic_region_north_america
+						is_in_geographic_region = geographic_region_central_america
+						is_in_geographic_region = geographic_region_south_america
+					}
+					OR = {
+						play_participant_has_war_goal_of_type_against = {
+							type = annex_country
+							target = scope:target_country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = conquer_state
+							target = scope:target_country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = make_protectorate
+							target = scope:target_country
+						}								
+						play_participant_has_war_goal_of_type_against = {
+							type = transfer_subject
+							target = scope:target_country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = take_treaty_port
+							target = scope:target_country
+						}	
+					}
+				}
 			}
+			add = 30
+		}
+
+		### Balance of Power
+		if = {
+			limit = { 
+				is_in_geographic_region = geographic_region_europe
+				country_rank = rank_value:great_power
+				any_country = {
+					country_rank = rank_value:great_power
+					OR = {
+						play_participant_has_war_goal_of_type_against = {
+							type = annex_country
+							target = scope:target_country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = conquer_state
+							target = scope:target_country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = make_protectorate
+							target = scope:target_country
+						}								
+						play_participant_has_war_goal_of_type_against = {
+							type = transfer_subject
+							target = scope:target_country
+						}
+						play_participant_has_war_goal_of_type_against = {
+							type = take_treaty_port
+							target = scope:target_country
+						}		
+					}
+				}
+				scope:target_country = {
+					is_in_geographic_region = geographic_region_europe
+					OR = {
+						AND = {
+							is_subject = no
+							country_rank < rank_value:great_power
+						}
+						top_overlord ?= {
+							country_rank < rank_value:great_power
+						}
+					}
+					is_country_type = recognized
+				}
+			}
+
 			add = 30
 		}
 
@@ -1593,6 +1765,20 @@ ai_strategy_default = {
 						state_region = s:STATE_SAVOY
 					}
 					is_player = no
+				}
+			}
+			add = 30
+		}
+
+		### Risorgimento
+		if = {
+			limit = { 
+				has_variable = risorgimento_unifying_stance
+				scope:target_country = {
+					is_secessionist = yes
+					any_primary_culture = {
+						is_primary_culture_of = root
+					}
 				}
 			}
 			add = 30
@@ -1837,7 +2023,7 @@ ai_strategy_default = {
 				# More reluctant to get involved in plays for states that AI doesn't strongly desire
 				if = {
 					limit = {
-						NOT = { is_diplomatic_play_involved_with = scope:target_country }
+						NOT = { is_diplomatic_play_enemy_of = scope:target_country }
 						ai_strongly_desires_target_state = no			
 					}
 					multiply = 0.5
@@ -6688,6 +6874,18 @@ ai_strategy_default = {
 
 				if = {
 					limit = {
+						can_reach_target_country = no
+						OR = {
+							has_je_subjugation_reason = { TARGET = scope:target_country }
+							has_je_conquest_reason = { TARGET = scope:target_country }
+						}
+						NOT = { is_subject_of = root }
+					}
+					add = 10000
+				}
+
+				if = {
+					limit = {
 						countries_are_valid_rivals = yes
 					}
 					add = 50
@@ -7907,7 +8105,7 @@ ai_strategy_default = {
 			# More reluctant to get involved in plays
 			if = {
 				limit = {
-					NOT = { is_diplomatic_play_involved_with = scope:target_country.top_overlord }
+					NOT = { is_diplomatic_play_enemy_of = scope:target_country.top_overlord }
 				}
 				multiply = 0
 			}
@@ -8124,7 +8322,6 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					is_diplomatic_play_involved_with = scope:target_country
 					has_diplomatic_pact = {
 						who = scope:target_country
 						type = rivalry
@@ -8276,7 +8473,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					has_journal_entry = je_opium_wars
-					is_diplomatic_play_involved_with = scope:target_country
+					is_diplomatic_play_enemy_of = scope:target_country
 					scope:target_country = {
 						has_variable = opium_wars_target
 					}
@@ -8418,7 +8615,7 @@ ai_strategy_default = {
 			# More reluctant to get involved in plays
 			if = {
 				limit = {
-					NOT = { is_diplomatic_play_involved_with = scope:target_country }
+					NOT = { is_diplomatic_play_enemy_of = scope:target_country }
 				}
 				multiply = 0
 			}
@@ -8631,7 +8828,7 @@ ai_strategy_default = {
 			# More reluctant to get involved in plays
 			if = {
 				limit = {
-					NOT = { is_diplomatic_play_involved_with = scope:target_country }
+					NOT = { is_diplomatic_play_enemy_of = scope:target_country }
 				}
 				multiply = 0
 			}
@@ -8655,7 +8852,7 @@ ai_strategy_default = {
 			}
 
 			min = 0
-			max = 1000 # 100
+			max = 100
 
 			if = {
 				limit = {
@@ -8668,11 +8865,8 @@ ai_strategy_default = {
 						AND = {
 							exists = c:HOL
 							scope:target_country = { c:HOL ?= THIS }
-							is_diplomatic_play_involved_with = scope:target_country.top_overlord
+							is_diplomatic_play_enemy_of = scope:target_country.top_overlord
 						}
-					}
-					scope:target_country.top_overlord ?= {
-						is_oppressor_of_schleswig_holstein = yes
 					}
 				}
 				add = 150
@@ -8740,9 +8934,9 @@ ai_strategy_default = {
 			# More reluctant to get involved in plays for liberated countries
 			if = {
 				limit = {
-					NOT = { is_diplomatic_play_involved_with = scope:target_country }
+					NOT = { is_diplomatic_play_enemy_of = scope:target_country }
 				}
-				multiply = 0.1
+				multiply = 0
 			}
 
 			if = {
