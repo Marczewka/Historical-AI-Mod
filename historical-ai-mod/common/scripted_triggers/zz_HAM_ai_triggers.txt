@@ -750,6 +750,13 @@ REPLACE:has_je_befriend_reason = {
 				country_rank > root.country_rank
 			}
 		}
+
+		AND = {
+			has_journal_entry = je_christ_of_nations
+			$TARGET$ = { 
+				has_journal_entry = je_christ_of_nations
+			}
+		}
 	}	
 }
 
@@ -912,6 +919,13 @@ REPLACE:has_je_protect_reason = {
 				}	
 			}
 		}
+
+		AND = {
+			has_journal_entry = je_christ_of_nations
+			$TARGET$ = { 
+				has_journal_entry = je_christ_of_nations
+			}
+		}
 	}	
 }
 
@@ -1021,6 +1035,7 @@ REPLACE:should_carve_up_china = {
 	country_rank >= rank_value:great_power
 	NOT = {
 		any_scope_state = {
+			is_treaty_port = yes
 			OR = {
 				region = sr:region_manchuria
 				region = sr:region_north_china

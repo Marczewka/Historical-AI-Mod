@@ -1014,7 +1014,7 @@ ai_strategy_default = {
 			}
 
 			add = {
-				value = 50
+				value = 100
 				desc = "balance_of_power"
 			}
 		}
@@ -8868,7 +8868,9 @@ ai_strategy_default = {
 							is_diplomatic_play_enemy_of = scope:target_country.top_overlord
 						}
 					}
-					scope:target_country = is_oppressor_of_schleswig_holstein
+					scope:target_country = {
+						is_oppressor_of_schleswig_holstein = yes
+					}
 				}
 				add = 150
 			}
