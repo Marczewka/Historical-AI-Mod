@@ -27,6 +27,7 @@ patagonia.1 = {
 		if = {
 			limit = {
 				owns_entire_state_region = STATE_ARAUCANIA
+				# Wasn't already assimilated
 				s:STATE_ARAUCANIA = {
 					NOR = { 
 						is_homeland = cu:south_andean
@@ -55,6 +56,7 @@ patagonia.1 = {
 				save_scope_as = patagonia_state
 			}
 		}
+		# Make it possible for other cultures
 		random_primary_culture = {
 			save_scope_as = conqueror_culture
 		}
@@ -63,6 +65,7 @@ patagonia.1 = {
 	option = {
 		name = patagonia.1.a
 		default_option = yes
+		# Make available for Araucania
 		if = {
 			limit = {
 				exists = scope:conqueror_culture

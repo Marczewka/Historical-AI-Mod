@@ -27,7 +27,6 @@
 	invalid = {
 		NOT = { exists = c:TEX }
 	}
-	should_be_pinned_by_default = yes
 }
 
 je_texas_usa = {
@@ -62,5 +61,4 @@ je_texas_usa = {
 	weight = 100
 	
 	transferable = no
-	should_be_pinned_by_default = yes
 }

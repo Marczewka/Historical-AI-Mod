@@ -112,6 +112,7 @@ romania.2 = {
         	limit = {
 	        	NOT = { this = ROOT }
 	        	country_has_primary_culture = cu:romanian
+				# Change from arbitrary 25
 	            relations:root >= relations_threshold:amicable
 	            OR = {
 	            	AND = {
@@ -123,6 +124,7 @@ romania.2 = {
 					}
 					is_subject = no
 	            }
+				# In the case of subjugation through other means
 				NOT = { is_subject_of = ROOT }
 				NOR = {
 					c:AUS ?= this
@@ -182,6 +184,7 @@ romania.2 = {
 			name = romanian_union_var
 			value = 0
 		}
+		# Because mod makes it available more than once
 		if = {
 			limit = {
 				NOT = { has_journal_entry = je_all_for_one }
@@ -240,6 +243,16 @@ romania.3 = {
 	}
 
 	immediate = {
+        # random_neighbouring_state = {
+        #     limit = {
+        #         owner = {
+        #             has_variable = romania_union_partner
+        #         }
+        #     }
+        #     owner = {
+        #         save_scope_as = romania_lesser_union_partner
+        #     }
+        # }
         if = {
         	limit = {
 	        	exists = c:TRS
@@ -285,14 +298,6 @@ romania.3 = {
 				}
 			}
 			annex = c:TRS
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					state_region = s:STATE_WALLACHIA
-				}
-			}
-			set_capital = STATE_WALLACHIA
 		}
 		change_tag = ROM
 		ai_chance = {

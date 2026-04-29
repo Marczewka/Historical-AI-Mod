@@ -18,6 +18,7 @@ je_risorgimento_change_stance_button_desc: "The prospect of Italian unification 
 change_stance_cooldown_tt: "We haven't changed our stance for 5 years"
 
 buyers_unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country] toward our buyer with a [concept_rank] equal or higher than theirs has an [concept_interest] in the #bold Pacific Coast#! [concept_strategic_region]"
+# Equal or higher instead of higher
 unfriendly_nation_with_interest_in_alaska_tt: "A hostile [concept_country] with a [concept_rank] equal or higher than ours has an [concept_interest] in the #bold Pacific Coast#! [concept_strategic_region]"
 manifested_destiny_tt: "Has #bold manifested destiny#."
 

@@ -135,20 +135,8 @@ REPLACE:has_je_conquest_reason = {
 				target_is_our_or_fellow_subject = no
 				any_scope_state = {
 					OR = {
-						region = sr:region_madras
-						region = sr:region_bombay
-						region = sr:region_bengal
-						region = sr:region_central_india
-						region = sr:region_punjab
-						state_region = s:STATE_KASHMIR
-						# himalayas intentionally excluded to make BIC less aggressive against Tibet etc
-						state_region = s:STATE_PEGU
-						state_region = s:STATE_MANDALAY
-						state_region = s:STATE_KACHIN
-						state_region = s:STATE_SHAN_STATES
-						state_region = s:STATE_PASHTUNISTAN
-						state_region = s:STATE_KASHMIR
-						state_region = s:STATE_QUETTA		
+						is_in_geographic_region = geographic_region_india
+						is_in_geographic_region = geographic_region_burma
 					}
 				}
 			}
@@ -263,10 +251,9 @@ REPLACE:has_je_conquest_reason = {
 				is_country_type = unrecognized
 				any_scope_state = {
 					OR = {
-						region = sr:region_persia
-						region = sr:region_central_asia
-						region = sr:region_bombay
-						region = sr:region_punjab
+						is_in_geographic_region = geographic_region_persia_old
+						is_in_geographic_region = geographic_region_central_asia_old
+						is_in_geographic_region = geographic_region_india
 					}
 					has_claim_by = ROOT
 				}
@@ -523,7 +510,7 @@ REPLACE:has_je_subjugation_reason = {
 			has_journal_entry = je_maintain_afghan_protectorate
 			$TARGET$ = {
 				capital = {
-					region = sr:region_persia
+					region = sr:region_greater_persia
 				}
 				OR = {
 					country_has_primary_culture = cu:pashtun
@@ -1037,7 +1024,7 @@ REPLACE:should_carve_up_china = {
 		any_scope_state = {
 			is_treaty_port = yes
 			OR = {
-				region = sr:region_manchuria
+				is_in_geographic_region = geographic_region_manchuria_old
 				region = sr:region_north_china
 				region = sr:region_south_china
 			}
@@ -1064,14 +1051,12 @@ REPLACE:should_carve_up_china = {
 				}
 			}
 		}
-		sr:region_manchuria = {
-			any_scope_state = {
-				is_treaty_port = yes
-				owner = {
-					NOT = { this = root }
-					NOT = { is_country_type = unrecognized }
-					country_rank >= rank_value:great_power
-				}
+		any_state_in_manchuria_old = {
+			is_treaty_port = yes
+			owner = {
+				NOT = { this = root }
+				NOT = { is_country_type = unrecognized }
+				country_rank >= rank_value:great_power
 			}
 		}
 	}

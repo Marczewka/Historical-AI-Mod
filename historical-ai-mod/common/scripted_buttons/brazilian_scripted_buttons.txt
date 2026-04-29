@@ -362,7 +362,7 @@ je_south_american_national_identity_integrate_a_state = {
 
 	visible = { always = yes }
 
-	cooldown = { days = short_modifier_time }
+	cooldown = { days = normal_modifier_time }
 
 	possible = {
 		exists = scope:old_national_culture
@@ -387,15 +387,15 @@ je_south_american_national_identity_integrate_a_state = {
 				}
 			}
 			# OR = {
-			# 	any_scope_building = {
-			# 		custom_tooltip = {
-			# 			text = is_barracks_or_naval_base_tt
-			# 			OR = {
-			# 				is_building_type = building_naval_base
-			# 				is_building_type = building_barrack
-			# 			}
+			# 	OR = {
+			# 		any_scope_building = {
+			# 			is_building_type = building_barrack
+			# 			level >= 15
 			# 		}
-			# 		level >= 15
+			# 		any_scope_building = {
+			# 			is_building_type = building_naval_administration
+			# 			level >= 3
+			# 		}
 			# 	}
 			# 	any_scope_building = {
 			# 		custom_tooltip = {

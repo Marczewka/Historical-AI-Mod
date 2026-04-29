@@ -1069,10 +1069,6 @@ radio = {
 	unlocking_technologies = {
 		telephone
 	}
-
-	modifier = {
-		country_max_declared_interests_add = 1
-	}
 	
 	ai_weight = {
 		value = 1.5 # 1
@@ -1088,10 +1084,6 @@ telephone = {
 	unlocking_technologies = {
 		shift_work
 		electrical_generation
-	}
-
-	modifier = {
-		country_max_declared_interests_add = 1
 	}
 	
 	ai_weight = {

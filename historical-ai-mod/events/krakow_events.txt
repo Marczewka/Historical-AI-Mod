@@ -193,6 +193,7 @@ galicia_formation.1 = {
 	option = {
 		name = galicia_formation.1.a
 		default_option = yes
+		# Galicia is by default only Polish so that it can always unify with Krakow etc.
 		# remove_primary_culture = cu:ukrainian
 		add_loyalists = {
 			value = large_radicals
@@ -207,6 +208,7 @@ galicia_formation.1 = {
 
 	option = {
 		name = galicia_formation.1.b
+		# Add instead of keeping
 		add_primary_culture = cu:ukrainian
 		# custom_tooltip = ukrainian_culture_remains_krakow_tt
 		add_radicals = {

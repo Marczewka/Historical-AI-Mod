@@ -14,4 +14,6 @@
 	GOAL_ANTAGONIZE_WAR_FACTOR = 25 # 1000
 
 	GOAL_BEFRIEND_WAR_ALLY_FACTOR = 25 # 1000
+
+	LEAVE_POWER_BLOC_SCORE_THRESHOLD = -200 # -100 				# Leave the power bloc if score is less than this. Score is the acceptance value for 'invite_to_power_bloc' diplomatic action
 }

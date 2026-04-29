@@ -113,7 +113,8 @@
 	}
 
 	weight = 1000
-	should_be_pinned_by_default = yes
+		
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 je_german_unification_idea = {
@@ -162,7 +163,7 @@ je_german_unification_idea = {
 		hidden_effect = {
 			if = {
 				limit = {
-					any_country = { 
+					any_country_in_german_confederation = {
 						country_rank >= rank_value:great_power 
 						OR = {
 							AND = {
@@ -176,7 +177,7 @@ je_german_unification_idea = {
 						}
 					}			
 				}			
-				random_country = {
+				random_country_in_german_confederation = {
 					limit = { 
 						country_rank >= rank_value:great_power 
 						OR = {
@@ -195,7 +196,7 @@ je_german_unification_idea = {
 			}
 			else_if = {
 				limit = {
-					any_country = { 
+					any_country_in_german_confederation = {
 						country_rank >= rank_value:great_power 
 						OR = {
 							country_has_primary_culture = cu:north_german
@@ -203,7 +204,7 @@ je_german_unification_idea = {
 						}
 					}			
 				}			
-				random_country = {
+				random_country_in_german_confederation = {
 					limit = { 
 						country_rank >= rank_value:great_power 
 						OR = {
@@ -216,7 +217,7 @@ je_german_unification_idea = {
 			}
 			else_if = {
 				limit = {
-					any_country = { 
+					any_country_in_german_confederation = {
 						country_rank >= rank_value:major_power 
 						OR = {
 							AND = {
@@ -230,7 +231,7 @@ je_german_unification_idea = {
 						}
 					}			
 				}			
-				random_country = {
+				random_country_in_german_confederation = {
 					limit = { 
 						country_rank >= rank_value:major_power 
 						OR = {
@@ -249,7 +250,7 @@ je_german_unification_idea = {
 			}	
 			else_if = {
 				limit = {
-					any_country = { 
+					any_country_in_german_confederation = {
 						country_rank >= rank_value:major_power 
 						OR = {
 							country_has_primary_culture = cu:north_german
@@ -257,7 +258,7 @@ je_german_unification_idea = {
 						}
 					}			
 				}			
-				random_country = {
+				random_country_in_german_confederation = {
 					limit = { 
 						country_rank >= rank_value:major_power 
 						OR = {
@@ -283,7 +284,8 @@ je_german_unification_idea = {
 	}
 
 	weight = 1000
-	should_be_pinned_by_default = yes
+		
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 je_north_german_unification = {
@@ -313,7 +315,7 @@ je_north_german_unification = {
 		custom_tooltip = {
 			text = je_german_unification_sole_candidate_trigger_desc
 			NOT = {
-				any_country = {
+				any_country_in_german_confederation = {
 					NOT = { this = root }				
 					is_unification_candidate = GER
 				}
@@ -350,7 +352,8 @@ je_north_german_unification = {
 	}
 
 	weight = 1000
-	should_be_pinned_by_default = yes
+		
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 je_south_german_unification = {
@@ -380,7 +383,7 @@ je_south_german_unification = {
 		custom_tooltip = {
 			text = je_german_unification_sole_candidate_trigger_desc
 			NOT = {
-				any_country = {
+				any_country_in_german_confederation = {
 					NOT = { this = root }				
 					is_unification_candidate = GER
 				}
@@ -420,7 +423,8 @@ je_south_german_unification = {
 	}
 
 	weight = 1000
-	should_be_pinned_by_default = yes
+		
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
 je_german_unification = {
@@ -473,5 +477,6 @@ je_german_unification = {
 	}
 
 	weight = 1000
-	should_be_pinned_by_default = yes
+		
+	should_be_pinned_by_default_uninvolved_or_context = yes
 }

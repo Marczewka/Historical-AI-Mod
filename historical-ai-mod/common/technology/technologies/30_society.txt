@@ -248,7 +248,6 @@ colonization = {
 
 	modifier = {
 		country_institution_colonial_affairs_max_investment_add = 2
-		country_max_declared_interests_add = 1
 		country_infamy_generation_against_unrecognized_mult = -0.1
 	}	
 	
@@ -359,7 +358,7 @@ empiricism = {
 	
 	modifier = {
 		country_influence_mult = 0.25
-		country_diplomatic_play_maneuvers_add = 10
+		country_diplomatic_play_maneuvers_mult = 0.25
 		country_institution_schools_max_investment_add = 1
 		state_education_access_wealth_add = 0.005
 	}
@@ -567,11 +566,11 @@ central_archives = {
 					AND = {
 						OR = {
 							is_in_geographic_region = geographic_region_south_america
-							is_in_geographic_region = geographic_region_central_america
+							is_in_geographic_region = geographic_region_central_america_old
 						}
 						country_rank <= rank_value:major_power
 					}
-					is_country_type = colonial
+					country_is_colonial_or_company = yes
 					is_country_type = unrecognized
 				}
 				NAND = {
@@ -670,7 +669,7 @@ psychiatry = {
 	
 	modifier = {
 		country_influence_mult = 0.25
-		country_diplomatic_play_maneuvers_add = 10
+		country_diplomatic_play_maneuvers_mult = 0.25
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
 	
@@ -972,7 +971,6 @@ civilizing_mission = {
 
 	modifier = {
 		country_institution_colonial_affairs_max_investment_add = 1
-		country_max_declared_interests_add = 1
 		country_infamy_generation_against_unrecognized_mult = -0.25
 	}
 	
@@ -1299,7 +1297,7 @@ philosophical_pragmatism = {
 	
 	modifier = {
 		country_influence_mult = 0.25
-		country_diplomatic_play_maneuvers_add = 10
+		country_diplomatic_play_maneuvers_mult = 0.25
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
 	
@@ -1533,7 +1531,7 @@ psychoanalysis = {
 	
 	modifier = {
 		country_influence_mult = 0.25
-		country_diplomatic_play_maneuvers_add = 10
+		country_diplomatic_play_maneuvers_mult = 0.25
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
 	
@@ -1572,6 +1570,7 @@ multilateral_alliances = {
 	
 	modifier = {
 		country_infamy_generation_mult = -0.25
+		country_diplomatic_play_maneuvers_mult = 0.5		
 		country_allow_multiple_alliances_bool = yes
 	}
 	
@@ -1703,7 +1702,7 @@ behaviorism = {
 	
 	modifier = {
 		country_influence_mult = 0.5
-		country_diplomatic_play_maneuvers_add = 20
+		country_diplomatic_play_maneuvers_mult = 0.5
 		state_bureaucracy_population_base_cost_factor_mult = -0.05
 	}
 	

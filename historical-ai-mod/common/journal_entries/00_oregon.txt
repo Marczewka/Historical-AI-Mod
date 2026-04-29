@@ -41,7 +41,7 @@
 
 	possible = {
 		OR = {
-			has_interest_marker_in_region = region_pacific_coast
+			has_interest_marker_in_region = sr:region_pacific_coast
 			# custom_tooltip = {
 			# 	text = oregon_tt
 			# 	has_global_variable = oregon_trail_mapped
@@ -106,7 +106,6 @@
 	}
 
 	weight = 100
-	should_be_pinned_by_default = yes
 }
 
 je_conquer_oregon = {
@@ -125,5 +124,4 @@ je_conquer_oregon = {
 	weight = 100
 
 	transferable = no
-	should_be_pinned_by_default = yes
 }

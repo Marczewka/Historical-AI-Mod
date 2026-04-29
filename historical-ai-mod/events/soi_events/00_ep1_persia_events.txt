@@ -152,7 +152,7 @@ persia_events.2 = {
 				save_scope_as = herat_scope
 			}
 		}
-		else = {
+		else_if = {
 			limit = {
 				any_subject_or_below = {
 					any_scope_state = {
@@ -270,13 +270,8 @@ persia_events.2 = {
 		if = {
 			limit = {
 				s:STATE_KHIVA = {
-					NOT = {
-						any_scope_state = {
-							owner = {
-								is_country_type = decentralized
-							}
-						}
-						any_scope_state = {
+					any_scope_state = {
+						NOT = {
 							has_claim_by = root
 						}
 					}
@@ -365,7 +360,7 @@ persia_events.2 = {
 		if = {
 			limit = {
 				c:GBR ?= {
-					# has_interest_marker_in_region = sr:region_persia
+					has_interest_marker_in_region = sr:region_greater_persia
 				#	relations:root <= relations_threshold:neutral
 					NOR = {
 						is_diplomatic_play_ally_of = root
@@ -437,7 +432,7 @@ persia_events.3 = {
 		add_modifier = {
 			name = modifier_turkmen_logistics
 			days = normal_modifier_time
-			multiplier = money_amount_multiplier_large # money_amount_multiplier_very_large
+			multiplier = money_amount_multiplier_very_large
 		}
 		add_radicals = {
 			culture = cu:turkmen
@@ -953,6 +948,7 @@ persia_events.6 = {
 			country = c:PER
 			value = -50
 		}
+		# Shouldn't be equal
 		ai_chance = {
 			base = 100
 		}
@@ -1121,7 +1117,7 @@ persia_events.8 = {
 		}
 
 		ai_chance = {
-			base = 5 # 7
+			base = 7
 		}
 	}
 	option = {
@@ -1134,6 +1130,7 @@ persia_events.8 = {
         			}
         		}
         	}
+			# Return whole Afghanistan not only Herat
 			every_scope_state = {
 				limit = {
 					owner = c:PER
@@ -1149,6 +1146,7 @@ persia_events.8 = {
 					}
 					
 				}
+				# Moved because it's a country and not a state modifier
 				# if = {
 				# 	limit = {
 				# 		has_modifier = modifier_herat_inspiration
@@ -1279,6 +1277,7 @@ persia_events.8 = {
 			}
 			remove_modifier = modifier_herat_inspiration
 		}
+		# Remove claims so it doesn't cause bordergore
      	s:STATE_KANDAHAR = {
 			remove_claim = root
 		}
@@ -1310,7 +1309,7 @@ persia_events.8 = {
 			remove_claim = root
 		}
 		ai_chance = {
-			base = 5 # 3
+			base = 3
 		}
 	}
 }

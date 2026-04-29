@@ -73,6 +73,7 @@ central_america.2 = {
 		}
 		
 		# All remaining Central American states secede
+		# Need to liberate Los Altos before Guatemala
 		if = {
 			limit = {
 				exists = s:STATE_GUATEMALA.region_state:UCA
@@ -268,6 +269,15 @@ central_america.2 = {
 			}
 			change_tag = GUA
 		}
+		# if = {
+		# 	limit = {
+		# 		NOT = { exists = c:ALT }
+		# 		capital = {
+		# 			state_region = s:STATE_CHIAPAS
+		# 		}
+		# 	}
+		# 	change_tag = ALT
+		# }
 		capital = {
 			add_loyalists_in_state = {
 				value = 0.5
@@ -427,6 +437,7 @@ central_america.3 = {
 					state_region = s:STATE_GUATEMALA
 				}
 			}
+			# Los Altos location same as when using liberate country
 			create_country = {
 				tag = ALT
 				origin = this
@@ -448,6 +459,7 @@ central_america.3 = {
 			s:STATE_GUATEMALA = {
 				add_claim = c:GUA
 			}
+			# Make them hostile
 			if = {
 				limit = { 
 					exists = s:STATE_CHIAPAS.region_state:UCA 
@@ -554,7 +566,7 @@ central_america.3 = {
 		name = central_america.3.a
 		default_option = yes
 		add_radicals = {
-			value = medium_radicals
+			value = large_radicals
 		}
 		scope:secession_country = {
 			change_relations = {
@@ -605,3 +617,4 @@ central_america.3 = {
 		}
 	}
 }
+

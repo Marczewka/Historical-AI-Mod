@@ -46,8 +46,8 @@
 			scope:target_country = { is_adjacent_to_state = root } # can always give away states that are adjacent to the subject
 			AND = {
 				is_homeland_of_country_cultures = scope:target_country
-				has_port = yes
-				scope:target_country = { has_port = yes }
+				has_port_state = yes
+				scope:target_country = { has_port_country = yes }
 			}
 		}
 	}
@@ -128,7 +128,7 @@
 				limit = {
 					c:GBR ?= owner
 					owner = { # Whilst the crown colony system remains in place, the AI won't be inclined to change this
-						has_law = law_type:law_monarchy
+						country_has_monarchy_law = yes
 					}
 				}
 				NOR = {
@@ -140,7 +140,7 @@
 				limit = {
 					c:CHI ?= owner
 					owner = { # China won't decentralise for as long as the game-start state of affairs remains in place
-						has_law = law_type:law_monarchy
+						country_has_monarchy_law = yes
 					}
 				}
 				NOR = {
@@ -187,7 +187,7 @@
 					}
 				}
 				scope:first_state = {
-					has_port = no
+					has_port_state = no
 					NOT = {
 						any_neighbouring_state = {
 							owner = root
@@ -223,20 +223,8 @@
 								c:BIC ?= this
 								scope:first_state = {
 									OR = {
-										region = sr:region_madras
-										region = sr:region_bombay
-										region = sr:region_bengal
-										region = sr:region_central_india
-										region = sr:region_punjab
-										state_region = s:STATE_EASTERN_HIMALAYAS
-										state_region = s:STATE_HIMALAYAS
-										state_region = s:STATE_MANDALAY
-										state_region = s:STATE_KACHIN
-										state_region = s:STATE_SHAN_STATES
-										state_region = s:STATE_PEGU
-										state_region = s:STATE_PASHTUNISTAN
-										state_region = s:STATE_QUETTA
-										state_region = s:STATE_KASHMIR
+										is_in_geographic_region = geographic_region_india
+										is_in_geographic_region = geographic_region_burma
 									}
 									NOT = {
 										state_region = s:STATE_CEYLON
@@ -265,20 +253,9 @@
 								c:BIC ?= this
 								scope:first_state = {
 									OR = {
-										region = sr:region_madras
-										region = sr:region_bombay
-										region = sr:region_bengal
-										region = sr:region_central_india
-										region = sr:region_punjab
-										state_region = s:STATE_EASTERN_HIMALAYAS
-										state_region = s:STATE_HIMALAYAS
-										state_region = s:STATE_MANDALAY
-										state_region = s:STATE_KACHIN
-										state_region = s:STATE_SHAN_STATES
-										state_region = s:STATE_PEGU
-										state_region = s:STATE_PASHTUNISTAN
-										state_region = s:STATE_QUETTA
-										state_region = s:STATE_KASHMIR
+										region = sr:region_south_india
+										region = sr:region_north_india
+										region = sr:region_himalayas
 									}
 									NOT = {
 										state_region = s:STATE_CEYLON
@@ -542,8 +519,8 @@ demand_state = {
 			scope:country = { is_adjacent_to_state = root } # must either be adjacent to the initiating country, or
 			AND = {											# be a Homeland of its culture, with a port available for market connection
 				is_homeland_of_country_cultures = scope:country
-				has_port = yes
-				scope:country = { has_port = yes }
+				has_port_state = yes
+				scope:country = { has_port_country = yes }
 			}
 		}
 		OR = {
